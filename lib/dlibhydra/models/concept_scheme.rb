@@ -2,11 +2,11 @@ module Dlibhydra
   class ConceptScheme < ActiveFedora::Base
     include Dlibhydra::RdfType #,Dlibhydra::DCTerms,Dlibhydra::AssignId,Dlibhydra::SkosLabels,Dlibhydra::AssignRdfTypes
 
-    has_many :concepts, :dependent => :destroy
+    has_many :concepts, class_name: 'Concept', :dependent => :destroy
     #has_many :persons #, :dependent => :destroy
     #has_many :places #, :dependent => :destroy
     #has_many :groups #, :dependent => :destroy
-    accepts_nested_attributes_for :concept, :allow_destroy => true, :reject_if => :all_blank
+    accepts_nested_attributes_for :concept, class_name: 'Concept', :allow_destroy => true, :reject_if => :all_blank
     #accepts_nested_attributes_for :person, :allow_destroy => true, :reject_if => :all_blank
     #accepts_nested_attributes_for :place, :allow_destroy => true, :reject_if => :all_blank
 
