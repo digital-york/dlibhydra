@@ -19,6 +19,5 @@ module Dlibhydra
         index.as :stored_searchable
       end
     end
-
   end
 end
