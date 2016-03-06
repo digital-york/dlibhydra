@@ -1,5 +1,5 @@
 module Dlibhydra
-  module DCTerms
+  module DcTerms
     extend ActiveSupport::Concern
 
     included do
