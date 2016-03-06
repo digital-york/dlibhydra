@@ -1,7 +1,7 @@
 module Dlibhydra
   class Concept < ActiveFedora::Base
 
-    include Dlibhydra::RdfType,Dlibhydra::Generic,Dlibhydra::SameAs,Dlibhydra::SkosLabels,Dlibhydra::DCTerms,Dlibhydra::AssignId,Dlibhydra::AssignRdfTypes
+    include Dlibhydra::RdfType,Dlibhydra::Generic,Dlibhydra::SameAs,Dlibhydra::SkosLabels,Dlibhydra::DcTerms,Dlibhydra::AssignId,Dlibhydra::AssignRdfTypes
 
     belongs_to :concept_scheme, class_name: 'ConceptScheme', predicate: ::RDF::SKOS.inScheme
 
