@@ -6,7 +6,7 @@ module Dlibhydra
     #has_many :persons #, :dependent => :destroy
     #has_many :places #, :dependent => :destroy
     #has_many :groups #, :dependent => :destroy
-    accepts_nested_attributes_for :concept, class_name: 'Concept', :allow_destroy => true, :reject_if => :all_blank
+    accepts_nested_attributes_for :concept, :allow_destroy => true, :reject_if => :all_blank
     #accepts_nested_attributes_for :person, :allow_destroy => true, :reject_if => :all_blank
     #accepts_nested_attributes_for :place, :allow_destroy => true, :reject_if => :all_blank
 
