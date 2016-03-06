@@ -4,7 +4,7 @@ module Dlibhydra
     include Dlibhydra::RdfType #,Dlibhydra::Generic,Dlibhydra::SameAs,Dlibhydra::SkosLabels,Dlibhydra::DCTerms,Dlibhydra::AssignId,Dlibhydra::AssignRdfTypes
     include Dlibhydra::ConceptScheme
 
-    belongs_to :concept_scheme, class_name: 'Concept', predicate: ::RDF::SKOS.inScheme
+    belongs_to :concept_scheme, class_name: 'ConceptScheme', predicate: ::RDF::SKOS.inScheme
 
     # Use only for Broader, Narrower will be added by default
     #has_and_belongs_to_many :broader, class_name: 'Concept', predicate: ::RDF::SKOS.broader, inverse_of: :narrower
