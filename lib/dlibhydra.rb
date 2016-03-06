@@ -1,6 +1,7 @@
 require "dlibhydra/version"
 
 module Dlibhydra
+  extend ActiveSupport::Autoload
 
   autoload_under 'models' do
     autoload :Concept
