@@ -3,20 +3,20 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      property :former_id, predicate: ::RDF::URI.new('http://dlib_models.york.ac.uk/ontologies/generic#formerIdentifier'), multiple: true do |index|
+      property :former_id, predicate: Dlibhydra::Vocab::Generic.formerIdentifier, multiple: true do |index|
         index.as :stored_searchable
       end
-      property :approved, predicate: ::RDF::URI.new('http://dlib_models.york.ac.uk/ontologies/generic#approved'), multiple: false do |index|
+      property :approved, predicate: Dlibhydra::Vocab::Generic.approved, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :used, predicate: ::RDF::URI.new('http://dlib_models.york.ac.uk/ontologies/generic#used'), multiple: false do |index|
+      property :used, predicate: Dlibhydra::Vocab::Generic.used, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :rules, predicate: ::RDF::URI.new('http://dlib_models.york.ac.uk/ontologies/generic#rules'), multiple: false do |index|
+      property :rules, predicate: Dlibhydra::Vocab::Generic.rules, multiple: false do |index|
         index.as :stored_searchable
       end
       # boolean
-      property :istopconcept, predicate: ::RDF::URI.new('http://dlib_models.york.ac.uk/ontologies/generic#isTopConcept'), multiple: false do |index|
+      property :istopconcept, predicate: Dlibhydra::Vocab::Generic.isTopConcept, multiple: false do |index|
         index.as :stored_searchable
       end
     end

@@ -1,6 +1,6 @@
 module Dlibhydra
   class ConceptScheme < ActiveFedora::Base
-    include Dlibhydra::RdfType,Dlibhydra::DcTerms,Dlibhydra::SkosLabels,Dlibhydra::AssignRdfTypes#Dlibhydra::AssignId,
+    include Dlibhydra::RdfType,Dlibhydra::DcTerms,Dlibhydra::SkosLabels,Dlibhydra::AssignRdfTypes #Dlibhydra::AssignId,
 
     has_many :concepts, class_name: 'Concept', :dependent => :destroy
     #has_many :persons #, :dependent => :destroy

@@ -3,6 +3,14 @@ require "dlibhydra/version"
 module Dlibhydra
   extend ActiveSupport::Autoload
 
+  module Vocab
+    extend ActiveSupport::Autoload
+    eager_autoload do
+      autoload :Generic
+      autoload :BorthwickRegisters
+    end
+  end
+
   autoload_under 'models' do
     autoload :Concept
     autoload :ConceptScheme
