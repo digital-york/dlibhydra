@@ -1,12 +1,16 @@
 module Dlibhydra
   class ConceptScheme < ActiveFedora::Base
-    include Dlibhydra::RdfType,Dlibhydra::DcTerms,Dlibhydra::SkosLabels,Dlibhydra::AssignRdfTypes #Dlibhydra::AssignId,
+    include Dlibhydra::RdfType,
+            Dlibhydra::SkosLabels,
+            Dlibhydra::AssignRdfTypes,
+            Dlibhydra::DcTerms
+            #,Dlibhydra::AssignId,
 
-    has_many :concepts, class_name: 'Concept', :dependent => :destroy
+    has_many :concepts, class_name: 'Dlibhydra::Concept', :dependent => :destroy
     #has_many :persons #, :dependent => :destroy
     #has_many :places #, :dependent => :destroy
     #has_many :groups #, :dependent => :destroy
-    accepts_nested_attributes_for :concept, :allow_destroy => true, :reject_if => :all_blank
+    accepts_nested_attributes_for :concepts, :allow_destroy => true, :reject_if => :all_blank
     #accepts_nested_attributes_for :person, :allow_destroy => true, :reject_if => :all_blank
     #accepts_nested_attributes_for :place, :allow_destroy => true, :reject_if => :all_blank
 
@@ -21,11 +25,14 @@ module Dlibhydra
     #contains :concepts, class_name: 'Concept'
 
     # optional, use for nested subject headings schemes
+    # there is a hydra works way to do this
     property :topconcept, predicate: ::RDF::SKOS.hasTopConcept, multiple: true do |index|
       index.as :stored_searchable
     end
 
-    #etc.
+    def concept_scheme?
+      true
+    end
 
   end
 end

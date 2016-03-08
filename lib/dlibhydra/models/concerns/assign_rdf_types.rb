@@ -5,9 +5,9 @@ module Dlibhydra
     def add_rdf_types
       # omitting related person/group as this is different
       case self.class.name
-        when 'Concept'
+        when 'Dlibhydra::Concept'
           ['http://www.w3.org/2004/02/skos/core#Concept', 'http://pcdm.org/models#Object']
-        when 'ConceptScheme'
+        when 'Dlibhydra::ConceptScheme'
           ['http://www.w3.org/2004/02/skos/core#ConceptScheme', 'http://pcdm.org/models#Object']
         when 'OrderedCollection'
           ['http://dlib_models.york.ac.uk/ontologies/generic#OrderedCollection', 'http://www.openarchives.org/ore/terms/Aggregation', 'http://pcdm.org/models#Collection','http://dlib_models.york.ac.uk/ontologies/borthwick-registers#All']
