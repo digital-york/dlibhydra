@@ -10,41 +10,25 @@ describe Dlibhydra::Concept do
     expect(scheme.concept_scheme?).to be_truthy
   end
 
+  # test metadata properties
   describe 'metadata' do
     before(:each) do
       mock(scheme)
     end
 
-    # test metadata properties
-    it 'has a preflabel property that is a string' do
-      expect(scheme.preflabel).to eq('hello')
-    end
-
-    it 'has an altlabel property that is an array' do
-      expect(scheme.altlabel).to eq(['alternative hello'])
-    end
-
-    it 'has a description property that is a string' do
-      expect(scheme.description).to eq('my description is this')
-    end
-
-    it 'has rdf types of skos:concept scheme and pcdm:object' do
-      expect(scheme.rdftype).to eq(['http://www.w3.org/2004/02/skos/core#ConceptScheme', 'http://pcdm.org/models#Object'])
-    end
+    specify { scheme.preflabel.should eq('hello') }
+    specify { scheme.altlabel.should eq(['alternative hello']) }
+    specify { scheme.description.should eq('my description is this') }
+    specify { scheme.rdftype.should eq(['http://www.w3.org/2004/02/skos/core#ConceptScheme', 'http://pcdm.org/models#Object']) }
 
   end
 
   # test related objects
   describe 'related objects' do
-    before(:each) do
-      scheme.concepts << concept1
-      scheme.concepts << concept2
-      scheme.topconcept << concept1
-    end
+    before { mock(scheme) }
 
-    # fails
     it 'has a top concept' do
-      expect(scheme.topconcept).to be_a(Dlibhydra::Concept)
+      expect(scheme.topconcept).to eq([concept1])
     end
 
     it 'has concepts' do
@@ -56,10 +40,10 @@ describe Dlibhydra::Concept do
   # test predicates sent to fedora
   describe 'predicates and rdf types' do
     before { mock(scheme) }
-    specify { expect(scheme.resource.dump(:ttl)).to include("<> a \"http://www.w3.org/2004/02/skos/core#ConceptScheme\",\n     \"http://pcdm.org/models#Object\";") }
-    specify { expect(scheme.resource.dump(:ttl)).to include('http://www.w3.org/2004/02/skos/core#altLabel') }
-    specify { expect(scheme.resource.dump(:ttl)).to include('http://purl.org/dc/terms/description') }
-    specify { expect(scheme.resource.dump(:ttl)).to include('http://www.w3.org/2004/02/skos/core#prefLabel') }
+    specify { scheme.resource.dump(:ttl).should include("<> a \"http://www.w3.org/2004/02/skos/core#ConceptScheme\",\n     \"http://pcdm.org/models#Object\";") }
+    specify { scheme.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#altLabel') }
+    specify { scheme.resource.dump(:ttl).should include('http://purl.org/dc/terms/description') }
+    specify { scheme.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#prefLabel') }
   end
 
 
@@ -70,6 +54,9 @@ describe Dlibhydra::Concept do
     scheme.altlabel << 'alternative hello'
     scheme.rdftype << scheme.add_rdf_types
     scheme.description = 'my description is this'
+    scheme.concepts << concept1
+    scheme.concepts << concept2
+    scheme.topconcept << concept1
   end
 
 end
