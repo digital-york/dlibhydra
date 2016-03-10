@@ -11,9 +11,25 @@ module Dlibhydra
     end
   end
 
-  autoload_under 'models' do
+  autoload_under 'models/authorities' do
     autoload :Concept
     autoload :ConceptScheme
+  end
+
+  autoload_under 'models/works' do
+
+  end
+
+  autoload_under 'models/entry' do
+
+  end
+
+  autoload_under 'models/filesets' do
+
+  end
+
+  autoload_under 'models/db' do
+
   end
 
   autoload_under 'models/concerns' do

@@ -42,3 +42,10 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 https://github.com/bblimke/webmock
 https://robots.thoughtbot.com/how-to-stub-external-services-in-tests
+Factory Girl
+
+Things to do:
+-- decide how to assign rdf types
+-- add extra info into uketd (do full schema?)
+-- what refactoring is needed in archbishops' models to make it more Hydra::Works-y
+

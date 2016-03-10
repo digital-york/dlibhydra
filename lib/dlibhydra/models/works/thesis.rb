@@ -4,10 +4,6 @@ class Thesis < ActiveFedora::Base
   filters_association :members, as: :main, condition: :main?
   filters_association :members, as: :additionals, condition: :additional?
 
-  # UKETD (xml schema, not RDF)
-  # some dissertation stuff: http://bibframe.org/vocab-list/
-  # Bibo might also have some stuff http://bibliontology.com
-
   # auto add rdf types (doesn't go into solr)
   # my add_rdf_types is alternative and will go into solr
   type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
@@ -27,12 +23,10 @@ class Thesis < ActiveFedora::Base
   property :date_of_award, predicate: ::RDF::Vocab::DC.issued, multiple: false do |index|
     index.as :stored_searchable
   end
-  # http://naca.central.cranfield.ac.uk/ethos-oai/terms/advisor
-  property :advisor, predicate: ::RDF::URI.new('http://naca.central.cranfield.ac.uk/ethos-oai/terms/advisor'), multiple: true do |index|
+  property :advisor, predicate: Dlibhydra::Vocab::Uketd.advisor, multiple: true do |index|
     index.as :stored_searchable
   end
-  # http://naca.central.cranfield.ac.uk/ethos-oai/terms/department
-  property :department, predicate: ::RDF::URI.new('http://naca.central.cranfield.ac.uk/ethos-oai/terms/department'), multiple: true do |index|
+  property :department, predicate: Dlibhydra::Vocab::Uketd.department, multiple: true do |index|
     index.as :stored_searchable
   end
   # bibo has issuer
@@ -40,8 +34,7 @@ class Thesis < ActiveFedora::Base
   property :awarding_institution, predicate: ::RDF::Vocab::Bibframe.dissertationInstitution, multiple: false do |index|
     index.as :stored_searchable
   end
-  # http://naca.central.cranfield.ac.uk/ethos-oai/terms/qualificationlevel
-  property :qualification_level, predicate: ::RDF::URI.new('http://naca.central.cranfield.ac.uk/ethos-oai/terms/qualificationlevel'), multiple: false do |index|
+  property :qualification_level, predicate: Dlibhydra::Vocab::Uketd.qualificationlevel, multiple: false do |index|
     index.as :stored_searchable
   end
   # http://naca.central.cranfield.ac.uk/ethos-oai/terms/qualificationname
