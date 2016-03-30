@@ -17,12 +17,14 @@ module Dlibhydra
     # has_many :places, class_name: 'Dlibhydra::Place' #, :dependent => :destroy
     # has_many :groups, class_name: 'Dlibhydra::Group' #, :dependent => :destroy
 
+    # pcdm:hasMember using indirect containers
     filters_association :members, as: :concepts, condition: :concept?
     filters_association :members, as: :persons, condition: :person?
     filters_association :members, as: :groups, condition: :group?
     filters_association :members, as: :places, condition: :place?
 
     # TODO stop this being used to add members; only use to list top concepts
+    # TODO is this right? don't we actually want hasTopConcept?
     filters_association :members, as: :topconcepts, condition: :topconcept?
 
     type << ::RDF::URI.new('http://www.w3.org/2004/02/skos/core#ConceptScheme')

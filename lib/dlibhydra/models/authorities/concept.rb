@@ -15,6 +15,7 @@ module Dlibhydra
             # Dlibhydra::AssignId
 
     belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
+    has_and_belongs_to_many :top_concept_of, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.topConceptOf #, inverse_of: ::RDF::SKOS.hasTopConcept
 
     type << ::RDF::URI.new('http://www.w3.org/2004/02/skos/core#Concept')
 
@@ -34,7 +35,7 @@ module Dlibhydra
       index.as :stored_searchable
     end
 
-    # Use boolean
+    # Use boolean, can I use skos:topConceptOf? with inverse_of
     property :istopconcept, predicate: Dlibhydra::Vocab::Generic.isTopConcept, multiple: false do |index|
       index.as :stored_searchable
     end
