@@ -6,16 +6,16 @@ require 'dlibhydra'
 
 # spec/spec_helper.rb
 require 'webmock/rspec'
-#require 'factory_girl_rails'
+require 'factory_girl_rails'
 
 WebMock.disable_net_connect!(allow_localhost: false)
 
 RSpec.configure do |config|
-  # config.before do
-  #  FactoryGirl.factories.clear
-  #  FactoryGirl.find_definitions
-  # end
-  #  config.include FactoryGirl::Syntax::Methods
+  config.before do
+    FactoryGirl.factories.clear
+    FactoryGirl.find_definitions
+  end
+  config.include FactoryGirl::Syntax::Methods
   config.expect_with :rspec do |c|
     c.syntax = [:should, :expect]
   end

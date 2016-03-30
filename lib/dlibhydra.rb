@@ -54,11 +54,17 @@ module Dlibhydra
     autoload :GenericAuthorityTerms
     autoload :MadsRelatedAuthority
     autoload :RdfType
+    autoload :RdfsLabel
     autoload :RdfsSeealso
     autoload :SameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl
     autoload :ConceptSchemeBehaviour
+    autoload :ValidateLabel
+  end
+
+  autoload_under 'validators' do
+    autoload :HasLabelValidator
   end
 
 end

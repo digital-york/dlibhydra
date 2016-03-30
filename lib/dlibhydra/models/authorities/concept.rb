@@ -8,14 +8,13 @@ module Dlibhydra
     include Hydra::Works::WorkBehavior,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::SameAs,
-            Dlibhydra::SkosLabels
-            # Dlibhydra::DcTerms
-            # Dlibhydra::RdfType,
-            # Dlibhydra::AssignRdfTypes
+            Dlibhydra::SkosLabels,
+            Dlibhydra::RdfsLabel,
+            Dlibhydra::ValidateLabel
             # Dlibhydra::AssignId
 
     belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
-    has_and_belongs_to_many :top_concept_of, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.topConceptOf #, inverse_of: ::RDF::SKOS.hasTopConcept
+    belongs_to :top_concept_of, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.topConceptOf
 
     type << ::RDF::URI.new('http://www.w3.org/2004/02/skos/core#Concept')
 
@@ -31,12 +30,8 @@ module Dlibhydra
       index.as :stored_searchable
     end
 
+    # TODO should this be an internal relation, eg. has_and_belongs_to_many
     property :see_also, predicate: ::RDF::SKOS.related, multiple: true do |index|
-      index.as :stored_searchable
-    end
-
-    # Use boolean, can I use skos:topConceptOf? with inverse_of
-    property :istopconcept, predicate: Dlibhydra::Vocab::Generic.isTopConcept, multiple: false do |index|
       index.as :stored_searchable
     end
 
@@ -45,7 +40,7 @@ module Dlibhydra
     end
 
     def topconcept?
-      if self.istopconcept
+      if self.top_concept_of.class == Dlibhydra::ConceptScheme
         true
       else
         false

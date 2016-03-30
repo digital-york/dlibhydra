@@ -1,42 +1,53 @@
 require 'spec_helper'
 require 'hydra/works'
 require 'active_fedora'
+require 'action_view'
 
 describe Dlibhydra::ConceptScheme do
 
-  let(:concept1) { Dlibhydra::Concept.create }
-  let(:concept2) { Dlibhydra::Concept.create }
-  let(:scheme) { described_class.create }
+  let(:concept1) { FactoryGirl.build(:concept) }
+  let(:concept2) { FactoryGirl.build(:concept) }
+  let(:scheme) { FactoryGirl.build(:concept_scheme) }
+  let(:scheme_no_label) { FactoryGirl.build(:concept_scheme, preflabel: '') }
   let(:work) { Hydra::Works::Work.create}
-
-  # TODO test deletion (if I delete does it delete the proxies - I don't think so) - not easy to test; also don't test the platform
-  # TODO something better than my mock, eg. https://github.com/rspec/rspec-mocks or factory girl
 
   it 'is a concept scheme' do
     expect(scheme.concept_scheme?).to be_truthy
   end
 
   describe 'concept scheme metadata' do
-    before(:each) do
-      mock(scheme)
-    end
-
     specify { scheme.preflabel.should eq('label') }
     specify { scheme.altlabel.should eq(['alternative label']) }
     specify { scheme.description.should eq('a description') }
-    #specify { scheme.rdftype.should eq(['http://www.w3.org/2004/02/skos/core#ConceptScheme', 'http://pcdm.org/models#Object']) }
+    specify { scheme.type.should include('http://www.w3.org/2004/02/skos/core#ConceptScheme') }
+  end
 
+  before {
+    scheme_no_label.save
+  }
+  it 'must have a preflabel' do
+    expect(scheme_no_label.errors[:preflabel]).to eq(['You must provide a preflabel'])
+  end
+
+  before {
+    scheme.map_labels
+  }
+  it 'must have an rdfs label that is the same as preflabel' do
+    expect(scheme.rdfs_label).to eq('label')
   end
 
   describe 'related objects' do
-    before { mock(scheme) }
+    before {
+      scheme.concepts << concept1
+      scheme.concepts << concept2
+      concept1.top_concept_of = scheme
+    }
 
     it 'has a top concept' do
-      expect(scheme.topconcepts).to eq([concept1])
+      expect(scheme.has_top_concept.to_a.size).to eq(1)
     end
 
     it 'has two concepts' do
-      expect(scheme.concepts).to include(concept1) and include(concept2)
       expect(scheme.concepts.to_a.size).to eq(2)
     end
 
@@ -50,22 +61,10 @@ describe Dlibhydra::ConceptScheme do
 
   end
 
-  describe 'test predicates and rdf types' do
-    before { mock(scheme) }
-    specify { scheme.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#ConceptScheme') }
+  describe 'predicates' do
     specify { scheme.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#altLabel') }
     specify { scheme.resource.dump(:ttl).should include('http://purl.org/dc/terms/description') }
     specify { scheme.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#prefLabel') }
-  end
-
-  def mock(scheme)
-    scheme.preflabel = 'label'
-    scheme.altlabel << 'alternative label'
-    # scheme.rdftype << scheme.add_rdf_types
-    scheme.description = 'a description'
-    scheme.concepts << concept1
-    scheme.concepts << concept2
-    concept1.istopconcept = true
   end
 
 end

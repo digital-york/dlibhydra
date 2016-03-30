@@ -1,41 +1,27 @@
 module Dlibhydra
   class ConceptScheme < ActiveFedora::Base
 
-    # TODO Is this really a collection?
-    include Hydra::Works::CollectionBehavior,
+    include Hydra::Works::WorkBehavior,
+            Dlibhydra::ConceptSchemeBehaviour,
             Dlibhydra::SkosLabels,
-            Dlibhydra::DcTerms,
-            Dlibhydra::ConceptSchemeBehaviour
-            # Dlibhydra::AssignRdfTypes,
-            # Dlibhydra::RdfType,
-            #Dlibhydra::AssignId
+            Dlibhydra::RdfsLabel,
+            Dlibhydra::ValidateLabel,
+            Dlibhydra::DcTerms
+            # Dlibhydra::AssignId
 
-    # TODO remove this once happy
-    # is this needed now? for forms maybe?
-    # has_many :concepts, class_name: 'Dlibhydra::Concept', :dependent => :destroy
-    # has_many :persons, class_name: 'Dlibhydra::Person' #, :dependent => :destroy
-    # has_many :places, class_name: 'Dlibhydra::Place' #, :dependent => :destroy
-    # has_many :groups, class_name: 'Dlibhydra::Group' #, :dependent => :destroy
-
-    # pcdm:hasMember using indirect containers
+    # pcdm:hasMember using indirect containers; not in solr
     filters_association :members, as: :concepts, condition: :concept?
     filters_association :members, as: :persons, condition: :person?
     filters_association :members, as: :groups, condition: :group?
     filters_association :members, as: :places, condition: :place?
 
     # TODO stop this being used to add members; only use to list top concepts
-    # TODO is this right? don't we actually want hasTopConcept?
-    filters_association :members, as: :topconcepts, condition: :topconcept?
+    # TODO is this right? don't we actually want ::RDF::SKOS.hasTopConcept? has_and_belongs_to_many
+    filters_association :members, as: :has_top_concept, condition: :topconcept?
+    # has_and_belongs_to_many :has_top_concept, class_name: 'Dlibhydra::Concept', predicate: ::RDF::SKOS.hasTopConcept #, inverse_of: ::RDF::SKOS.topConceptOf
 
+    # not in solr
     type << ::RDF::URI.new('http://www.w3.org/2004/02/skos/core#ConceptScheme')
-
-    # TODO remove this once happy
-    # optional, use for nested subject headings schemes
-    # replaced by topconcepts above; might break arch1/_search
-    # we are now missing the solr data and predicate but I guess it's possible to to_solr this?
-    # property :topconcept, predicate: ::RDF::SKOS.hasTopConcept, multiple: true do |index|
-    #   index.as :stored_searchable
-    # end
 
     def concept_scheme?
       true
