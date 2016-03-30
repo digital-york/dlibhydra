@@ -12,6 +12,7 @@ module Dlibhydra
       property :title, predicate: ::RDF::Vocab::DC.title, multiple: false do |index|
         index.as :stored_searchable, :sortable
       end
+      # TODO move/remove format - where is it used?
       property :format, predicate: ::RDF::Vocab::DC.format, multiple: true do |index|
         index.as :stored_searchable
       end

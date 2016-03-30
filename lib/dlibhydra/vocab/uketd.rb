@@ -3,6 +3,7 @@ module Dlibhydra
   module Vocab
     class Uketd < RDF::Vocabulary('http://dlib.york.ac.uk/ontologies/uketd#')
 
+        # TODO publish whole thing
         # Property definitions
         property :advisor,
                  comment: %(TODO.).freeze,

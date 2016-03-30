@@ -1,34 +1,39 @@
 module Dlibhydra
   class ConceptScheme < ActiveFedora::Base
-    include Dlibhydra::RdfType,
+
+    # TODO Is this really a collection?
+    include Hydra::Works::CollectionBehavior,
             Dlibhydra::SkosLabels,
-            Dlibhydra::AssignRdfTypes,
-            Dlibhydra::DcTerms
-            #,Dlibhydra::AssignId,
+            Dlibhydra::DcTerms,
+            Dlibhydra::ConceptSchemeBehaviour
+            # Dlibhydra::AssignRdfTypes,
+            # Dlibhydra::RdfType,
+            #Dlibhydra::AssignId
 
-    has_many :concepts, class_name: 'Dlibhydra::Concept', :dependent => :destroy
-    #has_many :persons #, :dependent => :destroy
-    #has_many :places #, :dependent => :destroy
-    #has_many :groups #, :dependent => :destroy
-    accepts_nested_attributes_for :concepts, :allow_destroy => true, :reject_if => :all_blank
-    #accepts_nested_attributes_for :person, :allow_destroy => true, :reject_if => :all_blank
-    #accepts_nested_attributes_for :place, :allow_destroy => true, :reject_if => :all_blank
+    # TODO remove this once happy
+    # is this needed now? for forms maybe?
+    # has_many :concepts, class_name: 'Dlibhydra::Concept', :dependent => :destroy
+    # has_many :persons, class_name: 'Dlibhydra::Person' #, :dependent => :destroy
+    # has_many :places, class_name: 'Dlibhydra::Place' #, :dependent => :destroy
+    # has_many :groups, class_name: 'Dlibhydra::Group' #, :dependent => :destroy
 
-    # DIRECT CONTAINERS ARE TOO SLOW IF CREATING A LOT OF CONTAINED RESOURCES
-    #directly_contains :concepts, has_member_relation: ::RDF::URI.new("http://pcdm.org/models#hasMember"), class_name: 'Concept'
-    #directly_contains :persons, has_member_relation: ::RDF::URI.new("http://pcdm.org/models#hasMember"), class_name: 'Person'
-    #directly_contains :places, has_member_relation: ::RDF::URI.new("http://pcdm.org/models#hasMember"), class_name: 'Place'
+    filters_association :members, as: :concepts, condition: :concept?
+    filters_association :members, as: :persons, condition: :person?
+    filters_association :members, as: :groups, condition: :group?
+    filters_association :members, as: :places, condition: :place?
 
-    # BASIC CONTAINERS ARE AN OPTION HERE BUT HAVE NOT BEEN TESTED
-    #contains :persons, class_name: 'Person'
-    #contains :places, class_name: 'Place'
-    #contains :concepts, class_name: 'Concept'
+    # TODO stop this being used to add members; only use to list top concepts
+    filters_association :members, as: :topconcepts, condition: :topconcept?
 
+    type << ::RDF::URI.new('http://www.w3.org/2004/02/skos/core#ConceptScheme')
+
+    # TODO remove this once happy
     # optional, use for nested subject headings schemes
-    # there is a hydra works way to do this
-    property :topconcept, predicate: ::RDF::SKOS.hasTopConcept, multiple: true do |index|
-      index.as :stored_searchable
-    end
+    # replaced by topconcepts above; might break arch1/_search
+    # we are now missing the solr data and predicate but I guess it's possible to to_solr this?
+    # property :topconcept, predicate: ::RDF::SKOS.hasTopConcept, multiple: true do |index|
+    #   index.as :stored_searchable
+    # end
 
     def concept_scheme?
       true

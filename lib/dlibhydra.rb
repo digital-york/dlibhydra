@@ -11,20 +11,18 @@ module Dlibhydra
     end
   end
 
+  autoload :ConceptSchemeMemberValidator
+
   autoload_under 'models/authorities' do
     autoload :Concept
     autoload :ConceptScheme
+    autoload :Group
+    autoload :Person
+    autoload :Place
   end
 
-  autoload_under 'models/works' do
+  autoload_under 'models/collections' do
 
-  end
-
-  autoload_under 'models/entry' do
-
-  end
-
-  autoload_under 'models/filesets' do
 
   end
 
@@ -32,14 +30,35 @@ module Dlibhydra
 
   end
 
+  autoload_under 'models/files' do
+
+  end
+
+  autoload_under 'models/filesets' do
+
+  end
+
+  autoload_under 'models/works' do
+
+  end
+
+  autoload_under 'models/works/entry' do
+
+  end
+
   autoload_under 'models/concerns' do
     autoload :AssignId
     autoload :AssignRdfTypes
     autoload :DcTerms
-    autoload :Generic
+    autoload :FormerIdentifier
+    autoload :GenericAuthorityTerms
+    autoload :MadsRelatedAuthority
     autoload :RdfType
+    autoload :RdfsSeealso
     autoload :SameAs
     autoload :SkosLabels
+    autoload :ThumbnailUrl
+    autoload :ConceptSchemeBehaviour
   end
 
 end

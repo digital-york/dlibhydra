@@ -45,9 +45,10 @@ module Dlibhydra
                label: 'As Written'.freeze,
                comment: %(This property is used to capture the name of an entity as it was expressed in the original resource.).freeze,
                'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/borthwick-registers#).freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#EntryDate'.freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace'.freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPersonGroup'.freeze,
+               # doesn't like multiple ranges
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#EntryDate'.freeze,
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace'.freeze,
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPersonGroup'.freeze,
                domain: 'rdfs:Literal'.freeze
 
       property :descriptorAsWritten,
@@ -116,10 +117,11 @@ module Dlibhydra
                comment: %(This property is used for a note specific to the Object Class being described.).freeze,
                subPropertyOf: 'dcterms:description'.freeze,
                'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/borthwick-registers#).freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#Entry'.freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#EntryDate'.freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPersonGroup'.freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace'.freeze,
+               # doesn't like multiple ranges
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#Entry'.freeze,
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#EntryDate'.freeze,
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPersonGroup'.freeze,
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace'.freeze,
                domain: 'rdfs:Literal'.freeze
 
       property :marginalia,
@@ -171,10 +173,11 @@ module Dlibhydra
                label: 'Role'.freeze,
                comment: %(This property is used for the role played by the described Object Class.  It is recommended that this property is used with a controlled list of values.).freeze,
                subPropertyOf: 'http://schema.org/Role'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/borthwick-registers#).freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#EntryDate'.freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPersonGroup'.freeze,
-               range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace'.freeze
+               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/borthwick-registers#).freeze
+               # doesn't like multple ranges
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#EntryDate'.freeze,
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPersonGroup'.freeze,
+               #range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace'.freeze
 
       property :descriptor,
                label: 'Descriptor'.freeze,
@@ -207,8 +210,9 @@ module Dlibhydra
                label: 'Related Place For'.freeze,
                comment: %(This property creates a link from the described Place to the Object Class it is related to, for example a Place related to a Person.).freeze,
                'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/borthwick-registers#).freeze,
-               domain: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#Entry'.freeze,
-               domain: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPersonGroup'.freeze,
+               #doesn't like multiples
+               #domain: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#Entry'.freeze,
+               #domain: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPersonGroup'.freeze,
                range: 'http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace'.freeze
 
       property :entryDateFor,
