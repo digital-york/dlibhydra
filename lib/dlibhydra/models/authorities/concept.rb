@@ -10,6 +10,7 @@ module Dlibhydra
             Dlibhydra::SameAs,
             Dlibhydra::SkosLabels,
             Dlibhydra::RdfsLabel,
+            Dlibhydra::RdfsSeeAlso, # use for external see also links
             Dlibhydra::ValidateLabel
             # Dlibhydra::AssignId
 
@@ -22,16 +23,14 @@ module Dlibhydra
     has_and_belongs_to_many :broader, class_name: 'Dlibhydra::Concept', predicate: ::RDF::SKOS.broader, inverse_of: :narrower
     has_and_belongs_to_many :narrower, class_name: 'Dlibhydra::Concept', predicate: ::RDF::SKOS.narrower, inverse_of: :broader
 
+    # see_also MUST NOT BE THE SAME AS NARROWER OR BROADER
+    has_and_belongs_to_many :see_also, class_name: 'Dlibhydra::Concept', predicate: ::RDF::SKOS.related, inverse_of: :see_also
+
     property :definition, predicate: ::RDF::SKOS.definition, multiple: false do |index|
       index.as :stored_searchable
     end
 
     property :skos_note, predicate: ::RDF::SKOS.note, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    # TODO should this be an internal relation, eg. has_and_belongs_to_many
-    property :see_also, predicate: ::RDF::SKOS.related, multiple: true do |index|
       index.as :stored_searchable
     end
 

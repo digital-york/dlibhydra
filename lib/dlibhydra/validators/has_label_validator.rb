@@ -2,7 +2,7 @@
 module Dlibhydra
   class HasLabelValidator < ActiveModel::Validator
     def validate(record)
-      if record.preflabel.empty? or record.preflabel.nil?
+      if record.preflabel.nil? or record.preflabel.empty?
         record.errors[:preflabel] << "You must provide a preflabel"
       end
     end
