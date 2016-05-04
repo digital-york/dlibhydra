@@ -4,14 +4,13 @@ module Dlibhydra
     # cf. https://github.com/hybox/models/blob/master/models/concepts.md
     # TODO add exactmatch and close match (instead of related?)
 
-    require 'hydra/works'
     include Hydra::Works::WorkBehavior,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::SameAs,
             Dlibhydra::SkosLabels,
             Dlibhydra::RdfsLabel,
-            Dlibhydra::RdfsSeeAlso, # use for external see also links
-            Dlibhydra::ValidateLabel
+            Dlibhydra::ValidateLabel,
+            Dlibhydra::RdfsSeeAlso # use for external see also links
             # Dlibhydra::AssignId
 
     belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme

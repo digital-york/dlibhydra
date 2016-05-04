@@ -55,7 +55,7 @@ module Dlibhydra
     autoload :MadsRelatedAuthority
     autoload :RdfType
     autoload :RdfsLabel
-    autoload :RdfsSeealso
+    autoload :RdfsSeeAlso
     autoload :SameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl

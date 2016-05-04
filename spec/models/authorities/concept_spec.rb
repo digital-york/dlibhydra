@@ -14,10 +14,6 @@ describe Dlibhydra::Concept do
     expect(concept1.concept?).to be_truthy
   end
 
-  it '' do
-    expect(have_and_belong_to_many(:see_also)).to be_truthy
-  end
-
   describe 'metadata' do
 
     specify { concept1.preflabel.should eq('label') }
@@ -37,10 +33,15 @@ describe Dlibhydra::Concept do
     end
 
     it 'is a top concept' do
-      expect(concept2.top_concept_of).to be_a(Dlibhydra::ConceptScheme)
+      expect(concept2.topconcept?).to be_truthy
+    end
+
+    it 'is not a top concept' do
+      expect(concept1.topconcept?).to be_falsey
     end
 
     it 'has a see_also' do
+      expect(have_and_belong_to_many(:see_also)).to be_truthy
       expect(concept2.see_also).to eq([concept0])
     end
 
@@ -64,11 +65,6 @@ describe Dlibhydra::Concept do
     specify { concept1.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#note') }
     specify { concept1.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#prefLabel') }
 
-    # specify { concept2.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#related') }
-    # specify { concept2.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#topConceptOf') }
-    # specify { concept2.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#inScheme') }
-    # specify { concept1.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#narrower') }
-    # specify { concept2.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#broader') }
   end
 
 end

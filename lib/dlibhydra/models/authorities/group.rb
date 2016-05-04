@@ -1,16 +1,13 @@
 module Dlibhydra
   class Group < ActiveFedora::Base
 
-    require 'hydra/works'
     include Hydra::Works::WorkBehavior,
             Dlibhydra::SameAs,
             Dlibhydra::SkosLabels,
+            Dlibhydra::RdfsLabel,
+            Dlibhydra::ValidateLabel,
             Dlibhydra::MadsRelatedAuthority,
-            Dlibhydra::RdfsSeealso,
-            Dlibhydra::DcTerms,
             Dlibhydra::GenericAuthorityTerms
-            # Dlibhydra::RdfType,
-            # Dlibhydra::AssignRdfTypes,
             # AssignId
 
     belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
@@ -18,7 +15,6 @@ module Dlibhydra
     type << ::RDF::URI.new('https://schema.org/Organization')
     type << ::RDF::URI.new('http://vocab.getty.edu/ontology#GroupConcept')
     type << ::RDF::URI.new('http://purl.org/vra/Organization')
-
 
     # also vra:name
     # eg. NCA Rules 4

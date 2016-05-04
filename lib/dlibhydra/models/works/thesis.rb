@@ -20,6 +20,7 @@ class Thesis < ActiveFedora::Base
   property :abstract, predicate: ::RDF::Vocab::DC.abstract, multiple: false do |index|
     index.as :stored_searchable
   end
+  # or dcterms:dateAccepted (date of award); UKETD uses issued for date on coversheet (date of submission)
   property :date_of_award, predicate: ::RDF::Vocab::DC.issued, multiple: false do |index|
     index.as :stored_searchable
   end
@@ -38,7 +39,7 @@ class Thesis < ActiveFedora::Base
     index.as :stored_searchable
   end
   # http://naca.central.cranfield.ac.uk/ethos-oai/terms/qualificationname
-  property :qualification_name, predicate: ::RDF::Vocab::BIBO.degree, multiple: false do |index|
+  property :qualification_name, predicate: ::RDF::URI.new('http://vivoweb.org/ontology/core#AcademicDegree'), multiple: false do |index|
     index.as :stored_searchable
   end
   property :resource_type, predicate: ::RDF::Vocab::DC.type, multiple: false do |index|
@@ -47,7 +48,7 @@ class Thesis < ActiveFedora::Base
   property :language, predicate: ::RDF::Vocab::DC.language, multiple: false do |index|
     index.as :stored_searchable
   end
-  # how about using DC11 for keyword and DC for subject?
+  # how about using DC11 for keyword and DC for subject? (uketd adds xsi:type="dcterms:DDC" to subject)
   property :keyword, predicate: ::RDF::Vocab::DC11.subject, multiple: true do |index|
     index.as :stored_searchable
   end

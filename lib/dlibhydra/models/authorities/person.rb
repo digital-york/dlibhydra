@@ -3,16 +3,13 @@ module Dlibhydra
   # as per discussion the other day, could say #rwo is the RWO
   class Person < ActiveFedora::Base
 
-    require 'hydra/works'
-    include Hydra::Works::WorkBehavior
-    include Dlibhydra::GenericAuthorityTerms,
+    include Hydra::Works::WorkBehavior,
             Dlibhydra::SameAs,
             Dlibhydra::SkosLabels,
+            Dlibhydra::RdfsLabel,
+            Dlibhydra::ValidateLabel,
             Dlibhydra::MadsRelatedAuthority,
-            Dlibhydra::RdfsSeealso,
-            Dlibhydra::DcTerms
-            # Dlibhydra::RdfType,
-            # AssignRdfTypes
+            Dlibhydra::GenericAuthorityTerms
             # AssignId
 
     belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
