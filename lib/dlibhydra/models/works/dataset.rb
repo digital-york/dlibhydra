@@ -11,14 +11,13 @@ module Dlibhydra
 
     type << ::RDF::DCAT.Dataset
 
-    # new term
-    # from PURE
+    # new term - from PURE
     property :pure_uuid, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#pureUuid'), multiple: false do |index|
       index.as :stored_searchable
     end
 
     # new term - check for existing
-    # automatic
+    # where does this come from? is it in pure?
     property :embargo_end, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#embargoEnd'), multiple: false do |index|
       index.as :stored_searchable
     end
