@@ -11,8 +11,6 @@ module Dlibhydra
     end
   end
 
-  autoload :ConceptSchemeMemberValidator
-
   autoload_under 'models/authorities' do
     autoload :Concept
     autoload :ConceptScheme
