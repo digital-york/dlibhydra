@@ -1,5 +1,5 @@
 module Dlibhydra
-  module RdfsLabel
+  module AddDcTitle
     extend ActiveSupport::Concern
 
     included do

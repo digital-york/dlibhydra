@@ -8,7 +8,8 @@ module Dlibhydra
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::SameAs,
             Dlibhydra::SkosLabels,
-            Dlibhydra::RdfsLabel,
+            Dlibhydra::AddRdfsLabel,
+            Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
             Dlibhydra::RdfsSeeAlso # use for external see also links
             # Dlibhydra::AssignId
