@@ -5,12 +5,9 @@ class Dip < ActiveFedora::Base
           Dlibhydra::AddDcTitle,
           Dlibhydra::ValidateLabel
 
-  # TODO relationship to aip; non membership relationship
-  has_and_belongs_to_many :aip, class_name: 'Dlibhydra::Aip', predicate: ::RDF::SKOS.narrower, inverse_of: :dip
+  has_and_belongs_to_many :has_aip, class_name: 'Dlibhydra::Aip', predicate: ::RDF::SKOS.narrower, inverse_of: :has_dip
 
-  filters_association :members, as: :data, condition: :data?
-
-  # type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
+  type << ::RDF::URI.new('http://dlib.york.ac.uk/generic#DisseminationInformtionPackage')
 
   # new term
   property :data_status, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#dataStatus'), multiple: false do |index|

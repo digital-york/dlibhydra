@@ -35,11 +35,15 @@ module Dlibhydra
   end
 
   autoload_under 'models/filesets' do
-
+    autoload :MainFileSet
   end
 
   autoload_under 'models/works' do
-
+    autoload :Aip
+    autoload :Dataset
+    autoload :Dip
+    autoload :GenericWork
+    autoload :Thesis
   end
 
   autoload_under 'models/works/entry' do
@@ -47,24 +51,26 @@ module Dlibhydra
   end
 
   autoload_under 'models/concerns' do
+    autoload :AddDcTitle
+    autoload :AddRdfsLabel
     autoload :AssignId
-    autoload :AssignRdfTypes
+    autoload :DcKeywordSubject
+    autoload :DcRights
     autoload :DcTerms
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
     autoload :MadsRelatedAuthority
-    autoload :RdfType
-    autoload :RdfsLabel
     autoload :RdfsSeeAlso
     autoload :SameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl
-    autoload :ConceptSchemeBehaviour
+    #autoload :ValidateConceptScheme
     autoload :ValidateLabel
   end
 
   autoload_under 'validators' do
     autoload :HasLabelValidator
+    #autoload :ConceptSchemeMemberValidator
   end
 
 end

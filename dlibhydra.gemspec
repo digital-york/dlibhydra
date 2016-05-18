@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
   end
 
-  spec.summary       = %q{Data models for York Digital Library and related projects}
+  spec.summary       = %q{GenericWork models for York Digital Library and related projects}
   spec.description   = %q{Using this gem will provide various re-usable data models.}
   spec.homepage      = 'https://github.com/digital-york/dlibhydra'
   spec.license       = 'APACHE2'
@@ -29,5 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.1'
   spec.add_development_dependency 'rspec-rails', '~> 3.1'
-  spec.add_development_dependency 'factory_girl_rails' #, :require => false
+  spec.add_development_dependency 'factory_girl_rails', '~> 0'
+  # spec.add_development_dependency 'factory_girl_rails' #, :require => false
 end

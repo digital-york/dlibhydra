@@ -1,12 +1,10 @@
-class Data < ActiveFedora::Base
+class GenericWork < ActiveFedora::Base
   include Hydra::Works::WorkBehavior,
           Dlibhydra::SkosLabels,
           Dlibhydra::AddRdfsLabel,
           Dlibhydra::AddDcTitle,
           Dlibhydra::ValidateLabel
 
-  filters_association :members, as: :data, condition: :data?
-
-  # type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
+  type << ::RDF::URI.new('http://dlib.york.ac.uk/generic#GenericWork')
 
 end

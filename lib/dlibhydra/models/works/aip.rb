@@ -6,9 +6,9 @@ class Aip < ActiveFedora::Base
           Dlibhydra::ValidateLabel
 
   # TODO relationship to dip
-  has_and_belongs_to_many :dip, class_name: 'Dlibhydra::Dip', predicate: ::RDF::SKOS.narrower, inverse_of: :aip
+  has_and_belongs_to_many :has_dip, class_name: 'Dlibhydra::Dip', predicate: ::RDF::SKOS.narrower, inverse_of: :has_aip
 
-  # type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
+  type << ::RDF::URI.new('http://dlib.york.ac.uk/generic#ArchivalInformtionPackage')
 
   # new term
   # from Archivematica

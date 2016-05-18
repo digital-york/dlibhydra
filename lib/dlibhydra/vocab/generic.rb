@@ -11,6 +11,34 @@ module Dlibhydra
              # TODO subClassOf: ''.freeze,
              type: 'rdfs:Class'.freeze
 
+        term :DisseminationInformationPackage,
+             comment: %(A dissemination information package, as defined by the Reference Model for an Open Archival Information System (OAIS).).freeze,
+             label: 'Dissemination Information Package (DIP)'.freeze,
+             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+             # TODO subClassOf: ''.freeze,
+             type: 'rdfs:Class'.freeze
+
+        term :ArchivalInformationPackage,
+             comment: %(An archival information package, as defined by the Reference Model for an Open Archival Information System (OAIS).).freeze,
+             label: 'Archival Information Package (AIP)'.freeze,
+             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+             # TODO subClassOf: ''.freeze,
+             type: 'rdfs:Class'.freeze
+
+        term :SubmissionInformationPackage,
+             comment: %(A submission information package, as defined by the Reference Model for an Open Archival Information System (OAIS).).freeze,
+             label: 'Submission Information Package (SIP)'.freeze,
+             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+             # TODO subClassOf: ''.freeze,
+             type: 'rdfs:Class'.freeze
+
+        term :GenericWork,
+             comment: %(A work that does not fit into any pre-existing model, eg. an unidentified data file.).freeze,
+             label: 'Archival Information Package (AIP)'.freeze,
+             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+             # TODO subClassOf: ''.freeze,
+             type: 'rdfs:Class'.freeze
+
         # Property definitions
         property :approved,
                  comment: %(This property is used to indicate that a term or value has been approved.).freeze,
