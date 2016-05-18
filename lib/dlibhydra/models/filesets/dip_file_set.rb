@@ -11,6 +11,9 @@ class DipFileSet < ActiveFedora::Base
   def dip?
     true
   end
+  def main?
+    false
+  end
   def additional?
     false
   end
