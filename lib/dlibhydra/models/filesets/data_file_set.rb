@@ -1,11 +1,11 @@
-class MainFileSet < ActiveFedora::Base
+class DataFileSet < ActiveFedora::Base
   include Hydra::Works::FileSetBehavior,
           Dlibhydra::SkosLabels,
           Dlibhydra::AddRdfsLabel,
           Dlibhydra::AddDcTitle,
           Dlibhydra::ValidateLabel
 
-  def main?
+  def data?
     true
   end
 

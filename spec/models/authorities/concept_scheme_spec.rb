@@ -35,6 +35,9 @@ describe Dlibhydra::ConceptScheme do
   it 'must have an rdfs label that is the same as preflabel' do
     expect(scheme.rdfs_label).to eq('label')
   end
+  it 'must have a dc title that is the same as preflabel' do
+    expect(scheme.title).to eq('label')
+  end
 
   describe 'related objects' do
     before {

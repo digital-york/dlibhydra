@@ -1,10 +1,16 @@
 class Thesis < ActiveFedora::Base
-  include Hydra::Works::WorkBehavior
+  include Hydra::Works::WorkBehavior,
+          Dlibhydra::SkosLabels,
+          Dlibhydra::AddRdfsLabel,
+          Dlibhydra::AddDcTitle,
+          Dlibhydra::ValidateLabel
 
   filters_association :members, as: :main, condition: :main?
+  # TODO change this to an object, call it what? GenericWork? or don't bother?
   filters_association :members, as: :additionals, condition: :additional?
 
   type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
+
 
   # replace with concern
   property :title, predicate: ::RDF::Vocab::DC.title, multiple: false do |index|

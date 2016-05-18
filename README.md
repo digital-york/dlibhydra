@@ -51,3 +51,6 @@ Things to do:
 -- add extra info into uketd (do full schema?)
 -- what refactoring is needed in archbishops' models to make it more Hydra::Works-y
 
+Decisions:
+-- MUST have a preflabel; this will be populated to rdfs:label and dc:title on save
+

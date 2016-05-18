@@ -6,7 +6,8 @@ module Dlibhydra
     include Hydra::Works::WorkBehavior,
             Dlibhydra::SameAs,
             Dlibhydra::SkosLabels,
-            Dlibhydra::RdfsLabel,
+            Dlibhydra::AddRdfsLabel,
+            Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms

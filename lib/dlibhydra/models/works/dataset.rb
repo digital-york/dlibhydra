@@ -1,36 +1,18 @@
 class Dataset < ActiveFedora::Base
-  include Hydra::Works::WorkBehavior
+  include Hydra::Works::WorkBehavior,
+          Dlibhydra::SkosLabels,
+          Dlibhydra::AddRdfsLabel,
+          Dlibhydra::AddDcTitle,
+          Dlibhydra::ValidateLabel
 
   filters_association :members, as: :dip, condition: :dip?
-  filters_association :members, as: :additionals, condition: :additional?
+  filters_association :members, as: :aip, condition: :aip?
 
   # type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
-
-  # from PURE
-  property :title, predicate: ::RDF::Vocab::DC.title, multiple: false do |index|
-    index.as :stored_searchable
-  end
 
   # new term
   # from PURE
   property :pure_uuid, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#pureUuid'), multiple: false do |index|
-    index.as :stored_searchable
-  end
-
-  # new term
-  # from Archivematica
-  property :sip_uuid, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#sipUuid'), multiple: false do |index|
-    index.as :stored_searchable
-  end
-
-  # new term
-  # from Archivematica
-  property :aip_uuid, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#aipUuid'), multiple: false do |index|
-    index.as :stored_searchable
-  end
-
-  # new term
-  property :data_status, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#dataStatus'), multiple: false do |index|
     index.as :stored_searchable
   end
 
@@ -44,7 +26,4 @@ class Dataset < ActiveFedora::Base
     index.as :stored_searchable
   end
 
-  def dip?
-    false
-  end
 end

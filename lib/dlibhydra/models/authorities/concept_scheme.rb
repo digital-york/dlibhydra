@@ -4,7 +4,8 @@ module Dlibhydra
     include Hydra::Works::WorkBehavior,
             Dlibhydra::ConceptSchemeBehaviour,
             Dlibhydra::SkosLabels,
-            Dlibhydra::RdfsLabel,
+            Dlibhydra::AddRdfsLabel,
+            Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
             Dlibhydra::DcTerms
             # Dlibhydra::AssignId
