@@ -1,5 +1,5 @@
 module Dlibhydra
-  module Dcvailable
+  module DcAvailable
     extend ActiveSupport::Concern
 
     included do
