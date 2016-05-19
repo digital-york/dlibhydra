@@ -3,7 +3,7 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      property :date_available, predicate: ::RDF::Vocab::DC.accessRights, multiple: false do |index|
+      property :access_rights, predicate: ::RDF::Vocab::DC.accessRights, multiple: false do |index|
         index.as :stored_searchable, :sortable
       end
     end
