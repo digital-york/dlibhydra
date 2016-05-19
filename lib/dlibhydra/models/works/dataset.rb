@@ -4,8 +4,8 @@ module Dlibhydra
             Dlibhydra::SkosLabels,
             Dlibhydra::AddRdfsLabel,
             Dlibhydra::AddDcTitle,
-            Dlibhydra::ValidateLabel#,
-            #Dlibhydra::AssignId
+            Dlibhydra::ValidateLabel,
+            Dlibhydra::AssignId
 
     filters_association :members, as: :dip, condition: :dip?
     filters_association :members, as: :aip, condition: :aip?
