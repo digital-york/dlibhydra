@@ -52,6 +52,8 @@ module Dlibhydra
     autoload :AddDcTitle
     autoload :AddRdfsLabel
     autoload :AssignId
+    autoload :DcAccessRights
+    autoload :DcAvailable
     autoload :DcKeywordSubject
     autoload :DcRights
     autoload :DcTerms

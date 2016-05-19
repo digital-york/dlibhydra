@@ -5,12 +5,14 @@ module Dlibhydra
             Dlibhydra::AddRdfsLabel,
             Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
-            Dlibhydra::AssignId
+            Dlibhydra::AssignId,
+            Dlibhydra::DcAvailable,
+            Dlibhydra::DcAccessRights
 
     filters_association :members, as: :dip, condition: :dip?
     filters_association :members, as: :aip, condition: :aip?
 
-    type << ::RDF::DCAT.Dataset
+    type << ::RDF::Vocab::DCAT.Dataset
 
     # new term - from PURE
     property :pure_uuid, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#pureUuid'), multiple: false do |index|
