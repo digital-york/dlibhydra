@@ -62,13 +62,13 @@ module Dlibhydra
     autoload :SameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl
-    #autoload :ValidateConceptScheme
+    autoload :ValidateConceptScheme
     autoload :ValidateLabel
   end
 
   autoload_under 'validators' do
     autoload :HasLabelValidator
-    #autoload :ConceptSchemeMemberValidator
+    autoload :ConceptSchemeMemberValidator
   end
 
 end
