@@ -8,6 +8,7 @@ module Dlibhydra
     eager_autoload do
       autoload :Generic
       autoload :BorthwickRegisters
+      autoload :OaisArchivematica
     end
   end
 
