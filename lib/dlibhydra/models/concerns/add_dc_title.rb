@@ -6,10 +6,10 @@ module Dlibhydra
       property :title, predicate: ::RDF::Vocab::DC.title, multiple: false do |index|
         index.as :stored_searchable, :sortable
       end
-      before_save :map_labels
+      before_save :map_title
     end
 
-    def map_labels
+    def map_title
       self.title = self.preflabel
     end
   end
