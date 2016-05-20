@@ -10,28 +10,6 @@ module Dlibhydra
              'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
              # TODO subClassOf: ''.freeze,
              type: 'rdfs:Class'.freeze
-
-        term :DisseminationInformationPackage,
-             comment: %(A dissemination information package, as defined by the Reference Model for an Open Archival Information System (OAIS).).freeze,
-             label: 'Dissemination Information Package (DIP)'.freeze,
-             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
-             # TODO subClassOf: ''.freeze,
-             type: 'rdfs:Class'.freeze
-
-        term :ArchivalInformationPackage,
-             comment: %(An archival information package, as defined by the Reference Model for an Open Archival Information System (OAIS).).freeze,
-             label: 'Archival Information Package (AIP)'.freeze,
-             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
-             # TODO subClassOf: ''.freeze,
-             type: 'rdfs:Class'.freeze
-
-        term :SubmissionInformationPackage,
-             comment: %(A submission information package, as defined by the Reference Model for an Open Archival Information System (OAIS).).freeze,
-             label: 'Submission Information Package (SIP)'.freeze,
-             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
-             # TODO subClassOf: ''.freeze,
-             type: 'rdfs:Class'.freeze
-
         term :GenericWork,
              comment: %(A work that does not fit into any pre-existing model, eg. an unidentified data file.).freeze,
              label: 'Archival Information Package (AIP)'.freeze,
@@ -85,6 +63,31 @@ module Dlibhydra
                  comment: %(This property is used to indicate that the described Concept is at the top of the hierarchy. A value of true or false is recommended.).freeze,
                  label: 'Is Top Concept'.freeze,
                  range: 'http://www.w3.org/2004/02/skos/core#Concept'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :readme,
+                 comment: %(This property should be used to provide a textual desicption of the given work to facilitate it's understanding and use. A README file is common parlance in coding.).freeze,
+                 label: 'README'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :indexDump,
+                 comment: %(This property should be used to store data that does not need to be displayed but may be useful for searching.).freeze,
+                 label: 'Index Dump'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :embargoEnd,
+                 comment: %(This property should be used to specify the end date of an embargo period.).freeze,
+                 label: 'Embargo End'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :dateOfLastAccess,
+                 comment: %(This property should be used to for the date a resource, or group of resources, was last accessed.).freeze,
+                 label: 'Date of Last Access'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :pureUuid,
+                 comment: %(This property should be used to for the unique identifier for a PURE object.).freeze,
+                 label: 'PURE UUID'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
 

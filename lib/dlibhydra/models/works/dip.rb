@@ -4,14 +4,19 @@ module Dlibhydra
             Dlibhydra::SkosLabels,
             Dlibhydra::AddRdfsLabel,
             Dlibhydra::AddDcTitle,
-            Dlibhydra::ValidateLabel
+            Dlibhydra::ValidateLabel,
+            Dlibhydra::AssignId
 
     has_and_belongs_to_many :has_aip, class_name: 'Dlibhydra::Aip', predicate: ::RDF::SKOS.narrower, inverse_of: :has_dip
 
-    type << ::RDF::URI.new('http://dlib.york.ac.uk/generic#DisseminationInformtionPackage')
+    type << Dlibhydra::Vocab::OaisArchivematica.DisseminationInformtionPackage
 
     # new term
-    property :data_status, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#dataStatus'), multiple: false do |index|
+    property :data_status, predicate: Dlibhydra::Vocab::OaisArchivematica.dataStatus, multiple: false do |index|
+      index.as :stored_searchable
+    end
+
+    property :dip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.dipUuid, multiple: false do |index|
       index.as :stored_searchable
     end
 

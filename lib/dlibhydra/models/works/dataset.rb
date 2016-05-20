@@ -15,18 +15,22 @@ module Dlibhydra
     type << ::RDF::Vocab::DCAT.Dataset
 
     # new term - from PURE
-    property :pure_uuid, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#pureUuid'), multiple: false do |index|
+    property :pure_uuid, predicate: Dlibhydra::Vocab::Generic.pureUuid, multiple: false do |index|
       index.as :stored_searchable
     end
 
     # new term - check for existing
     # where does this come from? is it in pure?
-    property :embargo_end, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#embargoEnd'), multiple: false do |index|
+    property :embargo_end, predicate: Dlibhydra::Vocab::Generic.embargoEnd, multiple: false do |index|
       index.as :stored_searchable
     end
     # new term - check for existing
     # ideally this will be calculated dynamically from download stats on the fly, but for now a property will do
-    property :last_access, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#dateOfLastAccess'), multiple: false do |index|
+    property :last_access, predicate: Dlibhydra::Vocab::Generic.dateOfLastAccess, multiple: false do |index|
+      index.as :stored_searchable
+    end
+
+    property :index_dump, predicate: Dlibhydra::Vocab::Generic.indexDump, multiple: false do |index|
       index.as :stored_searchable
     end
 
