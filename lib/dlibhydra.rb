@@ -22,7 +22,6 @@ module Dlibhydra
 
   autoload_under 'models/collections' do
 
-
   end
 
   autoload_under 'models/db' do

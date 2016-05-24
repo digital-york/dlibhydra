@@ -11,12 +11,12 @@ Models and vocabularies gem for York Digital Library Hydra applications.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dlibhydra'
+gem 'dlibhydra', :git => 'git://github.com/digital-york/dlibhydra.git', branch: 'master'
 ```
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -47,9 +47,7 @@ https://robots.thoughtbot.com/how-to-stub-external-services-in-tests
 Factory Girl
 
 Things to do:
--- decide how to assign rdf types
--- add extra info into uketd (do full schema?)
--- what refactoring is needed in archbishops' models to make it more Hydra::Works-y
+-- add uketd vocab (do full schema?)
 
 Decisions:
 -- MUST have a preflabel; this will be populated to rdfs:label and dc:title on save
