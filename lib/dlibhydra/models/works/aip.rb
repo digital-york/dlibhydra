@@ -13,7 +13,7 @@ module Dlibhydra
 
     # new term
     # from Archivematica
-    property :sip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.sipUuid, multiple: false do |index|
+    property :aip_location, predicate: Dlibhydra::Vocab::OaisArchivematica.aipLocation, multiple: false do |index|
       index.as :stored_searchable
     end
 

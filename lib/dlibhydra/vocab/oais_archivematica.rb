@@ -41,6 +41,17 @@ module Dlibhydra
                  label: 'SIP UUID'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
+        property :transferUuid,
+                 comment: %(This property should be used to for the unique identifier for a transfer.).freeze,
+                 label: 'Transfer UUID'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :aipLocation,
+                 comment: %(This property should be used to for location of the AIP.).freeze,
+                 label: 'AIP Location'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+
         property :dataStatus,
                  comment: %(This property should be used to for status of the AIP or DIP. The value should be taken from a controlled list.).freeze,
                  label: 'Data Status'.freeze,
