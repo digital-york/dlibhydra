@@ -51,7 +51,11 @@ module Dlibhydra
                  label: 'AIP Location'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-
+        property :dipLocation,
+                 comment: %(This property should be used to for location of the DIP.).freeze,
+                 label: 'DIP Location'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
         property :dataStatus,
                  comment: %(This property should be used to for status of the AIP or DIP. The value should be taken from a controlled list.).freeze,
                  label: 'Data Status'.freeze,

@@ -20,6 +20,16 @@ module Dlibhydra
       index.as :stored_searchable
     end
 
+    # new term
+    # from Archivematica
+    property :dip_location, predicate: Dlibhydra::Vocab::OaisArchivematica.dipLocation, multiple: false do |index|
+      index.as :stored_searchable
+    end
+
+    property :first_requestor, predicate: ::RDF::URI.new('http://example.com/firstRequestor'), multiple: false do |index|
+      index.as :stored_searchable
+    end
+
     def dip?
       true
     end
