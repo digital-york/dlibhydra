@@ -26,6 +26,7 @@ module Dlibhydra
       index.as :stored_searchable
     end
 
+    # TODO this is temporary
     property :first_requestor, predicate: ::RDF::URI.new('http://example.com/firstRequestor'), multiple: false do |index|
       index.as :stored_searchable
     end
