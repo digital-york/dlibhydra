@@ -12,7 +12,7 @@ module Dlibhydra
       property :current_full_path, predicate: Dlibhydra::Vocab::OaisArchivematica.currentFullPath, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :currentPath, predicate: Dlibhydra::Vocab::OaisArchivematica.currentPath, multiple: false do |index|
+      property :current_path, predicate: Dlibhydra::Vocab::OaisArchivematica.currentPath, multiple: false do |index|
         index.as :stored_searchable
       end
       property :current_location, predicate: Dlibhydra::Vocab::OaisArchivematica.currentLocation, multiple: false do |index|
