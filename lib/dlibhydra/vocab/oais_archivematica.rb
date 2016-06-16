@@ -26,6 +26,7 @@ module Dlibhydra
              type: 'rdfs:Class'.freeze
 
         # Property definitions
+
         property :aipUuid,
                  comment: %(This property should be used to for the unique identifier for an Archival Information Package (AIP).).freeze,
                  label: 'AIP UUID'.freeze,
@@ -46,19 +47,40 @@ module Dlibhydra
                  label: 'Transfer UUID'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-        property :aipLocation,
-                 comment: %(This property should be used to for location of the AIP.).freeze,
-                 label: 'AIP Location'.freeze,
+
+        property :currentFullPath,
+                 comment: %(This property should be used to for current full path of the AIP or DIP.).freeze,
+                 label: 'Archivematica Current Full Path'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-        property :dipLocation,
-                 comment: %(This property should be used to for location of the DIP.).freeze,
-                 label: 'DIP Location'.freeze,
+        property :currentPath,
+                 comment: %(This property should be used to for current path of the AIP or DIP.).freeze,
+                 label: 'Archivematica Current Full Path'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-        property :dataStatus,
+        property :currentLocation,
+                 comment: %(This property should be used to for current location of the AIP or DIP.).freeze,
+                 label: 'Archivematica Current Location'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :originPipeline,
+                 comment: %(This property should be used to for the origin pipeline of the AIP or DIP.).freeze,
+                 label: 'Archivematica Origin Pipeline'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :size,
+                 comment: %(This property should be used to for the size of the AIP or DIP.).freeze,
+                 label: 'Archivematica Size'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :resourceUri,
+                 comment: %(This property should be used to for the resource uri of the AIP or DIP.).freeze,
+                 label: 'Archivematica Resource URI'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :status,
                  comment: %(This property should be used to for status of the AIP or DIP. The value should be taken from a controlled list.).freeze,
-                 label: 'Data Status'.freeze,
+                 label: 'Status'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematic#).freeze,
                  type: 'rdf:Property'.freeze
 

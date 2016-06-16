@@ -67,6 +67,7 @@ module Dlibhydra
     autoload :ThumbnailUrl
     autoload :ValidateConceptScheme
     autoload :ValidateLabel
+    autoload Dlibhydra::Archivematica
   end
 
   autoload_under 'validators' do

@@ -5,7 +5,8 @@ module Dlibhydra
             Dlibhydra::AddRdfsLabel,
             Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
-            Dlibhydra::AssignId
+            Dlibhydra::AssignId,
+            Dlibhydra::Archivematica
 
     has_and_belongs_to_many :has_dip, class_name: 'Dlibhydra::Dip', predicate: ::RDF::SKOS.narrower, inverse_of: :has_aip
 
@@ -13,18 +14,7 @@ module Dlibhydra
 
     # new term
     # from Archivematica
-    property :aip_location, predicate: Dlibhydra::Vocab::OaisArchivematica.aipLocation, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    # new term
-    # from Archivematica
-    property :aip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    # new term
-    property :data_status, predicate: Dlibhydra::Vocab::OaisArchivematica.dataStatus, multiple: false do |index|
+    property :uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
       index.as :stored_searchable
     end
 
