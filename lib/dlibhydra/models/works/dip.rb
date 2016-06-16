@@ -12,7 +12,7 @@ module Dlibhydra
 
     type << Dlibhydra::Vocab::OaisArchivematica.DisseminationInformtionPackage
 
-    property :uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.dipUuid, multiple: false do |index|
+    property :dip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.dipUuid, multiple: false do |index|
       index.as :stored_searchable
     end
 

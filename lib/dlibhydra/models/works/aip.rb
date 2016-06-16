@@ -14,7 +14,7 @@ module Dlibhydra
 
     # new term
     # from Archivematica
-    property :uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
+    property :aip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
       index.as :stored_searchable
     end
 
