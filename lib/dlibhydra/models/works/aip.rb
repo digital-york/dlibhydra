@@ -17,6 +17,12 @@ module Dlibhydra
     property :aip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
       index.as :stored_searchable
     end
+    property :transfer_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
+      index.as :stored_searchable
+    end
+    property :sip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
+      index.as :stored_searchable
+    end
 
     property :readme, predicate: Dlibhydra::Vocab::Generic.readme, multiple: false do |index|
       index.as :stored_searchable
