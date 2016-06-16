@@ -6,7 +6,7 @@ module Dlibhydra
       property :status, predicate: Dlibhydra::Vocab::OaisArchivematica.status, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :size, predicate: Dlibhydra::Vocab::OaisArchivematica.size, multiple: false do |index|
+      property :package_size, predicate: Dlibhydra::Vocab::OaisArchivematica.size, multiple: false do |index|
         index.as :stored_searchable
       end
       property :current_full_path, predicate: Dlibhydra::Vocab::OaisArchivematica.currentFullPath, multiple: false do |index|
