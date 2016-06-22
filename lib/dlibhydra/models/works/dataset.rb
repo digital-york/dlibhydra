@@ -7,17 +7,16 @@ module Dlibhydra
             Dlibhydra::ValidateLabel,
             Dlibhydra::AssignId,
             Dlibhydra::DcAvailable,
-            Dlibhydra::DcAccessRights
+            Dlibhydra::DcAccessRights,
+            Dlibhydra::Pure
 
     filters_association :members, as: :dip, condition: :dip?
     filters_association :members, as: :aip, condition: :aip?
 
-    type << ::RDF::Vocab::DCAT.Dataset
+    has_and_belongs_to_many :creator, class_name: 'Dlibhydra::PurePerson', predicate: ::RDF::DC.creator
+    has_and_belongs_to_many :managing_organisation, class_name: 'Dlibhydra::PureOrganisation', predicate: ::RDF::DC.publisher
 
-    # new term - from PURE
-    property :pure_uuid, predicate: Dlibhydra::Vocab::Generic.pureUuid, multiple: false do |index|
-      index.as :stored_searchable
-    end
+    type << ::RDF::Vocab::DCAT.Dataset
 
     # new term - check for existing
     # where does this come from? is it in pure?

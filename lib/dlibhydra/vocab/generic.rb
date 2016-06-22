@@ -85,9 +85,9 @@ module Dlibhydra
                  label: 'Date of Last Access'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
-        property :pureUuid,
-                 comment: %(This property should be used to for the unique identifier for a PURE object.).freeze,
-                 label: 'PURE UUID'.freeze,
+        property :status,
+                 comment: %(This property should be used to for the status of the given object, eg. workflow status.).freeze,
+                 label: 'Status'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
 

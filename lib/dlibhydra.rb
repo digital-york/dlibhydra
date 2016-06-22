@@ -9,6 +9,7 @@ module Dlibhydra
       autoload :Generic
       autoload :BorthwickRegisters
       autoload :OaisArchivematica
+      autoload :PureTerms
     end
   end
 
@@ -18,6 +19,8 @@ module Dlibhydra
     autoload :Group
     autoload :Person
     autoload :Place
+    autoload :PurePerson
+    autoload :PureOrganisation
   end
 
   autoload_under 'models/collections' do
@@ -68,6 +71,7 @@ module Dlibhydra
     autoload :ValidateConceptScheme
     autoload :ValidateLabel
     autoload :Archivematica
+    autoload :Pure
   end
 
   autoload_under 'validators' do
