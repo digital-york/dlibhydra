@@ -90,6 +90,11 @@ module Dlibhydra
                  label: 'Status'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
+        property :doi,
+                 comment: %(This property should be used to for a doi.).freeze,
+                 label: 'DOI'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
 
         # Extra definitions
         term :"",

@@ -50,6 +50,16 @@ module Dlibhydra
                  label: 'PURE Creation Date'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
                  type: 'rdf:Property'.freeze
+        property :pureOrganisation,
+                 comment: %(This property should be used for the managing organisation in PURE.).freeze,
+                 label: 'PURE Managing Organisation'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :pureLink,
+                 comment: %(This property should be used for an external link in PURE.).freeze,
+                 label: 'PURE Link'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
+                 type: 'rdf:Property'.freeze
 
         # Extra definitions
         term :"",

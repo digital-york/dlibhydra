@@ -8,13 +8,14 @@ module Dlibhydra
             Dlibhydra::AssignId,
             Dlibhydra::DcAvailable,
             Dlibhydra::DcAccessRights,
-            Dlibhydra::Pure
+            Dlibhydra::Pure,
+            Dlibhydra::Doi
 
     filters_association :members, as: :dip, condition: :dip?
     filters_association :members, as: :aip, condition: :aip?
 
     has_and_belongs_to_many :creator, class_name: 'Dlibhydra::PurePerson', predicate: ::RDF::DC.creator
-    has_and_belongs_to_many :managing_organisation, class_name: 'Dlibhydra::PureOrganisation', predicate: ::RDF::DC.publisher
+    has_and_belongs_to_many :managing_organisation, class_name: 'Dlibhydra::PureOrganisation', predicate: Dlibhydra::Vocab::PureTerms.pureOrganisation
 
     type << ::RDF::Vocab::DCAT.Dataset
 

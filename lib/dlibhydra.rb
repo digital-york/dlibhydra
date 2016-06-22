@@ -72,6 +72,7 @@ module Dlibhydra
     autoload :ValidateLabel
     autoload :Archivematica
     autoload :Pure
+    autoload :Doi
   end
 
   autoload_under 'validators' do
