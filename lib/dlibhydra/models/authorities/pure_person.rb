@@ -7,6 +7,7 @@ module Dlibhydra
             Dlibhydra::AddRdfsLabel,
             Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
+            Dlibhydra::Pure,
             Dlibhydra::AssignId
 
     #belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
