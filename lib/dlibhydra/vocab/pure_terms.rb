@@ -34,11 +34,6 @@ module Dlibhydra
                  label: 'PURE Creation Date'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
                  type: 'rdf:Property'.freeze
-        property :pureDateOfProduction,
-                 comment: %(This property should be used to for the date of production in PURE.).freeze,
-                 label: 'PURE Creation Date'.freeze,
-                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
-                 type: 'rdf:Property'.freeze
         property :pureDateAvailable,
                  comment: %(This property should be used to for the date available in PURE.).freeze,
                  label: 'PURE Creation Date'.freeze,

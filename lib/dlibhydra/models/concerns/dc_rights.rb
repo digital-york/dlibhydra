@@ -1,5 +1,5 @@
 module Dlibhydra
-  module Rights
+  module DcRights
     extend ActiveSupport::Concern
 
     included do
