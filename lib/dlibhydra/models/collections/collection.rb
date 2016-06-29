@@ -1,6 +1,9 @@
 class Collection < ActiveFedora::Base
-  include Hydra::Works::CollectionBehavior
-  property :title, predicate: ::RDF::Vocab::DC.title, multiple: false do |index|
-    index.as :stored_searchable
-  end
+  include Hydra::Works::CollectionBehavior,
+          Dlibhydra::SkosLabels,
+          Dlibhydra::AddRdfsLabel,
+          Dlibhydra::AddDcTitle,
+          Dlibhydra::ValidateLabel,
+          Dlibhydra::DcKeywordSubject,
+          Dlibhydra::DcRights
 end
