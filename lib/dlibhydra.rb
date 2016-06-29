@@ -10,6 +10,7 @@ module Dlibhydra
       autoload :BorthwickRegisters
       autoload :OaisArchivematica
       autoload :PureTerms
+      autoload :Uketd
     end
   end
 
