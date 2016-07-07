@@ -6,33 +6,27 @@ module Dlibhydra
             Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
             Dlibhydra::AssignId,
-            Dlibhydra::Archivematica
-
-    has_and_belongs_to_many :has_dip, class_name: 'Dlibhydra::Dip', predicate: ::RDF::SKOS.narrower, inverse_of: :has_aip
+            Dlibhydra::Archivematica,
+            Dlibhydra::Readme
 
     type << Dlibhydra::Vocab::OaisArchivematica.ArchivalInformtionPackage
 
-    # new term
-    # from Archivematica
-    property :aip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
-      index.as :stored_searchable
-    end
-    property :transfer_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
-      index.as :stored_searchable
-    end
-    property :sip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
-      index.as :stored_searchable
-    end
+    before_save :add_dip_type
 
-    property :readme, predicate: Dlibhydra::Vocab::Generic.readme, multiple: false do |index|
+    # TODO this is temporary
+    property :first_requestor, predicate: ::RDF::URI.new('http://example.com/firstRequestor'), multiple: false do |index|
       index.as :stored_searchable
     end
 
     def aip?
       true
     end
-    def dip?
-      false
+
+    # If a DIP has been created, add the rdf type
+    def add_dip_type
+      if self.dip_status == 'UPLOADED'
+        type << Dlibhydra::Vocab::OaisArchivematica.DisseminationInformtionPackage
+      end
     end
 
   end

@@ -1,5 +1,5 @@
 module Dlibhydra
-  module ConceptSchemeBehaviour
+  module ValidateConceptScheme
     extend ActiveSupport::Concern
 
     included do

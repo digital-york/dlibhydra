@@ -11,7 +11,7 @@ module Dlibhydra
             Dlibhydra::Pure,
             Dlibhydra::Doi
 
-    filters_association :members, as: :dip, condition: :dip?
+    filters_association :members, as: :dip, condition: :readme? # FileSet for README file TODO validate
     filters_association :members, as: :aip, condition: :aip?
 
     has_and_belongs_to_many :creator, class_name: 'Dlibhydra::PurePerson', predicate: ::RDF::DC.creator
