@@ -38,13 +38,12 @@ module Dlibhydra
 
   autoload_under 'models/filesets' do
     autoload :MainFileSet
-    autoload :DatasetFileSet
+    autoload :ReadmeFileSet
   end
 
   autoload_under 'models/works' do
     autoload :Aip
     autoload :Dataset
-    autoload :Dip
     autoload :GenericWork
     autoload :Thesis
   end
@@ -54,9 +53,9 @@ module Dlibhydra
   end
 
   autoload_under 'models/concerns' do
-    autoload :AddDcTitle
-    autoload :AddRdfsLabel
+    # Identifiers
     autoload :AssignId
+    # Metadata
     autoload :DcAccessRights
     autoload :DcAvailable
     autoload :DcKeywordSubject
@@ -69,11 +68,16 @@ module Dlibhydra
     autoload :SameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl
-    autoload :ValidateConceptScheme
-    autoload :ValidateLabel
     autoload :Archivematica
     autoload :Pure
     autoload :Doi
+    autoload :Readme
+    # Behaviour
+    autoload :AddDcTitle
+    autoload :AddRdfsLabel
+    # Validations
+    autoload :ValidateConceptScheme
+    autoload :ValidateLabel
   end
 
   autoload_under 'validators' do

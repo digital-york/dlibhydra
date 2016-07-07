@@ -11,8 +11,8 @@ module Dlibhydra
             Dlibhydra::AddRdfsLabel,
             Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
-            Dlibhydra::RdfsSeeAlso # use for external see also links
-            # Dlibhydra::AssignId
+            Dlibhydra::RdfsSeeAlso, # use for external see also links
+            Dlibhydra::AssignId
 
     belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
     belongs_to :top_concept_of, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.topConceptOf

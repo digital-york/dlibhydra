@@ -2,13 +2,13 @@ module Dlibhydra
   class ConceptScheme < ActiveFedora::Base
 
     include Hydra::Works::WorkBehavior,
-            Dlibhydra::ConceptSchemeBehaviour,
+            Dlibhydra::ValidateConceptScheme,
             Dlibhydra::SkosLabels,
             Dlibhydra::AddRdfsLabel,
             Dlibhydra::AddDcTitle,
             Dlibhydra::ValidateLabel,
-            Dlibhydra::DcTerms
-            # Dlibhydra::AssignId
+            Dlibhydra::DcTerms,
+            Dlibhydra::AssignId
 
     # pcdm:hasMember using indirect containers; not in solr
     filters_association :members, as: :concepts, condition: :concept?
