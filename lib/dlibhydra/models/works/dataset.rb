@@ -2,8 +2,8 @@ module Dlibhydra
   class Dataset < ActiveFedora::Base
     include Hydra::Works::WorkBehavior,
             Dlibhydra::SkosLabels,
-            Dlibhydra::AddRdfsLabel,
-            Dlibhydra::AddDcTitle,
+            Dlibhydra::DcTitle,
+            Dlibhydra::AddLabels,
             Dlibhydra::ValidateLabel,
             Dlibhydra::AssignId,
             Dlibhydra::DcAvailable,
