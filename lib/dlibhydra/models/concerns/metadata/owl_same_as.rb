@@ -1,5 +1,5 @@
 module Dlibhydra
-  module SameAs
+  module OwlSameAs
     extend ActiveSupport::Concern
 
     included do

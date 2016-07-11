@@ -4,7 +4,7 @@ module Dlibhydra
   class Person < ActiveFedora::Base
 
     include Hydra::Works::WorkBehavior,
-            Dlibhydra::SameAs,
+            Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::ValidateLabel,
             Dlibhydra::MadsRelatedAuthority,

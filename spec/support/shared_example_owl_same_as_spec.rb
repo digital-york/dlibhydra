@@ -1,4 +1,4 @@
-shared_examples_for "same_as" do
+shared_examples_for "owl_same_as" do
   let(:model) { described_class } # the class that includes the concern
 
   before(:each) do

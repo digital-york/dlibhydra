@@ -6,7 +6,7 @@ module Dlibhydra
 
     include Hydra::Works::WorkBehavior,
             Dlibhydra::GenericAuthorityTerms,
-            Dlibhydra::SameAs,
+            Dlibhydra::OwlSameAs,
             Dlibhydra::RdfsSeeAlso, # use for external see also links
             Dlibhydra::AddLabels,
             Dlibhydra::AssignId

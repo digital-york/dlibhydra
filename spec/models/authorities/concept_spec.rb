@@ -19,7 +19,7 @@ describe Dlibhydra::Concept do
   # Concerns
   it_behaves_like "skos_labels"
   it_behaves_like "generic_authority_terms"
-  it_behaves_like "same_as"
+  it_behaves_like "owl_same_as"
   it_behaves_like "add_labels"
   it_behaves_like "rdfs_see_also"
 
@@ -39,7 +39,7 @@ describe Dlibhydra::Concept do
 
     # helpful? http://stackoverflow.com/questions/2937326/populating-an-association-with-children-in-factory-girl
     it 'is related to the parent scheme' do
-      expect(concept1.concept_scheme.preflabel).to eq('concept scheme label')
+      expect(concept1.concept_scheme.preflabel).to eq('label')
     end
 
     it 'is a top concept' do

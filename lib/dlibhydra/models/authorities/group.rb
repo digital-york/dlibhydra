@@ -2,7 +2,7 @@ module Dlibhydra
   class Group < ActiveFedora::Base
 
     include Hydra::Works::WorkBehavior,
-            Dlibhydra::SameAs,
+            Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::BorthwickNote,
             Dlibhydra::FoafName,

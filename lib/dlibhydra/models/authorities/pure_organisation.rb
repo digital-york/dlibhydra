@@ -2,7 +2,7 @@ module Dlibhydra
   class PureOrganisation < ActiveFedora::Base
 
     include Hydra::Works::WorkBehavior,
-            Dlibhydra::SameAs,
+            Dlibhydra::OwlSameAs,
             Dlibhydra::SkosLabels,
             Dlibhydra::DcTitle,
             Dlibhydra::AddLabels,

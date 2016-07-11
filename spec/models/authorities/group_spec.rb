@@ -14,7 +14,7 @@ describe Dlibhydra::Group do
   it_behaves_like "generic_qualifier"
   it_behaves_like "hub_dates"
   it_behaves_like "mads_related_authority"
-  it_behaves_like "same_as"
+  it_behaves_like "owl_same_as"
   it_behaves_like "skos_labels"
 
 
