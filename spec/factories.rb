@@ -59,7 +59,6 @@ FactoryGirl.define do
     keyword ['keyword']
     rights_holder 'Louise Moody'
     license 'license'
-
   end
 
   factory :group, class: Dlibhydra::Group do
