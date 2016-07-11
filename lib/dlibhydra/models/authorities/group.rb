@@ -4,12 +4,12 @@ module Dlibhydra
     include Hydra::Works::WorkBehavior,
             Dlibhydra::SameAs,
             Dlibhydra::SkosLabels,
-            Dlibhydra::AddRdfsLabel,
-            Dlibhydra::AddDcTitle,
+            Dlibhydra::DcTitle,
+            Dlibhydra::AddLabels,
             Dlibhydra::ValidateLabel,
             Dlibhydra::MadsRelatedAuthority,
-            Dlibhydra::GenericAuthorityTerms
-            # AssignId
+            Dlibhydra::GenericAuthorityTerms,
+            Dlibhydra::AssignId
 
     belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
 

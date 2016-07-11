@@ -37,4 +37,7 @@ RSpec.configure do |config|
              :headers => {'Content-Type'=>'text/xml'}).
         to_return(:status => 200, :body => "", :headers => {})
   end
+  # Include shared examples for concerns
+  Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
+
 end

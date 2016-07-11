@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
   end
 
-  spec.summary       = %q{GenericWork models for York Digital Library and related projects}
-  spec.description   = %q{Using this gem will provide various re-usable data models.}
+  spec.summary       = %q{Models for York Digital Library and related projects}
+  spec.description   = %q{Using this gem will provide various re-usable data models designed for York Digital Library.}
   spec.homepage      = 'https://github.com/digital-york/dlibhydra'
   spec.license       = 'APACHE2'
 
@@ -24,8 +24,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'hydra-works', '~> 0.1'
-  spec.add_dependency 'active_fedora-noid', '~> 1.1.0'
+  spec.add_dependency 'hydra-works', '~> 0.9'
+  spec.add_dependency 'active_fedora-noid' #, '~> 1.1.0'
   spec.add_development_dependency 'bundler', '~> 1.8'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.1'

@@ -52,19 +52,13 @@ module Dlibhydra
 
   end
 
-  autoload_under 'models/concerns' do
-    # Identifiers
-    autoload :AssignId
+  autoload_under 'models/concerns/metadata' do
     # Metadata
-    autoload :DcAccessRights
-    autoload :DcAvailable
-    autoload :DcKeywordSubject
-    autoload :DcRights
-    autoload :DcTerms
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
     autoload :MadsRelatedAuthority
     autoload :RdfsSeeAlso
+    autoload :RdfsLabel
     autoload :SameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl
@@ -72,12 +66,32 @@ module Dlibhydra
     autoload :Pure
     autoload :Doi
     autoload :Readme
+  end
+  autoload_under 'models/concerns/behaviours' do
+    # Identifiers
+    autoload :AssignId
     # Behaviour
-    autoload :AddDcTitle
-    autoload :AddRdfsLabel
+    autoload :AddLabels
     # Validations
     autoload :ValidateConceptScheme
     autoload :ValidateLabel
+  end
+
+  autoload_under 'models/concerns/metadata/dc' do
+    # Dublin Core Metadata
+    autoload :DcAccessRights
+    autoload :DcAvailable
+    autoload :DcKeywordSubject
+    autoload :DcRights
+    #autoload :DcTerms
+    autoload :DcTitle
+    autoload :DcIdentifier
+    autoload :DcDescription
+    autoload :DcDate
+    autoload :DcCreator
+    autoload :DcAbstract
+    autoload :DcLanguage
+    autoload :DcResourceType
   end
 
   autoload_under 'validators' do
