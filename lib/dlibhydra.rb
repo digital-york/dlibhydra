@@ -54,11 +54,13 @@ module Dlibhydra
 
   autoload_under 'models/concerns/metadata' do
     # Metadata
+    autoload :BorthwickNote
+    autoload :FoafName
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
+    autoload :GenericQualifier
+    autoload :HubDates
     autoload :MadsRelatedAuthority
-    autoload :RdfsSeeAlso
-    autoload :RdfsLabel
     autoload :SameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl
@@ -67,14 +69,11 @@ module Dlibhydra
     autoload :Doi
     autoload :Readme
   end
-  autoload_under 'models/concerns/behaviours' do
-    # Identifiers
-    autoload :AssignId
-    # Behaviour
-    autoload :AddLabels
-    # Validations
-    autoload :ValidateConceptScheme
-    autoload :ValidateLabel
+
+  autoload_under 'models/concerns/metadata/rdfs' do
+    # RDF and RDFS
+    autoload :RdfsSeeAlso
+    autoload :RdfsLabel
   end
 
   autoload_under 'models/concerns/metadata/dc' do
@@ -83,7 +82,6 @@ module Dlibhydra
     autoload :DcAvailable
     autoload :DcKeywordSubject
     autoload :DcRights
-    #autoload :DcTerms
     autoload :DcTitle
     autoload :DcIdentifier
     autoload :DcDescription
@@ -92,6 +90,16 @@ module Dlibhydra
     autoload :DcAbstract
     autoload :DcLanguage
     autoload :DcResourceType
+  end
+
+  autoload_under 'models/concerns/behaviours' do
+    # Identifiers
+    autoload :AssignId
+    # Behaviour
+    autoload :AddLabels
+    # Validations
+    autoload :ValidateConceptScheme
+    autoload :ValidateLabel
   end
 
   autoload_under 'validators' do

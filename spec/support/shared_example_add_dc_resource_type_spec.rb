@@ -9,7 +9,7 @@ shared_examples_for "dc_resource_type" do
     expect(@stubby.resource_type).to eq(['resource type'])
   end
   it 'will have the dc.type predicate' do
-    expect(thesis.resource.dump(:ttl).should include('http://purl.org/dc/terms/type'))
+    expect(@stubby.resource.dump(:ttl).should include('http://purl.org/dc/terms/type'))
   end
 
 end

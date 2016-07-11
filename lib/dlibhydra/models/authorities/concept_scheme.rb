@@ -2,9 +2,8 @@ module Dlibhydra
   class ConceptScheme < ActiveFedora::Base
 
     include Hydra::Works::WorkBehavior,
-            Dlibhydra::ValidateConceptScheme,
             Dlibhydra::AddLabels,
-            Dlibhydra::ValidateLabel,
+            Dlibhydra::ValidateConceptScheme,
             Dlibhydra::DcDescription,
             Dlibhydra::AssignId
 

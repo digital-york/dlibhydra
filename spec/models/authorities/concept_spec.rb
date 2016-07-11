@@ -48,7 +48,7 @@ describe Dlibhydra::Concept do
     end
 
     it 'is not a top concept' do
-      #expect(concept1.topconcept?).to be_falsey
+      expect(concept1.topconcept?).to be_falsey
     end
 
     before(:each) do

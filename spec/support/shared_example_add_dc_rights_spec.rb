@@ -12,10 +12,10 @@ shared_examples_for "dc_rights" do
     expect(@stubby.license).to eq('license')
   end
   it 'will have the dc.rightsHolder predicate' do
-    expect(thesis.resource.dump(:ttl).should include('http://purl.org/dc/terms/rightsHolder'))
+    expect(@stubby.resource.dump(:ttl).should include('http://purl.org/dc/terms/rightsHolder'))
   end
   it 'will have the dc.licence predicate' do
-    expect(thesis.resource.dump(:ttl).should include('http://purl.org/dc/terms/license'))
+    expect(@stubby.resource.dump(:ttl).should include('http://purl.org/dc/terms/license'))
   end
 
 end

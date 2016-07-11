@@ -22,13 +22,13 @@ RSpec.configure do |config|
   end
   config.before(:each) do
     #stub_request(:head, "http://fedoraAdmin:fedoraAdmin@127.0.0.1:8984/rest/dev").
-    stub_request(:head, /.*fedoraAdmin:fedoraAdmin@127.0.0.1:8984*./).
+    stub_request(:head, /.*127.0.0.1:8984*./).
         with(:headers => {'Accept'=>'*/*', 'User-Agent'=>'Faraday v0.9.2'}).
         to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:get, /.*fedoraAdmin:fedoraAdmin@127.0.0.1:8984*./).
+    stub_request(:get, /.*127.0.0.1:8984*./).
         with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Prefer'=>'return=representation', 'User-Agent'=>'Faraday v0.9.2'}).
         to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:post, /.*fedoraAdmin:fedoraAdmin@127.0.0.1:8984*./).
+    stub_request(:post, /.*127.0.0.1:8984*./).
         with(:body => /fedora/,
              :headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Content-Type'=>'text/turtle', 'User-Agent'=>'Faraday v0.9.2'}).
         to_return(:status => 200, :body => "", :headers => {})

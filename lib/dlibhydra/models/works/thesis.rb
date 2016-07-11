@@ -7,6 +7,7 @@ module Dlibhydra
             Dlibhydra::DcKeywordSubject,
             Dlibhydra::DcRights,
             Dlibhydra::DcAbstract,
+            Dlibhydra::DcCreator,
             Dlibhydra::DcLanguage,
             Dlibhydra::DcResourceType,
             Dlibhydra::AssignId
@@ -17,11 +18,12 @@ module Dlibhydra
     type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
 
     # TODO String, URI or Object, eg. ORCID
+
+=begin
     property :author, predicate: ::RDF::Vocab::DC.creator, multiple: false do |index|
       index.as :stored_searchable
     end
 
-=begin
     property :abstract, predicate: ::RDF::Vocab::DC.abstract, multiple: false do |index|
       index.as :stored_searchable
     end

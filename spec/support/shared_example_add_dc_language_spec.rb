@@ -9,7 +9,7 @@ shared_examples_for "dc_language" do
     expect(@stubby.language).to eq(['en-GB'])
   end
   it 'will have the dc.language predicate' do
-    expect(thesis.resource.dump(:ttl).should include('http://purl.org/dc/terms/language'))
+    expect(@stubby.resource.dump(:ttl).should include('http://purl.org/dc/terms/language'))
   end
 
 end

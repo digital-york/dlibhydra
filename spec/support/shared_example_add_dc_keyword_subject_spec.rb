@@ -12,10 +12,10 @@ shared_examples_for "dc_keyword_subject" do
     expect(@stubby.keyword).to eq(['keyword'])
   end
   it 'will have the dc.subject predicate' do
-    expect(thesis.resource.dump(:ttl).should include('http://purl.org/dc/terms/subject'))
+    expect(@stubby.resource.dump(:ttl).should include('http://purl.org/dc/terms/subject'))
   end
   it 'will have the dc11.subject predicate' do
-    expect(thesis.resource.dump(:ttl).should include('http://purl.org/dc/elements/1.1/subject'))
+    expect(@stubby.resource.dump(:ttl).should include('http://purl.org/dc/elements/1.1/subject'))
   end
 
 end

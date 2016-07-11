@@ -9,7 +9,7 @@ shared_examples_for "dc_abstract" do
     expect(@stubby.abstract).to eq('abstract')
   end
   it 'will have the dc.abstract predicate' do
-    expect(thesis.resource.dump(:ttl).should include('http://purl.org/dc/terms/abstract'))
+    expect(@stubby.resource.dump(:ttl).should include('http://purl.org/dc/terms/abstract'))
   end
 
 

@@ -21,11 +21,11 @@ describe Dlibhydra::Thesis do
   it_behaves_like "dc_resource_type"
   it_behaves_like "dc_rights"
   it_behaves_like "dc_abstract"
+  it_behaves_like "dc_creator"
 
   describe '#metadata' do
     specify { thesis.type.should include('http://purl.org/ontology/bibo/Thesis') }
     specify { thesis.abstract.should eq('abstract') }
-    specify { thesis.author.should eq('Moody, Louise') }
     specify { thesis.abstract.should eq('abstract') }
     specify { thesis.advisor.should eq(['Stoneham, Tom']) }
     specify { thesis.date_of_award.should eq('2016-01-01') }
