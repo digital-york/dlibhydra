@@ -8,17 +8,27 @@ module Dlibhydra
         property :advisor,
                  comment: %(TODO.).freeze,
                  label: 'Advisory'.freeze,
-                 'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/terms/).freeze,
+                 'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/2.0/).freeze,
                  type: 'rdf:Property'.freeze
         property :department,
                  comment: %(TODO.).freeze,
                  label: 'Department'.freeze,
-                 'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/terms/).freeze,
+                 'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/2.0/).freeze,
                  type: 'rdf:Property'.freeze
-        property :qualification_level,
+        property :qualificationlevel,
                  comment: %(TODO.).freeze,
                  label: 'Qualification Level'.freeze,
-                 'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/terms/).freeze,
+                 'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/2.0/).freeze,
+                 type: 'rdf:Property'.freeze
+        property :qualificationname,
+                 comment: %(TODO.).freeze,
+                 label: 'Qualification Name'.freeze,
+                 'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/2.0/).freeze,
+                 type: 'rdf:Property'.freeze
+        property :institution,
+                 comment: %(TODO.).freeze,
+                 label: 'Institution'.freeze,
+                 'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/2.0/).freeze,
                  type: 'rdf:Property'.freeze
 
         # Extra definitions

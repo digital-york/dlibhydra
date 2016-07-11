@@ -38,13 +38,12 @@ module Dlibhydra
 
   autoload_under 'models/filesets' do
     autoload :MainFileSet
-    autoload :DatasetFileSet
+    autoload :ReadmeFileSet
   end
 
   autoload_under 'models/works' do
     autoload :Aip
     autoload :Dataset
-    autoload :Dip
     autoload :GenericWork
     autoload :Thesis
   end
@@ -53,27 +52,46 @@ module Dlibhydra
 
   end
 
-  autoload_under 'models/concerns' do
-    autoload :AddDcTitle
-    autoload :AddRdfsLabel
-    autoload :AssignId
-    autoload :DcAccessRights
-    autoload :DcAvailable
-    autoload :DcKeywordSubject
-    autoload :DcRights
-    autoload :DcTerms
+  autoload_under 'models/concerns/metadata' do
+    # Metadata
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
     autoload :MadsRelatedAuthority
     autoload :RdfsSeeAlso
+    autoload :RdfsLabel
     autoload :SameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl
-    autoload :ValidateConceptScheme
-    autoload :ValidateLabel
     autoload :Archivematica
     autoload :Pure
     autoload :Doi
+    autoload :Readme
+  end
+  autoload_under 'models/concerns/behaviours' do
+    # Identifiers
+    autoload :AssignId
+    # Behaviour
+    autoload :AddLabels
+    # Validations
+    autoload :ValidateConceptScheme
+    autoload :ValidateLabel
+  end
+
+  autoload_under 'models/concerns/metadata/dc' do
+    # Dublin Core Metadata
+    autoload :DcAccessRights
+    autoload :DcAvailable
+    autoload :DcKeywordSubject
+    autoload :DcRights
+    #autoload :DcTerms
+    autoload :DcTitle
+    autoload :DcIdentifier
+    autoload :DcDescription
+    autoload :DcDate
+    autoload :DcCreator
+    autoload :DcAbstract
+    autoload :DcLanguage
+    autoload :DcResourceType
   end
 
   autoload_under 'validators' do

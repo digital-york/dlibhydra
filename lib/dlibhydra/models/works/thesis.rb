@@ -2,30 +2,32 @@ module Dlibhydra
 
   class Thesis < ActiveFedora::Base
     include Hydra::Works::WorkBehavior,
-            Dlibhydra::SkosLabels,
-            Dlibhydra::AddRdfsLabel,
-            Dlibhydra::AddDcTitle,
+            Dlibhydra::AddLabels,
             Dlibhydra::ValidateLabel,
             Dlibhydra::DcKeywordSubject,
-            Dlibhydra::DcRights
+            Dlibhydra::DcRights,
+            Dlibhydra::DcAbstract,
+            Dlibhydra::DcLanguage,
+            Dlibhydra::DcResourceType,
+            Dlibhydra::AssignId
 
-    # distinguish the main file
+    # Use for the the main file, ie. the deposited thesis
     filters_association :members, as: :main, condition: :main?
 
     type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
 
-    # preflabel is mandatory (via concern), dc.title and rdfs:label automatically added
-
-    # would this be a URI? could it be author identifier, eg. ORCID
+    # TODO String, URI or Object, eg. ORCID
     property :author, predicate: ::RDF::Vocab::DC.creator, multiple: false do |index|
       index.as :stored_searchable
     end
 
+=begin
     property :abstract, predicate: ::RDF::Vocab::DC.abstract, multiple: false do |index|
       index.as :stored_searchable
     end
+=end
 
-    property :date_of_award, predicate: ::RDF::Vocab::DC.issued, multiple: false do |index|
+    property :date_of_award, predicate: ::RDF::Vocab::DC.dateAccepted, multiple: false do |index|
       index.as :stored_searchable
     end
 
@@ -37,7 +39,7 @@ module Dlibhydra
       index.as :stored_searchable
     end
 
-    # same as http://naca.central.cranfield.ac.uk/ethos-oai/terms/institution and bibo:issuer
+    # same as # same as Dlibhydra::Vocab::Uketd.institution and bibo:issuer
     property :awarding_institution, predicate: ::RDF::Vocab::Bibframe.dissertationInstitution, multiple: false do |index|
       index.as :stored_searchable
     end
@@ -46,11 +48,12 @@ module Dlibhydra
       index.as :stored_searchable
     end
 
-    # same as http://naca.central.cranfield.ac.uk/ethos-oai/terms/qualificationname
+    # same as Dlibhydra::Vocab::Uketd.qualificationname
     property :qualification_name, predicate: ::RDF::URI.new('http://vivoweb.org/ontology/core#AcademicDegree'), multiple: false do |index|
       index.as :stored_searchable
     end
 
+=begin
     property :resource_type, predicate: ::RDF::Vocab::DC.type, multiple: false do |index|
       index.as :stored_searchable
     end
@@ -58,9 +61,10 @@ module Dlibhydra
     property :language, predicate: ::RDF::Vocab::DC.language, multiple: false do |index|
       index.as :stored_searchable
     end
+=end
 
-    def main?
-      false
+    def thesis?
+      true
     end
 
   end

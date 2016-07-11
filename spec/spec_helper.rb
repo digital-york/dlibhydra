@@ -3,6 +3,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'active_support'
 require 'active_fedora'
 require 'dlibhydra'
+require 'hydra/works'
 
 # spec/spec_helper.rb
 require 'webmock/rspec'
@@ -20,10 +21,14 @@ RSpec.configure do |config|
     c.syntax = [:should, :expect]
   end
   config.before(:each) do
-    stub_request(:head, "http://fedoraAdmin:fedoraAdmin@127.0.0.1:8984/rest/dev").
+    #stub_request(:head, "http://fedoraAdmin:fedoraAdmin@127.0.0.1:8984/rest/dev").
+    stub_request(:head, /.*fedoraAdmin:fedoraAdmin@127.0.0.1:8984*./).
         with(:headers => {'Accept'=>'*/*', 'User-Agent'=>'Faraday v0.9.2'}).
         to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:post, "http://fedoraAdmin:fedoraAdmin@127.0.0.1:8984/rest/dev").
+    stub_request(:get, /.*fedoraAdmin:fedoraAdmin@127.0.0.1:8984*./).
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Prefer'=>'return=representation', 'User-Agent'=>'Faraday v0.9.2'}).
+        to_return(:status => 200, :body => "", :headers => {})
+    stub_request(:post, /.*fedoraAdmin:fedoraAdmin@127.0.0.1:8984*./).
         with(:body => /fedora/,
              :headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Content-Type'=>'text/turtle', 'User-Agent'=>'Faraday v0.9.2'}).
         to_return(:status => 200, :body => "", :headers => {})
@@ -31,8 +36,8 @@ RSpec.configure do |config|
         with(:body => /xml version/,
              :headers => {'Content-Type'=>'text/xml'}).
         to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:post, "http://fedoraAdmin:fedoraAdmin@127.0.0.1:8984/rest/dev").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Content-Type'=>'text/turtle', 'User-Agent'=>'Faraday v0.9.2'}).
-        to_return(:status => 200, :body => "", :headers => {})
   end
+  # Include shared examples for concerns
+  Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
+
 end

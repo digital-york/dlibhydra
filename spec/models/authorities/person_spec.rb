@@ -5,7 +5,7 @@ describe Dlibhydra::Person do
   let(:person) { described_class.create }
   let(:scheme) { Dlibhydra::ConceptScheme.create }
 
-  it 'is a concept' do
+  it 'is a person' do
     expect(person.person?).to be_truthy
   end
 
