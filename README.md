@@ -1,10 +1,6 @@
 # Dlibhydra
 
-Models, vocabs and behaviours for University of York.
-
-TODO: Delete this and the text above, and describe your gem
-
-Models and vocabularies gem for York Digital Library Hydra applications.
+Models, vocabularies and behaviours for York Digital Library Hydra applications.
 
 ## Installation
 
