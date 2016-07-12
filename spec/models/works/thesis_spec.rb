@@ -30,7 +30,7 @@ describe Dlibhydra::Thesis do
     specify { thesis.advisor.should eq(['Smith, Mark E.']) }
     specify { thesis.date_of_award.should eq('2016-01-01') }
     specify { thesis.awarding_institution.should eq('University of York') }
-    specify { thesis.department.should eq(['Department of Philosophy']) }
+    specify { thesis.department.should eq(['Department of Miserabilism']) }
     specify { thesis.qualification_level.should eq('PhD') }
     specify { thesis.qualification_name.should eq('qualification') }
 
