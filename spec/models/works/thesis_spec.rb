@@ -27,7 +27,7 @@ describe Dlibhydra::Thesis do
     specify { thesis.type.should include('http://purl.org/ontology/bibo/Thesis') }
     specify { thesis.abstract.should eq('abstract') }
     specify { thesis.abstract.should eq('abstract') }
-    specify { thesis.advisor.should eq(['Stoneham, Tom']) }
+    specify { thesis.advisor.should eq(['Smith, Mark E.']) }
     specify { thesis.date_of_award.should eq('2016-01-01') }
     specify { thesis.awarding_institution.should eq('University of York') }
     specify { thesis.department.should eq(['Department of Philosophy']) }

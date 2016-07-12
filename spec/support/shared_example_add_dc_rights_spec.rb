@@ -6,7 +6,7 @@ shared_examples_for "dc_rights" do
     @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
   end
   it "will have a rights holder" do
-    expect(@stubby.rights_holder).to eq('Louise Moody')
+    expect(@stubby.rights_holder).to eq('Johnny Marr')
   end
   it "will have a license" do
     expect(@stubby.license).to eq('license')

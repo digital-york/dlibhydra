@@ -6,7 +6,7 @@ shared_examples_for "dc_creator" do
     @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
   end
   it "will have creator" do
-    expect(@stubby.creator).to eq(['Moody, Louise'])
+    expect(@stubby.creator).to eq(['Marr, Johnny'])
   end
   it 'will have the dc.creator predicate' do
     expect(@stubby.resource.dump(:ttl).should include('http://purl.org/dc/terms/creator'))

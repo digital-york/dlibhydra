@@ -1,9 +1,19 @@
 require 'spec_helper'
+require 'active_fedora'
+require 'hydra/works'
+require 'action_view'
 
 describe Dlibhydra::Person do
 
-  let(:person) { described_class.create }
-  let(:scheme) { Dlibhydra::ConceptScheme.create }
+  let(:person) { FactoryGirl.build(:person) }
+  let(:scheme) { FactoryGirl.build(:concept_scheme)  }
+
+  it_behaves_like "borthwick_note"
+  it_behaves_like "foaf_name_parts"
+  it_behaves_like "hub_dates"
+  it_behaves_like "generic_authority_terms"
+  it_behaves_like "mads_related_authority"
+  it_behaves_like "owl_same_as"
 
   it 'is a person' do
     expect(person.person?).to be_truthy
@@ -11,16 +21,20 @@ describe Dlibhydra::Person do
 
   # test metadata properties
   describe 'metadata' do
-    before { mock(person) }
-    specify { person.preflabel.should eq('hello') }
-    specify { person.altlabel.should eq(['alternative hello']) }
-    specify { person.type.should eq(['http://schema.org/Person', 'http://vocab.getty.edu/ontology#PersonConcept','http://purl.org/vra/Person']) }
+    specify { person.type.should include('http://schema.org/Person') }
+    specify { person.type.should include('http://purl.org/vra/Person') }
+    specify { person.type.should include('http://vocab.getty.edu/ontology#PersonConcept') }
+    specify { person.pre_title.should eq('pre_title') }
+    specify { person.post_title.should eq('post_title') }
+    specify { person.epithet.should eq('epithet') }
+    specify { person.dates_of_office.should eq('1500-1510') }
   end
 
+  before {
+    person.concept_scheme = scheme
+  }
   # test related objects
   describe 'related objects' do
-    before { mock(person) }
-
     it 'is related to the parent scheme' do
       expect(person.concept_scheme).to be_a(Dlibhydra::ConceptScheme)
     end
@@ -28,24 +42,11 @@ describe Dlibhydra::Person do
   end
 
   # test predicates sent to fedora
-  describe 'predicates and rdf types' do
-    before { mock(person) }
-    specify { person.resource.dump(:ttl).should include("<> a \"http://www.w3.org/2004/02/skos/core#Concept\",\n     \"http://pcdm.org/models#Object\";") }
-    specify { person.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#prefLabel') }
-  end
-
-
-  # test ids
-
-  def mock(thing)
-    thing.preflabel = 'hello'
-    thing.altlabel << 'alternative hello'
-    #thing.rdftype << person.add_rdf_types
-    thing.approved = 'true'
-    thing.same_as << 'http://id.loc.gov/authorities/subjects/sh85061212'
-    thing.same_as << 'info:lc/authorities/sh85061212'
-    thing.concept_scheme = scheme
-    # ADD MORE STUFF HERE
+  describe 'predicates' do
+    specify { person.resource.dump(:ttl).should include('http://data.archiveshub.ac.uk/def/epithet') }
+    specify { person.resource.dump(:ttl).should include('http://data.archiveshub.ac.uk/def/title') }
+    specify { person.resource.dump(:ttl).should include('http://dlib.york.ac.uk/ontologies/generic#datesOfOffice') }
+    specify { person.resource.dump(:ttl).should include('http://dlib.york.ac.uk/ontologies/generic#preTitle') }
   end
 
 end

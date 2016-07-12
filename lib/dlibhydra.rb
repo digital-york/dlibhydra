@@ -56,6 +56,7 @@ module Dlibhydra
     # Metadata
     autoload :BorthwickNote
     autoload :FoafName
+    autoload :FoafNameParts
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
     autoload :GenericQualifier

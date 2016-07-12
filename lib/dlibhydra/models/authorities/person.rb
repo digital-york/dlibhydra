@@ -8,6 +8,7 @@ module Dlibhydra
             Dlibhydra::AddLabels,
             Dlibhydra::BorthwickNote,
             Dlibhydra::FoafNameParts,
+            Dlibhydra::HubDates,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::AssignId
@@ -26,11 +27,6 @@ module Dlibhydra
 
     # eg. NCA Rules 2.5C
     property :pre_title, predicate: Dlibhydra::Vocab::Generic.preTitle, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    # eg. NCA Rules 2.5A
-    property :dates, predicate: ::RDF::URI.new('http://data.archiveshub.ac.uk/def/dates'), multiple: false do |index|
       index.as :stored_searchable
     end
 

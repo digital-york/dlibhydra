@@ -57,4 +57,22 @@ FactoryGirl.define do
     group_type ['group type']
   end
 
+  factory :person, class: Dlibhydra::Person do
+    preflabel 'label'
+    altlabel  ['alternative label']
+    given_name 'Stephen Patrick'
+    family 'Morrissey'
+    same_as ['http://id.loc.gov/authorities/subjects/sh85061212','info:lc/authorities/sh85061212']
+    related_authority ['related','authority']
+    approved 'true'
+    rules 'nca'
+    used 'true'
+    dates '1500-1550'
+    epithet 'epithet'
+    pre_title 'pre_title'
+    post_title 'post_title'
+    note ['note']
+    dates_of_office '1500-1510'
+  end
+
 end
