@@ -6,7 +6,8 @@ module Dlibhydra
     include Hydra::Works::WorkBehavior,
             Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
-            Dlibhydra::ValidateLabel,
+            Dlibhydra::BorthwickNote,
+            Dlibhydra::FoafNameParts,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::AssignId
@@ -17,24 +18,14 @@ module Dlibhydra
     type << ::RDF::URI.new('http://vocab.getty.edu/ontology#PersonConcept')
     type << ::RDF::URI.new('http://purl.org/vra/Person')
 
-    # in VRA this includes family as well as individual
+    # in VRA this includes family as well as individual - that's what group is for
     # vra:hasCulture
-    # vra:name
+    # vra:name == foaf.name
     # vra:birthDate
     # vra:deathDate
 
-    # eg. NCA Rules 2.4
-    property :family, predicate: ::RDF::Vocab::FOAF.familyName, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
     # eg. NCA Rules 2.5C
     property :pre_title, predicate: Dlibhydra::Vocab::Generic.preTitle, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    # eg. NCA Rules 2.3
-    property :given_name, predicate: ::RDF::FOAF.givenName, multiple: false do |index|
       index.as :stored_searchable
     end
 
@@ -54,10 +45,6 @@ module Dlibhydra
     end
 
     property :dates_of_office, predicate: Dlibhydra::Vocab::Generic.datesOfOffice, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    property :note, predicate: Dlibhydra::Vocab::BorthwickRegisters.note, multiple: true do |index|
       index.as :stored_searchable
     end
 

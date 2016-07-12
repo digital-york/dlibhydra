@@ -3,10 +3,8 @@ module Dlibhydra
 
     include Hydra::Works::WorkBehavior,
             Dlibhydra::OwlSameAs,
-            Dlibhydra::SkosLabels,
-            Dlibhydra::DcTitle,
             Dlibhydra::AddLabels,
-            Dlibhydra::ValidateLabel,
+            Dlibhydra::BorthwickNote,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::AssignId
@@ -60,10 +58,6 @@ module Dlibhydra
 
     # eg. UK
     property :parent_country, predicate: ::RDF::URI.new('http://www.geonames.org/ontology#parentCountry'), multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    property :note, predicate: Dlibhydra::Vocab::BorthwickRegisters..note, multiple: true do |index|
       index.as :stored_searchable
     end
 

@@ -3,10 +3,8 @@ module Dlibhydra
 
     include Hydra::Works::WorkBehavior,
             Dlibhydra::OwlSameAs,
-            Dlibhydra::SkosLabels,
-            Dlibhydra::DcTitle,
             Dlibhydra::AddLabels,
-            Dlibhydra::ValidateLabel,
+            Dlibhydra::FoafNameParts,
             Dlibhydra::Pure,
             Dlibhydra::AssignId
 
@@ -14,14 +12,6 @@ module Dlibhydra
 
     type << ::RDF::URI.new('http://schema.org/Person')
     type << Dlibhydra::Vocab::PureTerms.PurePerson
-
-    property :family, predicate: ::RDF::Vocab::FOAF.familyName, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    property :given_name, predicate: ::RDF::FOAF.givenName, multiple: false do |index|
-      index.as :stored_searchable
-    end
 
     def pure_person?
       true

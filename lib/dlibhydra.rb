@@ -97,6 +97,7 @@ module Dlibhydra
     autoload :AssignId
     # Behaviour
     autoload :AddLabels
+    autoload :AddDcDescriptive
     # Validations
     autoload :ValidateConceptScheme
     autoload :ValidateLabel
