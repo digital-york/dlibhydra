@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :thesis, class: Dlibhydra::Thesis do
-    title ['title']
+    title ['Strangeways, Here We Come']
     abstract 'abstract'
     creator ['Marr, Johnny']
     date_of_award '2016-01-01'
