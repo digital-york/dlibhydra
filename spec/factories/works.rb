@@ -12,8 +12,8 @@ FactoryGirl.define do
     qualification_name 'qualification'
     resource_type ['resource type']
     language ['en-GB']
-    subject ['philosophy']
-    keyword ['keyword']
+    subject ['miserabilism']
+    keyword ['northern misery']
     rights_holder 'Johnny Marr'
     license 'license'
   end
