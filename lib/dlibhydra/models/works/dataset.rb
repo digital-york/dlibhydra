@@ -8,8 +8,9 @@ module Dlibhydra
             Dlibhydra::Pure,
             Dlibhydra::Doi
 
-    filters_association :members, as: :dip, condition: :readme? # FileSet for README file TODO validate
+    filters_association :members, as: :readme, condition: :readme? # FileSet for README file TODO validate
     filters_association :members, as: :aip, condition: :aip?
+    filters_association :members, as: :dip, condition: :dip?
 
     has_and_belongs_to_many :creator, class_name: 'Dlibhydra::PurePerson', predicate: ::RDF::DC.creator
     has_and_belongs_to_many :managing_organisation, class_name: 'Dlibhydra::PureOrganisation', predicate: Dlibhydra::Vocab::PureTerms.pureOrganisation

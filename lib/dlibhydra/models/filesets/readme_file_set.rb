@@ -1,17 +1,15 @@
 module Dlibhydra
   class ReadmeFileSet < ActiveFedora::Base
     include Hydra::Works::FileSetBehavior,
-            Dlibhydra::SkosLabels,
-            Dlibhydra::DcTitle,
-            Dlibhydra::AddLabels,
-            Dlibhydra::ValidateLabel,
-            Dlibhydra::AssignId
-
+            Dlibhydra::AddLabels
 
     def readme?
       true
     end
     def aip?
+      false
+    end
+    def dip?
       false
     end
 

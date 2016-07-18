@@ -10,10 +10,10 @@ module Dlibhydra
       property :aip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :transfer_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
+      property :transfer_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.tranferUuid, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :sip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.aipUuid, multiple: false do |index|
+      property :sip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.sipUuid, multiple: false do |index|
         index.as :stored_searchable
       end
       property :dip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.dipUuid, multiple: false do |index|

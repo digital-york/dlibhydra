@@ -18,6 +18,13 @@ module Dlibhydra
     def aip?
       true
     end
+    def dip?
+      if self.dip_status == 'UPLOADED'
+        true
+      else
+        false
+      end
+    end
 
     # If a DIP has been created, add the rdf type
     def add_dip_type
