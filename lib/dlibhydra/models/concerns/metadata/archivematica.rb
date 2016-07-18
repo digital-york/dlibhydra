@@ -36,7 +36,6 @@ module Dlibhydra
       property :dip_size, predicate: Dlibhydra::Vocab::OaisArchivematica.dipSize, multiple: false do |index|
         index.as :stored_searchable
       end
-=begin
       property :aip_current_full_path, predicate: Dlibhydra::Vocab::OaisArchivematica.AipCurrentFullPath, multiple: false do |index|
         index.as :stored_searchable
       end
@@ -49,7 +48,6 @@ module Dlibhydra
       property :dip_current_path, predicate: Dlibhydra::Vocab::OaisArchivematica.dipCurrentPath, multiple: false do |index|
         index.as :stored_searchable
       end
-=end
       property :aip_current_location, predicate: Dlibhydra::Vocab::OaisArchivematica.AipCurrentLocation, multiple: false do |index|
         index.as :stored_searchable
       end

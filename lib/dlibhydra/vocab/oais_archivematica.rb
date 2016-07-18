@@ -48,14 +48,24 @@ module Dlibhydra
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
 
-        property :currentFullPath,
-                 comment: %(This property should be used to for current full path of the AIP or DIP.).freeze,
-                 label: 'Archivematica Current Full Path'.freeze,
+        property :aipCurrentFullPath,
+                 comment: %(This property should be used to for current full path of the AIP.).freeze,
+                 label: 'Archivematica AIP Current Full Path'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-        property :currentPath,
-                 comment: %(This property should be used to for current path of the AIP or DIP.).freeze,
-                 label: 'Archivematica Current Full Path'.freeze,
+        property :dipCurrentFullPath,
+                 comment: %(This property should be used to for current full path of the DIP.).freeze,
+                 label: 'Archivematica DIP Current Full Path'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :aipCurrentPath,
+                 comment: %(This property should be used to for current path of the DIP.).freeze,
+                 label: 'Archivematica AIP Current Full Path'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :dipCurrentPath,
+                 comment: %(This property should be used to for current path of the DIP.).freeze,
+                 label: 'Archivematica DIP Current Full Path'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
         property :dipCurrentLocation,
@@ -88,9 +98,14 @@ module Dlibhydra
                  label: 'Archivematica Resource URI'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-        property :status,
-                 comment: %(This property should be used to for status of the AIP or DIP. The value should be taken from a controlled list.).freeze,
-                 label: 'Status'.freeze,
+        property :aipStatus,
+                 comment: %(This property should be used to for status of the AIP. The value should be taken from a controlled list.).freeze,
+                 label: 'AIP Status'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematic#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :dipStatus,
+                 comment: %(This property should be used to for status of the DIP. The value should be taken from a controlled list.).freeze,
+                 label: 'DIP Status'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematic#).freeze,
                  type: 'rdf:Property'.freeze
 
