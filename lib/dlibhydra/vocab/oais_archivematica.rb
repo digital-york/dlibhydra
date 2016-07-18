@@ -58,9 +58,14 @@ module Dlibhydra
                  label: 'Archivematica Current Full Path'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-        property :currentLocation,
-                 comment: %(This property should be used to for current location of the AIP or DIP.).freeze,
-                 label: 'Archivematica Current Location'.freeze,
+        property :dipCurrentLocation,
+                 comment: %(This property should be used to for current location of the DIP.).freeze,
+                 label: 'Archivematica DIP Current Location'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :aipCurrentLocation,
+                 comment: %(This property should be used to for current location of the AIP.).freeze,
+                 label: 'Archivematica AIP Current Location'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
         property :originPipeline,
@@ -68,9 +73,14 @@ module Dlibhydra
                  label: 'Archivematica Origin Pipeline'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-        property :size,
-                 comment: %(This property should be used to for the size of the AIP or DIP.).freeze,
-                 label: 'Archivematica Size'.freeze,
+        property :aipSize,
+                 comment: %(This property should be used to for the size of the AIP.).freeze,
+                 label: 'Archivematica AIP Size'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :dipSize,
+                 comment: %(This property should be used to for the size of the DIP.).freeze,
+                 label: 'Archivematica DIP Size'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
         property :resourceUri,
