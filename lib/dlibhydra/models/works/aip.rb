@@ -1,10 +1,7 @@
 module Dlibhydra
   class Aip < ActiveFedora::Base
     include Hydra::Works::WorkBehavior,
-            Dlibhydra::SkosLabels,
-            Dlibhydra::AddRdfsLabel,
-            Dlibhydra::AddDcTitle,
-            Dlibhydra::ValidateLabel,
+            Dlibhydra::AddLabels,
             Dlibhydra::AssignId,
             Dlibhydra::Archivematica,
             Dlibhydra::Readme
