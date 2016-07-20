@@ -20,8 +20,8 @@ module Dlibhydra
     autoload :Group
     autoload :Person
     autoload :Place
-    autoload :PurePerson
-    autoload :PureOrganisation
+    autoload :CurrentPerson
+    autoload :CurrentOrganisation
   end
 
   autoload_under 'models/collections' do
@@ -68,6 +68,7 @@ module Dlibhydra
     autoload :ThumbnailUrl
     autoload :Archivematica
     autoload :Pure
+    autoload :PureUuid
     autoload :Doi
     autoload :Readme
   end
@@ -80,18 +81,20 @@ module Dlibhydra
 
   autoload_under 'models/concerns/metadata/dc' do
     # Dublin Core Metadata
+    autoload :DcAbstract
     autoload :DcAccessRights
     autoload :DcAvailable
+    autoload :DcCreator
+    autoload :DcCreatorObject
+    autoload :DcDate
+    autoload :DcDescription
+    autoload :DcIdentifier
     autoload :DcKeywordSubject
+    autoload :DcLanguage
+    autoload :DcPublisher
+    autoload :DcResourceType
     autoload :DcRights
     autoload :DcTitle
-    autoload :DcIdentifier
-    autoload :DcDescription
-    autoload :DcDate
-    autoload :DcCreator
-    autoload :DcAbstract
-    autoload :DcLanguage
-    autoload :DcResourceType
   end
 
   autoload_under 'models/concerns/behaviours' do
@@ -100,6 +103,7 @@ module Dlibhydra
     # Behaviour
     autoload :AddLabels
     autoload :AddDcDescriptive
+    autoload :AddDataciteMandatory
     # Validations
     autoload :ValidateConceptScheme
     autoload :ValidateLabel

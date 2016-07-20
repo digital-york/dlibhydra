@@ -2,12 +2,12 @@ module Dlibhydra
   class CurrentPerson < ActiveFedora::Base
 
     include Hydra::Works::WorkBehavior,
-              Dlibhydra::OwlSameAs,
-              Dlibhydra::AddLabels,
-              Dlibhydra::FoafNameParts,
-              Dlibhydra::Pure,
-              Dlibhydra::Orcid,
-              Dlibhydra::AssignId
+            Dlibhydra::OwlSameAs,
+            Dlibhydra::AddLabels,
+            Dlibhydra::FoafNameParts,
+            Dlibhydra::PureUuid,
+            Dlibhydra::Orcid,
+            Dlibhydra::AssignId
 
     before_save :add_pure_type
 

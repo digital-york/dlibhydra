@@ -1,6 +1,7 @@
 module Dlibhydra
   module Pure
     extend ActiveSupport::Concern
+    include Dlibhydra::PureUuid
 
     included do
       property :pure_uuid, predicate: Dlibhydra::Vocab::PureTerms.pureUuid, multiple: false do |index|

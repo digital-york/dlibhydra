@@ -5,7 +5,7 @@ module Dlibhydra
             Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::FoafName,
-            Dlibhydra::Pure,
+            Dlibhydra::PureUuid,
             Dlibhydra::AssignId
 
     #belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
