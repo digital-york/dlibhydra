@@ -37,14 +37,14 @@ module Dlibhydra
 
     # If a DIP has been created, add the rdf type
     def add_dip_type
-      unless self.dip_uuid nil?
+      unless self.dip_uuid.nil?
         type << Dlibhydra::Vocab::OaisArchivematica.DisseminationInformtionPackage
       end
     end
 
     # If a AIP has been created, add the rdf type
     def add_aip_type
-      unless self.aip_uuid nil?
+      unless self.aip_uuid.nil?
         type << Dlibhydra::Vocab::OaisArchivematica.ArchivalInformtionPackage
       end
     end
