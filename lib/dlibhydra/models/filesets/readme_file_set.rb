@@ -6,6 +6,9 @@ module Dlibhydra
     def readme?
       true
     end
+    def package?
+      false
+    end
     def aip?
       false
     end

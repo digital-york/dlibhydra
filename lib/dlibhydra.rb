@@ -42,7 +42,7 @@ module Dlibhydra
   end
 
   autoload_under 'models/works' do
-    autoload :Aip
+    autoload :Package
     autoload :Dataset
     autoload :GenericWork
     autoload :Thesis
