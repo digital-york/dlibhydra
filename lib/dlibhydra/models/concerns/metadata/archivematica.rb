@@ -30,7 +30,7 @@ module Dlibhydra
       property :dip_status, predicate: Dlibhydra::Vocab::OaisArchivematica.dipStatus, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :aip_size, predicate: Dlibhydra::Vocab::OaisArchivematica.dipSize, multiple: false do |index|
+      property :aip_size, predicate: Dlibhydra::Vocab::OaisArchivematica.aipSize, multiple: false do |index|
         index.as :stored_searchable
       end
       property :dip_size, predicate: Dlibhydra::Vocab::OaisArchivematica.dipSize, multiple: false do |index|
