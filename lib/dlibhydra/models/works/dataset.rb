@@ -13,8 +13,8 @@ module Dlibhydra
     filters_association :members, as: :dips, condition: :dip?
     filters_association :members, as: :packages, condition: :package?
 
-    has_and_belongs_to_many :creator, class_name: 'Dlibhydra::PurePerson', predicate: ::RDF::DC.creator
-    has_and_belongs_to_many :managing_organisation, class_name: 'Dlibhydra::PureOrganisation', predicate: Dlibhydra::Vocab::PureTerms.pureOrganisation
+    has_and_belongs_to_many :creator, class_name: 'Dlibhydra::CurrentPerson', predicate: ::RDF::DC.creator
+    has_and_belongs_to_many :managing_organisation, class_name: 'Dlibhydra::CurrentOrganisation', predicate: Dlibhydra::Vocab::PureTerms.pureOrganisation
 
     type << ::RDF::Vocab::DCAT.Dataset
 

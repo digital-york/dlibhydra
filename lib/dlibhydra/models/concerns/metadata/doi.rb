@@ -2,11 +2,10 @@ module Dlibhydra
   module Doi
     extend ActiveSupport::Concern
 
-    # TODO use datacite and remove from generic vocab
-    # TODO add ORCID
+    # Or ::Rdf::Vocab::DataCite ?
 
     included do
-      property :doi, predicate: Dlibhydra::Vocab::Generic.doi, multiple: true do |index|
+      property :doi, predicate: ::Rdf::Vocab::Identifiers.doi, multiple: true do |index|
         index.as :stored_searchable
       end
     end

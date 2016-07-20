@@ -62,6 +62,7 @@ module Dlibhydra
     autoload :GenericQualifier
     autoload :HubDates
     autoload :MadsRelatedAuthority
+    autoload :Orcid
     autoload :OwlSameAs
     autoload :SkosLabels
     autoload :ThumbnailUrl
