@@ -1,9 +1,9 @@
 module Dlibhydra
-  module PureUuid
+  module LastAccess
     extend ActiveSupport::Concern
 
     included do
-      property :pure_uuid, predicate: Dlibhydra::Vocab::PureTerms.pureUuid, multiple: false do |index|
+      property :last_access, predicate: Dlibhydra::Vocab::Generic.lastAccess, multiple: false do |index|
         index.as :stored_searchable
       end
     end

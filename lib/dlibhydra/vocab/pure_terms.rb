@@ -34,20 +34,15 @@ module Dlibhydra
                  label: 'PURE Creation Date'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
                  type: 'rdf:Property'.freeze
-        property :pureDateAvailable,
-                 comment: %(This property should be used to for the date available in PURE.).freeze,
-                 label: 'PURE Creation Date'.freeze,
-                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
-                 type: 'rdf:Property'.freeze
         property :pureType,
                  comment: %(This property should be used to for the type value in PURE,
                   eg. type of person: internal or external.).freeze,
                  label: 'PURE Creation Date'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
                  type: 'rdf:Property'.freeze
-        property :pureOwner,
+        property :pureManagingUnit,
                  comment: %(This property should be used for the managing organisation in PURE.).freeze,
-                 label: 'PURE Managing Organisation'.freeze,
+                 label: 'PURE Managing Organisational Unit'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
                  type: 'rdf:Property'.freeze
         property :pureLink,

@@ -54,23 +54,25 @@ module Dlibhydra
 
   autoload_under 'models/concerns/metadata' do
     # Metadata
+    autoload :Archivematica
     autoload :BorthwickNote
+    autoload :Doi
     autoload :FoafName
     autoload :FoafNameParts
+    autoload :ForIndexing
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
     autoload :GenericQualifier
+    autoload :GenericWorkflow
     autoload :HubDates
+    autoload :LastAccess
     autoload :MadsRelatedAuthority
     autoload :Orcid
     autoload :OwlSameAs
-    autoload :SkosLabels
-    autoload :ThumbnailUrl
-    autoload :Archivematica
     autoload :Pure
-    autoload :PureUuid
-    autoload :Doi
     autoload :Readme
+    autoload :SkosLabels
+    # autoload :ThumbnailUrl
   end
 
   autoload_under 'models/concerns/metadata/rdfs' do

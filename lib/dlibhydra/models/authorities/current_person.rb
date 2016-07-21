@@ -5,7 +5,7 @@ module Dlibhydra
             Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::FoafNameParts,
-            Dlibhydra::PureUuid,
+            Dlibhydra::Pure,
             Dlibhydra::Orcid,
             Dlibhydra::AssignId
 

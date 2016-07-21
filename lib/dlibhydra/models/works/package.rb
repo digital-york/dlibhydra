@@ -6,14 +6,12 @@ module Dlibhydra
             Dlibhydra::Archivematica,
             Dlibhydra::Readme
 
-    # TODO change to a generic package type
-    type << Dlibhydra::Vocab::OaisArchivematica.ArchivalInformtionPackage
+    type << Dlibhydra::Vocab::Generic::Package
 
     before_save :add_dip_type
     before_save :add_aip_type
 
-    # TODO this is temporary
-    property :first_requestor, predicate: ::RDF::URI.new('http://example.com/firstRequestor'), multiple: false do |index|
+    property :requestor_email, predicate: Dlibhydra::Vocab::Generic.requestorEmail, multiple: true do |index|
       index.as :stored_searchable
     end
 

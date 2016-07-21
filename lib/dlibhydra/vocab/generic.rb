@@ -12,7 +12,13 @@ module Dlibhydra
              type: 'rdfs:Class'.freeze
         term :GenericWork,
              comment: %(A work that does not fit into any pre-existing model, eg. an unidentified data file.).freeze,
-             label: 'Archival Information Package (AIP)'.freeze,
+             label: 'Generic Work'.freeze,
+             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+             # TODO subClassOf: ''.freeze,
+             type: 'rdfs:Class'.freeze
+        term :Package,
+             comment: %(A package.).freeze,
+             label: 'Package'.freeze,
              'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
              # TODO subClassOf: ''.freeze,
              type: 'rdfs:Class'.freeze
@@ -70,17 +76,17 @@ module Dlibhydra
                  label: 'README'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
-        property :indexDump,
+        property :forIndexing,
                  comment: %(This property should be used to store data that does not need to be displayed but may be useful for searching.).freeze,
-                 label: 'Index Dump'.freeze,
+                 label: 'For Index'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
-        property :embargoEnd,
+        property :embargoReleaseDate,
                  comment: %(This property should be used to specify the end date of an embargo period.).freeze,
-                 label: 'Embargo End'.freeze,
+                 label: 'Embargo Release Date'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
-        property :dateOfLastAccess,
+        property :lastAccess,
                  comment: %(This property should be used to for the date a resource, or group of resources, was last accessed.).freeze,
                  label: 'Date of Last Access'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
@@ -88,6 +94,16 @@ module Dlibhydra
         property :status,
                  comment: %(This property should be used to for the status of the given object, eg. workflow status.).freeze,
                  label: 'Status'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :requestorEmail,
+                 comment: %(This property should be used to record the email address of a requestor.).freeze,
+                 label: 'Requestor Email'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :retentionPolicy,
+                 comment: %(This property should be used for the retention policy of the given resource. A value frim a conrolled vocabulary is recommended.).freeze,
+                 label: 'Retention Policy'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
 
