@@ -19,17 +19,17 @@ module Dlibhydra
       true
     end
     def aip?
-      unless self.aip_uuid.nil?
-        true
-      else
+      if self.aip_uuid.nil?
         false
+      else
+        true
       end
     end
     def dip?
-      unless self.dip_uuid.nil?
-        true
-      else
+      if self.dip_uuid.nil?
         false
+      else
+        true
       end
     end
 
