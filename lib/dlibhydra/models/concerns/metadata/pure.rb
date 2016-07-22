@@ -3,9 +3,9 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      if self.class.name.include? 'Dataset'
-        has_and_belongs_to_many :managing_organisation, class_name: 'Dlibhydra::CurrentOrganisation', predicate: Dlibhydra::Vocab::PureTerms.pureManagingUnit
-      end
+      #if self.class.name.include? 'Dataset'
+      has_and_belongs_to_many :managing_organisation, class_name: 'Dlibhydra::CurrentOrganisation', predicate: Dlibhydra::Vocab::PureTerms.pureManagingUnit
+      #end
       property :pure_uuid, predicate: Dlibhydra::Vocab::PureTerms.pureUuid, multiple: false do |index|
         index.as :stored_searchable
       end
