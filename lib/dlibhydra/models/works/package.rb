@@ -6,7 +6,7 @@ module Dlibhydra
             Dlibhydra::Archivematica,
             Dlibhydra::Readme
 
-    type << Dlibhydra::Vocab::Generic::Package
+    type << Dlibhydra::Vocab::Generic.Package
 
     before_save :add_dip_type
     before_save :add_aip_type
