@@ -39,6 +39,7 @@ module Dlibhydra
   autoload_under 'models/filesets' do
     autoload :MainFileSet
     autoload :ReadmeFileSet
+    autoload :FileSet
   end
 
   autoload_under 'models/works' do
