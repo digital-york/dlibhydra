@@ -3,7 +3,7 @@ module Dlibhydra
     extend ActiveSupport::Concern
     include Dlibhydra::SkosLabels,
             Dlibhydra::RdfsLabel,
-            Dlibhydra::DcTitle,
+            Dlibhydra::DcTitle
             #Dlibhydra::ValidateLabel
 
     included do
