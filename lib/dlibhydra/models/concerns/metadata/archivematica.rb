@@ -54,7 +54,7 @@ module Dlibhydra
       property :aip_resource_uri, predicate: Dlibhydra::Vocab::OaisArchivematica.aipResourceUri, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :Dip_resource_uri, predicate: Dlibhydra::Vocab::OaisArchivematica.DipResourceUri, multiple: false do |index|
+      property :dip_resource_uri, predicate: Dlibhydra::Vocab::OaisArchivematica.DipResourceUri, multiple: false do |index|
         index.as :stored_searchable
       end
       # This will always be the same for both AIP and DIP
