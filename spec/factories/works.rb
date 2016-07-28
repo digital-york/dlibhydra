@@ -18,4 +18,15 @@ FactoryGirl.define do
     license 'license'
   end
 
+  factory :dataset, class: Dlibhydra::Dataset do
+    title ['Strangeways, Here We Come']
+    embargo_release_date 2016-12-12
+    retention_policy '10 years from last access'
+    access_rights 'access rights'
+  end
+
+  factory :package, class: Dlibhydra::Package do
+    title ['Strangeways, Here We Come']
+  end
+
 end

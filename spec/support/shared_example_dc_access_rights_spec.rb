@@ -2,7 +2,7 @@ shared_examples_for "dc_access_rights" do
   let(:model) { described_class } # the class that includes the concern
 
   before(:each) do
-    model_str =  model.to_s.split('::')[1]
+    model_str = model.to_s.split('::')[1]
     @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
   end
   it "will have access rights" do

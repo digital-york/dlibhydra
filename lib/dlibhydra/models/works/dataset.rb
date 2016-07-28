@@ -32,5 +32,9 @@ module Dlibhydra
       index.as :stored_searchable
     end
 
+    def dataset?
+      true
+    end
+
   end
 end

@@ -2,7 +2,7 @@ shared_examples_for "add_labels" do
   let(:model) { described_class } # the class that includes the concern
 
   before(:each) do
-    model_str =  model.to_s.split('::')[1]
+    model_str = model.to_s.split('::')[1]
     @stubby = FactoryGirl.build(model_str.underscore.to_sym, :with_before_save_callback)
     @stubbier = FactoryGirl.build(model_str.underscore.to_sym, :with_before_save_callback,
                                   :title => ['Strangeways, Here We Come'], :preflabel => nil)
@@ -22,7 +22,7 @@ shared_examples_for "add_labels" do
     expect(@stubbier.rdfs_label).to eq('Strangeways, Here We Come')
   end
   it "automatically generates title from both title and preflabel when both are supplied" do
-    expect(@stubbing.title).to eq(['Strangeways, Here We Come','label'])
+    expect(@stubbing.title).to eq(['Strangeways, Here We Come', 'label'])
   end
   it "automatically generates rdfsLabel from preflabel when title only is supplied" do
     expect(@stubbing.rdfs_label).to eq('label')

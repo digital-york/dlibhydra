@@ -61,7 +61,7 @@ FactoryGirl.define do
     preflabel 'label'
     altlabel  ['alternative label']
     given_name 'Stephen Patrick'
-    family 'Morrissey'
+    family_name 'Morrissey'
     same_as ['http://id.loc.gov/authorities/subjects/sh85061212','info:lc/authorities/sh85061212']
     related_authority ['related','authority']
     approved 'true'
