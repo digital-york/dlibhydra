@@ -3,8 +3,7 @@ module Dlibhydra
     extend ActiveSupport::Concern
     include Dlibhydra::SkosLabels,
             Dlibhydra::RdfsLabel,
-            # temp to see if this fixes a problem in CC
-            #Dlibhydra::DcTitle
+            Dlibhydra::DcTitle
             #Dlibhydra::ValidateLabel
 
             included do
