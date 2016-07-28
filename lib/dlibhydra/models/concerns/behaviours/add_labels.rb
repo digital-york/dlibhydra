@@ -3,11 +3,11 @@ module Dlibhydra
     extend ActiveSupport::Concern
     include Dlibhydra::SkosLabels,
             Dlibhydra::RdfsLabel,
-            Dlibhydra::DcTitle,
-            Dlibhydra::ValidateLabel
+            Dlibhydra::DcTitle
+    #Dlibhydra::ValidateLabel
 
     included do
-      before_validation :map_labels
+      before_save :map_labels
     end
 
     def map_labels
