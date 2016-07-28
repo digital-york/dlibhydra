@@ -105,7 +105,7 @@ module Dlibhydra
   end
 
   autoload_under 'validators' do
-    autoload :HasLabelValidator
+    #autoload :HasLabelValidator
     autoload :ConceptSchemeMemberValidator
   end
 
