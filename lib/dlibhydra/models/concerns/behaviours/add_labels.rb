@@ -4,11 +4,11 @@ module Dlibhydra
     include Dlibhydra::SkosLabels,
             Dlibhydra::RdfsLabel,
             Dlibhydra::DcTitle
-            #Dlibhydra::ValidateLabel
+    #Dlibhydra::ValidateLabel
 
-    included do
-      before_save :map_labels
-    end
+    #included do
+    before_save :map_labels
+    #end
 
     protected
     def map_labels
