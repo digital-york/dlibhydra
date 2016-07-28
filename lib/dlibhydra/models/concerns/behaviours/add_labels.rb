@@ -3,10 +3,11 @@ module Dlibhydra
     extend ActiveSupport::Concern
     include Dlibhydra::SkosLabels,
             Dlibhydra::RdfsLabel,
-            Dlibhydra::DcTitle
-    #Dlibhydra::ValidateLabel
+            # temp to see if this fixes a problem in CC
+            #Dlibhydra::DcTitle
+            #Dlibhydra::ValidateLabel
 
-    included do
+            included do
       before_save :map_labels
     end
 
