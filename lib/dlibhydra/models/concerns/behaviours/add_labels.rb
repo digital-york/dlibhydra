@@ -10,11 +10,11 @@ module Dlibhydra
       before_save :map_labels
     end
 
-    private
+    protected
     def map_labels
       # if there's a preflabel, keep it
       if self.preflabel.class == String
-        if self.title = []
+        if self.title = [] or self.title.nil?
           self.title = [self.preflabel]
         else
           self.title << self.preflabel
