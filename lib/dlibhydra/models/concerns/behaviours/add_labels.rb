@@ -6,9 +6,9 @@ module Dlibhydra
             Dlibhydra::DcTitle
     #Dlibhydra::ValidateLabel
 
-    #included do
+    included do
     before_save :map_labels
-    #end
+
 
     protected
     def map_labels
@@ -24,6 +24,8 @@ module Dlibhydra
         # if both preflabel and title are nil, validator will throw an error
         end
       self.rdfs_label = self.preflabel
-      end
+    end
+
+    end
   end
 end
