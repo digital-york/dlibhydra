@@ -7,10 +7,9 @@ module Dlibhydra
     #Dlibhydra::ValidateLabel
 
     included do
-      before_validation :map_labels
+      before_save :map_labels
     end
 
-    protected
     def map_labels
       # if there's a preflabel, keep it
       if self.preflabel.class == String
