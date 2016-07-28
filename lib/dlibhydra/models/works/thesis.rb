@@ -3,7 +3,6 @@ module Dlibhydra
   class Thesis < ActiveFedora::Base
     include Hydra::Works::WorkBehavior,
             Dlibhydra::AddLabels,
-            Dlibhydra::ValidateLabel,
             Dlibhydra::DcKeywordSubject,
             Dlibhydra::DcRights,
             Dlibhydra::DcAbstract,
