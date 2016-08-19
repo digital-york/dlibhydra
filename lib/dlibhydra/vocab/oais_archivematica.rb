@@ -47,7 +47,7 @@ module Dlibhydra
                  label: 'Transfer UUID'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-
+=begin
         property :aipCurrentFullPath,
                  comment: %(This property should be used to for current full path of the AIP.).freeze,
                  label: 'Archivematica AIP Current Full Path'.freeze,
@@ -58,6 +58,7 @@ module Dlibhydra
                  label: 'Archivematica DIP Current Full Path'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
+=end
         property :aipCurrentPath,
                  comment: %(This property should be used to for current path of the DIP.).freeze,
                  label: 'Archivematica AIP Current Full Path'.freeze,
@@ -93,9 +94,14 @@ module Dlibhydra
                  label: 'Archivematica DIP Size'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
-        property :resourceUri,
-                 comment: %(This property should be used to for the resource uri of the AIP or DIP.).freeze,
-                 label: 'Archivematica Resource URI'.freeze,
+        property :aipResourceUri,
+                 comment: %(This property should be used to for the resource uri of the AIP.).freeze,
+                 label: 'Archivematica AIP Resource URI'.freeze,
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
+                 type: 'rdf:Property'.freeze
+        property :dipResourceUri,
+                 comment: %(This property should be used to for the resource uri of the DIP.).freeze,
+                 label: 'Archivematica DIP Resource URI'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/oais-archivematica#).freeze,
                  type: 'rdf:Property'.freeze
         property :aipStatus,

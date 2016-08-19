@@ -4,19 +4,19 @@ module Dlibhydra
     class PureTerms < RDF::Vocabulary('http://dlib.york.ac.uk/ontologies/pure#')
 
         # Class definitions
-        term :PurePerson,
+        term :Person,
              comment: %(Person information from PURE).freeze,
-             label: 'Pure Person'.freeze,
+             label: 'Person'.freeze,
              'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
              # TODO subClassOf: ''.freeze,
              type: 'rdfs:Class'.freeze
-        term :PureOrganisation,
+        term :Organisation,
              comment: %(Organisation information from PURE.).freeze,
              label: 'Pure Organisation'.freeze,
              'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
              # TODO subClassOf: ''.freeze,
              type: 'rdfs:Class'.freeze
-        term :PurePersonPhd,
+        term :Phd,
              comment: %(Person information in PURE, for a Phd student.).freeze,
              label: 'Pure Person Phd'.freeze,
              'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
@@ -34,20 +34,15 @@ module Dlibhydra
                  label: 'PURE Creation Date'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
                  type: 'rdf:Property'.freeze
-        property :pureDateAvailable,
-                 comment: %(This property should be used to for the date available in PURE.).freeze,
-                 label: 'PURE Creation Date'.freeze,
-                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
-                 type: 'rdf:Property'.freeze
         property :pureType,
                  comment: %(This property should be used to for the type value in PURE,
                   eg. type of person: internal or external.).freeze,
                  label: 'PURE Creation Date'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
                  type: 'rdf:Property'.freeze
-        property :pureOrganisation,
+        property :pureManagingUnit,
                  comment: %(This property should be used for the managing organisation in PURE.).freeze,
-                 label: 'PURE Managing Organisation'.freeze,
+                 label: 'PURE Managing Organisational Unit'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
                  type: 'rdf:Property'.freeze
         property :pureLink,
