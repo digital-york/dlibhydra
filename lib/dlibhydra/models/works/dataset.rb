@@ -6,7 +6,9 @@ module Dlibhydra
             Dlibhydra::DcAvailable,
             Dlibhydra::DcAccessRights,
             Dlibhydra::Pure,
-            Dlibhydra::Doi
+            Dlibhydra::Doi,
+            Dlibhydra::SimpleVersions
+
 
     filters_association :members, as: :readme, condition: :readme? # FileSet for README file TODO validate
     filters_association :members, as: :aip, condition: :aip?

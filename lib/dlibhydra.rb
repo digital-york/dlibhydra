@@ -36,10 +36,13 @@ module Dlibhydra
 
   end
 
+=begin
+  # Removed due to incompatibility with CC
   autoload_under 'models/filesets' do
     autoload :MainFileSet
     autoload :ReadmeFileSet
   end
+=end
 
   autoload_under 'models/works' do
     autoload :Aip
