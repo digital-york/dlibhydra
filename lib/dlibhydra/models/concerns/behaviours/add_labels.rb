@@ -6,20 +6,21 @@ module Dlibhydra
             Dlibhydra::DcTitle
             #Dlibhydra::ValidateLabel
 
-    included do
+            included do
       before_save :map_labels
     end
 
     def map_labels
+      # if there's a preflabel, keep it
       if self.preflabel.class == String
-        if self.title.nil? # if there's a preflabel, keep it
+        if self.title = [] or self.title.nil?
           self.title = [self.preflabel]
         else
           self.title << self.preflabel
         end
       elsif self.preflabel.nil? and self.title[0].class == String
         self.preflabel = self.title[0]
-      # if both preflabel and title are nil, validator will throw an error
+        # if both preflabel and title are nil, validator will throw an error
       end
       self.rdfs_label = self.preflabel
     end

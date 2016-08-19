@@ -3,8 +3,7 @@ module Dlibhydra
     include Hydra::Works::WorkBehavior,
             Dlibhydra::SkosLabels,
             Dlibhydra::DcTitle,
-            Dlibhydra::AddLabels,
-            Dlibhydra::ValidateLabel
+            Dlibhydra::AddLabels
 
     type << ::RDF::URI.new('http://dlib.york.ac.uk/generic#GenericWork')
 

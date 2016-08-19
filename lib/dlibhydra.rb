@@ -109,11 +109,11 @@ module Dlibhydra
     autoload :AddDataciteMandatory
     # Validations
     autoload :ValidateConceptScheme
-    autoload :ValidateLabel
+    #autoload :ValidateLabel
   end
 
   autoload_under 'validators' do
-    autoload :HasLabelValidator
+    #autoload :HasLabelValidator
     autoload :ConceptSchemeMemberValidator
   end
 
