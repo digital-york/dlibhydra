@@ -19,11 +19,6 @@ module Dlibhydra
       property :dip_uuid, predicate: Dlibhydra::Vocab::OaisArchivematica.dipUuid, multiple: false do |index|
         index.as :stored_searchable
       end
-=begin
-      property :dip_location, predicate: Dlibhydra::Vocab::OaisArchivematica.dipLocation, multiple: false do |index|
-        index.as :stored_searchable
-      end
-=end
       property :aip_status, predicate: Dlibhydra::Vocab::OaisArchivematica.aipStatus, multiple: false do |index|
         index.as :stored_searchable
       end
@@ -36,24 +31,33 @@ module Dlibhydra
       property :dip_size, predicate: Dlibhydra::Vocab::OaisArchivematica.dipSize, multiple: false do |index|
         index.as :stored_searchable
       end
+=begin
       property :aip_current_full_path, predicate: Dlibhydra::Vocab::OaisArchivematica.AipCurrentFullPath, multiple: false do |index|
         index.as :stored_searchable
       end
       property :dip_current_full_path, predicate: Dlibhydra::Vocab::OaisArchivematica.DipCurrentFullPath, multiple: false do |index|
         index.as :stored_searchable
       end
+=end
       property :aip_current_path, predicate: Dlibhydra::Vocab::OaisArchivematica.aipCurrentPath, multiple: false do |index|
         index.as :stored_searchable
       end
       property :dip_current_path, predicate: Dlibhydra::Vocab::OaisArchivematica.dipCurrentPath, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :aip_current_location, predicate: Dlibhydra::Vocab::OaisArchivematica.AipCurrentLocation, multiple: false do |index|
+      property :aip_current_location, predicate: Dlibhydra::Vocab::OaisArchivematica.aipCurrentLocation, multiple: false do |index|
         index.as :stored_searchable
       end
-      property :dip_current_location, predicate: Dlibhydra::Vocab::OaisArchivematica.DipCurrentLocation, multiple: false do |index|
+      property :dip_current_location, predicate: Dlibhydra::Vocab::OaisArchivematica.dipCurrentLocation, multiple: false do |index|
         index.as :stored_searchable
       end
+      property :aip_resource_uri, predicate: Dlibhydra::Vocab::OaisArchivematica.aipResourceUri, multiple: false do |index|
+        index.as :stored_searchable
+      end
+      property :dip_resource_uri, predicate: Dlibhydra::Vocab::OaisArchivematica.DipResourceUri, multiple: false do |index|
+        index.as :stored_searchable
+      end
+      # This will always be the same for both AIP and DIP
       property :origin_pipeline, predicate: Dlibhydra::Vocab::OaisArchivematica.originPipeline, multiple: false do |index|
         index.as :stored_searchable
       end

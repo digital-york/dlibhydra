@@ -4,7 +4,7 @@ module Dlibhydra
 
     included do
       # eg. NCA Rules 2.4
-      property :family, predicate: ::RDF::Vocab::FOAF.familyName, multiple: false do |index|
+      property :family_name, predicate: ::RDF::Vocab::FOAF.familyName, multiple: false do |index|
         index.as :stored_searchable
       end
 

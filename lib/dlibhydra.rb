@@ -20,8 +20,8 @@ module Dlibhydra
     autoload :Group
     autoload :Person
     autoload :Place
-    autoload :PurePerson
-    autoload :PureOrganisation
+    autoload :CurrentPerson
+    autoload :CurrentOrganisation
   end
 
   autoload_under 'models/collections' do
@@ -39,10 +39,11 @@ module Dlibhydra
   autoload_under 'models/filesets' do
     autoload :MainFileSet
     autoload :ReadmeFileSet
+    autoload :FileSet
   end
 
   autoload_under 'models/works' do
-    autoload :Aip
+    autoload :Package
     autoload :Dataset
     autoload :GenericWork
     autoload :Thesis
@@ -54,21 +55,25 @@ module Dlibhydra
 
   autoload_under 'models/concerns/metadata' do
     # Metadata
+    autoload :Archivematica
     autoload :BorthwickNote
+    autoload :Doi
     autoload :FoafName
     autoload :FoafNameParts
+    autoload :ForIndexing
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
     autoload :GenericQualifier
+    autoload :GenericWorkflow
     autoload :HubDates
+    autoload :LastAccess
     autoload :MadsRelatedAuthority
+    autoload :Orcid
     autoload :OwlSameAs
-    autoload :SkosLabels
-    autoload :ThumbnailUrl
-    autoload :Archivematica
     autoload :Pure
-    autoload :Doi
     autoload :Readme
+    autoload :SkosLabels
+    # autoload :ThumbnailUrl
   end
 
   autoload_under 'models/concerns/metadata/rdfs' do
@@ -79,18 +84,20 @@ module Dlibhydra
 
   autoload_under 'models/concerns/metadata/dc' do
     # Dublin Core Metadata
+    autoload :DcAbstract
     autoload :DcAccessRights
     autoload :DcAvailable
+    autoload :DcCreator
+    autoload :DcCreatorObject
+    autoload :DcDate
+    autoload :DcDescription
+    autoload :DcIdentifier
     autoload :DcKeywordSubject
+    autoload :DcLanguage
+    autoload :DcPublisher
+    autoload :DcResourceType
     autoload :DcRights
     autoload :DcTitle
-    autoload :DcIdentifier
-    autoload :DcDescription
-    autoload :DcDate
-    autoload :DcCreator
-    autoload :DcAbstract
-    autoload :DcLanguage
-    autoload :DcResourceType
   end
 
   autoload_under 'models/concerns/behaviours' do
@@ -99,6 +106,7 @@ module Dlibhydra
     # Behaviour
     autoload :AddLabels
     autoload :AddDcDescriptive
+    autoload :AddDataciteMandatory
     # Validations
     autoload :ValidateConceptScheme
     #autoload :ValidateLabel

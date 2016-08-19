@@ -10,6 +10,8 @@ module Dlibhydra
     def main?
       false
     end
-
+    def generic_work?
+      true
+    end
   end
 end
