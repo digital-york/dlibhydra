@@ -4,7 +4,8 @@ module Dlibhydra
             Dlibhydra::AddLabels,
             Dlibhydra::AssignId,
             Dlibhydra::Archivematica,
-            Dlibhydra::Readme
+            Dlibhydra::Readme,
+            Dlibhydra::SimpleVersions
 
     type << Dlibhydra::Vocab::Generic.Package
 

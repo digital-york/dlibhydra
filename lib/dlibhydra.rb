@@ -36,17 +36,22 @@ module Dlibhydra
 
   end
 
+=begin
+  # Removed due to incompatibility with CC
   autoload_under 'models/filesets' do
     autoload :MainFileSet
     autoload :ReadmeFileSet
     autoload :FileSet
   end
+=end
 
   autoload_under 'models/works' do
     autoload :Package
     autoload :Dataset
     autoload :GenericWork
     autoload :Thesis
+    autoload :MainFile
+    autoload :ReadmeFile
   end
 
   autoload_under 'models/works/entry' do
@@ -73,6 +78,7 @@ module Dlibhydra
     autoload :Pure
     autoload :Readme
     autoload :SkosLabels
+    autoload :SimpleVersions
     # autoload :ThumbnailUrl
   end
 

@@ -5,9 +5,12 @@ module Dlibhydra
             Dlibhydra::AssignId,
             Dlibhydra::ForIndexing,
             Dlibhydra::DcAccessRights,
-            Dlibhydra::Pure
+            Dlibhydra::Pure,
+            Dlibhydra::Doi,
+            Dlibhydra::SimpleVersions
+            Dlibhydra::GenericWorkflow
 
-    filters_association :members, as: :readme, condition: :readme? # FileSet for README file
+    filters_association :members, as: :readme, condition: :readme?
     filters_association :members, as: :aips, condition: :aip?
     filters_association :members, as: :dips, condition: :dip?
     filters_association :members, as: :packages, condition: :package?

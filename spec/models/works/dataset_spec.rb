@@ -8,6 +8,7 @@ describe Dlibhydra::Dataset do
   let(:dataset) { FactoryGirl.build(:dataset) }
   let(:package) { FactoryGirl.build(:package) }
   let(:generic_work) { FactoryGirl.build(:generic_work) }
+  let(:readme_file) { FactoryGirl.build(:readme_file) }
 
   it 'is a dataset' do
     expect(dataset.dataset?).to be_truthy
@@ -17,6 +18,7 @@ describe Dlibhydra::Dataset do
   #it_behaves_like "add_datacite_mandatory"
   #it_behaves_like "pure"
   #it_behaves_like "for_indexing"
+  #it_behaves_like "simple_versions"
   it_behaves_like "dc_access_rights"
 
   describe '#metadata' do
@@ -32,8 +34,9 @@ describe Dlibhydra::Dataset do
   describe '#related objects' do
 
     before(:each) do
-      #thesis.main << main_file_set
-      #thesis.members << generic_work
+      # TODO
+      #dataset.readme << readme_file
+      #aips.aips << package
     end
 
     it 'has a main file' do

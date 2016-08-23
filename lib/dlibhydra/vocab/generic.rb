@@ -22,6 +22,20 @@ module Dlibhydra
              'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
              # TODO subClassOf: ''.freeze,
              type: 'rdfs:Class'.freeze
+        term :MainFile,
+             comment: %(A main file. For example, the examined thesis PDF as distinguished from additional material
+                such as appendices.).freeze,
+             label: 'Main File'.freeze,
+             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+             # TODO subClassOf: ''.freeze,
+             type: 'rdfs:Class'.freeze
+        term :Readme,
+             comment: %(A readme file. Normally a plain text file used to provide information about how to use the
+                containing resource. Most common use would be for datasets or software.).freeze,
+             label: 'Readme'.freeze,
+             'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+             # TODO subClassOf: ''.freeze,
+             type: 'rdfs:Class'.freeze
 
         # Property definitions
         property :approved,

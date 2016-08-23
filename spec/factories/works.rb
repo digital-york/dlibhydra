@@ -26,7 +26,20 @@ FactoryGirl.define do
   end
 
   factory :package, class: Dlibhydra::Package do
-    title ['Strangeways, Here We Come']
+    title ['Package']
   end
+
+  factory :main_file, class: Dlibhydra::MainFile do
+    title ['Main File']
+  end
+
+  factory :readme, class: Dlibhydra::ReadmeFile do
+    title ['Readme']
+  end
+
+  factory :generic_work, class: Dlibhydra::GenericWork do
+    title ['Generic Work']
+  end
+
 
 end
