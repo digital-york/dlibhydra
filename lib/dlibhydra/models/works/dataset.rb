@@ -7,7 +7,7 @@ module Dlibhydra
             Dlibhydra::DcAccessRights,
             Dlibhydra::Pure,
             Dlibhydra::Doi,
-            Dlibhydra::SimpleVersions
+            Dlibhydra::SimpleVersions,
             Dlibhydra::GenericWorkflow
 
     filters_association :members, as: :readme, condition: :readme?
