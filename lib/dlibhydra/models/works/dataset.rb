@@ -25,6 +25,9 @@ module Dlibhydra
     property :retention_policy, predicate: Dlibhydra::Vocab::Generic.retentionPolicy, multiple: false do |index|
       index.as :stored_searchable
     end
+    property :restriction_note, predicate: Dlibhydra::Vocab::Generic.restrictionNote, multiple: false do |index|
+      index.as :stored_searchable
+    end
 
     def dataset?
       true

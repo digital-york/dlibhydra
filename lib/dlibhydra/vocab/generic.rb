@@ -120,6 +120,12 @@ module Dlibhydra
                  label: 'Retention Policy'.freeze,
                  'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                  type: 'rdf:Property'.freeze
+        property :restrictionNote,
+                 comment: %(This property should be used for free-texts about data restrictions and access.).freeze,
+                 label: 'Restriction Note'.freeze,
+                 #TODO subproperty of dc.description
+                 'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+                 type: 'rdf:Property'.freeze
 
         # Extra definitions
         term :"",
