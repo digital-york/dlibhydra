@@ -4,7 +4,7 @@ module Dlibhydra
 
     included do
       property :date_available, predicate: ::RDF::Vocab::DC.available, multiple: false do |index|
-        index.as :stored_searchable, :sortable
+        index.as :stored_searchable, :stored_sortable
       end
     end
   end
