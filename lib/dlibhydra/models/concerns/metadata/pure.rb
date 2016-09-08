@@ -11,7 +11,6 @@ module Dlibhydra
       end
       property :pure_creation, predicate: Dlibhydra::Vocab::PureTerms.pureCreation, multiple: false do |index|
         index.as :stored_searchable, :stored_sortable
-        index.type :date
       end
       property :pure_type, predicate: Dlibhydra::Vocab::PureTerms.pureType, multiple: false do |index|
         index.as :stored_searchable
