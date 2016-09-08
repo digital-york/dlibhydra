@@ -4,16 +4,15 @@ require 'hydra/works'
 require 'action_view'
 
 describe Dlibhydra::Person do
-
   let(:person) { FactoryGirl.build(:person) }
-  let(:scheme) { FactoryGirl.build(:concept_scheme)  }
+  let(:scheme) { FactoryGirl.build(:concept_scheme) }
 
-  it_behaves_like "borthwick_note"
-  it_behaves_like "foaf_name_parts"
-  it_behaves_like "hub_dates"
-  it_behaves_like "generic_authority_terms"
-  it_behaves_like "mads_related_authority"
-  it_behaves_like "owl_same_as"
+  it_behaves_like 'borthwick_note'
+  it_behaves_like 'foaf_name_parts'
+  it_behaves_like 'hub_dates'
+  it_behaves_like 'generic_authority_terms'
+  it_behaves_like 'mads_related_authority'
+  it_behaves_like 'owl_same_as'
 
   it 'is a person' do
     expect(person.person?).to be_truthy
@@ -30,15 +29,14 @@ describe Dlibhydra::Person do
     specify { person.dates_of_office.should eq('1500-1510') }
   end
 
-  before {
+  before do
     person.concept_scheme = scheme
-  }
+  end
   # test related objects
   describe 'related objects' do
     it 'is related to the parent scheme' do
       expect(person.concept_scheme).to be_a(Dlibhydra::ConceptScheme)
     end
-
   end
 
   # test predicates sent to fedora
@@ -48,5 +46,4 @@ describe Dlibhydra::Person do
     specify { person.resource.dump(:ttl).should include('http://dlib.york.ac.uk/ontologies/generic#datesOfOffice') }
     specify { person.resource.dump(:ttl).should include('http://dlib.york.ac.uk/ontologies/generic#preTitle') }
   end
-
 end

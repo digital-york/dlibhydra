@@ -1,5 +1,4 @@
 class DbEntry < ActiveRecord::Base
-
   has_many :db_entry_types
   has_many :db_section_types
   has_many :db_marginalia
@@ -13,6 +12,6 @@ class DbEntry < ActiveRecord::Base
   has_many :db_related_agents
 
   def add_rdf_types
-    ['http://dlib.york.ac.uk/ontologies/borthwick-registers#Entry','http://www.shared-canvas.org/ns/Zone','http://pcdm.org/models#Object']
+    ['http://dlib.york.ac.uk/ontologies/borthwick-registers#Entry', 'http://www.shared-canvas.org/ns/Zone', 'http://pcdm.org/models#Object']
   end
 end

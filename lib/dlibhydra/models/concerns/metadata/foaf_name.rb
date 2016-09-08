@@ -1,11 +1,13 @@
 module Dlibhydra
+  # foaf name
   module FoafName
     extend ActiveSupport::Concern
 
     included do
-      # also vra:name
-      # eg. NCA Rules 4
-      property :name, predicate: ::RDF::Vocab::FOAF.name, multiple: false do |index|
+      # Equivalent of vra:name.
+      # Eg. NCA Rules 4.
+      property :name, predicate: ::RDF::Vocab::FOAF.name,
+                      multiple: false do |index|
         index.as :stored_searchable
       end
     end

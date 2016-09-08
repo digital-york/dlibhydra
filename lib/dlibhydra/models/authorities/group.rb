@@ -1,6 +1,6 @@
 module Dlibhydra
+  # historical group or organisation
   class Group < ActiveFedora::Base
-
     include Hydra::Works::WorkBehavior,
             Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
@@ -12,13 +12,16 @@ module Dlibhydra
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::AssignId
 
-    belongs_to :concept_scheme, class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
+    belongs_to :concept_scheme,
+               class_name: 'Dlibhydra::ConceptScheme',
+               predicate: ::RDF::SKOS.inScheme
 
     type << ::RDF::URI.new('https://schema.org/Organization')
     type << ::RDF::URI.new('http://vocab.getty.edu/ontology#GroupConcept')
     type << ::RDF::URI.new('http://purl.org/vra/Organization')
 
-    property :group_type, predicate: Dlibhydra::Vocab::Generic.groupType, multiple: true do |index|
+    property :group_type, predicate: Dlibhydra::Vocab::Generic.groupType,
+                          multiple: true do |index|
       index.as :stored_searchable
     end
     def group?

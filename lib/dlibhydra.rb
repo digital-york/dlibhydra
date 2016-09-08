@@ -1,4 +1,4 @@
-require "dlibhydra/version"
+require 'dlibhydra/version'
 
 module Dlibhydra
   extend ActiveSupport::Autoload
@@ -29,11 +29,9 @@ module Dlibhydra
   end
 
   autoload_under 'models/db' do
-
   end
 
   autoload_under 'models/files' do
-
   end
 
   autoload_under 'models/filesets' do
@@ -52,7 +50,6 @@ module Dlibhydra
   end
 
   autoload_under 'models/works/entry' do
-
   end
 
   autoload_under 'models/concerns/metadata' do
@@ -112,12 +109,11 @@ module Dlibhydra
     autoload :AddDataciteMandatory
     # Validations
     autoload :ValidateConceptScheme
-    #autoload :ValidateLabel
+    # autoload :ValidateLabel
   end
 
   autoload_under 'validators' do
-    #autoload :HasLabelValidator
+    # autoload :HasLabelValidator
     autoload :ConceptSchemeMemberValidator
   end
-
 end

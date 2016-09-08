@@ -4,7 +4,6 @@ require 'hydra/works'
 require 'action_view'
 
 describe Dlibhydra::MainFileSet do
-
   let(:main_fs) { FactoryGirl.build(:main_file_set) }
   let(:thesis) { FactoryGirl.build(:thesis) }
   let(:fs) { Hydra::Works::FileSet.create }
@@ -14,10 +13,9 @@ describe Dlibhydra::MainFileSet do
   end
 
   describe '#related objects' do
-
-    before {
+    before do
       thesis.main << main_fs
-    }
+    end
 
     it 'has a main' do
       expect(thesis.main).to eq([main_fs])
@@ -30,7 +28,5 @@ describe Dlibhydra::MainFileSet do
     it 'cannot have another fileset as main' do
       expect { thesis.main << fs }.to raise_error(NoMethodError)
     end
-
   end
-
 end

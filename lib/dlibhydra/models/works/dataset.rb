@@ -32,6 +32,5 @@ module Dlibhydra
     def dataset?
       true
     end
-
   end
 end

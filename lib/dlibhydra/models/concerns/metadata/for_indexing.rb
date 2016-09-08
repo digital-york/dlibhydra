@@ -1,9 +1,11 @@
 module Dlibhydra
+  # dump field for indexing
   module ForIndexing
     extend ActiveSupport::Concern
 
     included do
-      property :for_indexing, predicate: Dlibhydra::Vocab::Generic.forIndexing, multiple: false do |index|
+      property :for_indexing, predicate: Dlibhydra::Vocab::Generic.forIndexing,
+                              multiple: false do |index|
         index.as :stored_searchable
       end
     end

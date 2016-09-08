@@ -1,4 +1,5 @@
 module Dlibhydra
+  # add mandatory datacite elements
   module AddDataciteMandatory
     extend ActiveSupport::Concern
     include Dlibhydra::Doi,
@@ -6,6 +7,5 @@ module Dlibhydra
             Dlibhydra::DcAvailable,
             Dlibhydra::AddLabels,
             Dlibhydra::DcCreatorObject
-
   end
 end
