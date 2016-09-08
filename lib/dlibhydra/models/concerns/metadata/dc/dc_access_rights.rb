@@ -4,8 +4,8 @@ module Dlibhydra
 
     included do
       property :access_rights, predicate: ::RDF::Vocab::DC.accessRights, multiple: false do |index|
-        index.as :stored_searchable, :stored_sortable, :sortable
         index.type :text
+        index.as :stored_searchable, :sortable
       end
     end
   end
