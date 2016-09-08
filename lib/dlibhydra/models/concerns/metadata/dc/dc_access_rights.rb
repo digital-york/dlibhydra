@@ -4,9 +4,10 @@ module Dlibhydra
 
     included do
       property :access_rights, predicate: ::RDF::Vocab::DC.accessRights, multiple: false do |index|
-        index.type :text
-        index.as :stored_searchable, :sortable
+        index.as :stored_searchable
+        # solr indexing will also be handled by bespoke routine in dataset.rb
       end
     end
+
   end
 end
