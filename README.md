@@ -1,7 +1,6 @@
 # Dlibhydra
 
 [![Code Climate](https://codeclimate.com/github/digital-york/dlibhydra/badges/gpa.svg)](https://codeclimate.com/github/digital-york/dlibhydra)
-[![Test Coverage](https://codeclimate.com/github/digital-york/dlibhydra/badges/coverage.svg)](https://codeclimate.com/github/digital-york/dlibhydra/coverage)
 [![Issue Count](https://codeclimate.com/github/digital-york/dlibhydra/badges/issue_count.svg)](https://codeclimate.com/github/digital-york/dlibhydra)
 
 
