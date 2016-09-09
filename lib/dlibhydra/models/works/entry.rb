@@ -1,16 +1,15 @@
 class Entry < ActiveFedora::Base
-
-  include AssignId,Generic,RdfType,AssignRdfTypes
+  include AssignId, Generic, RdfType, AssignRdfTypes
 
   belongs_to :folio, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#folio')
 
-  has_many :related_agents, :dependent => :destroy
-  has_many :related_places, :dependent => :destroy
-  has_many :entry_dates, :dependent => :destroy
+  has_many :related_agents, dependent: :destroy
+  has_many :related_places, dependent: :destroy
+  has_many :entry_dates, dependent: :destroy
 
-  accepts_nested_attributes_for :related_agents, :allow_destroy => true, :reject_if => :all_blank
-  accepts_nested_attributes_for :related_places, :allow_destroy => true, :reject_if => :all_blank
-  accepts_nested_attributes_for :entry_dates, :allow_destroy => true, :reject_if => :all_blank
+  accepts_nested_attributes_for :related_agents, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :related_places, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :entry_dates, allow_destroy: true, reject_if: :all_blank
 
   property :entry_no, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#entryNo'), multiple: false do |index|
     index.as :stored_searchable, :sortable
@@ -51,7 +50,7 @@ class Entry < ActiveFedora::Base
   property :is_referenced_by, predicate: ::RDF::URI.new('http://purl.org/dc/terms/is_referenced_by'), multiple: true do |index|
     index.as :stored_searchable
   end
-  
+
   property :continues_on, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#continuesOn'), multiple: false do |index|
     index.as :stored_searchable
   end

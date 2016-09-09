@@ -1,5 +1,4 @@
 module Dlibhydra
-
   class Thesis < ActiveFedora::Base
     include Hydra::Works::WorkBehavior,
             Dlibhydra::AddLabels,
@@ -16,17 +15,15 @@ module Dlibhydra
 
     type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
 
-    # TODO String, URI or Object, eg. ORCID
+    # TODO: String, URI or Object, eg. ORCID
 
-=begin
-    property :author, predicate: ::RDF::Vocab::DC.creator, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    property :abstract, predicate: ::RDF::Vocab::DC.abstract, multiple: false do |index|
-      index.as :stored_searchable
-    end
-=end
+    #     property :author, predicate: ::RDF::Vocab::DC.creator, multiple: false do |index|
+    #       index.as :stored_searchable
+    #     end
+    #
+    #     property :abstract, predicate: ::RDF::Vocab::DC.abstract, multiple: false do |index|
+    #       index.as :stored_searchable
+    #     end
 
     property :date_of_award, predicate: ::RDF::Vocab::DC.dateAccepted, multiple: false do |index|
       index.as :stored_searchable
@@ -54,19 +51,16 @@ module Dlibhydra
       index.as :stored_searchable
     end
 
-=begin
-    property :resource_type, predicate: ::RDF::Vocab::DC.type, multiple: false do |index|
-      index.as :stored_searchable
-    end
-
-    property :language, predicate: ::RDF::Vocab::DC.language, multiple: false do |index|
-      index.as :stored_searchable
-    end
-=end
+    #     property :resource_type, predicate: ::RDF::Vocab::DC.type, multiple: false do |index|
+    #       index.as :stored_searchable
+    #     end
+    #
+    #     property :language, predicate: ::RDF::Vocab::DC.language, multiple: false do |index|
+    #       index.as :stored_searchable
+    #     end
 
     def thesis?
       true
     end
-
   end
 end

@@ -1,7 +1,5 @@
 module Dlibhydra
-
   class ReadmeFile < ActiveFedora::Base
-
     include Hydra::Works::WorkBehavior,
             Dlibhydra::AddLabels,
             Dlibhydra::AssignId
@@ -11,6 +9,5 @@ module Dlibhydra
     def readme?
       true
     end
-
   end
 end

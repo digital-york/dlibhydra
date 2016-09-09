@@ -1,28 +1,41 @@
 module Dlibhydra
+  # add preflabel, title and rdfs_label
   module AddLabels
     extend ActiveSupport::Concern
     include Dlibhydra::SkosLabels,
             Dlibhydra::RdfsLabel,
             Dlibhydra::DcTitle
-            #Dlibhydra::ValidateLabel
+    # Dlibhydra::ValidateLabel
 
-            included do
+    included do
       before_save :map_labels
     end
 
+    # If there is a preflabel, keep it.
+    #   Otherwise, assign the first title.
     def map_labels
-      # if there's a preflabel, keep it
-      if self.preflabel.class == String
-        if self.title = [] or self.title.nil?
-          self.title = [self.preflabel]
-        else
-          self.title << self.preflabel
-        end
-      elsif self.preflabel.nil? and self.title[0].class == String
-        self.preflabel = self.title[0]
-        # if both preflabel and title are nil, validator will throw an error
+      if preflabel.is_a?(String)
+        assign_title
+      elsif preflabel.nil? && title[0].is_a?(String)
+        assign_preflabel
       end
-      self.rdfs_label = self.preflabel
+      assign_rdfs_label
+    end
+
+    def assign_rdfs_label
+      self.rdfs_label = preflabel
+    end
+
+    def assign_title
+      if title == [] || title.nil?
+        self.title = [preflabel]
+      else
+        title << preflabel
+      end
+    end
+
+    def assign_preflabel
+      self.preflabel = title[0]
     end
   end
 end

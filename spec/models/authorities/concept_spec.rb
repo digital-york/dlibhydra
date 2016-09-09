@@ -3,10 +3,9 @@ require 'active_fedora'
 require 'hydra/works'
 require 'action_view'
 
-# TODO test concerns and validators only once; only test concept specific stuff here
+# TODO: test concerns and validators only once; only test concept specific stuff here
 
 describe Dlibhydra::Concept do
-
   let(:scheme) { FactoryGirl.build(:concept_scheme) }
   let(:concept1) { FactoryGirl.build(:concept) }
   let(:concept2) { FactoryGirl.build_stubbed(:broader_concept) }
@@ -17,11 +16,11 @@ describe Dlibhydra::Concept do
   end
 
   # Concerns
-  it_behaves_like "skos_labels"
-  it_behaves_like "generic_authority_terms"
-  it_behaves_like "owl_same_as"
-  it_behaves_like "add_labels"
-  it_behaves_like "rdfs_see_also"
+  it_behaves_like 'skos_labels'
+  it_behaves_like 'generic_authority_terms'
+  it_behaves_like 'owl_same_as'
+  it_behaves_like 'add_labels'
+  it_behaves_like 'rdfs_see_also'
 
   describe '#metadata' do
     specify { concept1.definition.should eq('my definition is this') }
@@ -36,7 +35,6 @@ describe Dlibhydra::Concept do
   end
 
   describe '#related objects' do
-
     # helpful? http://stackoverflow.com/questions/2937326/populating-an-association-with-children-in-factory-girl
     it 'is related to the parent scheme' do
       expect(concept1.concept_scheme.preflabel).to eq('label')
@@ -44,7 +42,6 @@ describe Dlibhydra::Concept do
 
     it 'is a top concept' do
       expect(concept3.topconcept?).to be_truthy
-
     end
 
     it 'is not a top concept' do
@@ -62,7 +59,5 @@ describe Dlibhydra::Concept do
     it 'has a narrower concept' do
       expect(concept2.narrower.first.preflabel).to eq('label')
     end
-
   end
-
 end
