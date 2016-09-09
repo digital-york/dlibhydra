@@ -34,14 +34,17 @@ module Dlibhydra
     end
 
     # Force the type of certain indexed fields in solr
-    # (inspired by http://projecthydra.github.io/training/deeper_into_hydra/#slide-63
-    #   and http://projecthydra.github.io/training/deeper_into_hydra/#slide-64)
-    # This is to overcome limitations with index.as :stored_sortable always defaulting to string rather
-    # than text type (sorting on string fields is case-sensitive, on text fields it's case-insensitive)
+    # (inspired by http://projecthydra.github.io/training/deeper_into_hydra/#slide-63,
+    #   http://projecthydra.github.io/training/deeper_into_hydra/#slide-64 and discussed at
+    #   https://groups.google.com/forum/#!topic/hydra-tech/rRsBwdvh5dE)
+    # This is to overcome limitations with solrizer and "index.as :stored_sortable" always defaulting 
+    # to string rather than text type (solr sorting on string fields is case-sensitive, on text fields 
+    # it's case-insensitive)
     class TextIndexer < ActiveFedora::IndexingService
       def generate_solr_document
         super.tap do |solr_doc|
-          # add a stored text index for the 'access_rights' property in solr so that case-insensitive sorting can be done on it
+          # add a stored text index for the 'access_rights' property in solr 
+          # so that case-insensitive sorting can be done on it
           solr_doc['access_rights_tesi'] = object.access_rights
         end
       end
