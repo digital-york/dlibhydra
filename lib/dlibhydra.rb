@@ -34,11 +34,14 @@ module Dlibhydra
   autoload_under 'models/files' do
   end
 
+=begin
+  # Removed due to incompatibility with CC
   autoload_under 'models/filesets' do
     # autoload :MainFileSet   # Removed due to incompatibility with CC
     # autoload :ReadmeFileSet  # Removed due to incompatibility with CC
     autoload :FileSet
   end
+=end
 
   autoload_under 'models/works' do
     autoload :Package
