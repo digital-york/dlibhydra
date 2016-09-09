@@ -6,7 +6,9 @@ module Dlibhydra
     included do
       property :access_rights, predicate: ::RDF::Vocab::DC.accessRights,
                                multiple: false do |index|
-        index.as :stored_searchable, :sortable
+        index.as :stored_searchable
+        # a sortable text solr index (*_tesi) will also be added by
+        #   bespoke code in models/works/dataset.rb
       end
     end
   end
