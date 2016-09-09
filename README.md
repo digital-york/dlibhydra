@@ -7,6 +7,7 @@
 
 Models, vocabularies and behaviours for York Digital Library Hydra applications.
 
+
 ## Installation
 
 Add this line to your application's Gemfile:
