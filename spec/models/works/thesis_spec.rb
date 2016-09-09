@@ -3,12 +3,11 @@ require 'active_fedora'
 require 'hydra/works'
 require 'action_view'
 
-# TODO test concerns and validators only once; only test concept specific stuff here
+# TODO: test concerns and validators only once; only test concept specific stuff here
 
 describe Dlibhydra::Thesis do
-
   let(:thesis) { FactoryGirl.build(:thesis) }
-  let(:main_file_set) { FactoryGirl.build(:main_file_set) }
+  let(:main_file) { FactoryGirl.build(:main_file) }
   let(:generic_work) { FactoryGirl.build(:generic_work) }
 
   it 'is a thesis' do
@@ -16,12 +15,13 @@ describe Dlibhydra::Thesis do
   end
 
   # Concerns
-  it_behaves_like "dc_keyword_subject"
-  it_behaves_like "dc_language"
-  it_behaves_like "dc_resource_type"
-  it_behaves_like "dc_rights"
-  it_behaves_like "dc_abstract"
-  it_behaves_like "dc_creator"
+  it_behaves_like 'dc_keyword_subject'
+  it_behaves_like 'dc_language'
+  it_behaves_like 'dc_resource_type'
+  it_behaves_like 'dc_rights'
+  it_behaves_like 'dc_abstract'
+  it_behaves_like 'dc_creator'
+  it_behaves_like 'add_labels'
 
   describe '#metadata' do
     specify { thesis.type.should include('http://purl.org/ontology/bibo/Thesis') }
@@ -33,7 +33,6 @@ describe Dlibhydra::Thesis do
     specify { thesis.department.should eq(['Department of Miserabilism']) }
     specify { thesis.qualification_level.should eq('PhD') }
     specify { thesis.qualification_name.should eq('qualification') }
-
   end
 
   describe '#predicates' do
@@ -47,19 +46,16 @@ describe Dlibhydra::Thesis do
   end
 
   describe '#related objects' do
-
     before(:each) do
-      thesis.main << main_file_set
+      thesis.main << main_file
       thesis.members << generic_work
     end
 
     it 'has a main file' do
-      expect(thesis.main).to eq([main_file_set])
+      expect(thesis.main).to eq([main_file])
     end
     it 'has an additional object' do
       expect(thesis.members.size).to eq(2)
     end
-
   end
-
 end

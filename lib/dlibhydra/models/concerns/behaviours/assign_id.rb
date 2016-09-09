@@ -1,4 +1,5 @@
 module Dlibhydra
+  # assign a noid id
   module AssignId
     extend ActiveSupport::Concern
 
@@ -11,6 +12,7 @@ module Dlibhydra
       noid_service.mint
     end
 
+    # TODO: remove this on fixing abp stuff.
     # Use for direct containers (ldp:contains)
     def create_container_id(parent)
       if self.class.name == 'ContainedFile'
@@ -26,6 +28,7 @@ module Dlibhydra
     end
 
     private
+
     def noid_service
       @noid_service ||= ActiveFedora::Noid::Service.new
     end

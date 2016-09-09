@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :collection, class: Dlibhydra::Collection do
     description 'description'
     creator ['Marr, Johnny']
@@ -10,5 +9,4 @@ FactoryGirl.define do
     rights_holder 'Johnny Marr'
     license 'license'
   end
-
 end

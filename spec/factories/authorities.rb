@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :concept_scheme, class: Dlibhydra::ConceptScheme do
     preflabel 'label'
     altlabel  ['alternative label']
@@ -19,7 +18,6 @@ FactoryGirl.define do
   end
 
   factory :concept, class: Dlibhydra::Concept do
-
     association :concept_scheme, factory: :concept_scheme, strategy: :build
 
     preflabel 'label'
@@ -29,24 +27,20 @@ FactoryGirl.define do
     approved 'true'
     rules 'nca'
     used 'true'
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212','info:lc/authorities/sh85061212']
+    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
 
-    after(:build) { |c|
-      c.map_labels
-    }
+    after(:build, &:map_labels)
 
     trait :with_before_save_callback do
-      after(:build) { |c|
-        c.map_labels
-      }
+      after(:build, &:map_labels)
     end
   end
 
   factory :group, class: Dlibhydra::Group do
     preflabel 'label'
     altlabel  ['alternative label']
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212','info:lc/authorities/sh85061212']
-    related_authority ['related','authority']
+    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
+    related_authority %w(related authority)
     approved 'true'
     rules 'nca'
     used 'true'
@@ -62,8 +56,8 @@ FactoryGirl.define do
     altlabel  ['alternative label']
     given_name 'Stephen Patrick'
     family_name 'Morrissey'
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212','info:lc/authorities/sh85061212']
-    related_authority ['related','authority']
+    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
+    related_authority %w(related authority)
     approved 'true'
     rules 'nca'
     used 'true'
@@ -74,5 +68,4 @@ FactoryGirl.define do
     note ['note']
     dates_of_office '1500-1510'
   end
-
 end
