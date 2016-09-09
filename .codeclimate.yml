@@ -2,6 +2,24 @@
 engines:
   duplication:
     enabled: true
+    exclude_fingerprints:
+        # ignore duplicate lines where they are needed
+        - 394c9b6305c9021532d80f33b8e23a93
+        - ae1cfefea507749e3189cd7ba1113738
+        - e7fc541e5ce702b1d171318c018cce94
+        - f7d034bee60f823e1f4d0703ab12e02e
+        - 2bb15da40cdb3263933438643992f0ea
+        - 710b6e6392f5d365aab0188051e5542b
+        - 9badcc5f88d850fae40a6947345f5d3e
+        - b91e5391f2fe646fa9a53245550c3574
+        - da8717c3b70cca24a0ef169fe804e7fe
+        - 98d13720a1e5ca6272c0f791177406e4
+        - 5bc527ba7105438e4504e61686795c28
+        - 480bf08513c1b2cb5b85e90e4312f0f7
+        - 76c3a31dd015a9dfef6b1a36a8fea880
+        - 137ad16bc49351d96a4a2482781764b3
+        - d77ca54d1ad97ae7e8829097fe6879c6
+        - d77ca54d1ad97ae7e8829097fe6879c6
     config:
       languages:
       - ruby
