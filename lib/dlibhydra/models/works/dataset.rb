@@ -50,7 +50,8 @@ module Dlibhydra
     #   "index.as :stored_sortable" always defaulting to string rather
     #   than text type (solr sorting on string fields is case-sensitive,
     #   on text fields it's case-insensitive)
-    class TextIndexer < ActiveFedora::IndexingService
+    # Use Hydra::PCDM::PCDMIndexer instead of ActiveFedora::IndexingService
+    class TextIndexer < Hydra::PCDM::PCDMIndexer
       def generate_solr_document
         super.tap do |solr_doc|
           # add a stored text index for the 'access_rights' property in solr
