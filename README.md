@@ -47,9 +47,15 @@ https://github.com/bblimke/webmock
 https://robots.thoughtbot.com/how-to-stub-external-services-in-tests
 Factory Girl
 
-Things to do:
+Things to do / decide on:
 -- add uketd vocab (do full schema?)
+-- person / organisation look-ups, has_and_belongs_to_many or normal predicate? (cf. two dc_creator concerns)
+-- -- for archbishs I used predicates for 'authorities' and HABM for actual nested objects - seems sensible
+-- -- will need to change in researchdatayork; this would also make it easier to switch between objects and triplestore and external
+-- authorities / persons / etc. - Fedora objects or triplestore? what about third-party terms, live look-up or local cache
+-- check rights against CC and rights recommendation and hydra works rights
 
 Decisions:
 -- MUST have a preflabel; this will be populated to rdfs:label and dc:title on save
+-- use HABM for related objects that aren't covered by PCDM members / files
 

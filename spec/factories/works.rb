@@ -9,7 +9,6 @@ FactoryGirl.define do
     awarding_institution 'University of York'
     qualification_level 'PhD'
     qualification_name 'qualification'
-    resource_type ['resource type']
     language ['en-GB']
     subject ['miserabilism']
     keyword ['northern misery']
@@ -17,10 +16,13 @@ FactoryGirl.define do
     license 'license'
 
     after(:build, &:map_labels)
+    after(:build, &:add_member)
 
     trait :with_before_save_callback do
       after(:build, &:map_labels)
+      after(:build, &:add_member)
     end
+
   end
 
   factory :dataset, class: Dlibhydra::Dataset do
@@ -34,15 +36,8 @@ FactoryGirl.define do
     title ['Package']
   end
 
-  factory :main_file, class: Dlibhydra::MainFile do
-    title ['Main File']
-  end
-
-  factory :readme, class: Dlibhydra::ReadmeFile do
-    title ['Readme']
-  end
-
   factory :generic_work, class: Dlibhydra::GenericWork do
     title ['Generic Work']
   end
+
 end

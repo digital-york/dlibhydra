@@ -172,6 +172,13 @@ module Dlibhydra
                # TODO: subproperty of dc.description
                'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
+      property :hasMainFile,
+               comment:
+                   %(This property should be used to create a relationship between an object
+                    and it's 'main file'. For example, a Thesis/Dissertation and it's PDF file.).freeze,
+               label: 'Has Main File'.freeze,
+               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               type: 'rdf:Property'.freeze
 
       # Extra definitions
       term :"",

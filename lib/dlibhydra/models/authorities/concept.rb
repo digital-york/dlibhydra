@@ -5,16 +5,17 @@ module Dlibhydra
     #   https://github.com/hybox/models/blob/master/models/concepts.md
     # TODO: add exactmatch and close match (instead of related?)
 
-    include Hydra::Works::WorkBehavior,
+    include Hydra::Works::WorkBehavior, # TODO is this right, this isn't a work?
+            Dlibhydra::AssignId,
+            Dlibhydra::AddLabels,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::OwlSameAs,
-            Dlibhydra::RdfsSeeAlso, # use for external see also links
-            Dlibhydra::AddLabels,
-            Dlibhydra::AssignId
+            Dlibhydra::RdfsSeeAlso # use for external see also links
 
     belongs_to :concept_scheme,
                class_name: 'Dlibhydra::ConceptScheme',
                predicate: ::RDF::SKOS.inScheme
+    # Use for nexted schemes
     belongs_to :top_concept_of,
                class_name: 'Dlibhydra::ConceptScheme',
                predicate: ::RDF::SKOS.topConceptOf

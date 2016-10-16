@@ -14,12 +14,12 @@ module Dlibhydra
                label: 'Department'.freeze,
                'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/2.0/).freeze,
                type: 'rdf:Property'.freeze
-      property :qualificationlevel,
+      property :qualificationLevel,
                comment: %(TODO.).freeze,
                label: 'Qualification Level'.freeze,
                'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/2.0/).freeze,
                type: 'rdf:Property'.freeze
-      property :qualificationname,
+      property :qualificationName,
                comment: %(TODO.).freeze,
                label: 'Qualification Name'.freeze,
                'rdfs:isDefinedBy' => %(http://naca.central.cranfield.ac.uk/ethos-oai/2.0/).freeze,

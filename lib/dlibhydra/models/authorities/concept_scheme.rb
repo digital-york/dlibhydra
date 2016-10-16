@@ -8,6 +8,7 @@ module Dlibhydra
             Dlibhydra::DcDescription,
             Dlibhydra::AssignId
 
+    # TODO decide if this is right, ie. are we outside works model here?
     filters_association :members,
                         as: :concepts,
                         condition: :concept?
