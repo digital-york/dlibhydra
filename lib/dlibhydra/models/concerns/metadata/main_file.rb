@@ -8,7 +8,7 @@ module Dlibhydra
       # ie. the deposited thesis PDF and not any associated files
       # Although multiple links *could* be added, add only one.
       has_and_belongs_to_many :mainFile,
-                              class_name: 'Dlibhydra::FileSet', 
+                              # class_name: 'Dlibhydra::FileSet',
                               predicate: Dlibhydra::Vocab::Generic.hasMainFile
       # An alternative approach is a dedicated FileSet.
       # Currently Curation Concerns only allow a single FileSet.
