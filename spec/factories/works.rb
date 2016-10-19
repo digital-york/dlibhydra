@@ -16,11 +16,11 @@ FactoryGirl.define do
     license 'license'
 
     after(:build, &:map_labels)
-    after(:build, &:add_member)
+    # after(:build, &:add_member)
 
     trait :with_before_save_callback do
       after(:build, &:map_labels)
-      after(:build, &:add_member)
+      # after(:build, &:add_member)
     end
 
   end

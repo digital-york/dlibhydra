@@ -14,14 +14,6 @@ module Dlibhydra
       # Currently Curation Concerns only allow a single FileSet.
       # filters_association :members, as: :main, condition: :main?
     end
-    
-    # Add the FileSet to the members if it has not been added.
-    def add_member
-      unless self.file_set
-        unless self.members and self.members.include? self.file_set.first
-          self.members << self.file_set.first
-        end
-      end
-    end
+
   end
 end

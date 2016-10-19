@@ -2,6 +2,7 @@ module Dlibhydra
   class Package < ActiveFedora::Base
     include Hydra::Works::WorkBehavior,
             Dlibhydra::AddLabels,
+            Dlibhydra::AddMember,
             Dlibhydra::AssignId,
             Dlibhydra::Archivematica,
             Dlibhydra::Readme,

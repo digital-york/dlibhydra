@@ -99,6 +99,7 @@ module Dlibhydra
     # Identifiers
     autoload :AssignId
     # Behaviour
+    autoload :AddMember
     autoload :AddLabels
     autoload :AddDcDescriptive
     autoload :AddDataciteMandatory

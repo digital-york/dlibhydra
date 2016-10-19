@@ -13,6 +13,11 @@ shared_examples_for 'main_file' do
   end
   # failing because stubbed objects don't save
   it 'main file is added to members' do
+    @stubby.add_member
+    expect(@stubby.members.size).to eq(1)
+  end
+  it 'main file is not added to members a second time' do
+    @stubby.add_member
     expect(@stubby.members.size).to eq(1)
   end
 end
