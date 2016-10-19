@@ -5,7 +5,7 @@ require 'action_view'
 
 describe Dlibhydra::Dataset do
   let(:dataset) { FactoryGirl.build(:dataset) }
-  let(:package) { FactoryGirl.build(:package) }
+  let(:package) { FactoryGirl.build_stubbed(:package) }
   let(:generic_work) { FactoryGirl.build(:generic_work) }
   let(:readme_file) { FactoryGirl.build(:readme_file) }
 
@@ -34,7 +34,7 @@ describe Dlibhydra::Dataset do
     before(:each) do
       # TODO
       # dataset.readme << readme_file
-      # aips.aips << package
+      dataset.members << package
     end
 
     it 'has a main file' do

@@ -15,7 +15,7 @@ module Dlibhydra
       # filters_association :members, as: :main, condition: :main?
       
       # Ensure the main flle FileSet is added to the members
-      #before_save :add_member
+      before_save :add_member
     end
     
     # Add the FileSet to the members if it has not been added.
