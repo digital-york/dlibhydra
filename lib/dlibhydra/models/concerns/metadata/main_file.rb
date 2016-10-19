@@ -13,9 +13,6 @@ module Dlibhydra
       # An alternative approach is a dedicated FileSet.
       # Currently Curation Concerns only allow a single FileSet.
       # filters_association :members, as: :main, condition: :main?
-      
-      # Ensure the main flle FileSet is added to the members
-      before_save :add_member
     end
     
     # Add the FileSet to the members if it has not been added.

@@ -12,6 +12,9 @@ module Dlibhydra
 
     type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
 
+    # Ensure the main flle FileSet is added to the members
+    before_save :add_member
+
     def thesis?
       true
     end
