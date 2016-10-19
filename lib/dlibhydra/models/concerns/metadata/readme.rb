@@ -11,22 +11,13 @@ module Dlibhydra
         # Use for the the link to a readme file
         has_and_belongs_to_many :readmeFile,
                                 class_name: 'Dlibhydra::FileSet',
-                                predicate: Dlibhydra::Vocab::Generic.hasreadmeFile
+                                predicate: Dlibhydra::Vocab::Generic.hasReadmeFile
         # An alternative approach is a dedicated FileSet.
         # Currently Curation Concerns only allow a single FileSet.
         # filters_association :members, as: :readme, condition: :readme?
 
         # Ensure the main flle FileSet is added to the members
-        before_save :add_member
-      end
-
-      # Add the FileSet to the members if it has not been added.
-      def add_member
-        unless self.mainFile
-          unless self.members and self.members.include? self.readmeFile.first
-            self.members << self.readmeFile.first
-          end
-        end
+        # TODO add member stuff
       end
     end
   end

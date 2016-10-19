@@ -179,6 +179,13 @@ module Dlibhydra
                label: 'Has Main File'.freeze,
                'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
+      property :hasReadmeFile,
+               comment:
+                   %(This property should be used to create a relationship between an object
+                    and it's 'readme file'.).freeze,
+               label: 'Has Readme File'.freeze,
+               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               type: 'rdf:Property'.freeze
 
       # Extra definitions
       term :"",
