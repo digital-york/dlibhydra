@@ -4,7 +4,6 @@ module Dlibhydra
     include Hydra::Works::WorkBehavior,
             Dlibhydra::AssignId,
             Dlibhydra::AddLabels,
-            Dlibhydra::AddMember,
             Dlibhydra::AddDcDescriptive,
             Dlibhydra::DcRights,
             Dlibhydra::DcAbstract,

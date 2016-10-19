@@ -5,11 +5,11 @@ shared_examples_for 'main_file' do
     model_str = model.to_s.split('::').last
     @stubby = FactoryGirl.build(model_str.underscore.to_sym, :with_before_save_callback)
     @main = FactoryGirl.build_stubbed(:fileset)
-    @stubby.file_set << @main
+    @stubby.mainfile << @main
   end
 
   it 'has a main file' do
-    expect(@stubby.file_set).to eq([@main])
+    expect(@stubby.mainfile.first).to eq(@main)
   end
   # failing because stubbed objects don't save
   it 'main file is added to members' do

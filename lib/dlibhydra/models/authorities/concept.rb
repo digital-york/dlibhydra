@@ -15,7 +15,7 @@ module Dlibhydra
     belongs_to :concept_scheme,
                class_name: 'Dlibhydra::ConceptScheme',
                predicate: ::RDF::SKOS.inScheme
-    # Use for nexted schemes
+    # Use for nested schemes
     belongs_to :top_concept_of,
                class_name: 'Dlibhydra::ConceptScheme',
                predicate: ::RDF::SKOS.topConceptOf
