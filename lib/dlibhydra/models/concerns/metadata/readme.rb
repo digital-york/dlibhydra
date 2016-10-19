@@ -7,6 +7,7 @@ module Dlibhydra
       property :readme, predicate: Dlibhydra::Vocab::Generic.readme,
                multiple: false do |index|
         index.as :stored_searchable
+      end
 
         # Use for the the link to a readme file
         has_and_belongs_to_many :readmeFile,
@@ -18,7 +19,6 @@ module Dlibhydra
 
         # Ensure the main flle FileSet is added to the members
         # TODO add member stuff
-      end
     end
   end
 end
