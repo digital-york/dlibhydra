@@ -25,13 +25,7 @@ module Dlibhydra
   end
 
   autoload_under 'models/collections' do
-    autoload :Collection
-  end
-
-  autoload_under 'models/db' do
-  end
-
-  autoload_under 'models/files' do
+    autoload :Collection # TODO refactor
   end
 
   autoload_under 'models/filesets' do
@@ -44,10 +38,8 @@ module Dlibhydra
   autoload_under 'models/works' do
     autoload :Package
     autoload :Dataset
-    autoload :GenericWork
+    autoload :GenericWork # TODO refactor
     autoload :Thesis
-    autoload :MainFile
-    autoload :ReadmeFile
   end
 
   autoload_under 'models/works/entry' do
@@ -68,13 +60,15 @@ module Dlibhydra
     autoload :HubDates
     autoload :LastAccess
     autoload :MadsRelatedAuthority
+    autoload :MainFile
     autoload :Orcid
     autoload :OwlSameAs
     autoload :Pure
     autoload :Readme
     autoload :SkosLabels
     autoload :SimpleVersions
-    # autoload :ThumbnailUrl
+    autoload :ThesisMetadata
+    # autoload :ThumbnailUrl TODO remove once standard approach for thumbnail is in place
   end
 
   autoload_under 'models/concerns/metadata/rdfs' do
@@ -105,6 +99,7 @@ module Dlibhydra
     # Identifiers
     autoload :AssignId
     # Behaviour
+    autoload :AddMember
     autoload :AddLabels
     autoload :AddDcDescriptive
     autoload :AddDataciteMandatory

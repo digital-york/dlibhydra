@@ -11,7 +11,6 @@ module Dlibhydra
             Dlibhydra::SimpleVersions,
             Dlibhydra::GenericWorkflow
 
-    filters_association :members, as: :readme, condition: :readme?
     filters_association :members, as: :aips, condition: :aip?
     filters_association :members, as: :dips, condition: :dip?
     filters_association :members, as: :packages, condition: :package?

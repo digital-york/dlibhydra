@@ -165,13 +165,13 @@ Lint/UnneededDisable:
   Enabled: true
 
 Lint/UnusedBlockArgument:
-  Description: 'Checks for unused block arguments.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars'
+  Description: 'Checks for to_remove block arguments.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-to_remove-vars'
   Enabled: true
 
 Lint/UnusedMethodArgument:
-  Description: 'Checks for unused method arguments.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars'
+  Description: 'Checks for to_remove method arguments.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-to_remove-vars'
   Enabled: true
 
 Lint/UnreachableCode:
@@ -184,7 +184,7 @@ Lint/UselessAccessModifier:
 
 Lint/UselessAssignment:
   Description: 'Checks for useless assignment to a local variable.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-to_remove-vars'
   Enabled: true
 
 Lint/UselessComparison:
@@ -1321,13 +1321,13 @@ Lint/UnneededDisable:
   Enabled: true
 
 Lint/UnusedBlockArgument:
-  Description: 'Checks for unused block arguments.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars'
+  Description: 'Checks for to_remove block arguments.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-to_remove-vars'
   Enabled: true
 
 Lint/UnusedMethodArgument:
-  Description: 'Checks for unused method arguments.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars'
+  Description: 'Checks for to_remove method arguments.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-to_remove-vars'
   Enabled: true
 
 Lint/UnreachableCode:
@@ -1340,7 +1340,7 @@ Lint/UselessAccessModifier:
 
 Lint/UselessAssignment:
   Description: 'Checks for useless assignment to a local variable.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscore-to_remove-vars'
   Enabled: true
 
 Lint/UselessComparison:

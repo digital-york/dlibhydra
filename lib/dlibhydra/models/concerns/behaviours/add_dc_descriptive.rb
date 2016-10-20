@@ -6,7 +6,6 @@ module Dlibhydra
             Dlibhydra::DcDate,
             Dlibhydra::DcDescription,
             Dlibhydra::DcKeywordSubject,
-            Dlibhydra::DcRights,
             Dlibhydra::DcLanguage
   end
 end

@@ -2,6 +2,7 @@ module Dlibhydra
   class Package < ActiveFedora::Base
     include Hydra::Works::WorkBehavior,
             Dlibhydra::AddLabels,
+            Dlibhydra::AddMember,
             Dlibhydra::AssignId,
             Dlibhydra::Archivematica,
             Dlibhydra::Readme,
@@ -36,14 +37,14 @@ module Dlibhydra
       end
     end
 
-    # If a DIP has been created, add the rdf type
+    # If DIP has been created, add the rdf type
     def add_dip_type
       unless dip_uuid.nil?
         type << Dlibhydra::Vocab::OaisArchivematica.DisseminationInformtionPackage
       end
     end
 
-    # If a AIP has been created, add the rdf type
+    # If AIP has been created, add the rdf type
     def add_aip_type
       unless aip_uuid.nil?
         type << Dlibhydra::Vocab::OaisArchivematica.ArchivalInformtionPackage
