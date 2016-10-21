@@ -21,6 +21,7 @@ describe Dlibhydra::Thesis do
   it_behaves_like 'add_labels'
   it_behaves_like 'thesis_metadata'
   it_behaves_like 'main_file'
+  it_behaves_like 'former_identifier'
 
   describe '#metadata' do
     specify { thesis.type.should include('http://purl.org/ontology/bibo/Thesis') }

@@ -14,6 +14,7 @@ FactoryGirl.define do
     keyword ['northern misery']
     rights_holder 'Johnny Marr'
     license 'license'
+    former_id ['york:1234']
 
     after(:build, &:map_labels)
     # after(:build, &:add_member)

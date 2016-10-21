@@ -64,7 +64,7 @@ module Dlibhydra
     autoload :Orcid
     autoload :OwlSameAs
     autoload :Pure
-    autoload :Readme
+    autoload :ReadmeFile
     autoload :SkosLabels
     autoload :SimpleVersions
     autoload :ThesisMetadata
@@ -99,7 +99,6 @@ module Dlibhydra
     # Identifiers
     autoload :AssignId
     # Behaviour
-    autoload :AddMember
     autoload :AddLabels
     autoload :AddDcDescriptive
     autoload :AddDataciteMandatory
