@@ -7,6 +7,7 @@ module Dlibhydra
             Dlibhydra::AddDcDescriptive,
             Dlibhydra::DcRights,
             Dlibhydra::DcAbstract,
+            Dlibhydra::FormerIdentifier,
             Dlibhydra::MainFile,
             Dlibhydra::ThesisMetadata
 
