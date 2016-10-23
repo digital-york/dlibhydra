@@ -1,10 +1,6 @@
 require 'simplecov'
 SimpleCov.start do
   add_filter '/spec/'
-  add_group "Models", "lib/dlibhydra/models"
-  add_group "Untested", "lib/dlibhydra/models/to_refactor_or_remove"
-  add_group "Con", "lib/dlibhydra/models/concerns"
-  add_group "Vocab", "lib/dlibhydra/vocab"
 end
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
@@ -13,6 +9,7 @@ require 'active_support'
 require 'active_fedora'
 require 'dlibhydra'
 require 'hydra/works'
+require 'curation_concerns'
 
 # spec/spec_helper.rb
 require 'webmock/rspec'

@@ -1,8 +1,8 @@
 module Dlibhydra
   # thesis
   class Thesis < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
-            Dlibhydra::AssignId,
+    include Dlibhydra::AddWorkBehaviour, #Hydra::Works::WorkBehavior,
+            #Dlibhydra::AssignId,
             Dlibhydra::AddLabels,
             Dlibhydra::AddDcDescriptive,
             Dlibhydra::DcRights,

@@ -9,7 +9,7 @@ module Dlibhydra
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # belongs_to :concept_scheme,
-    #   class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
+    #   class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::Vocab::SKOS.inScheme
 
     type [::RDF::URI.new('https://schema.org/Organization')]
     before_save :add_pure_type

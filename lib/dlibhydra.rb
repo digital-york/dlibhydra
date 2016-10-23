@@ -108,6 +108,7 @@ module Dlibhydra
     autoload :AddLabels
     autoload :AddDcDescriptive
     autoload :AddDataciteMandatory
+    autoload :AddWorkBehaviour
     # Validations
     autoload :ValidateConceptScheme
     # autoload :ValidateLabel

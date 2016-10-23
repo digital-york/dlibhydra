@@ -12,7 +12,7 @@ module Dlibhydra
     before_save :add_pure_type
 
     # belongs_to :concept_scheme,
-    #   class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
+    #   class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::Vocab::SKOS.inScheme
 
     type [::RDF::URI.new('http://schema.org/Person')]
 

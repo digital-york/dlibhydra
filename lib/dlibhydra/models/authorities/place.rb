@@ -9,7 +9,7 @@ module Dlibhydra
             Dlibhydra::AssignId
             # Hydra::Works::WorkBehavior,
 
-    belongs_to :concept_scheme, predicate: ::RDF::SKOS.inScheme
+    belongs_to :concept_scheme, predicate: ::RDF::Vocab::SKOS.inScheme
 
     # TODO: GVP CLASS AdminPlaceConcept or PhysPlaceConcept
     # TODO: which are place objects and which are place strings

@@ -14,7 +14,7 @@ module Dlibhydra
 
     belongs_to :concept_scheme,
                class_name: 'Dlibhydra::ConceptScheme',
-               predicate: ::RDF::SKOS.inScheme
+               predicate: ::RDF::Vocab::SKOS.inScheme
 
     type [::RDF::URI.new('http://schema.org/Person'),
           ::RDF::URI.new('http://vocab.getty.edu/ontology#PersonConcept'),

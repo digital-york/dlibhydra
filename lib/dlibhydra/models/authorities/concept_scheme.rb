@@ -13,7 +13,7 @@ module Dlibhydra
     # Used for nested schemes. Will be added automatically.
     has_and_belongs_to_many :has_top_concept,
                             class_name: 'Dlibhydra::Concept',
-                            predicate: ::RDF::SKOS.hasTopConcept,
+                            predicate: ::RDF::Vocab::SKOS.hasTopConcept,
                             inverse_of: :top_concept_of
     
     type [::RDF::URI.new('http://www.w3.org/2004/02/skos/core#ConceptScheme')]

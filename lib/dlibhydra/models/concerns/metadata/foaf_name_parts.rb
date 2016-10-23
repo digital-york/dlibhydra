@@ -11,7 +11,7 @@ module Dlibhydra
       end
 
       # Eg. NCA Rules 2.3.
-      property :given_name, predicate: ::RDF::FOAF.givenName,
+      property :given_name, predicate: ::RDF::Vocab::FOAF.givenName,
                             multiple: false do |index|
         index.as :stored_searchable
       end
