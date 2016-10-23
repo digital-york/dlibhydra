@@ -6,9 +6,9 @@ end
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 # order matters
 require 'active_support'
-require 'active_fedora'
-require 'curation_concerns'
+require 'active-fedora'
 require 'dlibhydra'
+require 'curation_concerns'
 require 'hydra/works'
 
 
