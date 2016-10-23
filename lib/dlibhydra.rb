@@ -1,4 +1,5 @@
 require 'dlibhydra/version'
+require 'curation_concerns'
 
 module Dlibhydra
   extend ActiveSupport::Autoload

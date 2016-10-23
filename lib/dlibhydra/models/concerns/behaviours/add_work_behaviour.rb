@@ -1,10 +1,9 @@
 module Dlibhydra
   module AddWorkBehaviour
-
     extend ActiveSupport::Concern
 
     # Include everything from CC::WorkBehavior except NestedWorks
-    include ::CurationConcerns::WorkBehavior
+    include CurationConcerns::WorkBehavior
 
     # TODO fix issue with NestedWorks and go back to CC::WorkBehavior
     # include Hydra::Works::WorkBehavior

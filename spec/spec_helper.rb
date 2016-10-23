@@ -7,9 +7,10 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 # order matters
 require 'active_support'
 require 'active_fedora'
+require 'curation_concerns'
 require 'dlibhydra'
 require 'hydra/works'
-require 'curation_concerns'
+
 
 # spec/spec_helper.rb
 require 'webmock/rspec'
