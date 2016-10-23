@@ -2,8 +2,7 @@ module Dlibhydra
   # person
   # this is not a RWO, could say #rwo is the RWO
   class Person < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
-            Dlibhydra::OwlSameAs,
+    include Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::BorthwickNote,
             Dlibhydra::FoafNameParts,
@@ -11,14 +10,15 @@ module Dlibhydra
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::AssignId
+            # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     belongs_to :concept_scheme,
                class_name: 'Dlibhydra::ConceptScheme',
                predicate: ::RDF::SKOS.inScheme
 
-    type << ::RDF::URI.new('http://schema.org/Person')
-    type << ::RDF::URI.new('http://vocab.getty.edu/ontology#PersonConcept')
-    type << ::RDF::URI.new('http://purl.org/vra/Person')
+    type [::RDF::URI.new('http://schema.org/Person'),
+          ::RDF::URI.new('http://vocab.getty.edu/ontology#PersonConcept'),
+          ::RDF::URI.new('http://purl.org/vra/Person')]
 
     # in VRA this includes family as well as individual (use group)
     # vra:hasCulture

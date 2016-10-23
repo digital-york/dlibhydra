@@ -6,7 +6,7 @@ shared_examples_for 'dc_available' do
     @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
   end
   it 'will have available' do
-    expect(@stubby.available).to eq('access rights')
+    expect(@stubby.date_available).to eq('2015')
   end
   it 'will have the dc.available predicate' do
     expect(@stubby.resource.dump(:ttl).should(include('http://purl.org/dc/terms/available')))

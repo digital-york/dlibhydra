@@ -3,5 +3,5 @@ require 'active_fedora'
 require 'hydra/works'
 require 'action_view'
 
-describe Dlibhydra::CurrentPerson do
+describe Dlibhydra::Place do
 end

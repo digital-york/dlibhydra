@@ -14,6 +14,11 @@ module Dlibhydra
     end
   end
 
+  autoload_under 'vocab/concerns' do
+    autoload :BorthwickClasses
+    autoload :BorthwickProperties
+  end
+
   autoload_under 'models/authorities' do
     autoload :Concept
     autoload :ConceptScheme
@@ -71,10 +76,11 @@ module Dlibhydra
     # autoload :ThumbnailUrl TODO remove once standard approach for thumbnail is in place
   end
 
-  autoload_under 'models/concerns/metadata/rdfs' do
+  autoload_under 'models/concerns/metadata/rdf' do
     # RDF and RDFS
     autoload :RdfsSeeAlso
     autoload :RdfsLabel
+    autoload :RdfType
   end
 
   autoload_under 'models/concerns/metadata/dc' do

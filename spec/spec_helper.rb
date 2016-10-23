@@ -1,3 +1,12 @@
+require 'simplecov'
+SimpleCov.start do
+  add_filter '/spec/'
+  add_group "Models", "lib/dlibhydra/models"
+  add_group "Untested", "lib/dlibhydra/models/to_refactor_or_remove"
+  add_group "Con", "lib/dlibhydra/models/concerns"
+  add_group "Vocab", "lib/dlibhydra/vocab"
+end
+
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 # order matters
 require 'active_support'
@@ -36,6 +45,8 @@ RSpec.configure do |config|
       .with(body: /xml version/,
             headers: { 'Content-Type' => 'text/xml' })
       .to_return(status: 200, body: '', headers: {})
+    stub_request(:get, /.*127.0.0.1:8983*./).
+        to_return(:status => 200, :body => "", :headers => {})
   end
   # Include shared examples for concerns
   Dir['./spec/support/**/*.rb'].sort.each { |f| require f }

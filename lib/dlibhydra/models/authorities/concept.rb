@@ -5,23 +5,21 @@ module Dlibhydra
     #   https://github.com/hybox/models/blob/master/models/concepts.md
     # TODO: add exactmatch and close match (instead of related?)
 
-    include Hydra::Works::WorkBehavior, # TODO is this right, this isn't a work?
-            Dlibhydra::AssignId,
+    include Dlibhydra::AssignId,
             Dlibhydra::AddLabels,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::OwlSameAs,
             Dlibhydra::RdfsSeeAlso # use for external see also links
+            # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     belongs_to :concept_scheme,
                class_name: 'Dlibhydra::ConceptScheme',
                predicate: ::RDF::SKOS.inScheme
     # Use for nested schemes
-    belongs_to :top_concept_of,
+    has_and_belongs_to_many :top_concept_of,
                class_name: 'Dlibhydra::ConceptScheme',
-               predicate: ::RDF::SKOS.topConceptOf
-
-    type << ::RDF::URI.new('http://www.w3.org/2004/02/skos/core#Concept')
-
+               predicate: ::RDF::SKOS.topConceptOf,
+               inverse_of: :has_top_concept
     # Use only for Broader. Narrower will be added by default as the inverse.
     has_and_belongs_to_many :broader,
                             class_name: 'Dlibhydra::Concept',
@@ -39,6 +37,8 @@ module Dlibhydra
                             predicate: ::RDF::SKOS.related,
                             inverse_of: :see_also
 
+    type [::RDF::URI.new('http://www.w3.org/2004/02/skos/core#Concept')]
+
     property :definition, predicate: ::RDF::SKOS.definition,
                           multiple: false do |index|
       index.as :stored_searchable
@@ -54,7 +54,7 @@ module Dlibhydra
     end
 
     def topconcept?
-      if top_concept_of.is_a?(Dlibhydra::ConceptScheme)
+      if top_concept_of.first.is_a? Dlibhydra::ConceptScheme
         true
       else
         false

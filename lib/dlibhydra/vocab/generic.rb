@@ -8,41 +8,41 @@ module Dlibhydra
            comment:
                %(A collection with members that has a logical order.).freeze,
            label: 'Ordered Collection'.freeze,
-           'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+           'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
            # TODO: subClassOf: ''.freeze,
-           type: 'rdfs:Class'.freeze
+           type: 'rdf:Class'.freeze
       term :GenericWork,
            comment:
                %(A work that does not fit into any pre-existing model,
                 eg. an unidentified data file.).freeze,
            label: 'Generic Work'.freeze,
-           'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+           'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
            # TODO: subClassOf: ''.freeze,
-           type: 'rdfs:Class'.freeze
+           type: 'rdf:Class'.freeze
       term :Package,
            comment: %(A package.).freeze,
            label: 'Package'.freeze,
-           'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+           'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
            # TODO: subClassOf: ''.freeze,
-           type: 'rdfs:Class'.freeze
+           type: 'rdf:Class'.freeze
       term :MainFile,
            comment:
                %(A main file. For example, the examined thesis PDF as
                 distinguished from additional material such as
                 appendices.).freeze,
            label: 'Main File'.freeze,
-           'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+           'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
            # TODO: subClassOf: ''.freeze,
-           type: 'rdfs:Class'.freeze
+           type: 'rdf:Class'.freeze
       term :Readme,
            comment:
                %(A readme file. Normally a plain text file used to provide
                 information about how to use the containing resource.
                 Most common use would be for datasets or software.).freeze,
            label: 'Readme'.freeze,
-           'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+           'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
            # TODO: subClassOf: ''.freeze,
-           type: 'rdfs:Class'.freeze
+           type: 'rdf:Class'.freeze
 
       # Property definitions
       property :approved,
@@ -50,7 +50,7 @@ module Dlibhydra
                    %(This property is used to indicate that a term or value
                     has been approved.).freeze,
                label: 'Approved'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :rules,
                comment:
@@ -58,14 +58,14 @@ module Dlibhydra
                     descriptive rules, used to construct the given
                     description.).freeze,
                label: 'Rules'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :formerIdentifier,
                comment:
                    %(This property is used for a former identifier for the given
                     object.).freeze,
                label: 'Former Identifier'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                subPropertyOf: 'http://dublincore.org/documents/dcmi-terms/identifier'.freeze,
                type: 'rdf:Property'.freeze
       property :preTitle,
@@ -74,7 +74,7 @@ module Dlibhydra
                     Rules http://archiveshub.ac.uk/ncarules/.).freeze,
                label: 'Pre Title'.freeze,
                range: 'http://xmlns.com/foaf/0.1/Person'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :datesOfOffice,
                comment:
@@ -82,7 +82,7 @@ module Dlibhydra
                     the described Person.).freeze,
                label: 'Dates of Office'.freeze,
                range: 'http://xmlns.com/foaf/0.1/Person'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                subPropertyOf: 'http://data.archiveshub.ac.uk/def/dates'.freeze,
                type: 'rdf:Property'.freeze
       property :groupType,
@@ -92,7 +92,7 @@ module Dlibhydra
                     controlled list of values.).freeze,
                label: 'Group Type'.freeze,
                range: 'http://xmlns.com/foaf/0.1/Group'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :qualifier,
                comment:
@@ -101,7 +101,7 @@ module Dlibhydra
                     for examples with dates of existence or place.).freeze,
                label: 'Qualifier'.freeze,
                range: 'http://xmlns.com/foaf/0.1/Group'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :isTopConcept,
                comment:
@@ -110,7 +110,7 @@ module Dlibhydra
                     true or false is recommended.).freeze,
                label: 'Is Top Concept'.freeze,
                range: 'http://www.w3.org/2004/02/skos/core#Concept'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :readme,
                comment:
@@ -119,7 +119,7 @@ module Dlibhydra
                       understanding and use. A README file is common
                       parlance in coding.).freeze,
                label: 'README'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :forIndexing,
                comment:
@@ -127,34 +127,34 @@ module Dlibhydra
                     not need to be displayed but may be useful for
                     searching.).freeze,
                label: 'For Index'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :embargoReleaseDate,
                comment:
                    %(This property should be used to specify the end date of
                     an embargo period.).freeze,
                label: 'Embargo Release Date'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :lastAccess,
                comment:
                    %(This property should be used to for the date a resource,
                     or group of resources, was last accessed.).freeze,
                label: 'Date of Last Access'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :status,
                comment:
                    %(This property should be used to for the status of the
                     given object, eg. workflow status.).freeze,
                label: 'Status'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :requestorEmail,
                comment: %(This property should be used to record the email
                           address of a requestor.).freeze,
                label: 'Requestor Email'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :retentionPolicy,
                comment:
@@ -162,7 +162,7 @@ module Dlibhydra
                     the given resource. A value frim a conrolled vocabulary is
                     recommended.).freeze,
                label: 'Retention Policy'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :restrictionNote,
                comment:
@@ -170,21 +170,21 @@ module Dlibhydra
                     restrictions and access.).freeze,
                label: 'Restriction Note'.freeze,
                # TODO: subproperty of dc.description
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :hasMainFile,
                comment:
                    %(This property should be used to create a relationship between an object
                     and it's 'main file'. For example, a Thesis/Dissertation and it's PDF file.).freeze,
                label: 'Has Main File'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
       property :hasReadmeFile,
                comment:
                    %(This property should be used to create a relationship between an object
                     and it's 'readme file'.).freeze,
                label: 'Has Readme File'.freeze,
-               'rdfs:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
 
       # Extra definitions

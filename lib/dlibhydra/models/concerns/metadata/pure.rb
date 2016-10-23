@@ -4,6 +4,7 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
+      # TODO what is this if statement here for?
       # if self.class.name.include? 'Dataset'
       has_and_belongs_to_many :managing_organisation,
                               class_name: 'Dlibhydra::CurrentOrganisation',

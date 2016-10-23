@@ -1,20 +1,20 @@
 module Dlibhydra
   # contemporary (current) person
   class CurrentPerson < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
-            Dlibhydra::OwlSameAs,
+    include Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::FoafNameParts,
             Dlibhydra::Pure,
             Dlibhydra::Orcid,
             Dlibhydra::AssignId
+            # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     before_save :add_pure_type
 
     # belongs_to :concept_scheme,
     #   class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
 
-    type << ::RDF::URI.new('http://schema.org/Person')
+    type [::RDF::URI.new('http://schema.org/Person')]
 
     def add_pure_type
       type << Dlibhydra::Vocab::PureTerms.Person unless pure_uuid.nil?
@@ -25,6 +25,7 @@ module Dlibhydra
     end
 
     def phd
+      # TODO don't use type for this
       type << Dlibhydra::Vocab::PureTerms.Phd
     end
   end

@@ -3,12 +3,18 @@ shared_examples_for 'dc_creator' do
 
   before(:each) do
     model_str = model.to_s.split('::')[1]
-    @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
+    @person = FactoryGirl.build_stubbed(:current_person)
+    @stubby = FactoryGirl.build(model_str.underscore.to_sym)
+    @stubby.creator_object << @person
+    @stubby.add_creator_label
   end
   it 'will have creator' do
-    expect(@stubby.creator).to eq(['Marr, Johnny'])
+    expect(@stubby.creator).to eq(["Marr, Johnny", "label"])
+    expect(@stubby.creator_object.first).to eq(@person)
   end
   it 'will have the dc.creator predicate' do
     expect(@stubby.resource.dump(:ttl).should(include('http://purl.org/dc/terms/creator')))
+    expect(@stubby.resource.dump(:ttl).should(include('http://purl.org/dc/elements/1.1/creator')))
   end
+
 end

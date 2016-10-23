@@ -37,6 +37,8 @@ FactoryGirl.define do
   end
 
   factory :group, class: Dlibhydra::Group do
+    association :concept_scheme, factory: :concept_scheme, strategy: :build
+
     preflabel 'label'
     altlabel  ['alternative label']
     same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
@@ -52,6 +54,8 @@ FactoryGirl.define do
   end
 
   factory :person, class: Dlibhydra::Person do
+    association :concept_scheme, factory: :concept_scheme, strategy: :build
+
     preflabel 'label'
     altlabel  ['alternative label']
     given_name 'Stephen Patrick'
@@ -67,5 +71,12 @@ FactoryGirl.define do
     post_title 'post_title'
     note ['note']
     dates_of_office '1500-1510'
+  end
+
+  factory :current_org, class: Dlibhydra::CurrentOrganisation do
+    preflabel 'label'
+  end
+  factory :current_person, class: Dlibhydra::CurrentPerson do
+    preflabel 'label'
   end
 end

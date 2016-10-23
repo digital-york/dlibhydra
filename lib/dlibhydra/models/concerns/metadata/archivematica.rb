@@ -14,7 +14,7 @@ module Dlibhydra
         index.as :stored_searchable
       end
       property :transfer_uuid,
-               predicate: Dlibhydra::Vocab::OaisArchivematica.tranferUuid,
+               predicate: Dlibhydra::Vocab::OaisArchivematica.transferUuid,
                multiple: false do |index|
         index.as :stored_searchable
       end
@@ -48,18 +48,6 @@ module Dlibhydra
                multiple: false do |index|
         index.as :stored_searchable
       end
-      #       property :aip_current_full_path,
-      #           predicate:
-      #             Dlibhydra::Vocab::OaisArchivematica.AipCurrentFullPath,
-      #           multiple: false do |index|
-      #         index.as :stored_searchable
-      #       end
-      #       property :dip_current_full_path,
-      #           predicate:
-      #             Dlibhydra::Vocab::OaisArchivematica.DipCurrentFullPath,
-      #           multiple: false do |index|
-      #         index.as :stored_searchable
-      #       end
       property :aip_current_path,
                predicate: Dlibhydra::Vocab::OaisArchivematica.aipCurrentPath,
                multiple: false do |index|
@@ -88,7 +76,7 @@ module Dlibhydra
         index.as :stored_searchable
       end
       property :dip_resource_uri,
-               predicate: Dlibhydra::Vocab::OaisArchivematica.DipResourceUri,
+               predicate: Dlibhydra::Vocab::OaisArchivematica.dipResourceUri,
                multiple: false do |index|
         index.as :stored_searchable
       end

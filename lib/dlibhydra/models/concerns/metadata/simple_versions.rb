@@ -4,17 +4,14 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      has_and_belongs_to_many :is_replaced_by,
-                              class_name: 'Dlibhydra::Dataset',
+      has_and_belongs_to_many :replaced_by,
+                              class_name: self.name,
                               predicate: ::RDF::Vocab::DC.isReplacedBy,
                               inverse_of: :replaces
       has_and_belongs_to_many :replaces,
-                              class_name: 'Dlibhydra::Dataset',
+                              class_name: self.name,
                               predicate: ::RDF::Vocab::DC.replaces,
-                              inverse_of: :is_replaced_by
-      # Versions
-      has_and_belongs_to_many :is_replaced_by, class_name: 'Dlibhydra::Dataset', predicate: ::RDF::DC.isReplacedBy, inverse_of: :replaces
-      has_and_belongs_to_many :replaces, class_name: 'Dlibhydra::Dataset', predicate: ::RDF::DC.replaces, inverse_of: :is_replaced_by
+                              inverse_of: :replaced_by
 
     end
   end

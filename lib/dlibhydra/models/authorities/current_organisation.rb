@@ -1,17 +1,17 @@
 module Dlibhydra
   # contemporary (current) organisation
   class CurrentOrganisation < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
-            Dlibhydra::OwlSameAs,
+    include Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::FoafName,
             Dlibhydra::Pure,
             Dlibhydra::AssignId
+            # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # belongs_to :concept_scheme,
     #   class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::SKOS.inScheme
 
-    type << ::RDF::URI.new('https://schema.org/Organization')
+    type [::RDF::URI.new('https://schema.org/Organization')]
     before_save :add_pure_type
 
     def add_pure_type

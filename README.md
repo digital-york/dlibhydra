@@ -55,6 +55,17 @@ Things to do / decide on:
 -- authorities / persons / etc. - Fedora objects or triplestore? what about third-party terms, live look-up or local cache
 -- check rights against CC and rights recommendation and hydra works rights
 
+creator - how I've approached this for now:
+
+HABM creator_object maps to dcterms creator
+-- string value creator maps to dc11 creator
+-- on save, add label of object to dc elements creator
+-- this way 'creator' is always a string and creator_object is always a reference
+downside is that if the person object changes, both values need updating
+alternative is index only for the label, then only index needs updating
+also need to consider third use case of third party terms - in this case creator object wouldn't work unless we create a local object (do-able / sensible?)
+
+
 Decisions:
 -- MUST have a preflabel; this will be populated to rdfs:label and dc:title on save
 -- use HABM for related objects that aren't covered by PCDM members / files
