@@ -8,13 +8,13 @@ module Dlibhydra
       # Align with https://wiki.duraspace.org/display/hydra/Rights+Metadata+Recommendation
       # Same as cc:attributionName.
       property :rights_holder, predicate: ::RDF::Vocab::DC.rightsHolder,
-                               multiple: true do |index|
+                               multiple: false do |index|
         index.as :stored_searchable
       end
 
       # Align with https://wiki.duraspace.org/display/hydra/Rights+Metadata+Recommendation
       property :rights, predicate: ::RDF::Vocab::EDM.rights,
-               multiple: true do |index|
+               multiple: false do |index|
         index.as :stored_searchable
       end
 
