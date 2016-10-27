@@ -11,7 +11,7 @@ module Dlibhydra
 
       property :creator, predicate: ::RDF::Vocab::DC11.creator,
                multiple: true do |index|
-        index.as :stored_searchable, :sortable
+        index.as :stored_searchable, :sortable, :facetable
       end
 
       def add_creator_label

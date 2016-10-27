@@ -12,7 +12,7 @@ module Dlibhydra
       # DCTERMS subject for controlled subjects.
       property :subject, predicate: ::RDF::Vocab::DC.subject,
                          multiple: true do |index|
-        index.as :stored_searchable
+        index.as :stored_searchable, :facetable
       end
     end
   end
