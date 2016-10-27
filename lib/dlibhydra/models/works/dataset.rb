@@ -1,9 +1,10 @@
 module Dlibhydra
   # dataset
   class Dataset < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
+    include Dlibhydra::AddWorkBehaviour,
+            #Hydra::Works::WorkBehavior,
+            #Dlibhydra::AssignId,
             Dlibhydra::AddDataciteMandatory,
-            Dlibhydra::AssignId,
             Dlibhydra::ForIndexing,
             Dlibhydra::DcAccessRights,
             Dlibhydra::Pure,
@@ -17,10 +18,15 @@ module Dlibhydra
 
     type << ::RDF::Vocab::DCAT.Dataset
 
-    # look at how CC handles this
+    has_and_belongs_to_many :managing_organisation,
+                            class_name: 'Dlibhydra::CurrentOrganisation',
+                            predicate:
+                                Dlibhydra::Vocab::PureTerms.pureManagingUnit
+
+    # TODO look at how CC handles this and fix clash
     # where does this come from? is it in pure? NOT IN PUREE check ws
-    property :embargo_release_date,
-             predicate: Dlibhydra::Vocab::Generic.embargoReleaseDate,
+    property :embargo_release,
+             predicate: Dlibhydra::Vocab::Generic.embargoRelease,
              multiple: false do |index|
       index.as :stored_searchable
     end
@@ -55,7 +61,7 @@ module Dlibhydra
         super.tap do |solr_doc|
           # add a stored text index for the 'access_rights' property in solr
           # so that case-insensitive sorting can be done on it
-          solr_doc['access_rights_tesi'] = object.access_rights
+          solr_doc['dc_access_rights_tesi'] = object.dc_access_rights
         end
       end
     end

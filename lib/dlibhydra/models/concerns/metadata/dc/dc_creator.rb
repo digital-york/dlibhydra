@@ -5,7 +5,7 @@ module Dlibhydra
 
     included do
       before_save :add_creator_label
-      has_and_belongs_to_many :creator_object,
+      has_and_belongs_to_many :creator_resource,
                               class_name: 'Dlibhydra::CurrentPerson',
                               predicate: ::RDF::Vocab::DC.creator
 
@@ -15,8 +15,8 @@ module Dlibhydra
       end
 
       def add_creator_label
-        creator_object.each do | creator_obj |
-          self.creator << creator_obj.preflabel
+        creator_resource.each do | creator_res |
+          self.creator << creator_res.preflabel
         end
       end
     end

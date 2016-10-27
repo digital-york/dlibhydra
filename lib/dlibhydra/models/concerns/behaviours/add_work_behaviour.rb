@@ -1,12 +1,8 @@
 module Dlibhydra
   module AddWorkBehaviour
     extend ActiveSupport::Concern
-
-    include Hydra::Works::WorkBehavior
     include CurationConcerns::WorkBehavior
-
-    # There was a problem with CurationConcerns::NestedWorks
-    # Not sure what all of these are actually doing
+    # These are what WorkBehavior includes:
     # include Hydra::Works::WorkBehavior
     # include CurationConcerns::HumanReadableType
     # include CurationConcerns::Noid
@@ -18,7 +14,10 @@ module Dlibhydra
     # include CurationConcerns::WithFileSets
     # include CurationConcerns::Naming
     # include CurationConcerns::RequiredMetadata
+    # include CurationConcerns::InAdminSet
     # include Hydra::AccessControls::Embargoable
     # include GlobalID::Identification
+    # include CurationConcerns::NestedWorks # there was an issue with this, seems fixed?
+    # include CurationConcerns::Publishable
   end
 end

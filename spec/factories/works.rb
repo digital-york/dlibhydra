@@ -13,7 +13,7 @@ FactoryGirl.define do
     subject ['miserabilism']
     keyword ['northern misery']
     rights_holder 'Johnny Marr'
-    license 'license'
+    rights 'https://creativecommons.org/publicdomain/mark/1.0/'
     former_id ['york:1234']
     doi ['xxx-xxx-xxx']
     orcid ['xxx-xxx-xxx']
@@ -28,9 +28,9 @@ FactoryGirl.define do
 
   factory :dataset, class: Dlibhydra::Dataset do
     title ['Strangeways, Here We Come']
-    embargo_release_date 2016 - 12 - 12
+    embargo_release 2016 - 12 - 12
     retention_policy '10 years from last access'
-    access_rights 'access rights'
+    dc_access_rights 'access rights'
     doi ['xxx-xxx-xxx']
     restriction_note ['restriction note']
     for_indexing 'lovely stuff for indexing'

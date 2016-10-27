@@ -31,7 +31,7 @@ module Dlibhydra
       end
 
       # same as Dlibhydra::Vocab::Uketd.qualificationName
-      property :qualification_name, predicate: ::RDF::URI.new('http://vivoweb.org/ontology/core#AcademicDegree'), multiple: false do |index|
+      property :qualification_name, predicate: Dlibhydra::Vocab::Uketd.qualificationName, multiple: false do |index|
         index.as :stored_searchable
       end
     end

@@ -1,6 +1,8 @@
 module Dlibhydra
   class GenericWork < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
+    include Dlibhydra::AddWorkBehaviour,
+            #Hydra::Works::WorkBehavior,
+            #Dlibhydra::AssignId,
             Dlibhydra::SkosLabels,
             Dlibhydra::DcTitle,
             Dlibhydra::AddLabels

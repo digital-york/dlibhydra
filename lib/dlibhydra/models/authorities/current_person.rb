@@ -5,8 +5,9 @@ module Dlibhydra
             Dlibhydra::AddLabels,
             Dlibhydra::FoafNameParts,
             Dlibhydra::Pure,
+            Dlibhydra::RdfType,
             Dlibhydra::Orcid,
-            Dlibhydra::AssignId
+            Dlibhydra::AssignId # call CCNoid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     before_save :add_pure_type
@@ -17,7 +18,7 @@ module Dlibhydra
     type [::RDF::URI.new('http://schema.org/Person')]
 
     def add_pure_type
-      type << Dlibhydra::Vocab::PureTerms.Person unless pure_uuid.nil?
+      rdf_type << Dlibhydra::Vocab::PureTerms.Person unless pure_uuid.nil?
     end
 
     def current_person?
@@ -25,8 +26,7 @@ module Dlibhydra
     end
 
     def phd
-      # TODO don't use type for this
-      type << Dlibhydra::Vocab::PureTerms.Phd
+      rdf_type << Dlibhydra::Vocab::PureTerms.PhdStudent
     end
   end
 end

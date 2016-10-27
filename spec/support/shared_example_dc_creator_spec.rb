@@ -5,12 +5,12 @@ shared_examples_for 'dc_creator' do
     model_str = model.to_s.split('::')[1]
     @person = FactoryGirl.build_stubbed(:current_person)
     @stubby = FactoryGirl.build(model_str.underscore.to_sym)
-    @stubby.creator_object << @person
+    @stubby.creator_resource << @person
     @stubby.add_creator_label
   end
   it 'will have creator' do
     expect(@stubby.creator).to eq(["Marr, Johnny", "label"])
-    expect(@stubby.creator_object.first).to eq(@person)
+    expect(@stubby.creator_resource.first).to eq(@person)
   end
   it 'will have the dc.creator predicate' do
     expect(@stubby.resource.dump(:ttl).should(include('http://purl.org/dc/terms/creator')))

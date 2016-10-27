@@ -41,8 +41,8 @@ shared_examples_for 'thesis_metadata' do
   it 'will have bibframe dissertationInstitution' do
     expect(@stubby.resource.dump(:ttl).should(include('http://bibframe.org/vocab/dissertationInstitution')))
   end
-  it 'will have vivoAcademicDegree' do
-    expect(@stubby.resource.dump(:ttl).should(include('http://vivoweb.org/ontology/core#AcademicDegree')))
+  it 'will have uketd qualificationName' do
+    expect(@stubby.resource.dump(:ttl).should(include('http://dlib.york.ac.uk/ontologies/uketd#qualificationName>')))
   end
 
 end

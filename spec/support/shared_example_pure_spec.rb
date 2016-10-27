@@ -4,8 +4,6 @@ shared_examples_for 'pure' do
   before(:each) do
     model_str = model.to_s.split('::')[1]
     @stubby = FactoryGirl.build(model_str.underscore.to_sym)
-    @org = FactoryGirl.build_stubbed(:current_org)
-    @stubby.managing_organisation << @org
   end
   it 'will have a pure_uuid' do
     expect(@stubby.pure_uuid).to eq('xxxx-xxxx-xxxx-xxxx')
@@ -30,8 +28,5 @@ shared_examples_for 'pure' do
   end
   it 'will have the pure link predicate' do
     expect(@stubby.resource.dump(:ttl).should(include('http://dlib.york.ac.uk/ontologies/pure#pureLink')))
-  end
-  it 'will have a managing organisation' do
-    expect(@stubby.managing_organisation.first.preflabel).to eq(@org.preflabel)
   end
 end

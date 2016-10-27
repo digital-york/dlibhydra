@@ -129,7 +129,7 @@ module Dlibhydra
                label: 'For Index'.freeze,
                'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
-      property :embargoReleaseDate,
+      property :embargoRelease,
                comment:
                    %(This property should be used to specify the end date of
                     an embargo period.).freeze,

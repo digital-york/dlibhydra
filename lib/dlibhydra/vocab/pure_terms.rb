@@ -4,22 +4,22 @@ module Dlibhydra
     class PureTerms < RDF::Vocabulary('http://dlib.york.ac.uk/ontologies/pure#')
       # Class definitions
       term :Person,
-           comment: %(Person information from PURE).freeze,
+           comment: %(Person from PURE).freeze,
            label: 'Person'.freeze,
            'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
            # TODO: subClassOf: ''.freeze,
            type: 'rdf:Class'.freeze
       term :Organisation,
-           comment: %(Organisation information from PURE.).freeze,
+           comment: %(Organisation from PURE.).freeze,
            label: 'Pure Organisation'.freeze,
            'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
            # TODO: subClassOf: ''.freeze,
            type: 'rdf:Class'.freeze
-      term :Phd,
-           comment: %(Person information in PURE, for a Phd student.).freeze,
+      term :PhdStudent,
+           comment: %(Person from PURE, a PhD student.).freeze,
            label: 'Pure Person Phd'.freeze,
            'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/pure#).freeze,
-           subClassOf: 'http://dlib.york.ac.uk/ontologies/pure#PurePerson'.freeze,
+           subClassOf: 'http://dlib.york.ac.uk/ontologies/pure#Person'.freeze,
            type: 'rdf:Class'.freeze
 
       # Property definitions

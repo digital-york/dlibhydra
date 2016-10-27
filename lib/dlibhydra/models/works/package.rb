@@ -1,8 +1,9 @@
 module Dlibhydra
   class Package < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
+    include Dlibhydra::AddWorkBehaviour,
+            #Hydra::Works::WorkBehavior,
+            #Dlibhydra::AssignId,
             Dlibhydra::AddLabels,
-            Dlibhydra::AssignId,
             Dlibhydra::Archivematica,
             Dlibhydra::RdfType, # needed for add_types callback
             Dlibhydra::ReadmeFile,
