@@ -12,8 +12,8 @@ FactoryGirl.define do
     language ['en-GB']
     subject ['miserabilism']
     keyword ['northern misery']
-    rights_holder 'Johnny Marr'
-    rights 'https://creativecommons.org/publicdomain/mark/1.0/'
+    rights_holder ['Johnny Marr']
+    rights ['https://creativecommons.org/publicdomain/mark/1.0/']
     former_id ['york:1234']
     doi ['xxx-xxx-xxx']
     orcid ['xxx-xxx-xxx']
