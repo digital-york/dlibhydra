@@ -7,7 +7,7 @@ module Dlibhydra
             Dlibhydra::Pure,
             Dlibhydra::RdfType,
             Dlibhydra::Orcid,
-            Dlibhydra::AssignId # call CCNoid
+            CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     before_save :add_pure_type

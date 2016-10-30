@@ -5,7 +5,7 @@ module Dlibhydra
             Dlibhydra::AddLabels,
             Dlibhydra::FoafName,
             Dlibhydra::Pure,
-            Dlibhydra::AssignId
+            CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # belongs_to :concept_scheme,

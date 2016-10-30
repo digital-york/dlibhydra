@@ -5,11 +5,11 @@ module Dlibhydra
     #   https://github.com/hybox/models/blob/master/models/concepts.md
     # TODO: add exactmatch and close match (instead of related?)
 
-    include Dlibhydra::AssignId,
-            Dlibhydra::AddLabels,
+    include Dlibhydra::AddLabels,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::OwlSameAs,
-            Dlibhydra::RdfsSeeAlso # use for external see also links
+            Dlibhydra::RdfsSeeAlso, # use for external see also links
+            CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     belongs_to :concept_scheme,

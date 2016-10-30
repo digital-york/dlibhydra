@@ -6,7 +6,7 @@ module Dlibhydra
             Dlibhydra::BorthwickNote,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
-            Dlibhydra::AssignId
+            CurationConcerns::Noid
             # Hydra::Works::WorkBehavior,
 
     belongs_to :concept_scheme, predicate: ::RDF::Vocab::SKOS.inScheme

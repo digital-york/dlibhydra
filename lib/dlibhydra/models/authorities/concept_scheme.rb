@@ -2,7 +2,7 @@ module Dlibhydra
   class ConceptScheme < ActiveFedora::Base
     include Dlibhydra::AddLabels,
             Dlibhydra::DcDescription,
-            Dlibhydra::AssignId
+            CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     has_many :concepts, class_name: 'Dlibhydra::Concept' #, :dependent => :destroy

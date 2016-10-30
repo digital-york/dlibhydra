@@ -9,7 +9,7 @@ module Dlibhydra
             Dlibhydra::HubDates,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
-            Dlibhydra::AssignId
+            CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     belongs_to :concept_scheme,
@@ -18,7 +18,11 @@ module Dlibhydra
 
     type [::RDF::URI.new('http://schema.org/Person'),
           ::RDF::URI.new('http://vocab.getty.edu/ontology#PersonConcept'),
-          ::RDF::URI.new('http://purl.org/vra/Person')]
+          ::RDF::Vocab::FOAF.Agent,
+          ::RDF::Vocab::FOAF.Person,
+         ]
+
+    # ::RDF::URI.new('http://purl.org/vra/Person')
 
     # in VRA this includes family as well as individual (use group)
     # vra:hasCulture
