@@ -19,6 +19,15 @@ module Dlibhydra
     autoload :BorthwickProperties
   end
 
+  module Vocab
+    extend ActiveSupport::Autoload
+    eager_autoload do
+      autoload :Terms
+      autoload :TermsBase
+      autoload :SolrQuery
+    end
+  end
+
   autoload_under 'models/authorities' do
     autoload :Concept
     autoload :ConceptScheme
