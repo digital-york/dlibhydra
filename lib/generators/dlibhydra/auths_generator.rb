@@ -11,7 +11,7 @@ class Dlibhydra::AuthsGenerator < Rails::Generators::Base
       copy_file "qa_local.rb", "config/initializers/qa_local.rb"
     end
     file_content = File.read(file_path)
-    Terms.constants.each do |term|
+    ::Terms.constants.each do |term|
       t = term.to_s
       term_sting = "Qa::Authorities::Local.register_subauthority('#{t.gsub('Terms', '').humanize}s', 'Dlibhydra::Terms::#{t}')"
       unless file_content.include?
