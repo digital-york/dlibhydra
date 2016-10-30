@@ -1,6 +1,5 @@
 module Dlibhydra
   module Terms
-
     include Qa::Authorities::WebServiceBase
 
     class DepartmentTerms < TermsBase

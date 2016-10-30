@@ -19,13 +19,10 @@ module Dlibhydra
     autoload :BorthwickProperties
   end
 
-  module Services
-    extend ActiveSupport::Autoload
-    eager_autoload do
-      autoload :Terms
-      autoload :TermsBase
-      autoload :SolrQuery
-    end
+  autoload_under 'services' do
+    autoload :Terms
+    autoload :TermsBase
+    autoload :SolrQuery
   end
 
   autoload_under 'models/authorities' do
