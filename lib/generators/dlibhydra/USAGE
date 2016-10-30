@@ -1,0 +1,6 @@
+Description:
+    Installs Dlibhydra authorities into your rails application.
+      * adds the dlibhydra authorities into config/authorities
+
+Example:
+    rails generate dlibhydra:install
