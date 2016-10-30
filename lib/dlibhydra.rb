@@ -19,7 +19,7 @@ module Dlibhydra
     autoload :BorthwickProperties
   end
 
-  module Vocab
+  module Services
     extend ActiveSupport::Autoload
     eager_autoload do
       autoload :Terms
