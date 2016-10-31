@@ -3,7 +3,7 @@ module Dlibhydra
     attr_reader :authority
 
     def initialize(authority)
-      @authority = Qa::Authorities::Local.subauthority_for(authority)
+      @authority = self
     end
 
     # Gets the ConceptScheme
@@ -83,9 +83,9 @@ module Dlibhydra
     # Reformats the data received from the service
     def parse_authority_response(response)
       response['response']['docs'].map do |result|
-        hash = {'id' => result['id'],
-         'label' => if result['preflabel_tesim'] then result['preflabel_tesim'].join end,
-         'definition' => if result['definition_tesim'] then result['definition_tesim'].join end
+        hash = {:id => result['id'],
+         :label => if result['preflabel_tesim'] then result['preflabel_tesim'].join end,
+         :definition => if result['definition_tesim'] then result['definition_tesim'].join end
         }
         # Only add broader where it exists (ie. subjects)
         # assumes only one broader
