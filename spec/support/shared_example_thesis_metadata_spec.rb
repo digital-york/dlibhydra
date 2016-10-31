@@ -3,7 +3,15 @@ shared_examples_for 'thesis_metadata' do
 
   before(:each) do
     model_str = model.to_s.split('::')[1]
+    #@person = FactoryGirl.build_stubbed(:current_person)
+    #@org = FactoryGirl.build_stubbed(:current_org)
+    #@level = FactoryGirl.build_stubbed(:concept)
     @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
+    #@stubby.qualification_level_resource << @level
+    #@stubby.advisor_resource << @person
+    #@stubby.department_resource << @org
+    #@stubby.awarding_institution_resource << @org
+
   end
   # metadata
   it 'will have an abstract' do
@@ -44,5 +52,11 @@ shared_examples_for 'thesis_metadata' do
   it 'will have uketd qualificationName' do
     expect(@stubby.resource.dump(:ttl).should(include('http://dlib.york.ac.uk/ontologies/uketd#qualificationName>')))
   end
+  # it 'will have _value_tesim in the solr response' do
+  #   expect(@stubby.to_solr.should(include('advisor_value_tesim')))
+  #   expect(@stubby.to_solr.should(include('department_value_tesim')))
+  #   expect(@stubby.to_solr.should(include('qualification_level_value_tesim')))
+  #   expect(@stubby.to_solr.should(include('awarding_institution_value_tesim')))
+  # end
 
 end

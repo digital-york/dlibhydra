@@ -95,7 +95,6 @@ module Dlibhydra
     autoload :DcAccessRights
     autoload :DcAvailable
     autoload :DcCreator
-    autoload :DcCreatorObject
     autoload :DcDate
     autoload :DcDescription
     autoload :DcIdentifier

@@ -10,7 +10,7 @@ FactoryGirl.define do
     qualification_level 'PhD'
     qualification_name 'qualification'
     language ['en-GB']
-    subject ['miserabilism']
+    # subject ['miserabilism']
     keyword ['northern misery']
     rights_holder ['Johnny Marr']
     rights ['https://creativecommons.org/publicdomain/mark/1.0/']

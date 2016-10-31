@@ -79,4 +79,7 @@ FactoryGirl.define do
   factory :current_person, class: Dlibhydra::CurrentPerson do
     preflabel 'label'
   end
+  factory :simple_concept, class: Dlibhydra::Concept do
+    preflabel 'label'
+  end
 end

@@ -4,7 +4,13 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      property :publisher, predicate: ::RDF::Vocab::DC.publisher,
+      # DCTERMS subject for controlled subjects.
+      has_and_belongs_to_many :publisher_resource,
+                              class_name: 'Dlibhydra::CurrentOrganisation',
+                              predicate: ::RDF::Vocab::DC.publisher
+
+      # DC11 for publisher name.
+      property :publisher, predicate: ::RDF::Vocab::DC11.publisher,
                            multiple: false do |index|
         index.as :stored_searchable, :sortable
       end
