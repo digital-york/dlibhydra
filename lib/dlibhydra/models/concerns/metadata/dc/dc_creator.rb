@@ -25,7 +25,7 @@ module Dlibhydra
           super.tap do |solr_doc|
             # add a stored text index for the 'access_rights' property in solr
             # so that case-insensitive sorting can be done on it
-            solr_doc['dc_creator'] = object.creator_resource
+            solr_doc['dc_creator'] = object.creator_resource.first.preflabel
           end
         end
       end
