@@ -1,6 +1,5 @@
 module Dlibhydra
   class TermsService
-
     attr_reader :subauthority
 
     def initialize(subauthority)
@@ -66,6 +65,15 @@ module Dlibhydra
     def get_str_from_id(id, type)
       response = SolrQuery.new.solr_query(q='id:"' + id + '"', fl=type, rows='1')
       parse_terms_response(response, type);
+    end
+
+    # from curation_concerns/app/services/curation_concerns/license_server.rb
+    def include_current_value(value, _index, render_options, html_options)
+      unless value.blank? || active?(value)
+        html_options[:class] << ' force-select'
+        render_options += [[label(value), value]]
+      end
+      [render_options, html_options]
     end
 
     # removed code for same_as and hierarchical schemes, see arch1 if it's needed
