@@ -3,7 +3,7 @@ module Dlibhydra
     attr_reader :subauthority
 
     def initialize(subauthority)
-      @authority = subauthority
+      @authority = Qa::Authorities::Local.subauthority_for(subauthority)
     end
 
     # Gets the ConceptScheme
