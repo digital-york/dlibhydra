@@ -19,6 +19,17 @@ module Dlibhydra
           self.creator << creator_res.preflabel
         end
       end
+
+      class TextIndexer < Hydra::PCDM::PCDMIndexer
+        def generate_solr_document
+          super.tap do |solr_doc|
+            # add a stored text index for the 'access_rights' property in solr
+            # so that case-insensitive sorting can be done on it
+            solr_doc['dc_creator'] = object.creator_resource
+          end
+        end
+      end
+
     end
   end
 end

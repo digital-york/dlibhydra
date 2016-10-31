@@ -20,5 +20,9 @@ module Dlibhydra
     def thesis?
       true
     end
+
+    def self.indexer
+      TextIndexer
+    end
   end
 end

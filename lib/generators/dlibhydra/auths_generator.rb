@@ -5,7 +5,7 @@ class Dlibhydra::AuthsGenerator < Rails::Generators::Base
     directory "authorities", "config/authorities"
   end
 
-  def copy_qa_local
+  def inject_into_qa_local
     file_path = 'config/initializers/qa_local.rb'
     unless File.exist?(file_path)
       copy_file "qa_local.rb", "config/initializers/qa_local.rb"

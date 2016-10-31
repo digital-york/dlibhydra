@@ -7,6 +7,8 @@ shared_examples_for 'dc_creator' do
     @stubby = FactoryGirl.build(model_str.underscore.to_sym)
     @stubby.creator_resource << @person
     @stubby.add_creator_label
+    @stubby.indexer
+    puts @stubby.to_solr
   end
   it 'will have creator' do
     expect(@stubby.creator).to eq(["Marr, Johnny", "label"])
