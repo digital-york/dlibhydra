@@ -10,17 +10,17 @@ module Dlibhydra
     end
     class QualificationNameTerms < TermsService
       def terms_list
-        'qualification names'
+        'qualification_names'
       end
     end
     class CurrentPersonTerms < TermsService
       def terms_list
-        'current persons'
+        'current_persons'
       end
     end
     class CurrentOrganisationTerms < TermsService
       def terms_list
-        'current organisations'
+        'current_organisations'
       end
     end
   end

@@ -9,6 +9,8 @@ module Dlibhydra
             CurationConcerns::Noid
             # Hydra::Works::WorkBehavior,
 
+  # TODO create preflabel
+
     belongs_to :concept_scheme, predicate: ::RDF::Vocab::SKOS.inScheme
 
     # TODO: GVP CLASS AdminPlaceConcept or PhysPlaceConcept

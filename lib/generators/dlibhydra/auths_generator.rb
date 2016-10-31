@@ -13,7 +13,7 @@ class Dlibhydra::AuthsGenerator < Rails::Generators::Base
     file_content = File.read(file_path)
     ::Dlibhydra::Terms.constants.each do |term|
       t = term.to_s
-      term_string = "Qa::Authorities::Local.register_subauthority('#{t.gsub('Terms', '').underscore.humanize.downcase}s', 'Dlibhydra::Terms::#{t}')"
+      term_string = "Qa::Authorities::Local.register_subauthority('#{t.gsub('Terms', '').underscore.downcase}s', 'Dlibhydra::Terms::#{t}')"
       unless file_content.include? term_string
         inject_into_file file_path, after: '# include Terms' do
           "\n#{term_string}"

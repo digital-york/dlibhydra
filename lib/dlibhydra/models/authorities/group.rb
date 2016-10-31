@@ -12,6 +12,8 @@ module Dlibhydra
             CurationConcerns::Noid
     # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
+    # TODO create preflabel
+
     belongs_to :concept_scheme,
                class_name: 'Dlibhydra::ConceptScheme',
                predicate: ::RDF::Vocab::SKOS.inScheme

@@ -8,10 +8,16 @@ module Dlibhydra
             CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
-    # belongs_to :concept_scheme,
-    #   class_name: 'Dlibhydra::ConceptScheme', predicate: ::RDF::Vocab::SKOS.inScheme
+    # TODO create preflabel
 
-    type [::RDF::URI.new('https://schema.org/Organization')]
+    belongs_to :concept_scheme,
+               class_name: 'Dlibhydra::ConceptScheme',
+               predicate: ::RDF::Vocab::SKOS.inScheme
+
+    type [::RDF::URI.new('https://schema.org/Organization'),
+         ::RDF::Vocab::FOAF.Agent,
+         ::RDF::Vocab::FOAF.Organisation]
+
     before_save :add_pure_type
 
     def add_pure_type
