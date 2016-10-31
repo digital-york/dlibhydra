@@ -1,9 +1,9 @@
 module Dlibhydra
   class TermsService < CurationConcerns::QaSelectService
-    attr_reader :subauthority
+    attr_reader :authority
 
-    def initialize(subauthority)
-      @authority = Qa::Authorities::Local.subauthority_for(subauthority)
+    def initialize(authority)
+      @authority = Qa::Authorities::Local.subauthority_for(authority)
     end
 
     # Gets the ConceptScheme
