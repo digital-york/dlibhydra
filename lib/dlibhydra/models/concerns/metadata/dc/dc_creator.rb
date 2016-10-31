@@ -30,6 +30,10 @@ module Dlibhydra
         end
       end
 
+      def self.indexer
+        TextIndexer
+      end
+
     end
   end
 end

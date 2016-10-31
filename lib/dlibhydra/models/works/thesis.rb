@@ -21,8 +21,5 @@ module Dlibhydra
       true
     end
 
-    def self.indexer
-      TextIndexer
-    end
   end
 end
