@@ -74,12 +74,12 @@ FactoryGirl.define do
   end
 
   factory :current_org, class: Dlibhydra::CurrentOrganisation do
-    preflabel 'label'
+    preflabel 'University of York. Department of Miserabilism'
   end
   factory :current_person, class: Dlibhydra::CurrentPerson do
-    preflabel 'label'
+    preflabel 'Smith, Mark E.'
   end
   factory :simple_concept, class: Dlibhydra::Concept do
-    preflabel 'label'
+    preflabel 'miserabilism'
   end
 end

@@ -11,6 +11,7 @@ module Dlibhydra
       autoload :OaisArchivematica
       autoload :PureTerms
       autoload :Uketd
+      autoload :LocalResourceTerms
     end
   end
 
@@ -21,7 +22,7 @@ module Dlibhydra
 
   autoload_under 'services' do
     autoload :Terms
-    autoload :TermsBase
+    autoload :TermsService
     autoload :SolrQuery
   end
 
