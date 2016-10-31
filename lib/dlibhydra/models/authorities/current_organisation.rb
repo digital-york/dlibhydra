@@ -16,7 +16,7 @@ module Dlibhydra
 
     type [::RDF::URI.new('https://schema.org/Organization'),
          ::RDF::Vocab::FOAF.Agent,
-         ::RDF::Vocab::FOAF.Organisation]
+         ::RDF::Vocab::FOAF.Organization]
 
     before_save :add_pure_type
 
