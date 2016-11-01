@@ -47,7 +47,7 @@ module Dlibhydra
       end
 
       # same as Dlibhydra::Vocab::Uketd.qualificationName
-      property :qualification_name, predicate: Dlibhydra::Vocab::Uketd.qualificationName, multiple: false do |index|
+      property :qualification_name, predicate: Dlibhydra::Vocab::Uketd.qualificationName, multiple: true do |index|
         index.as :stored_searchable
       end
 

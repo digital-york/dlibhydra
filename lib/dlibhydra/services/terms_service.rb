@@ -66,14 +66,9 @@ module Dlibhydra
       response = SolrQuery.new.solr_query(q='id:"' + id + '"', fl=type, rows='1')
       parse_terms_response(response, type);
     end
-
-    # from curation_concerns/app/services/curation_concerns/license_server.rb
-    def include_current_value(value, _index, render_options, html_options)
-      unless value.blank? || active?(value)
-        html_options[:class] << ' force-select'
-        render_options += [[label(value), value]]
-      end
-      [render_options, html_options]
+    
+    def select_all_options
+      authority.all.map { |e| [e[:label], e[:id]] }
     end
 
     # removed code for same_as and hierarchical schemes, see arch1 if it's needed
