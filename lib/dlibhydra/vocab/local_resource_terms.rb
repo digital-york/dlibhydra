@@ -8,8 +8,8 @@ module Dlibhydra
       # Property definitions
       property :qualification_level,
                comment:
-                   %(This property is used for a resource URI for UKETD#qualificationLevel.).freeze,
-               label: 'Qualification Level'.freeze,
+                   %(This property is used for a resource URI for UKETD#qualificationName.).freeze,
+               label: 'Qualification Name'.freeze,
                'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/local_resource_terms#).freeze,
                type: 'rdf:Property'.freeze
       property :department,

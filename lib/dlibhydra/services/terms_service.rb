@@ -68,7 +68,7 @@ module Dlibhydra
     end
     
     def select_all_options
-      authority.all.map { |e| [e[:label], e[:id]] }
+      authority.all.map { |e| [e[:label].join, e[:id]] }
     end
 
     # removed code for same_as and hierarchical schemes, see arch1 if it's needed
