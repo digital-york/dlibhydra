@@ -105,7 +105,18 @@ module Dlibhydra
     # Validations
     autoload :ValidateConceptScheme
     # autoload :ValidateLabel
+    autoload :FileSetBehavior
   end
+
+  autoload_under 'models/filesets' do
+    autoload :FileSet
+  end
+
+  autoload_under 'models/concerns/file_set' do
+    autoload :Derivatives
+  end
+
+  
 
   autoload_under 'validators' do
     # autoload :HasLabelValidator
