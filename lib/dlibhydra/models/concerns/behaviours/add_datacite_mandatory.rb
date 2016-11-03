@@ -6,6 +6,6 @@ module Dlibhydra
             Dlibhydra::DcPublisher,
             Dlibhydra::DcAvailable,
             Dlibhydra::AddLabels,
-            Dlibhydra::DcCreator #Object
+            Dlibhydra::DcCreator
   end
 end

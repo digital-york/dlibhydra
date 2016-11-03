@@ -2,7 +2,7 @@ module Dlibhydra
   class TermsService < CurationConcerns::QaSelectService
     attr_reader :authority
 
-    def initialize(authority)
+    def initialize
       @authority = self
     end
 

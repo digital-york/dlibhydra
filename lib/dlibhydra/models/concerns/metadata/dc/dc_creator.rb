@@ -5,7 +5,7 @@ module Dlibhydra
 
     included do
       has_and_belongs_to_many :creator_resource,
-                              class_name: 'Dlibhydra::CurrentPerson',
+                              class_name: 'Dlibhydra::CurrentPerson' || 'Dlibhydra::CurrentOrganisation',
                               predicate: ::RDF::Vocab::DC.creator
 
       property :creator, predicate: ::RDF::Vocab::DC11.creator,

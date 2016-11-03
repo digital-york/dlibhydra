@@ -6,6 +6,9 @@ module Dlibhydra
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     has_many :concepts, class_name: 'Dlibhydra::Concept' #, :dependent => :destroy
+    has_many :current_organisations, class_name: 'Dlibhydra::CurrentOrganisation'
+    has_many :departments, class_name: 'Dlibhydra::CurrentOrganisation'
+    has_many :current_persons, class_name: 'Dlibhydra::CurrentPerson'
     has_many :persons #, :dependent => :destroy
     has_many :places #, :dependent => :destroy
     has_many :groups #, :dependent => :destroy

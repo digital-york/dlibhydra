@@ -5,7 +5,7 @@ shared_examples_for 'thesis_metadata' do
     model_str = model.to_s.split('::')[1]
     @person = FactoryGirl.build_stubbed(:current_person)
     @org = FactoryGirl.build_stubbed(:current_org)
-    @level = FactoryGirl.build_stubbed(:simple_concept)
+    @name = FactoryGirl.build_stubbed(:simple_concept)
     @stubby = FactoryGirl.build(model_str.underscore.to_sym)
     @stubby.qualification_name_resource << @name
     @stubby.advisor_resource << @person
@@ -35,10 +35,10 @@ shared_examples_for 'thesis_metadata' do
   end
   it 'will have a qualification name' do
     expect(@stubby.qualification_name).to eq(['miserabilism'])
-    expect(@stubby.qualification_name_resource.first).to eq(@level)
+    expect(@stubby.qualification_name_resource.first).to eq(@name)
   end
   it 'will have an qualification level' do
-    expect(@stubby.qualification_level).to eq('qualification')
+    expect(@stubby.qualification_level).to eq(['PhD'])
   end
 
   # predicates

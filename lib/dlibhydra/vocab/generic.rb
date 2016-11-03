@@ -186,6 +186,12 @@ module Dlibhydra
                label: 'Has Readme File'.freeze,
                'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
                type: 'rdf:Property'.freeze
+      property :moduleCode,
+               comment:
+                   %(This property should be used for a course modul code, eg. from SITS.).freeze,
+               label: 'Module Code'.freeze,
+               'rdf:isDefinedBy' => %(http://dlib.york.ac.uk/ontologies/generic#).freeze,
+               type: 'rdf:Property'.freeze
 
       # Extra definitions
       term :"",

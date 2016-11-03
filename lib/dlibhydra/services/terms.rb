@@ -23,5 +23,10 @@ module Dlibhydra
         'current_organisations'
       end
     end
+    class SubjectTerms < TermsService
+      def terms_list
+        'subjects'
+      end
+    end
   end
 end

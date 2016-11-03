@@ -114,6 +114,7 @@ module Dlibhydra
     autoload :AddLabels
     autoload :AddDcDescriptive
     autoload :AddDataciteMandatory
+    autoload :AddThesisMetadata
     autoload :AddWorkBehaviour
     # Validations
     autoload :ValidateConceptScheme

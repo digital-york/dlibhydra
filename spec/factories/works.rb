@@ -4,13 +4,8 @@ FactoryGirl.define do
     abstract 'abstract'
     creator ['Marr, Johnny']
     date_of_award '2016-01-01'
-    #advisor ['Smith, Mark E.']
-    #department ['Department of Miserabilism']
-    #awarding_institution 'University of York'
-    #qualification_level 'PhD'
-    qualification_name 'qualification'
+    qualification_level ['PhD']
     language ['en-GB']
-    # subject ['miserabilism']
     keyword ['northern misery']
     rights_holder ['Johnny Marr']
     rights ['https://creativecommons.org/publicdomain/mark/1.0/']
