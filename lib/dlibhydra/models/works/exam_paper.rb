@@ -1,13 +1,14 @@
 module Dlibhydra
-  # thesis
-  class Thesis < ActiveFedora::Base
+  # exam paper
+  class ExamPaper < ActiveFedora::Base
 
     include Dlibhydra::AddWorkBehaviour,
-            Dlibhydra::AddThesisMetadata
+            Dlibhydra::AddExamPaperMetadata
 
-    type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
 
-    def thesis?
+    type << ::RDF::URI.new('http://purl.org/spar/fabio/ExaminationPaper')
+
+    def exam_paper?
       true
     end
 

@@ -1,24 +1,7 @@
 FactoryGirl.define do
-  factory :thesis, class: Dlibhydra::Thesis do
-    preflabel 'label'
-    abstract 'abstract'
-    creator ['Marr, Johnny']
-    date_of_award '2016-01-01'
-    qualification_level ['PhD']
-    language ['en-GB']
-    keyword ['northern misery']
-    rights_holder ['Johnny Marr']
-    rights ['https://creativecommons.org/publicdomain/mark/1.0/']
-    former_id ['york:1234']
-    doi ['xxx-xxx-xxx']
-    orcid ['xxx-xxx-xxx']
 
-    after(:build, &:map_labels)
-
-    trait :with_before_save_callback do
-      after(:build, &:map_labels)
-    end
-
+  factory :generic_work, class: Dlibhydra::GenericWork do
+    title ['Generic Work']
   end
 
   factory :dataset, class: Dlibhydra::Dataset do
@@ -37,6 +20,25 @@ FactoryGirl.define do
     pure_link ['pure link']
     creator ['Marr, Johnny']
 
+  end
+
+  factory :exam_paper, class: Dlibhydra::ExamPaper do
+    creator ['Marr, Johnny']
+    preflabel 'label'
+    date ['2016-01-01']
+    description 'description'
+    qualification_level ['PhD']
+    language ['en-GB']
+    rights_holder ['Johnny Marr']
+    rights ['https://creativecommons.org/publicdomain/mark/1.0/']
+    former_id ['york:1234']
+    module_code 'XXXXXX'
+
+    after(:build, &:map_labels)
+
+    trait :with_before_save_callback do
+      after(:build, &:map_labels)
+    end
   end
 
   factory :package, class: Dlibhydra::Package do
@@ -64,8 +66,26 @@ FactoryGirl.define do
 
   end
 
-  factory :generic_work, class: Dlibhydra::GenericWork do
-    title ['Generic Work']
+  factory :thesis, class: Dlibhydra::Thesis do
+    preflabel 'label'
+    abstract 'abstract'
+    creator ['Marr, Johnny']
+    date_of_award '2016-01-01'
+    qualification_level ['PhD']
+    language ['en-GB']
+    keyword ['northern misery']
+    rights_holder ['Johnny Marr']
+    rights ['https://creativecommons.org/publicdomain/mark/1.0/']
+    former_id ['york:1234']
+    doi ['xxx-xxx-xxx']
+    orcid ['xxx-xxx-xxx']
+
+    after(:build, &:map_labels)
+
+    trait :with_before_save_callback do
+      after(:build, &:map_labels)
+    end
+
   end
 
 end

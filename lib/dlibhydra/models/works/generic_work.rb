@@ -1,7 +1,7 @@
 module Dlibhydra
   class GenericWork < ActiveFedora::Base
     include Dlibhydra::AddWorkBehaviour,
-            DlibAddDcDescriptive,
+            Dlibhydra::AddDcDescriptive,
             Dlibhydra::AddLabels
 
     type << ::RDF::URI.new('http://dlib.york.ac.uk/generic#GenericWork')

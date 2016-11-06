@@ -1,5 +1,5 @@
 module Dlibhydra
-  # add mandatory datacite elements
+  # add thesis metadata
   module AddThesisMetadata
     extend ActiveSupport::Concern
     include Dlibhydra::AddLabels,
@@ -10,6 +10,8 @@ module Dlibhydra
             Dlibhydra::FormerIdentifier,
             Dlibhydra::Orcid,
             Dlibhydra::MainFile,
+            Dlibhydra::Department,
+            Dlibhydra::Qualification,
             Dlibhydra::ThesisMetadata
   end
 end

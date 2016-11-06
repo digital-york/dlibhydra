@@ -50,6 +50,7 @@ module Dlibhydra
   autoload_under 'models/works' do
     autoload :Package
     autoload :Dataset
+    autoload :ExamPaper
     autoload :GenericWork # TODO refactor
     autoload :Thesis
   end
@@ -61,12 +62,14 @@ module Dlibhydra
     # Metadata
     autoload :Archivematica
     autoload :BorthwickNote
+    autoload :Department
     autoload :Doi
     autoload :FoafName
     autoload :FoafNameParts
     autoload :ForIndexing
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
+    autoload :GenericModuleCode
     autoload :GenericQualifier
     autoload :GenericWorkflow
     autoload :HubDates
@@ -76,6 +79,7 @@ module Dlibhydra
     autoload :Orcid
     autoload :OwlSameAs
     autoload :Pure
+    autoload :Qualification
     autoload :ReadmeFile
     autoload :SkosLabels
     autoload :SimpleVersions
@@ -114,6 +118,7 @@ module Dlibhydra
     autoload :AddLabels
     autoload :AddDcDescriptive
     autoload :AddDataciteMandatory
+    autoload :AddExamPaperMetadata
     autoload :AddThesisMetadata
     autoload :AddWorkBehaviour
     # Validations
