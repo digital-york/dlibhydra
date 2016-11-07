@@ -1,13 +1,10 @@
 module Dlibhydra
   # contemporary (current) person
-  class CurrentPerson < ActiveFedora::Base
-    include Dlibhydra::OwlSameAs,
-            Dlibhydra::AddLabels,
-            Dlibhydra::FoafNameParts,
+  class CurrentPerson < Dlibhydra::Agent
+    include Dlibhydra::FoafNameParts,
             Dlibhydra::Pure,
             Dlibhydra::RdfType,
-            Dlibhydra::Orcid,
-            CurationConcerns::Noid
+            Dlibhydra::Orcid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # TODO create preflabel

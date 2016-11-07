@@ -9,6 +9,6 @@ shared_examples_for 'dc_publisher' do
     expect(@stubby.publisher).to eq('Rough Trade Records')
   end
   it 'will have the dcterms#publisher predicate' do
-    expect(@stubby.resource.dump(:ttl).should(include('http://purl.org/dc/terms/publisher')))
+    expect(@stubby.resource.dump(:ttl).should(include('http://purl.org/dc/elements/1.1/publisher')))
   end
 end

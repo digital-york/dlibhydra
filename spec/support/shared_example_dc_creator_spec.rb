@@ -4,9 +4,9 @@ shared_examples_for 'dc_creator' do
   before(:each) do
     model_str = model.to_s.split('::')[1]
     if model_str == 'ExamPaper'
-      @creator = FactoryGirl.build_stubbed(:current_person)
+      @creator = FactoryGirl.build_stubbed(:current_org)
     else
-      @creator = FactoryGirl.build_stubbed(:current_organisation)
+      @creator = FactoryGirl.build_stubbed(:current_person)
     end
     @stubby = FactoryGirl.build(model_str.underscore.to_sym)
     @stubby.creator_resource << @creator

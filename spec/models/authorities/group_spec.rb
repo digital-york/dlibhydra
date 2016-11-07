@@ -22,9 +22,9 @@ describe Dlibhydra::Group do
 
   # test metadata properties
   describe 'metadata' do
-    specify { group.type.should include('https://schema.org/Organization') }
+    specify { group.type.should include('http://xmlns.com/foaf/0.1/Group') }
     specify { group.type.should include('http://vocab.getty.edu/ontology#GroupConcept') }
-    specify { group.type.should include('http://purl.org/vra/Organization') }
+    specify { group.type.should include('http://xmlns.com/foaf/0.1/Agent') }
     specify { group.group_type.should eq(['group type']) }
   end
 

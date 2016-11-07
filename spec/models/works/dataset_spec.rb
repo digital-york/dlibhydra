@@ -59,7 +59,7 @@ describe Dlibhydra::Dataset do
 
   describe '#custom indexer' do
     it 'adds access_rights_tesi to the solr index ' do
-      expect(dataset.to_solr).to include('access_rights_tesi')
+      expect(dataset.to_solr).to include('dc_access_rights_tesi')
     end
   end
 end

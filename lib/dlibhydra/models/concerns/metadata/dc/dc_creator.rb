@@ -4,9 +4,11 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
+
       has_and_belongs_to_many :creator_resource,
-                              class_name: 'Dlibhydra::CurrentPerson' || 'Dlibhydra::CurrentOrganisation',
-                              predicate: ::RDF::Vocab::DC.creator
+                              predicate: ::RDF::Vocab::DC.creator,
+                              # TODO define an agent class for all of the person / org classes to inherit from
+                              class_name: 'Dlibhydra::Agent' # 'Dlibhydra::CurrentPerson' || 'Dlibhydra::CurrentOrganisation'
 
       property :creator, predicate: ::RDF::Vocab::DC11.creator,
                multiple: true do |index|

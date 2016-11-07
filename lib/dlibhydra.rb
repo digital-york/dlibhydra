@@ -27,6 +27,7 @@ module Dlibhydra
   end
 
   autoload_under 'models/authorities' do
+    autoload :Agent
     autoload :Concept
     autoload :ConceptScheme
     autoload :Group
@@ -112,8 +113,6 @@ module Dlibhydra
   end
 
   autoload_under 'models/concerns/behaviours' do
-    # Identifiers
-    autoload :AssignId
     # Behaviour
     autoload :AddLabels
     autoload :AddDcDescriptive
@@ -123,11 +122,11 @@ module Dlibhydra
     autoload :AddWorkBehaviour
     # Validations
     autoload :ValidateConceptScheme
-    # autoload :ValidateLabel
+    autoload :ValidateLabel
   end
 
   autoload_under 'validators' do
-    # autoload :HasLabelValidator
+    autoload :HasLabelValidator
     autoload :ConceptSchemeMemberValidator
   end
 end

@@ -1,15 +1,11 @@
 module Dlibhydra
   # historical group or organisation
-  class Group < ActiveFedora::Base
-    include Dlibhydra::OwlSameAs,
-            Dlibhydra::AddLabels,
-            Dlibhydra::BorthwickNote,
+  class Group < Dlibhydra::Agent
+    include Dlibhydra::BorthwickNote,
             Dlibhydra::FoafName,
             Dlibhydra::GenericQualifier,
             Dlibhydra::HubDates,
-            Dlibhydra::MadsRelatedAuthority,
-            Dlibhydra::GenericAuthorityTerms,
-            CurationConcerns::Noid
+            Dlibhydra::MadsRelatedAuthority
     # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # TODO create preflabel

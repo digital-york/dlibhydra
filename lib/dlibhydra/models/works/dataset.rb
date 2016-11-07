@@ -62,6 +62,7 @@ module Dlibhydra
           # add a stored text index for the 'access_rights' property in solr
           # so that case-insensitive sorting can be done on it
           solr_doc['dc_access_rights_tesi'] = object.dc_access_rights
+          solr_doc['creator_value_tesim'] = object.creator_resource.collect { |x| x.preflabel }
         end
       end
     end

@@ -1,14 +1,12 @@
 module Dlibhydra
   # concept
   class Concept < ActiveFedora::Base
-    # TODO: compare to
-    #   https://github.com/hybox/models/blob/master/models/concepts.md
-    # TODO: add exactmatch and close match (instead of related?)
-
+    # TODO: add exactmatch and close match, see https://github.com/hybox/models/blob/master/models/concepts.md
+    # TODO: add an after save, to find any usages and update_index / object; ditto for people etc.
     include Dlibhydra::AddLabels,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::OwlSameAs,
-            Dlibhydra::RdfsSeeAlso, # use for external see also links
+            Dlibhydra::RdfsSeeAlso, # TODO check this - use for external see also links
             CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 

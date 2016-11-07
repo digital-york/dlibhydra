@@ -1,11 +1,8 @@
 module Dlibhydra
   # contemporary (current) organisation
-  class CurrentOrganisation < ActiveFedora::Base
-    include Dlibhydra::OwlSameAs,
-            Dlibhydra::AddLabels,
-            Dlibhydra::FoafName,
-            Dlibhydra::Pure,
-            CurationConcerns::Noid
+  class CurrentOrganisation < Dlibhydra::Agent
+    include Dlibhydra::FoafName,
+            Dlibhydra::Pure
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # TODO create preflabel

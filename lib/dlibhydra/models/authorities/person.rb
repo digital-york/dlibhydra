@@ -1,15 +1,11 @@
 module Dlibhydra
   # person
   # this is not a RWO, could say #rwo is the RWO
-  class Person < ActiveFedora::Base
-    include Dlibhydra::OwlSameAs,
-            Dlibhydra::AddLabels,
-            Dlibhydra::BorthwickNote,
+  class Person < Dlibhydra::Agent
+    include Dlibhydra::BorthwickNote,
             Dlibhydra::FoafNameParts,
             Dlibhydra::HubDates,
-            Dlibhydra::MadsRelatedAuthority,
-            Dlibhydra::GenericAuthorityTerms,
-            CurationConcerns::Noid
+            Dlibhydra::MadsRelatedAuthority
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # TODO create preflabel
