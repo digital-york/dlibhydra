@@ -3,7 +3,7 @@ module Dlibhydra
   module FileSetBehavior
     extend ActiveSupport::Concern
 
-puts 'within /dlibhydra/models/concerns/behaviours/file_set_behavior.rb'
+#puts 'within /dlibhydra/models/concerns/behaviours/file_set_behavior.rb'
 
     included do
       def self.type_validator

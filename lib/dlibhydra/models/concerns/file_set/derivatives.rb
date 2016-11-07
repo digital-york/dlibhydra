@@ -1,6 +1,5 @@
 module Dlibhydra
   module Derivatives
-
 puts 'within Dlibhydra::Derivatives'
 
     extend ActiveSupport::Concern
@@ -17,6 +16,7 @@ puts 'within Dlibhydra::Derivatives'
     def create_derivatives
       case original_file.mime_type
       when *self.class.pdf_mime_types
+puts 'creating PDF derivatives'	  
         Hydra::Derivatives::PdfDerivatives.create(self, source: :original_file, outputs: [{ label: :thumbnail, format: 'jpg', size: '338x493', object: self }])
       when *self.class.office_document_mime_types
         Hydra::Derivatives::DocumentDerivatives.create(self, source: :original_file, outputs: [{ label: :thumbnail, format: 'jpg', size: '200x150>', object: self }])
