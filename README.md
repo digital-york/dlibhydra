@@ -81,3 +81,9 @@ Decisions:
 
 Generator
 
+rails generate dlibhydra:auths
+
+to force overwrite
+
+rails generate dlibhydra:auths -f
+
