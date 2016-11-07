@@ -4,8 +4,7 @@ module Dlibhydra
   class Person < Dlibhydra::Agent
     include Dlibhydra::BorthwickNote,
             Dlibhydra::FoafNameParts,
-            Dlibhydra::HubDates,
-            Dlibhydra::MadsRelatedAuthority
+            Dlibhydra::HubDates
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # TODO create preflabel

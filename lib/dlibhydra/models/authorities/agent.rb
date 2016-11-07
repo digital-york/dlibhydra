@@ -4,6 +4,7 @@ module Dlibhydra
     include Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::GenericAuthorityTerms,
+            Dlibhydra::MadsRelatedAuthority,
             CurationConcerns::Noid
 
     def agent?
