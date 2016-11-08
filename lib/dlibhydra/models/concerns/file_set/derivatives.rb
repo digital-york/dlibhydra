@@ -14,6 +14,7 @@ puts 'within Dlibhydra::Derivatives'
     # network traffic than necessary.  If you want to avoid this, set up a
     # source_file_service that fetches the files locally, as is done in CurationConcerns.
     def create_derivatives
+puts 'within create_derivatives'	
       case original_file.mime_type
       when *self.class.pdf_mime_types
 puts 'creating PDF derivatives'	  
