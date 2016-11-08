@@ -1,3 +1,5 @@
+require 'active-fedora'
+
 module Dlibhydra
   module Derivatives
     extend ActiveSupport::Concern
