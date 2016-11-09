@@ -1,13 +1,15 @@
-# spec/spec_helper.rb
-require 'webmock/rspec'
-require 'factory_girl_rails'
-
 require 'simplecov'
 SimpleCov.start do
   add_filter '/spec/'
 end
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+
+# spec/spec_helper.rb
+# as of webmock v2 this has to go here, after load path and before other requires
+require 'webmock/rspec'
+require 'factory_girl_rails'
+
 
 # order matters
 require 'active_support'
