@@ -67,7 +67,7 @@ FactoryGirl.define do
   end
 
   factory :thesis, class: Dlibhydra::Thesis do
-    preflabel 'label'
+    title ['The Importance of Being Unhappy']
     abstract 'abstract'
     creator ['Marr, Johnny']
     date_of_award '2016-01-01'

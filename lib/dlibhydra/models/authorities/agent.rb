@@ -1,6 +1,6 @@
 module Dlibhydra
-  # agent, people and organisations extend this
-  class Agent < ActiveFedora::Base
+  # agents, people and organisations extend this
+  class Agent < Authority
     include Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::GenericAuthorityTerms,

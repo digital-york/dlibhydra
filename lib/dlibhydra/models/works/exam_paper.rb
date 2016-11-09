@@ -1,10 +1,8 @@
 module Dlibhydra
   # exam paper
-  class ExamPaper < ActiveFedora::Base
+  class ExamPaper < Work
 
-    include Dlibhydra::AddWorkBehaviour,
-            Dlibhydra::AddExamPaperMetadata
-
+    include Dlibhydra::AddExamPaperMetadata
 
     type << ::RDF::URI.new('http://purl.org/spar/fabio/ExaminationPaper')
 

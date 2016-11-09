@@ -1,9 +1,7 @@
 module Dlibhydra
   # thesis
-  class Thesis < ActiveFedora::Base
-
-    include Dlibhydra::AddWorkBehaviour,
-            Dlibhydra::AddThesisMetadata
+  class Thesis < Work
+    include Dlibhydra::AddThesisMetadata
 
     type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
 

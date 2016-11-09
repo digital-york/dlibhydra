@@ -1,5 +1,5 @@
 module Dlibhydra
-  class ConceptScheme < ActiveFedora::Base
+  class ConceptScheme < Authority
     include Dlibhydra::AddLabels,
             Dlibhydra::DcDescription,
             CurationConcerns::Noid

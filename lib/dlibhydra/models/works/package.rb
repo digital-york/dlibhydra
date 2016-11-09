@@ -1,13 +1,6 @@
 module Dlibhydra
-  class Package < ActiveFedora::Base
-    include Dlibhydra::AddWorkBehaviour,
-            #Hydra::Works::WorkBehavior,
-            #Dlibhydra::AssignId,
-            Dlibhydra::AddLabels,
-            Dlibhydra::Archivematica,
-            Dlibhydra::RdfType, # needed for add_types callback
-            Dlibhydra::ReadmeFile,
-            Dlibhydra::SimpleVersions
+  class Package < Work
+    include Dlibhydra::AddPackageMetadata
 
     type << Dlibhydra::Vocab::Generic.Package
 

@@ -1,5 +1,5 @@
 module Dlibhydra
-  # local authority terms defined in generic vocab
+  # local authorities terms defined in generic vocab
   module GenericModuleCode
     extend ActiveSupport::Concern
 

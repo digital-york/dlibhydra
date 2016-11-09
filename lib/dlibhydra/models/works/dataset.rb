@@ -1,16 +1,7 @@
 module Dlibhydra
   # dataset
-  class Dataset < ActiveFedora::Base
-    include Dlibhydra::AddWorkBehaviour,
-            #Hydra::Works::WorkBehavior,
-            #Dlibhydra::AssignId,
-            Dlibhydra::AddDataciteMandatory,
-            Dlibhydra::ForIndexing,
-            Dlibhydra::DcAccessRights,
-            Dlibhydra::Pure,
-            Dlibhydra::Doi,
-            Dlibhydra::SimpleVersions,
-            Dlibhydra::GenericWorkflow
+  class Dataset < Work
+    include Dlibhydra::AddDatasetMetadata
 
     filters_association :members, as: :aips, condition: :aip?
     filters_association :members, as: :dips, condition: :dip?

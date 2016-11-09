@@ -1,12 +1,11 @@
 module Dlibhydra
   # concept
-  class Concept < ActiveFedora::Base
-    # TODO: add exactmatch and close match, see https://github.com/hybox/models/blob/master/models/concepts.md
+  class Concept < Authority
     # TODO: add an after save, to find any usages and update_index / object; ditto for people etc.
     include Dlibhydra::AddLabels,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::OwlSameAs,
-            Dlibhydra::RdfsSeeAlso, # TODO check this - use for external see also links
+            Dlibhydra::RdfsSeeAlso, # use for external see also links
             CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
@@ -28,12 +27,20 @@ module Dlibhydra
                             predicate: ::RDF::Vocab::SKOS.narrower,
                             inverse_of: :broader
 
-    # See_also MUST NOT be the same as broader or narrower.
-    # TODO: validate this.
+    # The following MUST NOT be the same as broader or narrower.
+    # TODO: validate this?
     has_and_belongs_to_many :see_also,
                             class_name: 'Dlibhydra::Concept',
                             predicate: ::RDF::Vocab::SKOS.related,
                             inverse_of: :see_also
+
+    has_and_belongs_to_many :exact_match,
+                            class_name: 'Dlibhydra::Concept',
+                            predicate: ::RDF::Vocab::SKOS.exactMatch
+
+    has_and_belongs_to_many :close_match,
+                            class_name: 'Dlibhydra::Concept',
+                            predicate: ::RDF::Vocab::SKOS.closeMatch
 
     type [::RDF::URI.new('http://www.w3.org/2004/02/skos/core#Concept')]
 

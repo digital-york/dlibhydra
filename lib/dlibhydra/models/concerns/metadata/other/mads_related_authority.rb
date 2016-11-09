@@ -1,5 +1,5 @@
 module Dlibhydra
-  # MADS re;ated authority
+  # MADS re;ated authorities
   module MadsRelatedAuthority
     extend ActiveSupport::Concern
 

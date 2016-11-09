@@ -26,13 +26,20 @@ module Dlibhydra
     autoload :SolrQuery
   end
 
+  autoload_under 'models' do
+    autoload :Work
+    autoload :Authority
+  end
+
   autoload_under 'models/authorities' do
-    autoload :Agent
     autoload :Concept
     autoload :ConceptScheme
+    autoload :Place
+    autoload :Agent
+  end
+  autoload_under 'models/authorities/agents' do
     autoload :Group
     autoload :Person
-    autoload :Place
     autoload :CurrentPerson
     autoload :CurrentOrganisation
   end
@@ -40,14 +47,9 @@ module Dlibhydra
   autoload_under 'models/collections' do
     autoload :Collection # TODO refactor
   end
-
   autoload_under 'models/filesets' do
     autoload :FileSet
-    # Removed due to incompatibility with CC
-    # autoload :MainFileSet   # Removed due to incompatibility with CC
-    # autoload :ReadmeFileSet  # Removed due to incompatibility with CC
   end
-
   autoload_under 'models/works' do
     autoload :Package
     autoload :Dataset
@@ -59,7 +61,7 @@ module Dlibhydra
   autoload_under 'models/works/entry' do
   end
 
-  autoload_under 'models/concerns/metadata' do
+  autoload_under 'models/concerns/metadata/other' do
     # Metadata
     autoload :Archivematica
     autoload :BorthwickNote
@@ -88,11 +90,14 @@ module Dlibhydra
     # autoload :ThumbnailUrl TODO remove once standard approach for thumbnail is in place
   end
 
-  autoload_under 'models/concerns/metadata/rdf' do
-    # RDF and RDFS
-    autoload :RdfsSeeAlso
-    autoload :RdfsLabel
-    autoload :RdfType
+  autoload_under 'models/concerns/metadata/add_metadata' do
+    autoload :AddLabels
+    autoload :AddDcDescriptive
+    autoload :AddDataciteMandatory
+    autoload :AddDatasetMetadata
+    autoload :AddPackageMetadata
+    autoload :AddExamPaperMetadata
+    autoload :AddThesisMetadata
   end
 
   autoload_under 'models/concerns/metadata/dc' do
@@ -112,13 +117,15 @@ module Dlibhydra
     autoload :DcTitle
   end
 
+  autoload_under 'models/concerns/metadata/rdf' do
+    # RDF and RDFS
+    autoload :RdfsSeeAlso
+    autoload :RdfsLabel
+    autoload :RdfType
+  end
+
   autoload_under 'models/concerns/behaviours' do
     # Behaviour
-    autoload :AddLabels
-    autoload :AddDcDescriptive
-    autoload :AddDataciteMandatory
-    autoload :AddExamPaperMetadata
-    autoload :AddThesisMetadata
     autoload :AddWorkBehaviour
     # Validations
     autoload :ValidateConceptScheme

@@ -1,11 +1,12 @@
-# validates that there is a preflabel
 module Dlibhydra
-  class HasLabelValidator < ActiveModel::Validator
+  # validates that there is a preflabel (authorities) or title (works etc.)
+class HasLabelValidator < ActiveModel::Validator
     def validate(record)
-      # TODO reinstate or remove
-      # if record.preflabel.empty? and record.title.empty?
-      #   record.errors[:preflabel] << 'You must provide a preflabel or a title'
-      # end
+      if record.authority? and record.preflabel.nil?
+        record.errors[:preflabel] << 'You must provide a preflabel for authorities'
+      elsif record.title.empty?
+        record.errors[:title] << 'You must provide a title'
+      end
     end
   end
 end

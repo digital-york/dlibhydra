@@ -1,6 +1,6 @@
 module Dlibhydra
   # place
-  class Place < ActiveFedora::Base
+  class Place < Authority
     include Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::BorthwickNote,

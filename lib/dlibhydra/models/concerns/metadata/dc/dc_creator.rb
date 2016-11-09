@@ -7,7 +7,7 @@ module Dlibhydra
 
       has_and_belongs_to_many :creator_resource,
                               predicate: ::RDF::Vocab::DC.creator,
-                              # TODO define an agent class for all of the person / org classes to inherit from
+                              # TODO define an agents class for all of the person / org classes to inherit from
                               class_name: 'Dlibhydra::Agent' # 'Dlibhydra::CurrentPerson' || 'Dlibhydra::CurrentOrganisation'
 
       property :creator, predicate: ::RDF::Vocab::DC11.creator,
