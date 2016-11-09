@@ -1,3 +1,7 @@
+# spec/spec_helper.rb
+require 'webmock/rspec'
+require 'factory_girl_rails'
+
 require 'simplecov'
 SimpleCov.start do
   add_filter '/spec/'
@@ -52,11 +56,6 @@ require cc_path + '/app/indexers/curation_concerns/admin_set_indexer.rb'
 require cc_path + '/app/validators/has_one_title_validator.rb'
 require cc_path + '/app/models/concerns/curation_concerns/admin_set_behavior.rb'
 require cc_path + '/app/models/admin_set.rb'
-
-
-# spec/spec_helper.rb
-require 'webmock/rspec'
-require 'factory_girl_rails'
 
 WebMock.disable_net_connect!(allow_localhost: false)
 

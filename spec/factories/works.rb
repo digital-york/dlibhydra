@@ -34,11 +34,11 @@ FactoryGirl.define do
     former_id ['york:1234']
     module_code 'XXXXXX'
 
-    after(:build, &:map_labels)
-
-    trait :with_before_save_callback do
-      after(:build, &:map_labels)
-    end
+    # after(:build, &:map_labels)
+    #
+    # trait :with_before_save_callback do
+    #   after(:build, &:map_labels)
+    # end
   end
 
   factory :package, class: Dlibhydra::Package do
@@ -80,11 +80,11 @@ FactoryGirl.define do
     doi ['xxx-xxx-xxx']
     orcid ['xxx-xxx-xxx']
 
-    after(:build, &:map_labels)
-
-    trait :with_before_save_callback do
-      after(:build, &:map_labels)
-    end
+    # after(:build, &:map_labels)
+    #
+    # trait :with_before_save_callback do
+    #   after(:build, &:map_labels)
+    # end
 
   end
 

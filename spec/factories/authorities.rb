@@ -29,11 +29,11 @@ FactoryGirl.define do
     used 'true'
     same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
 
-    after(:build, &:map_labels)
-
-    trait :with_before_save_callback do
-      after(:build, &:map_labels)
-    end
+    # after(:build, &:map_labels)
+    #
+    # trait :with_before_save_callback do
+    #   after(:build, &:map_labels)
+    # end
   end
 
   factory :group, class: Dlibhydra::Group do
