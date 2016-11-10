@@ -4,11 +4,10 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      before_save :add_department_values
 
       has_and_belongs_to_many :department_resource,
                               class_name: 'Dlibhydra::CurrentOrganisation',
-                              predicate: Dlibhydra::Vocab::LocalResourceTerms.department
+                              predicate: Dlibhydra::Vocab::LocalResourceTerms.localDepartment
 
       # String only, use _resource for Object reference
       property :department, predicate: Dlibhydra::Vocab::Uketd.department, multiple: true do |index|

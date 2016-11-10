@@ -5,17 +5,45 @@ module Dlibhydra
 
     type << ::RDF::URI.new('http://purl.org/ontology/bibo/Thesis')
 
+    # these don't work on 'create', but they do on first save
+    before_save :add_department_values,
+                :add_thesis_values,
+                :add_qualification_name_values
+
     def thesis?
       true
     end
 
-    # add the preflabel for _resource objects into solr
+    # Index additional fields into solr
     class TextIndexer < Hydra::PCDM::PCDMIndexer
       def generate_solr_document
+
+        # Add 'saved strings' to 'authorities_tesim' and '_value' to 'values_tesim'
+        #   this enables update_usages in authorities to update the object
+        #   if the authority term changes
+        strings_to_index = ['qualification_name','department','awarding_institution']
+        values_to_index = ['creator','subject']
+
         super.tap do |solr_doc|
-          # TODO add facetable
-          solr_doc['creator_value_tesim'] = object.creator_resource.collect { |x| x.preflabel }
-          solr_doc['subject_value_tesim'] = object.subject_resource.collect { |x| x.preflabel }
+          solr_doc['values_tesim'] = []
+          solr_doc['authorities_tesim'] = []
+
+          values_to_index.each do |v|
+            method = "#{v}_resource"
+            solr_doc["#{v}_value_alt_tesim"] = []
+            prefs = object.send(method).collect { |x| x.preflabel }
+            solr_doc["#{v}_value_tesim"] = prefs # stored searchable
+            solr_doc["#{v}_value_sim"] = prefs # facetable
+            object.send(method).each do |a|
+              solr_doc["#{v}_value_alt_tesim"] += a.altlabel.to_a
+            end
+            solr_doc['values_tesim'] += object.send(method).collect { |x| x.id }
+          end
+
+          strings_to_index.each do |s|
+            method = "#{s}_resource"
+            solr_doc['authorities_tesim'] += object.send(method).collect { |x| x.id }
+          end
         end
       end
     end
@@ -23,6 +51,5 @@ module Dlibhydra
     def self.indexer
       TextIndexer
     end
-
   end
 end

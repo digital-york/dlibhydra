@@ -9,5 +9,6 @@ module Dlibhydra
             Dlibhydra::GenericModuleCode,
             Dlibhydra::MainFile,
             Dlibhydra::Qualification
+
   end
 end

@@ -4,7 +4,6 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      before_save :add_thesis_values
 
       has_and_belongs_to_many :advisor_resource,
                               class_name: 'Dlibhydra::CurrentPerson',

@@ -27,7 +27,7 @@ FactoryGirl.define do
     approved 'true'
     rules 'nca'
     used 'true'
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
+    same_as %w(http://id.loc.gov/authorities/subjects/sh85061212 info:lc/authorities/sh85061212)
 
     # after(:build, &:map_labels)
     #
@@ -41,7 +41,7 @@ FactoryGirl.define do
 
     preflabel 'label'
     altlabel  ['alternative label']
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
+    same_as %w(http://id.loc.gov/authorities/subjects/sh85061212 info:lc/authorities/sh85061212)
     related_authority ['related authority']
     approved 'true'
     rules 'nca'
@@ -60,7 +60,7 @@ FactoryGirl.define do
     altlabel  ['alternative label']
     given_name 'Stephen Patrick'
     family_name 'Morrissey'
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
+    same_as %w(http://id.loc.gov/authorities/subjects/sh85061212 info:lc/authorities/sh85061212)
     related_authority ['related authority']
     approved 'true'
     rules 'nca'

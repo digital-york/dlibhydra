@@ -9,10 +9,10 @@ class DbRelatedAgent < ActiveRecord::Base
   has_many :db_person_related_people
 
   def add_rdf_types_p
-    ['http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedAgent', 'http://xmlns.com/foaf/0.1/Person']
+    %w(http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedAgent http://xmlns.com/foaf/0.1/Person)
   end
 
   def add_rdf_types_g
-    ['http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedAgent', 'http://xmlns.com/foaf/0.1/Group']
+    %w(http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedAgent http://xmlns.com/foaf/0.1/Group)
   end
 end

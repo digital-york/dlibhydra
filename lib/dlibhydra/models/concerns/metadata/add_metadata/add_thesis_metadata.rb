@@ -13,5 +13,6 @@ module Dlibhydra
             Dlibhydra::Department,
             Dlibhydra::Qualification,
             Dlibhydra::ThesisMetadata
+
   end
 end

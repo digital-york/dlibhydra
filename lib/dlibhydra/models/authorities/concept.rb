@@ -9,6 +9,10 @@ module Dlibhydra
             CurationConcerns::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
+    # after_save :update_related
+    # before_destroy :destroy_references
+    # how would we figure out what used it?
+
     belongs_to :concept_scheme,
                class_name: 'Dlibhydra::ConceptScheme',
                predicate: ::RDF::Vocab::SKOS.inScheme

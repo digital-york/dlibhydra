@@ -6,6 +6,6 @@ class DbRelatedPlace < ActiveRecord::Base
   has_many :db_place_notes
 
   def add_rdf_types
-    ['http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace', 'http://schema.org/Place']
+    %w(http://dlib.york.ac.uk/ontologies/borthwick-registers#RelatedPlace http://schema.org/Place)
   end
 end

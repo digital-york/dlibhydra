@@ -87,7 +87,7 @@ RSpec.configure do |config|
             headers: { 'Content-Type' => 'text/xml' })
       .to_return(status: 200, body: '', headers: {})
     stub_request(:get, /.*127.0.0.1:8983*./).
-        to_return(:status => 200, :body => "", :headers => {})
+        to_return(:status => 200, :body => '', :headers => {})
   end
   # Include shared examples for concerns
   Dir['./spec/support/**/*.rb'].sort.each { |f| require f }

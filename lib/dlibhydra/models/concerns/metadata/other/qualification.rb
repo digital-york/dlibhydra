@@ -4,11 +4,10 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      before_save :add_qualification_name_values
 
       has_and_belongs_to_many :qualification_name_resource,
                               class_name: 'Dlibhydra::Concept',
-                              predicate: Dlibhydra::Vocab::LocalResourceTerms.qualificationLevel
+                              predicate: Dlibhydra::Vocab::LocalResourceTerms.qualificationName
 
       # String only, use _resource for Object reference
       property :qualification_level, predicate: Dlibhydra::Vocab::Uketd.qualificationLevel, multiple: true do |index|

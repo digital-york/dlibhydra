@@ -61,7 +61,6 @@ HABM - current approaches
 HABM creator_resource is dcterms creator
 -- creator maps is dc11 creator
 -- on save, creator_value is added to solr with the preflabel of the creator object
--- alternative approach is to dc11 creator for the value instead (no because impossible to update if there are strings in there too)
 
 HABM subject_resource = dcterms subject
 subject_value in solr with preflabel of related concept object
