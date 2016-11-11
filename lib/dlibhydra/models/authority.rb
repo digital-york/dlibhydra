@@ -3,6 +3,7 @@ module Dlibhydra
   class Authority < ActiveFedora::Base
 
     after_save :update_usages
+    after_destroy :update_usages
 
     def authority?
       true
@@ -17,7 +18,7 @@ module Dlibhydra
       false
     end
 
-    # find any objects that use the authority term being updated
+    # find any objects that use the authority term being updated or destroyed
     # update solr if it's a '_value'
     # re-save the object if it's a 'saved string'
     def update_usages
