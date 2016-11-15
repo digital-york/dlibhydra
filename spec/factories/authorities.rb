@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :concept_scheme, class: Dlibhydra::ConceptScheme do
     preflabel 'label'
     altlabel  ['alternative label']
-    description 'description'
+    description ['description']
   end
 
   factory :broader_concept, class: Dlibhydra::Concept do
@@ -27,13 +27,13 @@ FactoryGirl.define do
     approved 'true'
     rules 'nca'
     used 'true'
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
+    same_as %w(http://id.loc.gov/authorities/subjects/sh85061212 info:lc/authorities/sh85061212)
 
-    after(:build, &:map_labels)
-
-    trait :with_before_save_callback do
-      after(:build, &:map_labels)
-    end
+    # after(:build, &:map_labels)
+    #
+    # trait :with_before_save_callback do
+    #   after(:build, &:map_labels)
+    # end
   end
 
   factory :group, class: Dlibhydra::Group do
@@ -41,8 +41,8 @@ FactoryGirl.define do
 
     preflabel 'label'
     altlabel  ['alternative label']
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
-    related_authority %w(related authority)
+    same_as %w(http://id.loc.gov/authorities/subjects/sh85061212 info:lc/authorities/sh85061212)
+    related_authority ['related authority']
     approved 'true'
     rules 'nca'
     used 'true'
@@ -60,8 +60,8 @@ FactoryGirl.define do
     altlabel  ['alternative label']
     given_name 'Stephen Patrick'
     family_name 'Morrissey'
-    same_as ['http://id.loc.gov/authorities/subjects/sh85061212', 'info:lc/authorities/sh85061212']
-    related_authority %w(related authority)
+    same_as %w(http://id.loc.gov/authorities/subjects/sh85061212 info:lc/authorities/sh85061212)
+    related_authority ['related authority']
     approved 'true'
     rules 'nca'
     used 'true'
@@ -74,9 +74,12 @@ FactoryGirl.define do
   end
 
   factory :current_org, class: Dlibhydra::CurrentOrganisation do
-    preflabel 'label'
+    preflabel 'University of York. Department of Miserabilism'
   end
   factory :current_person, class: Dlibhydra::CurrentPerson do
-    preflabel 'label'
+    preflabel 'Smith, Mark E.'
+  end
+  factory :simple_concept, class: Dlibhydra::Concept do
+    preflabel 'miserabilism'
   end
 end

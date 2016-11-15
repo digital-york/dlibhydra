@@ -4,20 +4,15 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      before_save :add_creator_label
-      has_and_belongs_to_many :creator_object,
-                              class_name: 'Dlibhydra::CurrentPerson',
-                              predicate: ::RDF::Vocab::DC.creator
+
+      has_and_belongs_to_many :creator_resource,
+                              predicate: ::RDF::Vocab::DC.creator,
+                              # TODO define an agents class for all of the person / org classes to inherit from
+                              class_name: 'Dlibhydra::Agent' # 'Dlibhydra::CurrentPerson' || 'Dlibhydra::CurrentOrganisation'
 
       property :creator, predicate: ::RDF::Vocab::DC11.creator,
                multiple: true do |index|
-        index.as :stored_searchable, :sortable
-      end
-
-      def add_creator_label
-        creator_object.each do | creator_obj |
-          self.creator << creator_obj.preflabel
-        end
+        index.as :stored_searchable, :sortable, :facetable
       end
     end
   end

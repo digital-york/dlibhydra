@@ -1,5 +1,5 @@
 class RelatedPlace < ActiveFedora::Base
-  include AssignId, RdfType, AssignRdfTypes
+  include CurationConcerns::Noid, RdfType, AssignRdfTypes
 
   belongs_to :entry, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#relatedPlaceFor')
   has_and_belongs_to_many :related_agent, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#relatedPlaceFor')

@@ -50,23 +50,47 @@ Factory Girl
 Things to do / decide on:
 -- add uketd vocab (do full schema?)
 -- person / organisation look-ups, has_and_belongs_to_many or normal predicate? (cf. two dc_creator concerns)
--- -- for archbishs I used predicates for 'authorities' and HABM for actual nested objects - seems sensible
+-- -- for archbishs I used predicates for 'authorities' and HABM for actual nested objects
+-- -- the more I think about it the more I think this approach is wrong and that HABM should always be used for related objects, 
+if the related object is a resource in our repo - Hydra knows how to deal with such objects, whereas it has no idea if it's just a normal property
 -- -- will need to change in researchdatayork; this would also make it easier to switch between objects and triplestore and external
 -- authorities / persons / etc. - Fedora objects or triplestore? what about third-party terms, live look-up or local cache
--- check rights against CC and rights recommendation and hydra works rights
 
-creator - how I've approached this for now:
+HABM - current approaches
 
-HABM creator_object maps to dcterms creator
--- string value creator maps to dc11 creator
--- on save, add label of object to dc elements creator
--- this way 'creator' is always a string and creator_object is always a reference
-downside is that if the person object changes, both values need updating
-alternative is index only for the label, then only index needs updating
-also need to consider third use case of third party terms - in this case creator object wouldn't work unless we create a local object (do-able / sensible?)
+HABM creator_resource is dcterms creator
+-- creator maps is dc11 creator
+-- on save, creator_value is added to solr with the preflabel of the creator object
+
+HABM subject_resource = dcterms subject
+subject_value in solr with preflabel of related concept object
+dc11 subject used for free-text keywords
+could also leave dcterms subject open for URIs (would this work?)
+
+HABM for theses metadata approach:
+-- local predicates for the HABM because UKETD is looking for strings
+-- normal predicates populated on save with the preflabel from the HABM objects
+-- strings MUST NOT be added directly
+
+Cardinality - prefer multi-value fields over singular for works. Cases where singular can be used, include:
+ 
+ UUIDs - eg. there can only be one PURE UUID
+ information derviced from other systems - eg. Archivematica fields
+ some dates - eg. award date and date of last access
+ 
+ Many fields for authorities (concepts, people) are singular
 
 
 Decisions:
--- MUST have a preflabel; this will be populated to rdfs:label and dc:title on save
+-- authorities MUST have a preflabel; works must have a title
 -- use HABM for related objects that aren't covered by PCDM members / files
+-- use HYDRA wg recommendation for rights
+
+Generator
+
+rails generate dlibhydra:auths
+
+to force overwrite
+
+rails generate dlibhydra:auths -f
 

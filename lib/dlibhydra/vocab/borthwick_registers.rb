@@ -6,15 +6,15 @@ module Dlibhydra
       include Dlibhydra::BorthwickClasses, Dlibhydra::BorthwickProperties
 
       # Extra definitions
-      term :"",
+      term :'',
            comment:
-               %(Borthwick Institute for Archives
-                ontology for Registers.).freeze,
-           'dc:modified' => %(2016).freeze, # TODO: date
-           'dc:publisher' => %(http://dlib.york.ac.uk/).freeze,
-           'dc:title' => %(Borthwick Registers Ontology).freeze,
+               'Borthwick Institute for Archives
+                ontology for Registers.'.freeze,
+           'dc:modified' => '2016'.freeze, # TODO: date
+           'dc:publisher' => 'http://dlib.york.ac.uk/'.freeze,
+           'dc:title' => 'Borthwick Registers Ontology'.freeze,
            label: 'Borthwick Registers'.freeze,
-           'owl:versionInfo' => %(2016).freeze # TODO: date
+           'owl:versionInfo' => '2016'.freeze # TODO: date
     end
   end
 end

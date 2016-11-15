@@ -1,7 +1,7 @@
 require 'active_fedora/noid'
 
 class Manifest < ActiveFedora::File
-  include ActiveFedora::WithMetadata, AssignId
+  include ActiveFedora::WithMetadata, CurationConcerns::Noid
 
   metadata do
     property :preflabel, predicate: ::RDF::Vocab::SKOS.prefLabel, multiple: false do |index|

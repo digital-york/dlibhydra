@@ -1,15 +1,17 @@
 module Dlibhydra
   # place
-  class Place < ActiveFedora::Base
+  class Place < Authority
     include Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::BorthwickNote,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
-            Dlibhydra::AssignId
+            CurationConcerns::Noid
             # Hydra::Works::WorkBehavior,
 
-    belongs_to :concept_scheme, predicate: ::RDF::SKOS.inScheme
+  # TODO create preflabel
+
+    belongs_to :concept_scheme, predicate: ::RDF::Vocab::SKOS.inScheme
 
     # TODO: GVP CLASS AdminPlaceConcept or PhysPlaceConcept
     # TODO: which are place objects and which are place strings

@@ -5,7 +5,7 @@ module Dlibhydra
 
     included do
       property :description, predicate: ::RDF::Vocab::DC.description,
-                             multiple: false do |index|
+                             multiple: true do |index|
         index.as :stored_searchable, :sortable
       end
     end

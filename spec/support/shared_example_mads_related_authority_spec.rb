@@ -6,7 +6,7 @@ shared_examples_for 'mads_related_authority' do
     @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
   end
   it 'will have related authority' do
-    expect(@stubby.related_authority).to eq(%w(related authority))
+    expect(@stubby.related_authority).to eq(['related authority'])
   end
   it 'will have the mads:hasRelatedAuthority predicate' do
     expect(@stubby.resource.dump(:ttl).should(include('http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority')))

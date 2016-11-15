@@ -21,7 +21,7 @@ describe Dlibhydra::Person do
   # test metadata properties
   describe 'metadata' do
     specify { person.type.should include('http://schema.org/Person') }
-    specify { person.type.should include('http://purl.org/vra/Person') }
+    specify { person.type.should include('http://xmlns.com/foaf/0.1/Agent') }
     specify { person.type.should include('http://vocab.getty.edu/ontology#PersonConcept') }
     specify { person.pre_title.should eq('pre_title') }
     specify { person.post_title.should eq('post_title') }

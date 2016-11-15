@@ -8,6 +8,7 @@ describe Dlibhydra::Dataset do
   let(:package) { FactoryGirl.build_stubbed(:package) }
   let(:generic_work) { FactoryGirl.build(:generic_work) }
   let(:readme_file) { FactoryGirl.build_stubbed(:readme_file) }
+  let(:org) { FactoryGirl.build_stubbed(:current_org) }
 
   it 'is a dataset' do
     expect(dataset.dataset?).to be_truthy
@@ -26,13 +27,17 @@ describe Dlibhydra::Dataset do
 
   describe '#metadata' do
     specify { dataset.type.should include('http://www.w3.org/ns/dcat#Dataset') }
-    specify { dataset.embargo_release_date.should eq(2016 - 12 - 12) }
-    specify { dataset.retention_policy.should eq('10 years from last access') }
+    specify { dataset.embargo_release.should eq(2016 - 12 - 12) }
+    specify { dataset.retention_policy.should eq(['10 years from last access']) }
     specify { dataset.restriction_note.should eq(['restriction note']) }
+    before do
+      dataset.managing_organisation_resource << org
+    end
+    specify { dataset.managing_organisation_resource.first.should eq(org) }
   end
 
   describe '#predicates' do
-    specify { dataset.resource.dump(:ttl).should include('http://dlib.york.ac.uk/ontologies/generic#embargoReleaseDate') }
+    specify { dataset.resource.dump(:ttl).should include('http://dlib.york.ac.uk/ontologies/generic#embargoRelease') }
     specify { dataset.resource.dump(:ttl).should include('http://dlib.york.ac.uk/ontologies/generic#retentionPolicy') }
     specify { dataset.resource.dump(:ttl).should include('http://dlib.york.ac.uk/ontologies/generic#restrictionNote') }
   end
@@ -54,7 +59,7 @@ describe Dlibhydra::Dataset do
 
   describe '#custom indexer' do
     it 'adds access_rights_tesi to the solr index ' do
-      expect(dataset.to_solr).to include('access_rights_tesi')
+      expect(dataset.to_solr).to include('dc_access_rights_tesi')
     end
   end
 end

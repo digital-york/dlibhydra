@@ -11,6 +11,7 @@ describe Dlibhydra::Concept do
   let(:concept1) { FactoryGirl.build(:concept) }
   let(:concept2) { FactoryGirl.build_stubbed(:broader_concept) }
   let(:concept3) { FactoryGirl.build(:concept) }
+  let(:thesis) {FactoryGirl.build(:thesis) }
 
   it 'is a concept' do
     expect(concept1.concept?).to be_truthy
@@ -65,5 +66,7 @@ describe Dlibhydra::Concept do
     it 'has a narrower concept' do
       expect(concept2.narrower.first.preflabel).to eq('label')
     end
+
+    # TODO test exact and close
   end
 end
