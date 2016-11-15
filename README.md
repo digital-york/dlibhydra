@@ -82,7 +82,7 @@ Cardinality - prefer multi-value fields over singular for works. Cases where sin
 
 
 Decisions:
--- MUST have a preflabel; this will be populated to rdfs:label and dc:title on save
+-- authorities MUST have a preflabel; works must have a title
 -- use HABM for related objects that aren't covered by PCDM members / files
 -- use HYDRA wg recommendation for rights
 

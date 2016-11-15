@@ -13,7 +13,6 @@ module Dlibhydra
     # Index additional fields into solr
     class ExamPaperIndexer < CurationConcerns::WorkIndexer # Hydra::PCDM::PCDMIndexer
       include Dlibhydra::IndexesExamPaper
-
     end
 
     def self.indexer

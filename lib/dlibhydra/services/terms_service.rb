@@ -80,9 +80,11 @@ module Dlibhydra
       response['response']['docs'].map do |result|
         hash = {:id => result['id'],
          :label => if result['preflabel_tesim']
-                     result['preflabel_tesim'].join end,
+                     result['preflabel_tesim'].join
+                   end,
          :definition => if result['definition_tesim']
-                          result['definition_tesim'].join end
+                          result['definition_tesim'].join
+                        end
         }
         # Only add broader where it exists (ie. subjects)
         # assumes only one broader
