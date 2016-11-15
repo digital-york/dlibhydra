@@ -6,7 +6,7 @@ shared_examples_for 'dc_abstract' do
     @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
   end
   it 'will have an abstract' do
-    expect(@stubby.abstract).to eq('abstract')
+    expect(@stubby.abstract).to eq(['abstract'])
   end
   it 'will have the dc.abstract predicate' do
     expect(@stubby.resource.dump(:ttl).should(include('http://purl.org/dc/terms/abstract')))

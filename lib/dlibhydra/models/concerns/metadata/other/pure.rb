@@ -16,7 +16,7 @@ module Dlibhydra
       end
       property :pure_type,
                predicate: Dlibhydra::Vocab::PureTerms.pureType,
-               multiple: false do |index|
+               multiple: true do |index|
         index.as :stored_searchable
       end
       # TODO: does this need to be pure only?

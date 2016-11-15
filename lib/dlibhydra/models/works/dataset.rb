@@ -9,7 +9,7 @@ module Dlibhydra
 
     type << ::RDF::Vocab::DCAT.Dataset
 
-    has_and_belongs_to_many :managing_organisation,
+    has_and_belongs_to_many :managing_organisation_resource,
                             class_name: 'Dlibhydra::CurrentOrganisation',
                             predicate:
                                 Dlibhydra::Vocab::PureTerms.pureManagingUnit
@@ -23,7 +23,7 @@ module Dlibhydra
     end
     property :retention_policy,
              predicate: Dlibhydra::Vocab::Generic.retentionPolicy,
-             multiple: false do |index|
+             multiple: true do |index|
       index.as :stored_searchable
     end
     property :restriction_note,
@@ -47,37 +47,12 @@ module Dlibhydra
     #   than text type (solr sorting on string fields is case-sensitive,
     #   on text fields it's case-insensitive)
     # Extend Hydra::PCDM::PCDMIndexer instead of ActiveFedora::IndexingService
-    class TextIndexer < Hydra::PCDM::PCDMIndexer
-      def generate_solr_document
-        # Add '_value' to 'values_tesim'
-        #   this enables update_usages in authorities to update the object
-        #   if the authority term changes
-        values_to_index = ['creator','publisher','managing_organisation']
-
-        super.tap do |solr_doc|
-          # add a stored text index for the 'access_rights' property in solr
-          # so that case-insensitive sorting can be done on it
-          solr_doc['dc_access_rights_tesi'] = object.dc_access_rights
-
-          solr_doc['values_tesim'] = []
-          values_to_index.each do |v|
-            method = "#{v}_resource"
-            solr_doc["#{v}_value_alt_tesim"] = []
-            prefs = object.send(method).collect { |x| x.preflabel }
-            solr_doc["#{v}_value_tesim"] = prefs # stored searchable
-            solr_doc["#{v}_value_sim"] = prefs # facetable
-            object.send(method).each do |a|
-              solr_doc["#{v}_value_alt_tesim"] += a.altlabel.to_a
-            end
-            solr_doc['values_tesim'] += object.send(method).collect { |x| x.id }
-          end
-
-        end
-      end
+    class DatasetIndexer < CurationConcerns::WorkIndexer # Hydra::PCDM::PCDMIndexer
+      include Dlibhydra::IndexesDataset
     end
 
     def self.indexer
-      TextIndexer
+      DatasetIndexer
     end
   end
 end

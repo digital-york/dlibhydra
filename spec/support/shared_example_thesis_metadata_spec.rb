@@ -13,7 +13,7 @@ shared_examples_for 'thesis_metadata' do
   end
   # metadata
   it 'will have an abstract' do
-    expect(@stubby.abstract).to eq('abstract')
+    expect(@stubby.abstract).to eq(['abstract'])
   end
   it 'will have an advisor' do
     expect(@stubby.advisor).to eq(['Smith, Mark E.'])

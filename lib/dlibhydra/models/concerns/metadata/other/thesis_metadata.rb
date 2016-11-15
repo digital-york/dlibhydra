@@ -22,7 +22,8 @@ module Dlibhydra
       end
       # String only, use _resource for Object reference
       # same as Dlibhydra::Vocab::Uketd.institution and bibo:issuer
-      property :awarding_institution, predicate: ::RDF::Vocab::Bibframe.dissertationInstitution, multiple: true do |index|
+      property :awarding_institution, predicate: ::RDF::Vocab::Bibframe.dissertationInstitution,
+               multiple: true do |index|
         index.as :stored_searchable
       end
 

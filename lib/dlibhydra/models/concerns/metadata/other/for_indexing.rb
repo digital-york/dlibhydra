@@ -5,7 +5,7 @@ module Dlibhydra
 
     included do
       property :for_indexing, predicate: Dlibhydra::Vocab::Generic.forIndexing,
-                              multiple: false do |index|
+                              multiple: true do |index|
         index.as :stored_searchable
       end
     end

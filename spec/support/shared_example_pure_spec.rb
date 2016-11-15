@@ -18,7 +18,7 @@ shared_examples_for 'pure' do
     expect(@stubby.resource.dump(:ttl).should(include('http://dlib.york.ac.uk/ontologies/pure#pureCreation')))
   end
   it 'will have a pure type' do
-    expect(@stubby.pure_type).to eq('pure type')
+    expect(@stubby.pure_type).to eq(['pure type'])
   end
   it 'will have the pure type predicate' do
     expect(@stubby.resource.dump(:ttl).should(include('http://dlib.york.ac.uk/ontologies/pure#pureType')))

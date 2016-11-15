@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :collection, class: Dlibhydra::Collection do
-    description 'description'
+    description ['description']
     creator ['Marr, Johnny']
     date ['2016-01-01']
     language ['en-GB']

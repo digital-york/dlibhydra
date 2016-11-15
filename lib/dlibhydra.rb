@@ -130,6 +130,10 @@ module Dlibhydra
     # Validations
     autoload :ValidateConceptScheme
     autoload :ValidateLabel
+    # Indexers
+    autoload :IndexesThesis
+    autoload :IndexesExamPaper
+    autoload :IndexesDataset
   end
 
   autoload_under 'validators' do

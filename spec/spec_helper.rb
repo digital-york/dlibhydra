@@ -10,8 +10,8 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'webmock/rspec'
 require 'factory_girl_rails'
 
-
 # order matters
+require 'action_controller'
 require 'active_support'
 require 'active-fedora'
 require 'dlibhydra'

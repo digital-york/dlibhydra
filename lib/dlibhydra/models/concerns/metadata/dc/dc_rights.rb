@@ -21,7 +21,7 @@ module Dlibhydra
       # Same as cc:license.
       # DO NOT USE
       property :license, predicate: ::RDF::Vocab::DC.license,
-                         multiple: false do |index|
+                         multiple: true do |index|
         index.as :stored_searchable
       end
     end

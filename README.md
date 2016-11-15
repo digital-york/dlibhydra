@@ -72,6 +72,14 @@ HABM for theses metadata approach:
 -- normal predicates populated on save with the preflabel from the HABM objects
 -- strings MUST NOT be added directly
 
+Cardinality - prefer multi-value fields over singular for works. Cases where singular can be used, include:
+ 
+ UUIDs - eg. there can only be one PURE UUID
+ information derviced from other systems - eg. Archivematica fields
+ some dates - eg. award date and date of last access
+ 
+ Many fields for authorities (concepts, people) are singular
+
 
 Decisions:
 -- MUST have a preflabel; this will be populated to rdfs:label and dc:title on save

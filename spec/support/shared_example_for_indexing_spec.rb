@@ -6,7 +6,7 @@ shared_examples_for 'for_indexing' do
     @stubby = FactoryGirl.build_stubbed(model_str.underscore.to_sym)
   end
   it 'will have a for_indexing' do
-    expect(@stubby.for_indexing).to eq('lovely stuff for indexing')
+    expect(@stubby.for_indexing).to eq(['lovely stuff for indexing'])
   end
   it 'will have the for_indexing predicate' do
     expect(@stubby.resource.dump(:ttl).should(include('http://dlib.york.ac.uk/ontologies/generic#forIndexing')))

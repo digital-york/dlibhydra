@@ -5,7 +5,7 @@ module Dlibhydra
 
     included do
       property :module_code, predicate: Dlibhydra::Vocab::Generic.moduleCode,
-                          multiple: false do |index|
+                          multiple: true do |index|
         index.as :stored_searchable
       end
     end

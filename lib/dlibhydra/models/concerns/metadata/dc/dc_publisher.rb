@@ -11,7 +11,7 @@ module Dlibhydra
 
       # DC11 for publisher name.
       property :publisher, predicate: ::RDF::Vocab::DC11.publisher,
-                           multiple: false do |index|
+                           multiple: true do |index|
         index.as :stored_searchable, :sortable
       end
     end

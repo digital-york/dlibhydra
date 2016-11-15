@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :concept_scheme, class: Dlibhydra::ConceptScheme do
     preflabel 'label'
     altlabel  ['alternative label']
-    description 'description'
+    description ['description']
   end
 
   factory :broader_concept, class: Dlibhydra::Concept do

@@ -28,12 +28,12 @@ describe Dlibhydra::Dataset do
   describe '#metadata' do
     specify { dataset.type.should include('http://www.w3.org/ns/dcat#Dataset') }
     specify { dataset.embargo_release.should eq(2016 - 12 - 12) }
-    specify { dataset.retention_policy.should eq('10 years from last access') }
+    specify { dataset.retention_policy.should eq(['10 years from last access']) }
     specify { dataset.restriction_note.should eq(['restriction note']) }
     before do
-      dataset.managing_organisation << org
+      dataset.managing_organisation_resource << org
     end
-    specify { dataset.managing_organisation.first.should eq(org) }
+    specify { dataset.managing_organisation_resource.first.should eq(org) }
   end
 
   describe '#predicates' do
