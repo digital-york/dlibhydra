@@ -1,6 +1,5 @@
 module Dlibhydra
   # DC rights holder and license
-  # TODO: align with Hydra / CC
   module DcRights
     extend ActiveSupport::Concern
 
@@ -8,7 +7,7 @@ module Dlibhydra
       # Align with https://wiki.duraspace.org/display/hydra/Rights+Metadata+Recommendation
       # Same as cc:attributionName.
       property :rights_holder, predicate: ::RDF::Vocab::DC.rightsHolder,
-                               multiple: true do |index|
+               multiple: true do |index|
         index.as :stored_searchable
       end
 
@@ -21,7 +20,7 @@ module Dlibhydra
       # Same as cc:license.
       # DO NOT USE
       property :license, predicate: ::RDF::Vocab::DC.license,
-                         multiple: true do |index|
+               multiple: true do |index|
         index.as :stored_searchable
       end
     end
