@@ -11,9 +11,9 @@ module Dlibhydra
                               class_name: 'Dlibhydra::Agent' # 'Dlibhydra::CurrentPerson' || 'Dlibhydra::CurrentOrganisation'
 
       property :creator, predicate: ::RDF::Vocab::DC11.creator,
-               multiple: true
-      #we'll index in the indexer
-
+               multiple: true do |index|
+        index.as :stored_searchable, :sortable, :facetable
+      end
     end
   end
 end

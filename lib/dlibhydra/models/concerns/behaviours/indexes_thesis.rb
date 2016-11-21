@@ -16,9 +16,7 @@ module Dlibhydra
         super.tap do |solr_doc|
           solr_doc['values_tesim'] = []
           solr_doc['authorities_tesim'] = []
-          solr_doc['creator_ssim'] = []
           solr_doc['creator_tesim'] = []
-          solr_doc['creator_ssim'] = object.creator.collect { |x| x }
           solr_doc['creator_tesim'] = object.creator.collect { |x| x }
           solr_doc['creator_resource_tesim'] = object.creator_resource_ids.collect { |x| x }
 
