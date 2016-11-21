@@ -16,18 +16,13 @@ module Dlibhydra
         super.tap do |solr_doc|
           solr_doc['values_tesim'] = []
           solr_doc['authorities_tesim'] = []
-          solr_doc['creator_ssim'] = []
-          solr_doc['creator_tesim'] = []
-          solr_doc['creator_ssim'] = object.creator.collect { |x| x }
-          solr_doc['creator_tesim'] = object.creator.collect { |x| x }
-          solr_doc['creator_resource_tesim'] = object.creator_resource_ids.collect { |x| x }
 
           values_to_index.each do |v|
             method = "#{v}_resource"
             solr_doc["#{v}_value_alt_tesim"] = []
             prefs = object.send(method).collect { |x| x.preflabel }
             solr_doc["#{v}_value_tesim"] = prefs # stored searchable
-            solr_doc["#{v}_value_sim"] = prefs # facetable
+            #solr_doc["#{v}_value_sim"] = prefs # facetable TODO check this
 
             object.send(method).each do |a|
               solr_doc["#{v}_value_alt_tesim"] += a.altlabel.to_a
@@ -40,6 +35,14 @@ module Dlibhydra
             method = "#{s}_resource"
             solr_doc['authorities_tesim'] += object.send(method).collect { |x| x.id }
           end
+
+          # creators
+          solr_doc['creator_ssim'] = object.creator.collect { |x| x }
+          solr_doc['creator_ssim'] = object.creator_value.collect { |x| x }
+          solr_doc['creator_tesim'] += object.creator.collect { |x| x }
+          solr_doc['creator_ssim'] += object.creator.collect { |x| x }
+          solr_doc['creator_resource_tesim'] = object.creator_resource_ids.collect { |x| x }
+
         end
       end
     end
