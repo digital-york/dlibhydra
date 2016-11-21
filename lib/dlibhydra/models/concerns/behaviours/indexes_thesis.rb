@@ -16,6 +16,10 @@ module Dlibhydra
         super.tap do |solr_doc|
           solr_doc['values_tesim'] = []
           solr_doc['authorities_tesim'] = []
+          solr_doc['creator_ssim'] = []
+          solr_doc['creator_tesim'] = []
+          Solrizer.set_field(solr_doc, 'creator', object.creator, :stored_searchable, :sortable, :facetable)
+          Solrizer.set_field(solr_doc, 'creator_resource', object.creator_resource, :stored_searchable)
 
           values_to_index.each do |v|
             method = "#{v}_resource"
