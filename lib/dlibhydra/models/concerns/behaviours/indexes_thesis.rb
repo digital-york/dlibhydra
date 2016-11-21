@@ -39,7 +39,7 @@ module Dlibhydra
 
           # creators
           solr_doc['creator_ssim'] = object.creator.collect { |x| x }
-          solr_doc['creator_ssim'] = object.creator_value.collect { |x| x }
+          solr_doc['creator_ssim'] = object.creator.collect { |x| x }
           solr_doc['creator_tesim'] += solr_doc["creator_value_tesim"].collect { |x| x }
           solr_doc['creator_ssim'] += solr_doc["creator_value_ssim"].collect { |x| x }
           solr_doc['creator_resource_tesim'] = object.creator_resource_ids.collect { |x| x }
