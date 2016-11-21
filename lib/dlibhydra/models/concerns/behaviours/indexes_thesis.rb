@@ -18,8 +18,9 @@ module Dlibhydra
           solr_doc['authorities_tesim'] = []
           solr_doc['creator_ssim'] = []
           solr_doc['creator_tesim'] = []
-          Solrizer.set_field(solr_doc, 'creator', object.creator, :stored_searchable, :sortable, :facetable)
-          Solrizer.set_field(solr_doc, 'creator_resource', object.creator_resource_ids, :stored_searchable)
+          solr_doc['creator_ssim'] = object.creator.collect { |x| x }
+          solr_doc['creator_tesim'] = object.creator.collect { |x| x }
+          solr_doc['creator_resource_tesim'] = object.creator_resource_ids.collect { |x| x }
 
           values_to_index.each do |v|
             method = "#{v}_resource"
