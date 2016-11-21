@@ -30,7 +30,7 @@ module Dlibhydra
       def add_thesis_values
         # if advisor names have been added as strings, don't add the labels for advisor_resource
         # TODO finish this off - what if we have advisor_resource AND advisor?
-        if self.advisor.nil?
+        if self.advisor.empty?
           self.advisor = advisor_resource.collect { |x| x.preflabel }
         end
         self.awarding_institution = awarding_institution_resource.collect { |x| x.preflabel }
