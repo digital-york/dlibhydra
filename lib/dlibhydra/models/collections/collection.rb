@@ -5,7 +5,8 @@ module Dlibhydra
             Dlibhydra::AddLabels,
             Dlibhydra::AddDcDescriptive,
             Dlibhydra::DcRights,
-            Dlibhydra::DcPublisher
+            Dlibhydra::DcPublisher,
+            Dlibhydra::FormerIdentifier
 
     def authority?
       false
