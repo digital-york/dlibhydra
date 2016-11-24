@@ -1,10 +1,8 @@
 module Dlibhydra
   # dlibhydra fileset
   class FileSet < ActiveFedora::Base
-    # TODO check CC Collection Behaviour
-    include Hydra::Works::FileSetBehavior,
-            Dlibhydra::AddLabels,
-            CurationConcerns::Noid
+    include CurationConcerns::FileSetBehavior,
+            Dlibhydra::AddLabels
 
     def authority?
       false
