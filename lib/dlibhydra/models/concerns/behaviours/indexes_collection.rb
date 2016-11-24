@@ -1,5 +1,5 @@
 module Dlibhydra
-  module IndexesThesis
+  module IndexesCollection
     extend ActiveSupport::Concern
 
     included do
