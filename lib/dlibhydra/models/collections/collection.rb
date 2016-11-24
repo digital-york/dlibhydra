@@ -1,7 +1,7 @@
 module Dlibhydra
   class Collection < ActiveFedora::Base
     # TODO check CC Collection Behaviour
-    include CurationConcerns::CollectionBehavior #Hydra::Works::CollectionBehavior,
+    include CurationConcerns::CollectionBehavior, #Hydra::Works::CollectionBehavior,
             Dlibhydra::AddLabels,
             Dlibhydra::AddDcDescriptive,
             Dlibhydra::DcRights,
