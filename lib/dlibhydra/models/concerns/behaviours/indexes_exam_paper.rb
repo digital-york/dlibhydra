@@ -35,15 +35,16 @@ module Dlibhydra
             solr_doc['authorities_tesim'] += object.send(method).collect { |x| x.id }
           end
 
+          creator_strings = object.creator_string.collect { |x| x }
           # add creator strings into creator_value
-          if object.creator_string.empty?
-            solr_doc['creator_value_tesim'] = object.creator_string.collect { |x| x }
-            solr_doc['creator_value_ssim'] = object.creator_string.collect { |x| x }
-            solr_doc['creator_value_sim'] =  object.creator_string.collect { |x| x }
+          if object.creator_resource.empty?
+            solr_doc['creator_value_tesim'] = creator_strings
+            solr_doc['creator_value_ssim'] = creator_strings
+            solr_doc['creator_value_sim'] =  creator_strings
           else
-            solr_doc['creator_value_tesim'] += object.creator_string.collect { |x| x }
-            solr_doc['creator_value_ssim'] += object.creator_string.collect { |x| x }
-            solr_doc['creator_value_sim'] +=  object.creator_string.collect { |x| x }
+            solr_doc['creator_value_tesim'] += creator_strings
+            solr_doc['creator_value_ssim'] += creator_strings
+            solr_doc['creator_value_sim'] +=  creator_strings
           end
 
         end
