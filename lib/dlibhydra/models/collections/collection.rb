@@ -20,6 +20,9 @@ module Dlibhydra
     def collection?
       true
     end
+    def edit_groups
+      ['admin']
+    end
 
     # don't know what this is for but I got an error in my tests without it
     def suppressed?

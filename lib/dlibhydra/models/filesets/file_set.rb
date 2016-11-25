@@ -17,6 +17,8 @@ module Dlibhydra
     def collection?
       false
     end
-
+    def edit_groups
+      ['admin']
+    end
   end
 end
