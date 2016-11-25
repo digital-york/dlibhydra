@@ -21,6 +21,7 @@ module Dlibhydra
             solr_doc["#{v}_value_alt_tesim"] = []
             prefs = object.send(method).collect { |x| x.preflabel }
             solr_doc["#{v}_value_tesim"] = prefs # stored searchable
+            solr_doc["#{v}_value_ssim"] = prefs
             solr_doc["#{v}_value_sim"] = prefs # facetable
             object.send(method).each do |a|
               solr_doc["#{v}_value_alt_tesim"] += a.altlabel.to_a
@@ -33,6 +34,18 @@ module Dlibhydra
             method = "#{s}_resource"
             solr_doc['authorities_tesim'] += object.send(method).collect { |x| x.id }
           end
+
+          # add creator strings into creator_value
+          if object.creator_string.empty?
+            solr_doc['creator_value_tesim'] = object.creator_string.collect { |x| x }
+            solr_doc['creator_value_ssim'] = object.creator_string.collect { |x| x }
+            solr_doc['creator_value_sim'] =  object.creator_string.collect { |x| x }
+          else
+            solr_doc['creator_value_tesim'] += object.creator_string.collect { |x| x }
+            solr_doc['creator_value_ssim'] += object.creator_string.collect { |x| x }
+            solr_doc['creator_value_sim'] +=  object.creator_string.collect { |x| x }
+          end
+
         end
       end
     end

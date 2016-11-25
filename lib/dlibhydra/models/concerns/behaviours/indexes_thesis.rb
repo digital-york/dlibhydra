@@ -10,7 +10,7 @@ module Dlibhydra
         #  'authorities_tesim' is used where the preflabel for the HABM resource is stored in the object too.
         #   These are used by the authorities in it's update_usages method to update all references if the
         #   authority term changes.
-        strings_to_index = ['qualification_name','department','awarding_institution']
+        strings_to_index = ['qualification_name','department','awarding_institution','advisor']
         values_to_index = ['creator','subject']
 
         super.tap do |solr_doc|
@@ -37,15 +37,16 @@ module Dlibhydra
             solr_doc['authorities_tesim'] += object.send(method).collect { |x| x.id }
           end
 
-          # creators
-          solr_doc['creator_tesim'] = object.creator.collect { |x| x }
-          solr_doc['creator_ssim'] = object.creator.collect { |x| x }
-          solr_doc['creator_sim'] = object.creator.collect { |x| x }
-          solr_doc['creator_tesim'] += solr_doc["creator_value_tesim"].collect { |x| x }
-          solr_doc['creator_ssim'] += solr_doc["creator_value_ssim"].collect { |x| x }
-          solr_doc['creator_sim'] += solr_doc["creator_value_ssim"].collect { |x| x }
-          solr_doc['creator_resource_tesim'] = object.creator_resource_ids.collect { |x| x }
-
+          # add creator strings into creator_value
+          if solr_doc['creator_value_tesim'].nil?
+            solr_doc['creator_value_tesim'] = object.creator_string.collect { |x| x }
+            solr_doc['creator_value_ssim'] = object.creator_string.collect { |x| x }
+            solr_doc['creator_value_sim'] =  object.creator_string.collect { |x| x }
+          else
+            solr_doc['creator_value_tesim'] += object.creator_string.collect { |x| x }
+            solr_doc['creator_value_ssim'] += object.creator_string.collect { |x| x }
+            solr_doc['creator_value_sim'] +=  object.creator_string.collect { |x| x }
+          end
         end
       end
     end

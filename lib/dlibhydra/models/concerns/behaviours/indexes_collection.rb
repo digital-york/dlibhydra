@@ -30,14 +30,16 @@ module Dlibhydra
             solr_doc['values_tesim'] += object.send(method).collect { |x| x.id }
           end
 
-          # creators
-          solr_doc['creator_tesim'] = object.creator.collect { |x| x }
-          solr_doc['creator_ssim'] = object.creator.collect { |x| x }
-          solr_doc['creator_sim'] = object.creator.collect { |x| x }
-          solr_doc['creator_tesim'] += solr_doc["creator_value_tesim"].collect { |x| x }
-          solr_doc['creator_ssim'] += solr_doc["creator_value_ssim"].collect { |x| x }
-          solr_doc['creator_sim'] += solr_doc["creator_value_ssim"].collect { |x| x }
-          solr_doc['creator_resource_tesim'] = object.creator_resource_ids.collect { |x| x }
+          # add creator strings into creator_value
+          if solr_doc['creator_value_tesim'].nil?
+            solr_doc['creator_value_tesim'] = object.creator_string.collect { |x| x }
+            solr_doc['creator_value_ssim'] = object.creator_string.collect { |x| x }
+            solr_doc['creator_value_sim'] =  object.creator_string.collect { |x| x }
+          else
+            solr_doc['creator_value_tesim'] += object.creator_string.collect { |x| x }
+            solr_doc['creator_value_ssim'] += object.creator_string.collect { |x| x }
+            solr_doc['creator_value_sim'] +=  object.creator_string.collect { |x| x }
+          end
 
         end
       end

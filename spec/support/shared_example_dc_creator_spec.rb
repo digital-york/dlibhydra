@@ -12,7 +12,7 @@ shared_examples_for 'dc_creator' do
     @stubby.creator_resource << @creator
   end
   it 'will have creator' do
-    expect(@stubby.creator).to eq(['Marr, Johnny'])
+    expect(@stubby.creator_string).to eq(['Marr, Johnny'])
     expect(@stubby.creator_resource.first).to eq(@creator)
   end
   it 'will have the dc.creator predicate' do
