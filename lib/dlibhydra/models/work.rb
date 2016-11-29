@@ -3,7 +3,7 @@ module Dlibhydra
     include Dlibhydra::AddWorkBehaviour,
             Dlibhydra::AddDefaultPermissions
 
-    before_validation :apply_depositor
+    after_touch :apply_depositor
 
     def authority?
       false
