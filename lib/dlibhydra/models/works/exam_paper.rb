@@ -6,7 +6,7 @@ module Dlibhydra
 
     type << ::RDF::URI.new('http://purl.org/spar/fabio/ExaminationPaper')
 
-    before_save :add_qualification_name_values
+    before_save :add_qualification_name_values, :apply_depositor
 
     def exam_paper?
       true
