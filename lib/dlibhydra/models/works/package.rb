@@ -2,6 +2,12 @@ module Dlibhydra
   class Package < Work
     include Dlibhydra::AddPackageMetadata
 
+    # belongs_to - one only; has_and_belongs_to_many - lots
+    has_and_belongs_to_many :packages,
+                            class_name: 'Dlibhydra::Work',
+                            predicate: Dlibhydra::Vocab::Generic.packages,
+                            inverse_of: :packaged_by
+
     type << Dlibhydra::Vocab::Generic.Package
 
     before_save :add_types

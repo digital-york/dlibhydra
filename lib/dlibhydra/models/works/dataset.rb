@@ -3,9 +3,9 @@ module Dlibhydra
   class Dataset < Work
     include Dlibhydra::AddDatasetMetadata
 
-    filters_association :members, as: :aips, condition: :aip?
-    filters_association :members, as: :dips, condition: :dip?
-    filters_association :members, as: :packages, condition: :package?
+    filters_association :packaged_by, as: :aips, condition: :aip?
+    filters_association :packaged_by, as: :dips, condition: :dip?
+    #filters_association :members, as: :packages, condition: :package?
 
     type << ::RDF::Vocab::DCAT.Dataset
 

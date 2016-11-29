@@ -5,7 +5,6 @@ module Dlibhydra
     include Dlibhydra::AddLabels,
             Dlibhydra::Archivematica,
             Dlibhydra::RdfType, # needed for add_types callback
-            Dlibhydra::ReadmeFile,
             Dlibhydra::SimpleVersions
   end
 end

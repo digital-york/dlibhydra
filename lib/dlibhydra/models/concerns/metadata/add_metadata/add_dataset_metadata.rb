@@ -8,6 +8,8 @@ module Dlibhydra
             Dlibhydra::Pure,
             Dlibhydra::Doi,
             Dlibhydra::SimpleVersions,
-            Dlibhydra::GenericWorkflow
+            Dlibhydra::GenericWorkflow,
+            Dlibhydra::ReadmeFile
+
   end
 end
