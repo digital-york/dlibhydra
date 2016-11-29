@@ -5,7 +5,7 @@ module Dlibhydra
     included do
       def apply_depositor
         self.depositor = DLIBHYDRA['depositor']
-        self.edit_users += self.depositor        #
+        self.edit_users += [self.depositor]
       end
     end
 
