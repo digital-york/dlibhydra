@@ -2,8 +2,6 @@ module Dlibhydra
   module AddDefaultPermissions
     extend ActiveSupport::Concern
 
-    before_save :apply_depositor
-
     included do
       def depositor
         DLIBHYDRA['depositor']

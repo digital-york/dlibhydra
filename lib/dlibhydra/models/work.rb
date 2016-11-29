@@ -3,6 +3,8 @@ module Dlibhydra
     include Dlibhydra::AddWorkBehaviour,
             Dlibhydra::AddDefaultPermissions
 
+    before_save :apply_depositor
+
     def authority?
       false
     end
