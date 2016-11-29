@@ -18,8 +18,6 @@ module Dlibhydra
     def edit_groups
       ['admin']
     end
-    def depositor
-      apply_depositor
-    end
+
   end
 end
