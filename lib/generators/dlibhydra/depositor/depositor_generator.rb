@@ -7,7 +7,7 @@ class Dlibhydra::DepositorGenerator < Rails::Generators::NamedBase
       copy_file 'dlibhydra.yml', file_path
     end
     # find and replace the depositor value with the supplied value
-    gsub_file file_path, /depositor:\s\S{2,}\n/, "'depositor: #{file_name}\n'"
+    gsub_file file_path, /depositor:\s\S{2,}\n/, "depositor: '#{file_name}'\n"
   end
 
 
