@@ -1,6 +1,7 @@
 module Dlibhydra
   class Work < ActiveFedora::Base
-    include Dlibhydra::AddWorkBehaviour
+    include Dlibhydra::AddWorkBehaviour,
+            Dlibhydra::AddDefaultPermissions
 
     def authority?
       false
@@ -16,6 +17,9 @@ module Dlibhydra
     end
     def edit_groups
       ['admin']
+    end
+    def depositor
+      apply_depositor
     end
   end
 end
