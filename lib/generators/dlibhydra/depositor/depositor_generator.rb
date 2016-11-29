@@ -2,7 +2,8 @@ class Dlibhydra::DepositorGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../../templates', __FILE__)
 
   def inject_into_depositor
-    file_path = 'config/initializers/dlibhydra.yml'
+    file_path = 'config/initializer/dlibhydra.rb'
+    file_path = 'config/dlibhydra.yml'
     unless File.exist?(file_path)
       copy_file 'dlibhydra.yml', file_path
     end
