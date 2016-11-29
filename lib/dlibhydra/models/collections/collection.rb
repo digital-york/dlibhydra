@@ -6,7 +6,8 @@ module Dlibhydra
             Dlibhydra::AddDcDescriptive,
             Dlibhydra::DcRights,
             Dlibhydra::DcPublisher,
-            Dlibhydra::FormerIdentifier
+            Dlibhydra::FormerIdentifier,
+            Dlibhydra::AddDefaultPermissions
 
     def authority?
       false

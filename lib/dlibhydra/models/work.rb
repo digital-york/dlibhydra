@@ -2,7 +2,9 @@ module Dlibhydra
   class Work < ActiveFedora::Base
     include Dlibhydra::AddWorkBehaviour,
             Dlibhydra::AddDefaultPermissions
-    
+
+    before_save :apply_depositor
+
     def authority?
       false
     end

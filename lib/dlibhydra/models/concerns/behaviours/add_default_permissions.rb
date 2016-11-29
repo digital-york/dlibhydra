@@ -1,3 +1,4 @@
+# add the default depositor and default permissions for write
 module Dlibhydra
   module AddDefaultPermissions
     extend ActiveSupport::Concern
