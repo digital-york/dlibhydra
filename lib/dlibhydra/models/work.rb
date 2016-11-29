@@ -4,7 +4,7 @@ module Dlibhydra
             Dlibhydra::AddDefaultPermissions
 
     # call this
-    apply_depositor
+    self.apply_depositor
 
     def authority?
       false
