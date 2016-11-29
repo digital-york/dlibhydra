@@ -4,8 +4,8 @@ module Dlibhydra
 
     included do
       def apply_depositor
-        self.depositor = DLIBHYDRA['depositor']
-        self.edit_users += self.depositor
+        depositor = DLIBHYDRA['depositor']
+        edit_users += self.depositor
       end
     end
 
