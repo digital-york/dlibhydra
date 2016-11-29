@@ -1,2 +1,2 @@
 # load dlibhydra config
-DLIBHYDRA = YAML.load_file("#{Rails.root.to_s}/config/dlibhydra.yml")[Rails.env]
+DLIBHYDRA = YAML.load(File.read(File.expand_path('../../dlibhydra.yml', __FILE__))).with_indifferent_access
