@@ -1,7 +1,9 @@
 module Dlibhydra
   # dlibhydra fileset
   class FileSet < ActiveFedora::Base
-    include Dlibhydra::FileSetBehavior  #,
+    include Hydra::Works::FileSetBehavior
+    
+	#include Dlibhydra::FileSetBehavior  #,
             
 #			Dlibhydra::AddLabels,
 #            Dlibhydra::AssignId
