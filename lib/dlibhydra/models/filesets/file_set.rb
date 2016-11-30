@@ -6,9 +6,9 @@ module Dlibhydra
             Dlibhydra::AssignId
 
     # TODO check CC Collection Behaviour
-    include Hydra::Works::FileSetBehavior,
-            Dlibhydra::AddLabels,
-            CurationConcerns::Noid
+    # include Hydra::Works::FileSetBehavior,
+    #         Dlibhydra::AddLabels,
+    #        CurationConcerns::Noid
 
     def authority?
       false
