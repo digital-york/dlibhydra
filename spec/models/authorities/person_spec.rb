@@ -5,7 +5,7 @@ require 'action_view'
 
 describe Dlibhydra::Person do
   let(:person) { FactoryGirl.build(:person) }
-  let(:scheme) { FactoryGirl.build(:concept_scheme) }
+  let(:scheme) { FactoryGirl.build_stubbed(:concept_scheme) }
 
   it_behaves_like 'borthwick_note'
   it_behaves_like 'foaf_name_parts'
@@ -21,7 +21,7 @@ describe Dlibhydra::Person do
   # test metadata properties
   describe 'metadata' do
     specify { person.type.should include('http://schema.org/Person') }
-    specify { person.type.should include('http://purl.org/vra/Person') }
+    specify { person.type.should include('http://xmlns.com/foaf/0.1/Agent') }
     specify { person.type.should include('http://vocab.getty.edu/ontology#PersonConcept') }
     specify { person.pre_title.should eq('pre_title') }
     specify { person.post_title.should eq('post_title') }
@@ -29,9 +29,6 @@ describe Dlibhydra::Person do
     specify { person.dates_of_office.should eq('1500-1510') }
   end
 
-  before do
-    person.concept_scheme = scheme
-  end
   # test related objects
   describe 'related objects' do
     it 'is related to the parent scheme' do

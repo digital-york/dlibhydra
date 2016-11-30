@@ -1,16 +1,10 @@
 module Dlibhydra
-  class Package < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
-            Dlibhydra::AddLabels,
-            Dlibhydra::AssignId,
-            Dlibhydra::Archivematica,
-            Dlibhydra::ReadmeFile,
-            Dlibhydra::SimpleVersions
+  class Package < Work
+    include Dlibhydra::AddPackageMetadata
 
     type << Dlibhydra::Vocab::Generic.Package
 
-    before_save :add_dip_type
-    before_save :add_aip_type
+    before_save :add_types
 
     property :requestor_email, predicate: Dlibhydra::Vocab::Generic.requestorEmail, multiple: true do |index|
       index.as :stored_searchable
@@ -36,17 +30,13 @@ module Dlibhydra
       end
     end
 
-    # If DIP has been created, add the rdf type
-    def add_dip_type
+    # If DIP/AIP has been created, add the rdf type
+    def add_types
       unless dip_uuid.nil?
-        type << Dlibhydra::Vocab::OaisArchivematica.DisseminationInformtionPackage
+        rdf_type << Dlibhydra::Vocab::OaisArchivematica.DisseminationInformationPackage
       end
-    end
-
-    # If AIP has been created, add the rdf type
-    def add_aip_type
       unless aip_uuid.nil?
-        type << Dlibhydra::Vocab::OaisArchivematica.ArchivalInformtionPackage
+        rdf_type << Dlibhydra::Vocab::OaisArchivematica.ArchivalInformationPackage
       end
     end
   end

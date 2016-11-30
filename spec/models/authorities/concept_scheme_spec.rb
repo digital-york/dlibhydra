@@ -4,11 +4,12 @@ require 'active_fedora'
 require 'action_view'
 
 describe Dlibhydra::ConceptScheme do
+  let(:concept) { FactoryGirl.build(:concept) }
   let(:concept1) { FactoryGirl.build(:concept) }
-  let(:concept2) { FactoryGirl.build(:concept) }
+  let(:concept2) { FactoryGirl.build_stubbed(:concept) }
   let(:scheme) { FactoryGirl.build(:concept_scheme) }
-  let(:scheme1) { FactoryGirl.build(:concept_scheme) }
-  let(:work) { FactoryGirl.build(:thesis) }
+  let(:scheme1) { FactoryGirl.build_stubbed(:concept_scheme) }
+  let(:work) { FactoryGirl.build_stubbed(:thesis) }
 
   it_behaves_like 'skos_labels'
   it_behaves_like 'dc_description'
@@ -25,11 +26,11 @@ describe Dlibhydra::ConceptScheme do
     before do
       scheme.concepts << concept1
       scheme.concepts << concept2
-      concept1.top_concept_of = scheme
+      concept.top_concept_of << scheme1
     end
 
     it 'has a top concept' do
-      expect(scheme.has_top_concept.to_a.size).to eq(1)
+      expect(scheme1.has_top_concept.to_a.size).to eq(1)
     end
 
     it 'has two concepts' do
@@ -37,17 +38,8 @@ describe Dlibhydra::ConceptScheme do
     end
 
     it 'cannot have a work as a concept' do
-      expect { scheme.concepts << work }.to raise_error(NoMethodError)
+      expect { scheme.concepts << work }.to raise_error(ActiveFedora::AssociationTypeMismatch)
     end
 
-    # TODO: test concept scheme validation - this is not working
-
-    #     before {
-    #       scheme1.members << work
-    #     }
-    #
-    #     it 'cannot have a work as a member' do
-    #       expect { scheme1.members }.to raise_error(ActiveFedora::AssociationTypeMismatch)
-    #     end
   end
 end

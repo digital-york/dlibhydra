@@ -5,7 +5,7 @@ require 'action_view'
 
 describe Dlibhydra::Group do
   let(:group) { FactoryGirl.build(:group) }
-  let(:scheme) { FactoryGirl.build(:concept_scheme) }
+  let(:scheme) { FactoryGirl.build_stubbed(:concept_scheme) }
 
   it_behaves_like 'borthwick_note'
   it_behaves_like 'foaf_name'
@@ -22,15 +22,12 @@ describe Dlibhydra::Group do
 
   # test metadata properties
   describe 'metadata' do
-    specify { group.type.should include('https://schema.org/Organization') }
+    specify { group.type.should include('http://xmlns.com/foaf/0.1/Group') }
     specify { group.type.should include('http://vocab.getty.edu/ontology#GroupConcept') }
-    specify { group.type.should include('http://purl.org/vra/Organization') }
+    specify { group.type.should include('http://xmlns.com/foaf/0.1/Agent') }
     specify { group.group_type.should eq(['group type']) }
   end
 
-  before do
-    group.concept_scheme = scheme
-  end
   # test related objects
   describe 'related objects' do
     it 'is related to the parent scheme' do

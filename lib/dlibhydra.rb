@@ -11,15 +11,35 @@ module Dlibhydra
       autoload :OaisArchivematica
       autoload :PureTerms
       autoload :Uketd
+      autoload :LocalResourceTerms
     end
+  end
+
+  autoload_under 'vocab/concerns' do
+    autoload :BorthwickClasses
+    autoload :BorthwickProperties
+  end
+
+  autoload_under 'services' do
+    autoload :Terms
+    autoload :TermsService
+    autoload :SolrQuery
+  end
+
+  autoload_under 'models' do
+    autoload :Work
+    autoload :Authority
   end
 
   autoload_under 'models/authorities' do
     autoload :Concept
     autoload :ConceptScheme
+    autoload :Place
+    autoload :Agent
+  end
+  autoload_under 'models/authorities/agents' do
     autoload :Group
     autoload :Person
-    autoload :Place
     autoload :CurrentPerson
     autoload :CurrentOrganisation
   end
@@ -27,17 +47,13 @@ module Dlibhydra
   autoload_under 'models/collections' do
     autoload :Collection # TODO refactor
   end
-
   autoload_under 'models/filesets' do
     autoload :FileSet
-    # Removed due to incompatibility with CC
-    # autoload :MainFileSet   # Removed due to incompatibility with CC
-    # autoload :ReadmeFileSet  # Removed due to incompatibility with CC
   end
-
   autoload_under 'models/works' do
     autoload :Package
     autoload :Dataset
+    autoload :ExamPaper
     autoload :GenericWork # TODO refactor
     autoload :Thesis
   end
@@ -45,16 +61,18 @@ module Dlibhydra
   autoload_under 'models/works/entry' do
   end
 
-  autoload_under 'models/concerns/metadata' do
+  autoload_under 'models/concerns/metadata/other' do
     # Metadata
     autoload :Archivematica
     autoload :BorthwickNote
+    autoload :Department
     autoload :Doi
     autoload :FoafName
     autoload :FoafNameParts
     autoload :ForIndexing
     autoload :FormerIdentifier
     autoload :GenericAuthorityTerms
+    autoload :GenericModuleCode
     autoload :GenericQualifier
     autoload :GenericWorkflow
     autoload :HubDates
@@ -64,6 +82,7 @@ module Dlibhydra
     autoload :Orcid
     autoload :OwlSameAs
     autoload :Pure
+    autoload :Qualification
     autoload :ReadmeFile
     autoload :SkosLabels
     autoload :SimpleVersions
@@ -71,10 +90,14 @@ module Dlibhydra
     # autoload :ThumbnailUrl TODO remove once standard approach for thumbnail is in place
   end
 
-  autoload_under 'models/concerns/metadata/rdfs' do
-    # RDF and RDFS
-    autoload :RdfsSeeAlso
-    autoload :RdfsLabel
+  autoload_under 'models/concerns/metadata/add_metadata' do
+    autoload :AddLabels
+    autoload :AddDcDescriptive
+    autoload :AddDataciteMandatory
+    autoload :AddDatasetMetadata
+    autoload :AddPackageMetadata
+    autoload :AddExamPaperMetadata
+    autoload :AddThesisMetadata
   end
 
   autoload_under 'models/concerns/metadata/dc' do
@@ -83,7 +106,6 @@ module Dlibhydra
     autoload :DcAccessRights
     autoload :DcAvailable
     autoload :DcCreator
-    autoload :DcCreatorObject
     autoload :DcDate
     autoload :DcDescription
     autoload :DcIdentifier
@@ -95,17 +117,27 @@ module Dlibhydra
     autoload :DcTitle
   end
 
+  autoload_under 'models/concerns/metadata/rdf' do
+    # RDF and RDFS
+    autoload :RdfsSeeAlso
+    autoload :RdfsLabel
+    autoload :RdfType
+  end
+
   autoload_under 'models/concerns/behaviours' do
-    # Identifiers
-    autoload :AssignId
     # Behaviour
-    autoload :AddLabels
-    autoload :AddDcDescriptive
-    autoload :AddDataciteMandatory
+    autoload :AddWorkBehaviour
     # Validations
     autoload :ValidateConceptScheme
+
     # autoload :ValidateLabel
     autoload :FileSetBehavior
+
+    autoload :ValidateLabel
+    # Indexers
+    autoload :IndexesThesis
+    autoload :IndexesExamPaper
+    autoload :IndexesDataset
   end
 
   autoload_under 'models/filesets' do
@@ -119,7 +151,7 @@ module Dlibhydra
   
 
   autoload_under 'validators' do
-    # autoload :HasLabelValidator
+    autoload :HasLabelValidator
     autoload :ConceptSchemeMemberValidator
   end
 end

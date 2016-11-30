@@ -6,7 +6,7 @@ module Dlibhydra
     included do
       property :language, predicate: ::RDF::Vocab::DC.language,
                           multiple: true do |index|
-        index.as :stored_searchable, :sortable
+        index.as :stored_searchable, :sortable, :facetable
       end
     end
   end

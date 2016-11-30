@@ -1,37 +1,39 @@
 module Dlibhydra
   # place
-  class Place < ActiveFedora::Base
-    include Hydra::Works::WorkBehavior,
-            Dlibhydra::OwlSameAs,
+  class Place < Authority
+    include Dlibhydra::OwlSameAs,
             Dlibhydra::AddLabels,
             Dlibhydra::BorthwickNote,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
-            Dlibhydra::AssignId
+            CurationConcerns::Noid
+            # Hydra::Works::WorkBehavior,
 
-    belongs_to :concept_scheme, predicate: ::RDF::SKOS.inScheme
+  # TODO create preflabel
 
-    type << ::RDF::URI.new('http://schema.org/Place')
-    type << ::RDF::URI.new('http://purl.org/vra/Place') # ???
+    belongs_to :concept_scheme, predicate: ::RDF::Vocab::SKOS.inScheme
 
     # TODO: GVP CLASS AdminPlaceConcept or PhysPlaceConcept
     # TODO: which are place objects and which are place strings
 
     has_and_belongs_to_many :contained_in_place,
-                            class_name: 'Dlibhydra::Concept',
+                            class_name: 'Dlibhydra::Place',
                             predicate: ::RDF::URI.new('https://schema.org/containedInPlace'),
                             inverse_of: :contains_place
     has_and_belongs_to_many :contains_place,
-                            class_name: 'Dlibhydra::Concept',
+                            class_name: 'Dlibhydra::Place',
                             predicate: ::RDF::URI.new('https://schema.org/containsPlace'),
                             inverse_of: :contained_in_place
+
+    type [::RDF::URI.new('http://schema.org/Place'),
+          ::RDF::URI.new('http://purl.org/vra/Place')]
 
     # TODO: classes of place
     # vra subclasses of Place (feature codes in this model)
     # http://purl.org/vra/CivicStructure
     # http://purl.org/vra/Continent
     # http://purl.org/vra/AdministrativeArea s
-    #   ubclasses http://purl.org/vra/State, http://purl.org/vra/City
+    #   subclasses http://purl.org/vra/State, http://purl.org/vra/City
 
     # use http://unlock.edina.ac.uk/ws/supportedFeatureTypes?&gazetteer=deep&format=json
     # TODO: should be generic

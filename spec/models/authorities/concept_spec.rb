@@ -7,9 +7,11 @@ require 'action_view'
 
 describe Dlibhydra::Concept do
   let(:scheme) { FactoryGirl.build(:concept_scheme) }
+  let(:scheme1) { FactoryGirl.build_stubbed(:concept_scheme) }
   let(:concept1) { FactoryGirl.build(:concept) }
   let(:concept2) { FactoryGirl.build_stubbed(:broader_concept) }
-  let(:concept3) { FactoryGirl.build_stubbed(:top_concept) }
+  let(:concept3) { FactoryGirl.build(:concept) }
+  let(:thesis) {FactoryGirl.build(:thesis) }
 
   it 'is a concept' do
     expect(concept1.concept?).to be_truthy
@@ -23,13 +25,12 @@ describe Dlibhydra::Concept do
   it_behaves_like 'rdfs_see_also'
 
   describe '#metadata' do
+    specify { concept1.type.should include('http://www.w3.org/2004/02/skos/core#Concept') }
     specify { concept1.definition.should eq('my definition is this') }
     specify { concept1.skos_note.should eq('notes') }
-    specify { concept1.type.should include('http://www.w3.org/2004/02/skos/core#Concept') }
   end
 
   describe '#predicates' do
-    specify { concept1.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#Concept') }
     specify { concept1.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#definition') }
     specify { concept1.resource.dump(:ttl).should include('http://www.w3.org/2004/02/skos/core#note') }
   end
@@ -41,7 +42,13 @@ describe Dlibhydra::Concept do
     end
 
     it 'is a top concept' do
+      concept3.top_concept_of << scheme1
       expect(concept3.topconcept?).to be_truthy
+    end
+
+    it 'scheme has a top concept' do
+      concept3.top_concept_of << scheme1
+      expect(scheme1.has_top_concept.first).to eq(concept3)
     end
 
     it 'is not a top concept' do
@@ -59,5 +66,7 @@ describe Dlibhydra::Concept do
     it 'has a narrower concept' do
       expect(concept2.narrower.first.preflabel).to eq('label')
     end
+
+    # TODO test exact and close
   end
 end

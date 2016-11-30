@@ -3,7 +3,7 @@ shared_examples_for 'main_file' do
 
   before(:each) do
     model_str = model.to_s.split('::').last
-    @stubby = FactoryGirl.build(model_str.underscore.to_sym, :with_before_save_callback)
+    @stubby = FactoryGirl.build(model_str.underscore.to_sym) #, :with_before_save_callback)
     @main = FactoryGirl.build_stubbed(:fileset)
     @stubby.mainfile << @main
   end
