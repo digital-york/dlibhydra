@@ -1,9 +1,10 @@
 module Dlibhydra
   # dlibhydra fileset
   class FileSet < ActiveFedora::Base
-    include Hydra::Works::FileSetBehavior
+#  class FileSet < Hydra::Works::FileSet
+    # include Hydra::Works::FileSetBehavior
     
-	#include Dlibhydra::FileSetBehavior  #,
+	include Dlibhydra::FileSetBehavior  #,
             
 #			Dlibhydra::AddLabels,
 #            Dlibhydra::AssignId
@@ -14,15 +15,6 @@ module Dlibhydra
     #        CurationConcerns::Noid
 
     def authority?
-      false
-    end
-    def work?
-      false
-    end
-    def file_set?
-      true
-    end
-    def collection?
       false
     end
 
