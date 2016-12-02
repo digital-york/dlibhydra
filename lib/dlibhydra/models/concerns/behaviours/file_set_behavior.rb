@@ -20,7 +20,7 @@ puts 'Loading FileSetBehavior...'
       include Hydra::Works::VersionedContent
       before_destroy :remove_from_works
 
-      type [Hydra::PCDM::Vocab::PCDMTerms.Object, Vocab::WorksTerms.FileSet]
+      type [Hydra::PCDM::Vocab::PCDMTerms.Object, Hydra::Works::Vocab::WorksTerms.FileSet]
     end
 
     def collection?
