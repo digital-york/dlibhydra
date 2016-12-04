@@ -3,7 +3,8 @@ module Dlibhydra
   class FileSet < ActiveFedora::Base
     include CurationConcerns::FileSetBehavior,
             Dlibhydra::AddLabels,
-            Dlibhydra::FormerIdentifier
+            Dlibhydra::FormerIdentifier,
+            Dlibhydra::AddDefaultPermissions
 
     def authority?
       false
