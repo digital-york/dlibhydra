@@ -5,7 +5,7 @@ module Dlibhydra
     def validate(record)
       if record.authority? and record.preflabel.nil?
         record.errors[:preflabel] << 'You must provide a preflabel for authorities'
-      elsif !record.authority? and record.title.empty? and !record.fileset?
+      elsif !record.authority? and record.title.empty? and !record.file_set?
         record.errors[:title] << 'You must provide a title'
       end
     end
