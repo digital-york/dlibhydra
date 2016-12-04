@@ -4,7 +4,8 @@ module Dlibhydra
     include CurationConcerns::FileSetBehavior,
             Dlibhydra::AddLabels,
             Dlibhydra::FormerIdentifier,
-            Dlibhydra::AddDefaultPermissions
+            Dlibhydra::AddDefaultPermissions,
+            Hydra::Works::AddFileToFileSet
 
     def authority?
       false
