@@ -1,8 +1,10 @@
 module Dlibhydra
   # dlibhydra fileset
-  class FileSet < CurationConcerns::FileSet
-
-    include Dlibhydra::AddLabels
+  class FileSet < ActiveFedora::Base
+    include Hydra::Works::FileSetBehavior,
+            Dlibhydra::AddLabels,
+			Dlibhydra::Derivatives,
+            CurationConcerns::Noid
   
     def authority?
       false

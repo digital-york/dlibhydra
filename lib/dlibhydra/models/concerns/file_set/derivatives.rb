@@ -14,6 +14,7 @@ module Dlibhydra
     # network traffic than necessary.  If you want to avoid this, set up a
     # source_file_service that fetches the files locally, as is done in CurationConcerns.
     def create_derivatives
+puts 'Within dlibhydra::Derivatives'	
       case original_file.mime_type
       when *self.class.pdf_mime_types
         Hydra::Derivatives::PdfDerivatives.create(self, source: :original_file, outputs: [{ label: :thumbnail, format: 'jpg', size: '338x493', object: self }])
