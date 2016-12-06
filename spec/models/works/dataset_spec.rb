@@ -26,6 +26,7 @@ describe Dlibhydra::Dataset do
   it_behaves_like 'dc_available'
   it_behaves_like 'dc_creator'
   it_behaves_like 'readme_file'
+  it_behaves_like 'last_access'
 
   describe '#metadata' do
     specify { dataset.type.should include('http://www.w3.org/ns/dcat#Dataset') }

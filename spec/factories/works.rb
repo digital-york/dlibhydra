@@ -19,6 +19,7 @@ FactoryGirl.define do
     pure_type ['pure type']
     pure_link ['pure link']
     creator_string ['Marr, Johnny']
+    last_access '2016-01-01'
 
   end
 

@@ -9,7 +9,8 @@ module Dlibhydra
             Dlibhydra::Doi,
             Dlibhydra::SimpleVersions,
             Dlibhydra::GenericWorkflow,
-            Dlibhydra::ReadmeFile
+            Dlibhydra::ReadmeFile,
+            Dlibhydra::LastAccess
 
   end
 end
