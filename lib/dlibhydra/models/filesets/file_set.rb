@@ -3,8 +3,8 @@ module Dlibhydra
   class FileSet < ActiveFedora::Base
     include Hydra::Works::FileSetBehavior,
             Dlibhydra::AddLabels,
-			Dlibhydra::Derivatives,
-            CurationConcerns::Noid
+			Dlibhydra::Derivatives #,
+            #CurationConcerns::Noid
   
     def authority?
       false
