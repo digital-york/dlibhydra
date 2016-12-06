@@ -1,10 +1,10 @@
 module Dlibhydra
   # dlibhydra fileset
   class FileSet < ActiveFedora::Base
-    # TODO check CC Collection Behaviour
-    include Hydra::Works::FileSetBehavior,
+    include CurationConcerns::FileSetBehavior,
             Dlibhydra::AddLabels,
-            CurationConcerns::Noid
+            Dlibhydra::FormerIdentifier,
+            Dlibhydra::AddDefaultPermissions
 
     def authority?
       false
@@ -18,6 +18,8 @@ module Dlibhydra
     def collection?
       false
     end
-
+    def edit_groups
+      ['admin']
+    end
   end
 end

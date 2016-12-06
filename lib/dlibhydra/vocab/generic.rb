@@ -192,6 +192,21 @@ module Dlibhydra
                label: 'Module Code'.freeze,
                'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
                type: 'rdf:Property'.freeze
+      property :packages,
+               comment:
+                   'This property should be used for a the relationship between a Package and the
+                    Works represented by that package.'.freeze,
+               label: 'Packaged'.freeze,
+               'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+               subPropertyOf: 'http://pcdm.org/models#hasRelatedObject'.freeze,
+               type: 'rdf:Property'.freeze
+      property :packagedBy,
+               comment:
+                   'This property should is the inverse of packages.'.freeze,
+               label: 'Packaged By'.freeze,
+               'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+               subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
+               type: 'rdf:Property'.freeze
 
       # Extra definitions
       term :'',

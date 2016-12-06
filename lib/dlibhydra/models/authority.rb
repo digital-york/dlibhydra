@@ -17,6 +17,9 @@ module Dlibhydra
     def collection?
       false
     end
+    def edit_groups
+      ['admin']
+    end
 
     # find any objects that use the authority term being updated or destroyed
     # update solr if it's a '_value'

@@ -11,7 +11,7 @@ module Dlibhydra
 
       # String only, use _resource for Object reference
       property :department, predicate: Dlibhydra::Vocab::Uketd.department, multiple: true do |index|
-        index.as :stored_searchable
+        index.as :stored_searchable, :facetable
       end
 
       def add_department_values

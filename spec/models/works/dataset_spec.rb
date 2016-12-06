@@ -7,7 +7,8 @@ describe Dlibhydra::Dataset do
   let(:dataset) { FactoryGirl.build(:dataset) }
   let(:package) { FactoryGirl.build_stubbed(:package) }
   let(:generic_work) { FactoryGirl.build(:generic_work) }
-  let(:readme_file) { FactoryGirl.build_stubbed(:readme_file) }
+  let(:fs) { FactoryGirl.build_stubbed(:fileset) }
+  let(:readme) { FactoryGirl.build_stubbed(:fileset) }
   let(:org) { FactoryGirl.build_stubbed(:current_org) }
 
   it 'is a dataset' do
@@ -24,6 +25,8 @@ describe Dlibhydra::Dataset do
   it_behaves_like 'dc_publisher'
   it_behaves_like 'dc_available'
   it_behaves_like 'dc_creator'
+  it_behaves_like 'readme_file'
+  it_behaves_like 'last_access'
 
   describe '#metadata' do
     specify { dataset.type.should include('http://www.w3.org/ns/dcat#Dataset') }
@@ -44,16 +47,21 @@ describe Dlibhydra::Dataset do
 
   describe '#related objects' do
     before(:each) do
-      dataset.members << package
+      dataset.packaged_by << package
+      dataset.members << fs
+      dataset.members << readme
     end
-    it 'has a member' do
-      expect(dataset.members.size).to eq(1)
+    it 'has a packaged by' do
+      expect(dataset.packaged_by.size).to eq(1)
     end
     it 'has an aip' do
       expect(dataset.aips.size).to eq(1)
     end
     it 'has a dip' do
       expect(dataset.dips.size).to eq(1)
+    end
+    it 'has an two members' do
+      expect(dataset.members.size).to eq(2)
     end
   end
 

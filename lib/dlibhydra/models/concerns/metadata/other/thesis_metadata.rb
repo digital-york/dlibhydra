@@ -18,7 +18,7 @@ module Dlibhydra
       end
       # String only, use _resource for Object reference
       property :advisor, predicate: Dlibhydra::Vocab::Uketd.advisor, multiple: true do |index|
-        index.as :stored_searchable
+        index.as :stored_searchable, :facetable
       end
       # String only, use _resource for Object reference
       # same as Dlibhydra::Vocab::Uketd.institution and bibo:issuer
@@ -28,7 +28,12 @@ module Dlibhydra
       end
 
       def add_thesis_values
-        self.advisor = advisor_resource.collect { |x| x.preflabel }
+        # if advisor names have been added as strings, keep them and add the preflabels for advisor_resource
+        if self.advisor.empty?
+          self.advisor = advisor_resource.collect { |x| x.preflabel }
+        else
+          self.advisor += advisor_resource.collect { |x| x.preflabel }
+        end
         self.awarding_institution = awarding_institution_resource.collect { |x| x.preflabel }
       end
     end
