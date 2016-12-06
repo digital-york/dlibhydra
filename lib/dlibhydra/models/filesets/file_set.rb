@@ -1,13 +1,13 @@
 module Dlibhydra
   # dlibhydra fileset
-  class FileSet < ActiveFedora::Base
-#  class FileSet < Hydra::Works::FileSet
-    # include Hydra::Works::FileSetBehavior
-puts 'Loading FileSet...'    
-	
-	include Dlibhydra::FileSetBehavior  
+  class FileSet < CurationConcerns::FileSet
 
+    include Dlibhydra::AddLabels
+  
     def authority?
+      false
+    end
+    def work?
       false
     end
 
