@@ -36,6 +36,9 @@ module Dlibhydra
     def collection?
       false
     end
+	def thumbnail_id
+      to_param
+    end
 
   end
 end
