@@ -19,6 +19,7 @@ module Dlibhydra
     include CurationConcerns::HumanReadableType
     include CurationConcerns::RequiredMetadata
     include CurationConcerns::Naming
+	include CurationConcerns::IndexesThumbnails
     include Hydra::AccessControls::Embargoable
     include GlobalID::Identification
 
