@@ -20,7 +20,6 @@ module Dlibhydra
     include CurationConcerns::RequiredMetadata
     include CurationConcerns::Naming
 	include CurationConcerns::IndexesThumbnails
-	include CurationConcerns::ThumbnailPathService
     include Hydra::AccessControls::Embargoable
     include GlobalID::Identification
 
