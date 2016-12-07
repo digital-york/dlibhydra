@@ -8,6 +8,7 @@ module Dlibhydra
     include CurationConcerns::Noid
     include CurationConcerns::Permissions
     include CurationConcerns::BasicMetadata
+	include CurationConcerns::RequiredMetadata
 
 #    include Hydra::Works::VirusCheck
 #    include CurationConcerns::FileSet::Characterization
