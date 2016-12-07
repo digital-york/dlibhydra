@@ -7,8 +7,8 @@ module Dlibhydra
     include Hydra::WithDepositor
     include CurationConcerns::Noid
     include CurationConcerns::Permissions
-	
-#    include CurationConcerns::BasicMetadata
+    include CurationConcerns::BasicMetadata
+
 #    include Hydra::Works::VirusCheck
 #    include CurationConcerns::FileSet::Characterization
 #    include CurationConcerns::Serializers
