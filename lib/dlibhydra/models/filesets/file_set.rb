@@ -4,7 +4,9 @@ module Dlibhydra
     # TODO check CC Collection Behaviour
     include Hydra::Works::FileSetBehavior,
             Dlibhydra::AddLabels,
-            CurationConcerns::Noid
+            CurationConcerns::Noid,
+			CurationConcerns::Permissions,
+			CurationConcerns::FileSet::Derivatives
 
     def authority?
       false
