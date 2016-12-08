@@ -127,6 +127,7 @@ module Dlibhydra
   autoload_under 'models/concerns/behaviours' do
     # Behaviour
     autoload :AddWorkBehaviour
+    autoload :AddDefaultPermissions
     # Validations
     autoload :ValidateConceptScheme
 
@@ -135,9 +136,11 @@ module Dlibhydra
 
     autoload :ValidateLabel
     # Indexers
-    autoload :IndexesThesis
-    autoload :IndexesExamPaper
     autoload :IndexesDataset
+    autoload :IndexesCollection
+    autoload :IndexesExamPaper
+    autoload :IndexesThesis
+
   end
 
   autoload_under 'models/filesets' do

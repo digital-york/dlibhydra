@@ -18,12 +18,13 @@ FactoryGirl.define do
     pure_creation '2002-05-30T09:00:00'
     pure_type ['pure type']
     pure_link ['pure link']
-    creator ['Marr, Johnny']
+    creator_string ['Marr, Johnny']
+    last_access '2016-01-01'
 
   end
 
   factory :exam_paper, class: Dlibhydra::ExamPaper do
-    creator ['Marr, Johnny']
+    creator_string ['Marr, Johnny']
     preflabel 'label'
     date ['2016-01-01']
     description ['description']
@@ -63,7 +64,7 @@ FactoryGirl.define do
   factory :thesis, class: Dlibhydra::Thesis do
     title ['The Importance of Being Unhappy']
     abstract ['abstract']
-    creator ['Marr, Johnny']
+    creator_string ['Marr, Johnny']
     date_of_award '2016-01-01'
     qualification_level ['PhD']
     language ['en-GB']

@@ -11,12 +11,12 @@ module Dlibhydra
 
       # String only, use _resource for Object reference
       property :qualification_level, predicate: Dlibhydra::Vocab::Uketd.qualificationLevel, multiple: true do |index|
-        index.as :stored_searchable
+        index.as :stored_searchable, :facetable
       end
 
       # same as Dlibhydra::Vocab::Uketd.qualificationName
       property :qualification_name, predicate: Dlibhydra::Vocab::Uketd.qualificationName, multiple: true do |index|
-        index.as :stored_searchable
+        index.as :stored_searchable, :facetable
       end
 
       def add_qualification_name_values

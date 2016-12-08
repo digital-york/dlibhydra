@@ -1,11 +1,13 @@
 module Dlibhydra
   class Collection < ActiveFedora::Base
     # TODO check CC Collection Behaviour
-    include Hydra::Works::CollectionBehavior,
-            CurationConcerns::Noid,
+    include CurationConcerns::CollectionBehavior, #Hydra::Works::CollectionBehavior,
             Dlibhydra::AddLabels,
             Dlibhydra::AddDcDescriptive,
-            Dlibhydra::DcRights
+            Dlibhydra::DcRights,
+            Dlibhydra::DcPublisher,
+            Dlibhydra::FormerIdentifier,
+            Dlibhydra::AddDefaultPermissions
 
     def authority?
       false
@@ -19,20 +21,21 @@ module Dlibhydra
     def collection?
       true
     end
+    def edit_groups
+      ['admin']
+    end
 
-    # add the preflabel for _resource objects into solr
-    class TextIndexer < Hydra::PCDM::PCDMIndexer
-      def generate_solr_document
-        super.tap do |solr_doc|
-          # TODO add facetable
-          solr_doc['creator_value_tesim'] = object.creator_resource.collect { |x| x.preflabel }
-          solr_doc['subject_value_tesim'] = object.subject_resource.collect { |x| x.preflabel }
-        end
-      end
+    # don't know what this is for but I got an error in my tests without it
+    def suppressed?
+      false
+    end
+
+    class CollectionIndexer < CurationConcerns::WorkIndexer # Hydra::PCDM::PCDMIndexer
+      include Dlibhydra::IndexesCollection
     end
 
     def self.indexer
-      TextIndexer
+      CollectionIndexer
     end
   end
 end

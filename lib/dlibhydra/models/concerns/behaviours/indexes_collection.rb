@@ -1,5 +1,5 @@
 module Dlibhydra
-  module IndexesThesis
+  module IndexesCollection
     extend ActiveSupport::Concern
 
     included do
@@ -10,12 +10,10 @@ module Dlibhydra
         #  'authorities_tesim' is used where the preflabel for the HABM resource is stored in the object too.
         #   These are used by the authorities in it's update_usages method to update all references if the
         #   authority term changes.
-        strings_to_index = ['qualification_name','department','awarding_institution','advisor']
-        values_to_index = ['creator','subject']
+        values_to_index = ['creator','subject', 'publisher']
 
         super.tap do |solr_doc|
           solr_doc['values_tesim'] = []
-          solr_doc['authorities_tesim'] = []
 
           values_to_index.each do |v|
             method = "#{v}_resource"
@@ -32,22 +30,17 @@ module Dlibhydra
             solr_doc['values_tesim'] += object.send(method).collect { |x| x.id }
           end
 
-          strings_to_index.each do |s|
-            method = "#{s}_resource"
-            solr_doc['authorities_tesim'] += object.send(method).collect { |x| x.id }
+          # add creator strings into creator_value
+          if solr_doc['creator_value_tesim'].nil?
+            solr_doc['creator_value_tesim'] = object.creator_string.collect { |x| x }
+            solr_doc['creator_value_ssim'] = object.creator_string.collect { |x| x }
+            solr_doc['creator_value_sim'] =  object.creator_string.collect { |x| x }
+          else
+            solr_doc['creator_value_tesim'] += object.creator_string.collect { |x| x }
+            solr_doc['creator_value_ssim'] += object.creator_string.collect { |x| x }
+            solr_doc['creator_value_sim'] +=  object.creator_string.collect { |x| x }
           end
 
-          creator_strings = object.creator_string.collect { |x| x }
-          # add creator strings into creator_value
-          if object.creator_resource.empty?
-            solr_doc['creator_value_tesim'] = creator_strings
-            solr_doc['creator_value_ssim'] = creator_strings
-            solr_doc['creator_value_sim'] =  creator_strings
-          else
-            solr_doc['creator_value_tesim'] += creator_strings
-            solr_doc['creator_value_ssim'] += creator_strings
-            solr_doc['creator_value_sim'] +=  creator_strings
-          end
         end
       end
     end

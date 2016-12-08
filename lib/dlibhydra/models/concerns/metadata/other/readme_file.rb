@@ -4,6 +4,7 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
+      # TODO make this multiple
       property :readme, predicate: Dlibhydra::Vocab::Generic.readme,
                multiple: false do |index|
         index.as :stored_searchable
