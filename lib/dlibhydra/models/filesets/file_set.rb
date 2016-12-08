@@ -5,6 +5,8 @@ module Dlibhydra
             Dlibhydra::AddLabels,
             Dlibhydra::FormerIdentifier,
             Dlibhydra::AddDefaultPermissions
+			
+	include CurationConcerns::RequiredMetadata
 
     def authority?
       false
