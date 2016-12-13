@@ -1,8 +1,9 @@
 module Dlibhydra
   module AddWorkBehaviour
     extend ActiveSupport::Concern
-    # include CurationConcerns::WorkBehavior
+    include CurationConcerns::WorkBehavior
     # These are what WorkBehavior includes:
+=begin
     include Hydra::Works::WorkBehavior
     include CurationConcerns::HumanReadableType
     include CurationConcerns::Noid
@@ -18,6 +19,7 @@ module Dlibhydra
     include Hydra::AccessControls::Embargoable
     include GlobalID::Identification
     include CurationConcerns::Publishable
+=end
     # RuntimeError: Circular dependency detected while autoloading constant Thesis
     # In CC app
     # include CurationConcerns::NestedWorks
