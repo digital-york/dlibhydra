@@ -10,7 +10,8 @@ module Dlibhydra
             Dlibhydra::SimpleVersions,
             Dlibhydra::GenericWorkflow,
             Dlibhydra::ReadmeFile,
-            Dlibhydra::LastAccess
+            Dlibhydra::LastAccess,
+            Dlibhydra::NumberOfDownloads
 
   end
 end

@@ -22,6 +22,7 @@ describe Dlibhydra::ExamPaper do
   it_behaves_like 'former_identifier'
   it_behaves_like 'qualification'
   it_behaves_like 'module_code'
+  it_behaves_like 'collections_category'
 
 
   describe '#metadata' do

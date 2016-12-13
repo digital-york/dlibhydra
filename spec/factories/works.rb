@@ -20,6 +20,7 @@ FactoryGirl.define do
     pure_link ['pure link']
     creator_string ['Marr, Johnny']
     last_access '2016-01-01'
+    number_of_downloads '52'
 
   end
 
@@ -34,6 +35,7 @@ FactoryGirl.define do
     rights ['https://creativecommons.org/publicdomain/mark/1.0/']
     former_id ['york:1234']
     module_code ['XXXXXX']
+    collections_category ['self-renewing']
   end
 
   factory :package, class: Dlibhydra::Package do
