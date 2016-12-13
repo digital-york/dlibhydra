@@ -17,7 +17,6 @@ module Dlibhydra
     include CurationConcerns::InAdminSet
     include Hydra::AccessControls::Embargoable
     include GlobalID::Identification
-    include CurationConcerns::NestedWorks
     include CurationConcerns::Suppressible
     # RuntimeError: Circular dependency detected while autoloading constant Thesis
     # In CC app
