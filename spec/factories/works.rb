@@ -30,7 +30,7 @@ FactoryGirl.define do
     date ['2016-01-01']
     description ['description']
     qualification_level ['PhD']
-    language ['en-GB']
+    language ['eng']
     rights_holder ['Johnny Marr']
     rights ['https://creativecommons.org/publicdomain/mark/1.0/']
     former_id ['york:1234']
@@ -69,7 +69,7 @@ FactoryGirl.define do
     creator_string ['Marr, Johnny']
     date_of_award '2016-01-01'
     qualification_level ['PhD']
-    language ['en-GB']
+    language ['eng']
     keyword ['northern misery']
     rights_holder ['Johnny Marr']
     rights ['https://creativecommons.org/publicdomain/mark/1.0/']
