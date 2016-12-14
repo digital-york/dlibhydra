@@ -20,7 +20,7 @@ module Dlibhydra
       def add_language_string
         begin
           auth = Qa::Authorities::Local::FileBasedAuthority.new('languages')
-          self.language_string = self.language_resource.collect { |x| auth.find(x)['term'] }
+          self.language_string = self.language.collect { |x| auth.find(x)['term'] }
         rescue
           'You need QA installed to add language_string'
         end
