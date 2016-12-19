@@ -10,6 +10,7 @@ module Dlibhydra
                               predicate: ::RDF::Vocab::DC.publisher
 
       # DC11 for publisher name.
+      # TODO check if this should be string a la creator?
       property :publisher, predicate: ::RDF::Vocab::DC11.publisher,
                            multiple: true do |index|
         index.as :stored_searchable, :sortable

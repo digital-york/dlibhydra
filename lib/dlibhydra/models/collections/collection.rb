@@ -7,7 +7,8 @@ module Dlibhydra
             Dlibhydra::DcRights,
             Dlibhydra::DcPublisher,
             Dlibhydra::FormerIdentifier,
-            Dlibhydra::AddDefaultPermissions
+            Dlibhydra::AddDefaultPermissions,
+            Dlibhydra::CollectionsCategory
 
     def authority?
       false
