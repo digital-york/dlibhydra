@@ -56,6 +56,8 @@ module Dlibhydra
     autoload :ExamPaper
     autoload :GenericWork # TODO refactor
     autoload :Thesis
+
+    autoload :JournalArticle
   end
 
   autoload_under 'models/works/entry' do
@@ -88,6 +90,11 @@ module Dlibhydra
     autoload :SimpleVersions
     autoload :ThesisMetadata
     # autoload :ThumbnailUrl TODO remove once standard approach for thumbnail is in place
+
+    autoload :IssueNumber
+    autoload :VolumeNumber
+    autoload :Pagination
+    autoload :PartOf
   end
 
   autoload_under 'models/concerns/metadata/add_metadata' do
@@ -98,6 +105,8 @@ module Dlibhydra
     autoload :AddPackageMetadata
     autoload :AddExamPaperMetadata
     autoload :AddThesisMetadata
+
+    autoload :AddJournalArticleMetadata
   end
 
   autoload_under 'models/concerns/metadata/dc' do
