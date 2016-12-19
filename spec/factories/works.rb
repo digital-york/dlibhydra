@@ -20,6 +20,7 @@ FactoryGirl.define do
     pure_link ['pure link']
     creator_string ['Marr, Johnny']
     last_access '2016-01-01'
+    number_of_downloads '52'
 
   end
 
@@ -29,11 +30,12 @@ FactoryGirl.define do
     date ['2016-01-01']
     description ['description']
     qualification_level ['PhD']
-    language ['en-GB']
+    language ['eng']
     rights_holder ['Johnny Marr']
     rights ['https://creativecommons.org/publicdomain/mark/1.0/']
     former_id ['york:1234']
     module_code ['XXXXXX']
+    collections_category ['self-renewing']
   end
 
   factory :package, class: Dlibhydra::Package do
@@ -67,7 +69,7 @@ FactoryGirl.define do
     creator_string ['Marr, Johnny']
     date_of_award '2016-01-01'
     qualification_level ['PhD']
-    language ['en-GB']
+    language ['eng']
     keyword ['northern misery']
     rights_holder ['Johnny Marr']
     rights ['https://creativecommons.org/publicdomain/mark/1.0/']

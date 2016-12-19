@@ -67,6 +67,7 @@ module Dlibhydra
     # Metadata
     autoload :Archivematica
     autoload :BorthwickNote
+    autoload :CollectionsCategory
     autoload :Department
     autoload :Doi
     autoload :FoafName
@@ -81,6 +82,7 @@ module Dlibhydra
     autoload :LastAccess
     autoload :MadsRelatedAuthority
     autoload :MainFile
+    autoload :NumberOfDownloads
     autoload :Orcid
     autoload :OwlSameAs
     autoload :Pure

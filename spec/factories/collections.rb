@@ -3,7 +3,7 @@ FactoryGirl.define do
     description ['description']
     creator_string ['Marr, Johnny']
     date ['2016-01-01']
-    language ['en-GB']
+    language ['eng']
     keyword ['northern misery']
     rights_holder ['Johnny Marr']
     rights ['https://creativecommons.org/publicdomain/mark/1.0/']

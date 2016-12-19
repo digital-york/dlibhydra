@@ -1,7 +1,8 @@
 module Dlibhydra
   class Work < ActiveFedora::Base
     include Dlibhydra::AddWorkBehaviour,
-            Dlibhydra::AddDefaultPermissions
+            Dlibhydra::AddDefaultPermissions,
+            Dlibhydra::CollectionsCategory
 
     has_and_belongs_to_many :packaged_by,
                             class_name: 'Dlibhydra::Package',
