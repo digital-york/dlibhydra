@@ -39,6 +39,7 @@ module Dlibhydra
             solr_doc['creator_value_sim'] +=  creator_strings
           end
 
+
         end
       end
     end

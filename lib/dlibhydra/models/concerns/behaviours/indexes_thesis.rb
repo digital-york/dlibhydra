@@ -40,6 +40,17 @@ module Dlibhydra
             solr_doc['creator_value_ssim'] += creator_strings
             solr_doc['creator_value_sim'] +=  creator_strings
           end
+          advisor_strings = object.advisor_string.collect { |x| x }
+          # add creator strings into advisor_value
+          if object.advisor_resource.empty?
+            solr_doc['advisor_value_tesim'] = advisor_strings
+            solr_doc['advisor_value_ssim'] = advisor_strings
+            solr_doc['advisor_value_sim'] =  advisor_strings
+          else
+            solr_doc['advisor_value_tesim'] += advisor_strings
+            solr_doc['advisor_value_ssim'] += advisor_strings
+            solr_doc['advisor_value_sim'] += advisor_strings
+          end
         end
       end
     end
