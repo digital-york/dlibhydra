@@ -13,7 +13,7 @@ module Dlibhydra
                               class_name: 'Dlibhydra::CurrentOrganisation',
                               predicate: ::RDF::Vocab::Bibframe.dissertationInstitution
 
-      property :advisor_string, predicate: ::RDF::DC.contributor, multiple: true do |index|
+      property :advisor_string, predicate: ::RDF::Vocab::DC.contributor, multiple: true do |index|
         index.as :stored_searchable
       end
 
