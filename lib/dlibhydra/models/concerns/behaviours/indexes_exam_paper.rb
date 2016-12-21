@@ -4,17 +4,14 @@ module Dlibhydra
 
     included do
       def generate_solr_document
-        # Add the object's HABM to 'authorities_tesim' or 'values_tesim' according to the convention being used.
+        # Add the object's HABM to 'values_tesim' according to the convention being used.
         #  'values_tesim' is used where the preflabel for the HABM resource is stored in solr only.
-        #  'authorities_tesim' is used where the preflabel for the HABM resource is stored in the object too.
         #   These are used by the authorities in it's update_usages method to update all references if the
         #   authority term changes.
-        strings_to_index = ['qualification_name']
-        values_to_index = ['creator','subject']
+        values_to_index = ['creator','subject','qualification_name']
 
         super.tap do |solr_doc|
           solr_doc['values_tesim'] = []
-          solr_doc['authorities_tesim'] = []
 
           values_to_index.each do |v|
             method = "#{v}_resource"
@@ -28,11 +25,6 @@ module Dlibhydra
             end
 
             solr_doc['values_tesim'] += object.send(method).collect { |x| x.id }
-          end
-
-          strings_to_index.each do |s|
-            method = "#{s}_resource"
-            solr_doc['authorities_tesim'] += object.send(method).collect { |x| x.id }
           end
 
           creator_strings = object.creator_string.collect { |x| x }

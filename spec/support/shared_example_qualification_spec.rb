@@ -6,12 +6,10 @@ shared_examples_for 'qualification' do
     @name = FactoryGirl.build_stubbed(:simple_concept)
     @stubby = FactoryGirl.build(model_str.underscore.to_sym)
     @stubby.qualification_name_resource << @name
-    @stubby.add_qualification_name_values
 
   end
   # metadata
   it 'will have a qualification name' do
-    expect(@stubby.qualification_name).to eq(['miserabilism'])
     expect(@stubby.qualification_name_resource.first).to eq(@name)
   end
   it 'will have an qualification level' do

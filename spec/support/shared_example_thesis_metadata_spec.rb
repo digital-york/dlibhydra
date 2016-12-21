@@ -8,7 +8,6 @@ shared_examples_for 'thesis_metadata' do
     @stubby = FactoryGirl.build(model_str.underscore.to_sym)
     @stubby.advisor_resource << @person
     @stubby.awarding_institution_resource << @org
-    @stubby.add_thesis_values
 
   end
   # metadata
@@ -16,14 +15,12 @@ shared_examples_for 'thesis_metadata' do
     expect(@stubby.abstract).to eq(['abstract'])
   end
   it 'will have an advisor' do
-    expect(@stubby.advisor).to eq(['Smith, Mark E.'])
     expect(@stubby.advisor_resource.first).to eq(@person)
   end
   it 'will have a date of award' do
     expect(@stubby.date_of_award).to eq('2016-01-01')
   end
   it 'will have an awarding department' do
-    expect(@stubby.awarding_institution).to eq(['University of York. Department of Miserabilism'])
     expect(@stubby.awarding_institution_resource.first).to eq(@org)
   end
 

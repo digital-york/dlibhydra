@@ -5,9 +5,8 @@ module Dlibhydra
     included do
       def generate_solr_document
 
-        # Add the object's HABM to 'authorities_tesim' or 'values_tesim' according to the convention being used.
+        # Add the object's HABM to 'values_tesim' according to the convention being used.
         #  'values_tesim' is used where the preflabel for the HABM resource is stored in solr only.
-        #  'authorities_tesim' is used where the preflabel for the HABM resource is stored in the object too.
         #   These are used by the authorities in it's update_usages method to update all references if the
         #   authority term changes.
         values_to_index = ['creator','publisher','managing_organisation']
