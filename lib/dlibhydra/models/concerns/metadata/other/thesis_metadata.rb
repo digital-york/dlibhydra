@@ -13,6 +13,10 @@ module Dlibhydra
                               class_name: 'Dlibhydra::CurrentOrganisation',
                               predicate: ::RDF::Vocab::Bibframe.dissertationInstitution
 
+      property :advisor, predicate: Dlibhydra::Vocab::Uketd.advisor, multiple: true do |index|
+        index.as :stored_searchable
+      end
+
       property :date_of_award, predicate: ::RDF::Vocab::DC.dateAccepted, multiple: false do |index|
         index.as :stored_searchable
       end
