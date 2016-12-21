@@ -16,7 +16,7 @@ describe Dlibhydra::JournalArticle do
   it_behaves_like 'volume_number'
   it_behaves_like 'pagination'
 
-  describe '#metadata' do
+  describe 'metadata' do
     specify { journal.type.should include('http://purl.org/spar/fabio/JournalArticle') }
   end
 
