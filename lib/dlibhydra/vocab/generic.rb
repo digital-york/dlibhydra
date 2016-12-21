@@ -221,6 +221,13 @@ module Dlibhydra
                'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
                subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
                type: 'rdf:Property'.freeze
+      property :mmsid,
+               comment:
+                   'Alma MMSID.'.freeze,
+               label: 'MMSID'.freeze,
+               'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+               subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
+               type: 'rdf:Property'.freeze
 
       # Extra definitions
       term :'',

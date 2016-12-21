@@ -6,12 +6,10 @@ shared_examples_for 'department' do
     @org = FactoryGirl.build_stubbed(:current_org)
     @stubby = FactoryGirl.build(model_str.underscore.to_sym)
     @stubby.department_resource << @org
-    @stubby.add_department_values
 
   end
   # metadata
   it 'will have a department' do
-    expect(@stubby.department).to eq(['University of York. Department of Miserabilism'])
     expect(@stubby.department_resource.first).to eq(@org)
   end
 
