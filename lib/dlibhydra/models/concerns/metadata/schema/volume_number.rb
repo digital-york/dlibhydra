@@ -1,10 +1,10 @@
 module Dlibhydra
-  # PartOf
-  module PartOf
+  # Volume Number
+  module VolumeNumber
     extend ActiveSupport::Concern
 
     included do
-      property :part_of, predicate: ::RDF::URI.new('https://vocab.org/frbr/core#'),
+      property :volume_number, predicate: RDF::Vocab::SCHEMA.volumeNumber,
                            multiple: true do |index|
         index.as :stored_searchable
       end

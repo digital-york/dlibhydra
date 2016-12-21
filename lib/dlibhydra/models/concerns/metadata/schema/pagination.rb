@@ -4,7 +4,7 @@ module Dlibhydra
     extend ActiveSupport::Concern
 
     included do
-      property :pagination, predicate: ::RDF::URI.new('https://schema.org/pagination'),
+      property :pagination, predicate: RDF::Vocab::SCHEMA.pagination,
                            multiple: true do |index|
         index.as :stored_searchable
       end

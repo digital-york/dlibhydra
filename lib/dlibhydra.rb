@@ -63,42 +63,6 @@ module Dlibhydra
   autoload_under 'models/works/entry' do
   end
 
-  autoload_under 'models/concerns/metadata/other' do
-    # Metadata
-    autoload :Archivematica
-    autoload :BorthwickNote
-    autoload :CollectionsCategory
-    autoload :Department
-    autoload :Doi
-    autoload :FoafName
-    autoload :FoafNameParts
-    autoload :ForIndexing
-    autoload :FormerIdentifier
-    autoload :GenericAuthorityTerms
-    autoload :GenericModuleCode
-    autoload :GenericQualifier
-    autoload :GenericWorkflow
-    autoload :HubDates
-    autoload :LastAccess
-    autoload :MadsRelatedAuthority
-    autoload :MainFile
-    autoload :NumberOfDownloads
-    autoload :Orcid
-    autoload :OwlSameAs
-    autoload :Pure
-    autoload :Qualification
-    autoload :ReadmeFile
-    autoload :SkosLabels
-    autoload :SimpleVersions
-    autoload :ThesisMetadata
-    # autoload :ThumbnailUrl TODO remove once standard approach for thumbnail is in place
-
-    autoload :IssueNumber
-    autoload :VolumeNumber
-    autoload :Pagination
-    autoload :PartOf
-  end
-
   autoload_under 'models/concerns/metadata/add_metadata' do
     autoload :AddLabels
     autoload :AddDcDescriptive
@@ -109,6 +73,10 @@ module Dlibhydra
     autoload :AddThesisMetadata
 
     autoload :AddJournalArticleMetadata
+  end
+
+  autoload_under 'models/concerns/metadata/common' do
+    autoload :CommonMetadata
   end
 
   autoload_under 'models/concerns/metadata/dc' do
@@ -127,6 +95,64 @@ module Dlibhydra
     autoload :DcRights
     autoload :DcTitle
   end
+
+  autoload_under 'models/concerns/metadata/dlib' do
+    autoload :FormerIdentifier
+  end
+
+  autoload_under 'models/concerns/metadata/edm' do
+    
+  end  
+
+  autoload_under 'models/concerns/metadata/frbr' do
+    autoload :PartOf
+  end
+
+  autoload_under 'models/concerns/metadata/other' do
+    # Metadata
+    autoload :Archivematica
+    autoload :BorthwickNote
+    autoload :CollectionsCategory
+    autoload :Department
+    autoload :Doi
+    autoload :FoafName
+    autoload :FoafNameParts
+    autoload :ForIndexing
+    #autoload :FormerIdentifier
+    autoload :GenericAuthorityTerms
+    autoload :GenericModuleCode
+    autoload :GenericQualifier
+    autoload :GenericWorkflow
+    autoload :HubDates
+    autoload :LastAccess
+    autoload :MadsRelatedAuthority
+    autoload :MainFile
+    autoload :NumberOfDownloads
+    autoload :Orcid
+    autoload :OwlSameAs
+    autoload :Pure
+    autoload :Qualification
+    autoload :ReadmeFile
+    autoload :SkosLabels
+    autoload :SimpleVersions
+    autoload :ThesisMetadata
+    autoload :JournalArticleMetadata
+    # autoload :ThumbnailUrl TODO remove once standard approach for thumbnail is in place
+  end
+
+  autoload_under 'models/concerns/metadata/pcdm' do
+    
+  end  
+
+  autoload_under 'models/concerns/metadata/schema' do
+    autoload :IssueNumber
+    autoload :VolumeNumber
+    autoload :Pagination
+  end
+
+  autoload_under 'models/concerns/metadata/vivo' do
+    
+  end    
 
   autoload_under 'models/concerns/metadata/rdf' do
     # RDF and RDFS
@@ -147,6 +173,7 @@ module Dlibhydra
     autoload :IndexesCollection
     autoload :IndexesExamPaper
     autoload :IndexesThesis
+    autoload :IndexesJournalArticle
 
   end
 

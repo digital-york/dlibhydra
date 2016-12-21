@@ -78,4 +78,15 @@ FactoryGirl.define do
     orcid ['xxx-xxx-xxx']
   end
 
+
+  factory :journal_article, class: Dlibhydra::JournalArticle do
+    title ['Journal Article test']
+    creator_string ['Digital York']
+    rights ['https://creativecommons.org/publicdomain/mark/1.0/']
+    # part_of ['part_of_test_id']
+    issue_number ['issue_number_test']
+    volume_number ['volume_number_test']
+    pagination ['pagination_test']
+  end
+
 end

@@ -5,7 +5,7 @@ module Dlibhydra
 
     type << ::RDF::URI.new('http://purl.org/spar/fabio/JournalArticle')
 
-    before_save :add_qualification_name_values
+#    before_save :add_qualification_name_values
 
     def journal_article?
       true
