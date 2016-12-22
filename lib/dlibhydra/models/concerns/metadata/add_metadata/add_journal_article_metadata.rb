@@ -3,13 +3,11 @@ module Dlibhydra
   module AddJournalArticleMetadata
     extend ActiveSupport::Concern
 
-    include Dlibhydra::CommonMetadata
-
-    include Dlibhydra::IssueNumber,
+    include Dlibhydra::CommonMetadata,
+            Dlibhydra::IssueNumber,
             Dlibhydra::VolumeNumber,
-            Dlibhydra::Pagination
-
-    include Dlibhydra::JournalArticleMetadata
+            Dlibhydra::Pagination,
+            Dlibhydra::JournalArticleMetadata
 #    include Dlibhydra::PartOf,
 
   end
