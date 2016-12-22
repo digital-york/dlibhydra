@@ -12,6 +12,7 @@ module Dlibhydra
     has_many :persons #, :dependent => :destroy
     has_many :places #, :dependent => :destroy
     has_many :groups #, :dependent => :destroy
+    has_many :journals
 
     # Used for nested schemes. Will be added automatically.
     has_and_belongs_to_many :has_top_concept,
