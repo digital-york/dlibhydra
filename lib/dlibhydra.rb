@@ -36,6 +36,7 @@ module Dlibhydra
     autoload :ConceptScheme
     autoload :Place
     autoload :Agent
+    autoload :Journal
   end
   autoload_under 'models/authorities/agents' do
     autoload :Group
