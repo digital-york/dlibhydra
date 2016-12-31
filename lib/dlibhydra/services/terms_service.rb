@@ -1,5 +1,5 @@
 module Dlibhydra
-  class TermsService < CurationConcerns::QaSelectService
+  class TermsService < Hyrax::QaSelectService
     attr_reader :authority
 
     def initialize

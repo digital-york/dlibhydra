@@ -6,7 +6,7 @@ require 'active_fedora/noid'
 # For Mellon, we'll be using RDFSource, with a link to the image file in F3
 
 class Image < ActiveFedora::Base
-  include DCTerms, RdfType, SkosLabels, CurationConcerns::Noid, AssignRdfTypes
+  include DCTerms, RdfType, SkosLabels, Hyrax::Noid, AssignRdfTypes
 
   belongs_to :folio, predicate: ::RDF::URI.new('http://www.w3.org/ns/oa#hasTarget')
   has_and_belongs_to_many :registers, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/generic#referenceImage')

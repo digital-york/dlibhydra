@@ -13,7 +13,7 @@ module Dlibhydra
     end
 
     # Index additional fields into solr
-    class ExamPaperIndexer < CurationConcerns::WorkIndexer # Hydra::PCDM::PCDMIndexer
+    class ExamPaperIndexer < Hyrax::WorkIndexer # Hydra::PCDM::PCDMIndexer
       include Dlibhydra::IndexesExamPaper
     end
 

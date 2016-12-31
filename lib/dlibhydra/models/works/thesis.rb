@@ -10,7 +10,7 @@ module Dlibhydra
     end
 
     # Index additional fields into solr
-    class ThesisIndexer < CurationConcerns::WorkIndexer # Hydra::PCDM::PCDMIndexer
+    class ThesisIndexer < Hyrax::WorkIndexer # Hydra::PCDM::PCDMIndexer
       include Dlibhydra::IndexesThesis
     end
 

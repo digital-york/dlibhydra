@@ -1,5 +1,5 @@
 class EntryDate < ActiveFedora::Base
-  include CurationConcerns::Noid, RdfType, AssignRdfTypes
+  include Hyrax::Noid, RdfType, AssignRdfTypes
 
   belongs_to :entry, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#entryDateFor')
   has_many :single_dates, dependent: :destroy

@@ -1,5 +1,5 @@
 class SingleDate < ActiveFedora::Base
-  include CurationConcerns::Noid, RdfType, AssignRdfTypes
+  include Hyrax::Noid, RdfType, AssignRdfTypes
 
   belongs_to :entry_date, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#dateFor')
 

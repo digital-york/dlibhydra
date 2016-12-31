@@ -1,25 +1,25 @@
 module Dlibhydra
   module AddWorkBehaviour
     extend ActiveSupport::Concern
-    # include CurationConcerns::WorkBehavior
+    # include Hyrax::WorkBehavior
     # These are what WorkBehavior includes:
     include Hydra::Works::WorkBehavior
-    include CurationConcerns::HumanReadableType
-    include CurationConcerns::Noid
-    include CurationConcerns::Permissions
-    include CurationConcerns::Serializers
+    include Hyrax::HumanReadableType
+    include Hyrax::Noid
+    include Hyrax::Permissions
+    include Hyrax::Serializers
     include Hydra::WithDepositor
     include Solrizer::Common
-    include CurationConcerns::HasRepresentative
-    include CurationConcerns::WithFileSets
-    include CurationConcerns::Naming
-    include CurationConcerns::RequiredMetadata
-    include CurationConcerns::InAdminSet
+    include Hyrax::HasRepresentative
+    include Hyrax::WithFileSets
+    include Hyrax::Naming
+    include Hyrax::RequiredMetadata
+    include Hyrax::InAdminSet
     include Hydra::AccessControls::Embargoable
     include GlobalID::Identification
-    include CurationConcerns::Suppressible
+    include Hyrax::Suppressible
     # RuntimeError: Circular dependency detected while autoloading constant Thesis
     # In CC app
-    # include CurationConcerns::NestedWorks
+    # include Hyrax::NestedWorks
   end
 end

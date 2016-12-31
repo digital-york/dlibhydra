@@ -6,7 +6,7 @@ module Dlibhydra
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::OwlSameAs,
             Dlibhydra::RdfsSeeAlso, # use for external see also links
-            CurationConcerns::Noid
+            Hyrax::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     # after_save :update_related

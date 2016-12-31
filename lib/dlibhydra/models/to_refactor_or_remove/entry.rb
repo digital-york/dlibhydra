@@ -1,5 +1,5 @@
 class Entry < ActiveFedora::Base
-  include CurationConcerns::Noid, Generic, RdfType, AssignRdfTypes
+  include Hyrax::Noid, Generic, RdfType, AssignRdfTypes
 
   belongs_to :folio, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#folio')
 

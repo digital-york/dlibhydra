@@ -1,7 +1,7 @@
 module Dlibhydra
   # dlibhydra fileset
   class FileSet < ActiveFedora::Base
-    include CurationConcerns::FileSetBehavior,
+    include Hyrax::FileSetBehavior,
             Dlibhydra::AddLabels,
             Dlibhydra::FormerIdentifier,
             Dlibhydra::AddDefaultPermissions

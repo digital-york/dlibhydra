@@ -1,7 +1,7 @@
 module Dlibhydra
   class Collection < ActiveFedora::Base
     # TODO check CC Collection Behaviour
-    include CurationConcerns::CollectionBehavior, #Hydra::Works::CollectionBehavior,
+    include Hyrax::CollectionBehavior, #Hydra::Works::CollectionBehavior,
             Dlibhydra::AddLabels,
             Dlibhydra::AddDcDescriptive,
             Dlibhydra::DcRights,
@@ -31,7 +31,7 @@ module Dlibhydra
       false
     end
 
-    class CollectionIndexer < CurationConcerns::WorkIndexer # Hydra::PCDM::PCDMIndexer
+    class CollectionIndexer < Hyrax::CollectionIndexer # Hydra::PCDM::PCDMIndexer
       include Dlibhydra::IndexesCollection
     end
 

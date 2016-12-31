@@ -1,5 +1,5 @@
 class RelatedAgent < ActiveFedora::Base
-  include CurationConcerns::Noid, RdfType
+  include Hyrax::Noid, RdfType
 
   belongs_to :entry, predicate: ::RDF::URI.new('http://dlib.york.ac.uk/ontologies/borthwick-registers#relatedAgentFor')
 

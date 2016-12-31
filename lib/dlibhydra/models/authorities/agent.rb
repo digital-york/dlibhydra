@@ -5,7 +5,7 @@ module Dlibhydra
             Dlibhydra::AddLabels,
             Dlibhydra::GenericAuthorityTerms,
             Dlibhydra::MadsRelatedAuthority,
-            CurationConcerns::Noid
+            Hyrax::Noid
 
     def agent?
       true

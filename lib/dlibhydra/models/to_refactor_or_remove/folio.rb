@@ -1,7 +1,7 @@
 require 'active_fedora/noid'
 
 class Folio < ActiveFedora::Base
-  include DCTerms, RdfType, CurationConcerns::Noid, Generic, SkosLabels, AssignRdfTypes
+  include DCTerms, RdfType, Hyrax::Noid, Generic, SkosLabels, AssignRdfTypes
 
   belongs_to :register, predicate: ::RDF::DC.isPartOf
   has_many :entries # , :dependent => :destroy

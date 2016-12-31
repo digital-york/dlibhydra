@@ -47,7 +47,7 @@ module Dlibhydra
     #   than text type (solr sorting on string fields is case-sensitive,
     #   on text fields it's case-insensitive)
     # Extend Hydra::PCDM::PCDMIndexer instead of ActiveFedora::IndexingService
-    class DatasetIndexer < CurationConcerns::WorkIndexer # Hydra::PCDM::PCDMIndexer
+    class DatasetIndexer < Hyrax::WorkIndexer # Hydra::PCDM::PCDMIndexer
       include Dlibhydra::IndexesDataset
     end
 

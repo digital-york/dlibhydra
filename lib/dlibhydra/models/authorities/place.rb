@@ -6,7 +6,7 @@ module Dlibhydra
             Dlibhydra::BorthwickNote,
             Dlibhydra::MadsRelatedAuthority,
             Dlibhydra::GenericAuthorityTerms,
-            CurationConcerns::Noid
+            Hyrax::Noid
             # Hydra::Works::WorkBehavior,
 
   # TODO create preflabel

@@ -2,7 +2,7 @@ module Dlibhydra
   class ConceptScheme < Authority
     include Dlibhydra::AddLabels,
             Dlibhydra::DcDescription,
-            CurationConcerns::Noid
+            Hyrax::Noid
             # Hydra::Works::WorkBehavior - not pcdm objects or hydra works
 
     has_many :concepts, class_name: 'Dlibhydra::Concept' #, :dependent => :destroy

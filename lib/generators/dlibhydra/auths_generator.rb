@@ -37,7 +37,7 @@ class Dlibhydra::AuthsGenerator < Rails::Generators::Base
 
     Dir.entries('config/authorities').each do |file|
       if file.end_with?('.yml')
-        term_string = "\n\tclass #{file.gsub('.yml', '').camelize}Service < CurationConcerns::QaSelectService\n\tinclude ::FileAuthorityConcern\n\t\tdef initialize\n\t\t\tsuper('#{file.gsub('.yml', '')}')\n\t\tend\n\tend"
+        term_string = "\n\tclass #{file.gsub('.yml', '').camelize}Service < Hyrax::QaSelectService\n\tinclude ::FileAuthorityConcern\n\t\tdef initialize\n\t\t\tsuper('#{file.gsub('.yml', '')}')\n\t\tend\n\tend"
         inject_into_file file_path, after: '# File based' do
           term_string
         end

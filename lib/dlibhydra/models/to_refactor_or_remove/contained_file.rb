@@ -1,7 +1,7 @@
 require 'active_fedora/noid'
 
 class ContainedFile < ActiveFedora::File
-  include ActiveFedora::WithMetadata, CurationConcerns::Noid
+  include ActiveFedora::WithMetadata, Hyrax::Noid
 
   metadata do
     include DCTerms, RdfType, SkosLabels
