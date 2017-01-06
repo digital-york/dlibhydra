@@ -41,56 +41,26 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-## Notes
+## Generators
 
-https://github.com/bblimke/webmock
-https://robots.thoughtbot.com/how-to-stub-external-services-in-tests
-Factory Girl
+To add dlibhydra authorities into your application:
 
-Things to do / decide on:
--- add uketd vocab (do full schema?)
--- person / organisation look-ups, has_and_belongs_to_many or normal predicate? (cf. two dc_creator concerns)
--- -- for archbishs I used predicates for 'authorities' and HABM for actual nested objects
--- -- the more I think about it the more I think this approach is wrong and that HABM should always be used for related objects, 
-if the related object is a resource in our repo - Hydra knows how to deal with such objects, whereas it has no idea if it's just a normal property
--- -- will need to change in researchdatayork; this would also make it easier to switch between objects and triplestore and external
--- authorities / persons / etc. - Fedora objects or triplestore? what about third-party terms, live look-up or local cache
+    $ rails generate dlibhydra:auths
 
-HABM - current approaches
+force overwrite
 
-HABM creator_resource is dcterms creator
--- creator maps is dc11 creator
--- on save, creator_value is added to solr with the preflabel of the creator object
+    $ rails generate dlibhydra:auths -f
+    
+To add a default depositor to your application:
 
-HABM subject_resource = dcterms subject
-subject_value in solr with preflabel of related concept object
-dc11 subject used for free-text keywords
-could also leave dcterms subject open for URIs (would this work?)
+    $ rails generate dlibhydra:depositor USERNAME_OF_DEPOSITOR
 
-HABM for theses metadata approach:
--- local predicates for the HABM because UKETD is looking for strings
--- normal predicates populated on save with the preflabel from the HABM objects
--- strings MUST NOT be added directly
+## Decisions
 
-Cardinality - prefer multi-value fields over singular for works. Cases where singular can be used, include:
- 
- UUIDs - eg. there can only be one PURE UUID
- information derviced from other systems - eg. Archivematica fields
- some dates - eg. award date and date of last access
- 
- Many fields for authorities (concepts, people) are singular
-
-
-Decisions:
--- authorities MUST have a preflabel; works must have a title
--- use HABM for related objects that aren't covered by PCDM members / files
--- use HYDRA wg recommendation for rights
-
-Generator
-
-rails generate dlibhydra:auths
-
-to force overwrite
-
-rails generate dlibhydra:auths -f
-
+* authorities MUST have a preflabel; works/collections must have a title; FileSets either are optional
+* use has_and_belongs_to_many (HABM) for related objects aren't PCDM members / files (eg. Agents, Places)
+* use Hydra metadata working group recommendation for rights
+* use _resource for has_and_belongs_to_many relationships (eg. creator_resource) and _value for an appropriate String value for the related object (eg. creator_value_tesim Lawrence, D.H.)
+* where the predicate name is a single word, use _string to distinguish th a String value from a HABM, eg. creator_resource (predicate dc:creator) and creator_string (predicate dc11:creator)
+* use Dublin Core terms for URIs and related objects, and DC 11 for String values
+* prefer multi-value fields over singular for works; use singular where there will only be one value, eg. (some UUIDs, some dates)

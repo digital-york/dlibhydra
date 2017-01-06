@@ -1,6 +1,7 @@
 Description:
-    Adds Dlibhydra authorities into your rails application.
-      * adds the dlibhydra authorities into config/authorities
+    Adds default depositor.
+      * adds the default depositor into config/dlibhydra.yml
+      * adds config/dlibhydra.rb to load dlibhydra.yml
 
 Example:
     rails generate dlibhydra:depositor USERNAME_OF_DEPOSITOR
