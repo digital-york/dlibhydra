@@ -60,7 +60,7 @@ To add a default depositor to your application:
 * authorities MUST have a preflabel; works/collections must have a title; FileSets either are optional
 * use has_and_belongs_to_many (HABM) for related objects aren't PCDM members / files (eg. Agents, Places)
 * use Hydra metadata working group recommendation for rights
-* use _resource for has_and_belongs_to_many relationships (eg. creator_resource) and _value for an appropriate String value for the related object (eg. creator_value_tesim Lawrence, D.H.)
-* where the predicate name is a single word, use _string to distinguish th a String value from a HABM, eg. creator_resource (predicate dc:creator) and creator_string (predicate dc11:creator)
+* use _resource for has_and_belongs_to_many relationships (eg. creator_resource) and _value for an appropriate String value for the related object to be added to solr (eg. creator_value_tesim Lawrence, D.H.)
+* where the predicate name is a single word, use _string to distinguish th a String value from a HABM, eg. creator_resource (predicate dc:creator) and creator_string (predicate dc11:creator); otherwise string values and object ids will end up mixed together in a single solr field
 * use Dublin Core terms for URIs and related objects, and DC 11 for String values
 * prefer multi-value fields over singular for works; use singular where there will only be one value, eg. (some UUIDs, some dates)
