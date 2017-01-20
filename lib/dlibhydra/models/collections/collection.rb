@@ -1,13 +1,13 @@
 module Dlibhydra
   class Collection < ActiveFedora::Base
     # TODO check CC Collection Behaviour
-    include Hydra::Works::CollectionBehavior, # Hyrax::CollectionBehavior,
+    include Hyrax::CollectionBehavior, # Hydra::Works::CollectionBehavior,
             Dlibhydra::AddLabels,
             Dlibhydra::AddDcDescriptive,
             Dlibhydra::DcRights,
             Dlibhydra::DcPublisher,
             Dlibhydra::FormerIdentifier,
-            Dlibhydra::AddDefaultPermissions,
+            #Dlibhydra::AddDefaultPermissions,
             Dlibhydra::CollectionsCategory
 
     def authority?
