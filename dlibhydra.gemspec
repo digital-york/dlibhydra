@@ -6,8 +6,8 @@ require 'dlibhydra/version'
 Gem::Specification.new do |spec|
   spec.name          = 'dlibhydra'
   spec.version       = Dlibhydra::VERSION
-  spec.authors       = ['Julie Allinson']
-  spec.email         = ['julie.allinson@york.ac.uk']
+  spec.authors       = ['Julie Allinson', 'Frank Feng']
+  spec.email         = ['julie.allinson@york.ac.uk', 'frank.feng@york.ac.uk']
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
@@ -30,4 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.1'
   spec.add_development_dependency 'rspec-rails', '~> 3.1'
   spec.add_development_dependency 'factory_girl_rails' # , :require => false
+
+  #spec.add_dependency 'kaminari', '0.16' # kaminari 1.0 breaks rspec test
+  #spec.add_dependency 'kaminari_route_prefix', '0.0.1'
 end
