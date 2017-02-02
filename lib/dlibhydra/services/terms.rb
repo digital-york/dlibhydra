@@ -28,5 +28,10 @@ module Dlibhydra
         'subjects'
       end
     end
+    class JournalTerms < TermsService
+      def terms_list
+        'journals'
+      end
+    end
   end
 end
