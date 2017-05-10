@@ -13,7 +13,7 @@ describe Dlibhydra::Thesis do
   end
 
   # Concerns
-  it_behaves_like 'dc_keyword_subject'
+  #it_behaves_like 'dc_keyword_subject'
   it_behaves_like 'dc_language'
   it_behaves_like 'dc_rights'
   it_behaves_like 'dc_abstract'

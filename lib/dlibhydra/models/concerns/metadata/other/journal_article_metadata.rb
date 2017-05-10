@@ -11,6 +11,11 @@ module Dlibhydra
       def add_journal_article_values
         self.journal = journal_resource.collect { |x| x.preflabel }
       end
+
+      property :year, predicate: ::RDF::Vocab::DC.dateAccepted, multiple: false do |index|
+        index.as :stored_searchable
+      end
+
     end
   end
 end
