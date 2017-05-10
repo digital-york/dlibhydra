@@ -43,6 +43,19 @@ module Dlibhydra
            'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
            # TODO: subClassOf: ''.freeze,
            type: 'rdf:Class'.freeze
+      term :FileType,
+           comment:
+               'FileSet type, e.g. embedded_file for embedded file, and external_url for external file'.freeze,
+           label: 'FileType'.freeze,
+           'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+           # TODO: subClassOf: ''.freeze,
+           type: 'rdf:Class'.freeze
+      term :ExternalFileUrl,
+           comment: 'External file URL'.freeze,
+           label: 'External File Url'.freeze,
+           'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+           # TODO: subClassOf: ''.freeze,
+           type: 'rdf:Class'.freeze
 
       # Property definitions
       property :approved,
@@ -225,6 +238,19 @@ module Dlibhydra
                comment:
                    'Alma MMSID.'.freeze,
                label: 'MMSID'.freeze,
+               'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+               subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
+               type: 'rdf:Property'.freeze
+
+      property :embedded_file,
+               comment: 'embedded file'.freeze,
+               label: 'embedded_file'.freeze,
+               'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+               subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
+               type: 'rdf:Property'.freeze
+      property :external_url,
+               comment: 'external file url'.freeze,
+               label: 'external file url'.freeze,
                'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
                subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
                type: 'rdf:Property'.freeze
