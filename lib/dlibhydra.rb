@@ -99,6 +99,7 @@ module Dlibhydra
 
   autoload_under 'models/concerns/metadata/dlib' do
     autoload :FormerIdentifier
+    autoload :ExternalFileProperties
   end
 
   autoload_under 'models/concerns/metadata/edm' do

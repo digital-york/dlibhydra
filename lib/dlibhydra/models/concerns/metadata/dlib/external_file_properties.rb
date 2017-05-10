@@ -8,8 +8,8 @@ module Dlibhydra
                            multiple: false do |index|
         index.as :stored_searchable
       end
-      
-      property :url, predicate: Dlibhydra::Vocab::Generic.ExternalFileUrl,
+
+      property :external_file_url, predicate: Dlibhydra::Vocab::Generic.ExternalFileUrl,
                multiple: false do |index|
         index.as :stored_searchable
       end
