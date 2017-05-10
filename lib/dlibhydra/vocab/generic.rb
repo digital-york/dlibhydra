@@ -43,6 +43,8 @@ module Dlibhydra
            'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
            # TODO: subClassOf: ''.freeze,
            type: 'rdf:Class'.freeze
+
+      # To support external fileset
       term :FileType,
            comment:
                'FileSet type, e.g. embedded_file for embedded file, and external_url for external file'.freeze,
@@ -242,6 +244,7 @@ module Dlibhydra
                subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
                type: 'rdf:Property'.freeze
 
+      # To support external fileset
       property :embedded_file,
                comment: 'embedded file'.freeze,
                label: 'embedded_file'.freeze,
