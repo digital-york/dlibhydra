@@ -245,18 +245,18 @@ module Dlibhydra
                type: 'rdf:Property'.freeze
 
       # To support external fileset
-      property :embedded_file,
-               comment: 'embedded file'.freeze,
-               label: 'embedded_file'.freeze,
-               'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
-               subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
-               type: 'rdf:Property'.freeze
-      property :external_url,
-               comment: 'external file url'.freeze,
-               label: 'external file url'.freeze,
-               'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
-               subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
-               type: 'rdf:Property'.freeze
+      # property :embedded_file,
+      #          comment: 'embedded file'.freeze,
+      #          label: 'embedded_file'.freeze,
+      #          'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+      #          subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
+      #          type: 'rdf:Property'.freeze
+      # property :external_url,
+      #          comment: 'external file url'.freeze,
+      #          label: 'external file url'.freeze,
+      #          'rdf:isDefinedBy' => 'http://dlib.york.ac.uk/ontologies/generic#'.freeze,
+      #          subPropertyOf: 'http://pcdm.org/models#relatedObjectOf'.freeze,
+      #          type: 'rdf:Property'.freeze
 
       # Extra definitions
       term :'',
