@@ -1,3 +1,5 @@
+require 'curation_concerns'
+
 module Dlibhydra
   module AddWorkBehaviour
     extend ActiveSupport::Concern
