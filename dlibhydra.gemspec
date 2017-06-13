@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'dlibhydra'
   spec.version       = Dlibhydra::VERSION
   spec.authors       = ['Julie Allinson', 'Frank Feng']
-  spec.email         = ['julie.allinson@york.ac.uk', 'frank.feng@york.ac.uk']
+  spec.email         = ['frank.feng@york.ac.uk']
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
