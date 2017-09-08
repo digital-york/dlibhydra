@@ -13,7 +13,7 @@ module Dlibhydra
     include Hyrax::HasRepresentative
     include Hyrax::WithFileSets
     include Hyrax::Naming
-    include Hyrax::RequiredMetadata
+    #include Hyrax::RequiredMetadata
     include Hyrax::InAdminSet
     include Hydra::AccessControls::Embargoable
     include GlobalID::Identification
