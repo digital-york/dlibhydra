@@ -119,6 +119,10 @@ module Dlibhydra
     autoload :DcTitle
   end
 
+  autoload_under 'models/concerns/metadata/dlib' do
+    autoload :ExternalFileProperties
+  end
+
   autoload_under 'models/concerns/metadata/rdf' do
     # RDF and RDFS
     autoload :RdfsSeeAlso
