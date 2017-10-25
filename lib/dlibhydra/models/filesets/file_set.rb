@@ -4,8 +4,8 @@ module Dlibhydra
     include Hyrax::FileSetBehavior,
             Dlibhydra::AddLabels,
             Dlibhydra::FormerIdentifier,
-            Dlibhydra::AddDefaultPermissions
-
+            Dlibhydra::AddDefaultPermissions,
+            Dlibhydra::ExternalFileProperties
     def authority?
       false
     end
