@@ -6,8 +6,8 @@ require 'dlibhydra/version'
 Gem::Specification.new do |spec|
   spec.name          = 'dlibhydra'
   spec.version       = Dlibhydra::VERSION
-  spec.authors       = ['Julie Allinson']
-  spec.email         = ['julie.allinson@york.ac.uk']
+  spec.authors       = ['Julie Allinson','Frank Feng']
+  spec.email         = ['frank.feng@york.ac.uk']
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = %w(lib app)
 
   #spec.add_dependency 'hyrax'
-  spec.add_dependency 'nokogiri', '1.6.8.1' # current hyrax depends on
+  spec.add_dependency 'nokogiri', '~> 1.8.1' # current hyrax depends on
 
   spec.add_development_dependency 'bundler', '~> 1.8'
   spec.add_development_dependency 'rake', '~> 10.0'
