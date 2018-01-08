@@ -10,7 +10,7 @@ module Dlibhydra
     has_many :departments, class_name: 'Dlibhydra::CurrentOrganisation'
     has_many :current_persons, class_name: 'Dlibhydra::CurrentPerson'
 
-    has_many :filetypes, class_name: 'Dlibhydra::FileType'
+    has_many :filetypes
 
     has_many :persons #, :dependent => :destroy
     has_many :places #, :dependent => :destroy
