@@ -28,5 +28,11 @@ module Dlibhydra
         'subjects'
       end
     end
+
+    class FileTypeTerms < TermsService
+      def terms_list
+        'filetypes'
+      end
+    end
   end
 end
